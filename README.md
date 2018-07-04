@@ -1,2 +1,2 @@
 # NF3
-Web application for The NIHIL Corporation.
+Version 3 of a web application for The NIHIL Corporation.
