@@ -1,6 +1,7 @@
 #
 public/media
 *.php~
+*~
 
 #
 vendor/
