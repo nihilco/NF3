@@ -13,6 +13,8 @@
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{ url('/css/app.css?t=' . time()) }}" />
   </head>
   <body class="bg-dark">
 
@@ -25,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <!--<li class="nav-item">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#sideMenu" aria-expanded="false" aria-controls="sideMenu"><i class="fas fa-bars"></i></button>
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#sideMenuSection" aria-expanded="false" aria-controls="sideMenuSection"><i class="fas fa-bars"></i></button>
             </li>-->
           </ul>
 	  <ul class="navbar-nav">
@@ -73,18 +75,18 @@
 	      </div>
             </li>
             <li class="nav-item">
-	      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userMenu" aria-expanded="false" aria-controls="userMenu"><i class="fas fa-bars"></i></button>
+	      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userMenuSection" aria-expanded="false" aria-controls="userMenuSection"><i class="fas fa-bars"></i></button>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <div style="margin-top:57px;">
+    <div id="mainContentDiv">
       
-      <section id="sideMenu" class="bg-dark collapse show" style="position: fixed;z-index: 5;width: 200px;height: calc(100vh - 57px);">
+      <section id="sideMenuSection" class="bg-dark collapse show">
 	
-	<nav class="list-group">
+	<nav id="sideMenu" class="list-group">
 	  <a href="{{ url('/dashboard') }}" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
 	  <a href="{{ url('/content') }}" class="list-group-item list-group-item-action"><i class="far fa-file-alt"></i> Content</a>
 	  <a href="{{ url('/media') }}" class="list-group-item list-group-item-action"><i class="fas fa-desktop"></i> Media</a>
@@ -98,56 +100,38 @@
 	
       </section>
       
-      <main role="main" class="" style="background:#e4e5e6;margin-left:200px;margin-right:200px; height: calc(100vh - 57px)">
+      <main id="mainContent" role="main" class="">
 
-	<div class="row">
-	  <div class="col">
+	<div id="stickyFooterSpacer">
 
-	    {{ Breadcrumbs::render() }}
+          {{ Breadcrumbs::render() }}
 
-	  </div>
-	</div>
+	  <div class="container-fluid">
+	    <div class="row">
+	      <div class="col">
 
-	<div class="container">
-	  <div class="row">
-	    <div class="col">
+	        @yield('content')
 
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title">Card title</h5>
-		  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-		</div>
-		<div class="card-body">
-		  <h5 class="card-title">Special title treatment</h5>
-		  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-		  <a href="#" class="btn btn-primary mb-3">Go somewhere</a>
-		  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-		  <a href="#" class="card-link">Card link</a>
-		  <a href="#" class="card-link">Another link</a>
-		</div>
-		<div class="card-footer text-muted">
-		  2 days ago
-		</div>
 	      </div>
-	      
 	    </div>
 	  </div>
-	</div>
 
-	<footer style="background:#FFFFFF;margin-top:1em">
+	</div><!-- /#stickyFooterSpacer -->
+
+	<footer id="mainContentFooter" class="container-fluid">
 	  <div class="row">
 	    <div class="col-md-9 col-sm-8">
-	      <p class="p-3 m-0">Copyright &copy; 2009-<?= date('Y') ?> The NIHIL Corporation.  All rights reserved.</p>
+	      <p class="pt-3 pb-3 m-0">Copyright &copy; 2009-<?= date('Y') ?> The NIHIL Corporation.  All rights reserved.</p>
 	    </div>
 	    <div class="col-md-3 col-sm-4 text-right">
-	      <p class="p-3 m-0">Powered by <a href="https://www.nihil.co" target="_blank">NIHIL</a></p>
+	      <p class="pt-3 pb-3 m-0">Powered by <a href="https://www.nihil.co" target="_blank">NIHIL</a></p>
 	    </div>
 	  </div>
 	</footer>
 	
       </main>
       
-      <section id="userMenu" class="bg-dark collapse show" style="position: fixed; top:57px; right:0; z-index: 5; width:200px; height: calc(100vh - 57px)">
+      <section id="userMenuSection" class="bg-dark collapse">
 
 	<ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
 	  <li class="nav-item">
@@ -185,7 +169,7 @@
 	      
 	      <h6>CPU Usage</h6>
 	      
-	      <div class="progress" style="height: 5px;">
+	      <div class="progress progress5">
 		<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 	      </div>
 
@@ -193,7 +177,7 @@
 
 	      <h6>Memory Usage</h6>
 
-	      <div class="progress" style="height: 5px;">
+	      <div class="progress progress5">
 		<div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 	      </div>
 		      

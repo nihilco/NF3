@@ -1,14 +1,72 @@
-
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
-// Variables
-@import "variables";
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+#mainContentDiv {
+    margin-top: 57px;
+}
+
+#sideMenuSection {
+    position: fixed;
+    z-index: 5;
+    width: 200px;
+    height: calc(100vh - 57px);
+}
+
+#sideMenu .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#sideMenu .list-group-item:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#mainContent {
+    position:fixed;
+    left: 200px;
+    right: 0;
+    background: #e4e5e6;
+    height: calc(100vh - 57px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mc-margin-left {
+    margin-left:200px;
+}
+
+.mc-margin-right {
+    margin-right:200px;
+}
+
+#stickyFooterSpacer {
+    min-height: calc(100vh - 113px);
+    padding-bottom: 1rem;
+}
+
+#mainContentFooter {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 56px; /* Set the fixed height of the footer here */
+    background-color: #FFFFFF;
+}
+
+#userMenuSection {
+    position: fixed;
+    top: 57px;
+    right: 0;
+    z-index: 5;
+    width: 200px;
+    height: calc(100vh - 57px);
+}
+
+.progress5 {
+    height: 5px;
+}
+
+.breadcrumb {
+    background:#FFFFFF;
+    border-radius: 0;
 }
