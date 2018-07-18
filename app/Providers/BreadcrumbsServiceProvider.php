@@ -16,7 +16,7 @@ class BreadcrumbsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-         $breadcrumbs = $this->app->make(BreadcrumbsManager::class);
+         $breadcrumbs = $this->app->make(Breadcrumbs::class);
     }
 
     /**

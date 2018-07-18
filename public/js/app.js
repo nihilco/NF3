@@ -13894,8 +13894,27 @@ window.Vue = __webpack_require__(36);
 Vue.component('example-component', __webpack_require__(39));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
+
+window.setTimeout(function () {
+    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+    });
+}, 4000);
+
+window.togglePasswordField = function () {
+    var button = document.getElementById("button-showhide-addon");
+    var input = document.getElementById("secretKey");
+
+    if (input.type == 'password') {
+        button.innerHTML = 'Hide';
+        input.type = 'text';
+    } else {
+        button.innerHTML = 'Show';
+        input.type = 'password';
+    }
+};
 
 /***/ }),
 /* 13 */

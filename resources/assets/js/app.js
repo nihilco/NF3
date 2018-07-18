@@ -20,3 +20,23 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+	$(this).remove();
+    });
+}, 4000);
+
+window.togglePasswordField = function () {
+    var button = document.getElementById("button-showhide-addon");
+    var input = document.getElementById("secretKey");
+    
+    if(input.type == 'password') {
+	button.innerHTML = 'Hide';
+	input.type = 'text';
+    }else{
+	button.innerHTML = 'Show';
+	input.type = 'password';
+    }
+}
+
