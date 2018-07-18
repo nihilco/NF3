@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ServersTableSeeder::class);	
         $this->call(TldsTableSeeder::class);
 	$this->call(DomainsTableSeeder::class);
+	$this->call(WebsitesTableSeeder::class);
 	$this->call(ZonesTableSeeder::class);
     }
 }
