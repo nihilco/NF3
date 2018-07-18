@@ -8,9 +8,22 @@ use App\Models\Server;
 class ServersController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    //
     public function index()
     {
-	return view('servers.index');
+	$servers = Server::all();
+	return view('servers.index', compact('servers'));
+    }
+
+    //
+    public function create()
+    {
+	return view('servers.create');
     }
 
     //
@@ -26,13 +39,34 @@ class ServersController extends Controller
     //
     public function store(Request $request)
     {
-        $server = Server::create($request->all());
+        $this->validate(request(), [
+	    'name' => 'required',
+	    'hostname' => 'required',
+	    'description' => 'required',
+	    'ipv4' => 'required|ipv4',
+	    'ipv6' => 'required|ipv6',
+	]);
+
+        $server = new Server();
+
+	$server->creator_id = auth()->id();
+	$server->owner_id = auth()->id();
+	$server->name = request('name');
+	$server->hostname = request('hostname');
+	$server->description = request('description');
+	$server->ipv4 = request('ipv4');
+	$server->ipv6 = request('ipv6');
+
+	$server->save();
+
+	\Session::flash('message', 'Server successfully created.');
+	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
             return response()->json($server, 201);
 	}
 
-	return back();
+	return redirect('/servers');
     }
 
     //
@@ -44,19 +78,39 @@ class ServersController extends Controller
     //
     public function update(Request $request, Server $server)
     {
-        $server->update($request->all());
+        $this->validate(request(), [
+	    'name' => 'required',
+	    'hostname' => 'required',
+	    'description' => 'required',
+	    'ipv4' => 'required|ipv4',
+	    'ipv6' => 'required|ipv6',
+	]);
+
+	$server->name = request('name');
+	$server->hostname = request('hostname');
+	$server->description = request('description');
+	$server->ipv4 = request('ipv4');
+	$server->ipv6 = request('ipv6');
+
+	$server->save();
+
+	\Session::flash('message', 'Server successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json($server, 200);
 	}
 
-	return back();
+	return redirect($server->path());
     }
 
     //
-    public function delete(Server $server)
+    public function destroy(Server $server)
     {
         $server->delete();
+
+	\Session::flash('message', 'Server successfully deleted.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json(null, 204);
