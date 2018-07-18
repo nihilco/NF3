@@ -74,6 +74,6 @@
                   <button type="reset" class="btn btn-link">Reset</button>
 		</div>
 	      </div>
-		  </form>	      
+		  </form>
 
 @endsection
