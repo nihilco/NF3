@@ -10,19 +10,6 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'username',
-	'name',
-	'email',
-	'password',
-	'dob_at',
-    ];
-
-    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -32,4 +19,28 @@ class User extends Authenticatable
 	'remember_token',
 	'api_key',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+	
+        static::creating(function ($user) {
+	    if($user->username == null || $user->username == '') {
+	        $user->username = $user->email;
+	    }
+	    $user->api_key = str_random(60);
+	});
+    }
+
+    public function generateApiKey()
+    {
+        $this->api_key = str_random(60);
+        return $this->save();
+    }
+
+    //
+    public function path()
+    {
+	return '/users/' . $this->id;
+    }
 }

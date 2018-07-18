@@ -11,9 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::name('home')->get('/', function () {
     return view('layouts.construction');
 });
+
+//
+Route::name('login')->get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::name('logout')->post('/logout', 'SessionsController@destroy');
+Route::name('register')->get('/register', 'RegistrationController@create');
+Route::name('signup')->get('/signup', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+Route::post('/signup', 'RegistrationController@store');
 
 //
 Route::name('dashboard')->get('dashboard', 'DashboardController@index');
@@ -25,13 +34,22 @@ Route::name('forums')->get('forums', 'ForumsController@index');
 Route::name('support')->get('support', 'SupportController@index');
 Route::name('system')->get('system', 'SystemController@index');
 
-// 
+//
+Route::get('accounts/list', 'AccountsController@list');
 Route::resource('accounts', 'AccountsController');
+Route::get('customers/list', 'CustomersController@list');
 Route::resource('customers', 'CustomersController');
+Route::get('domains/list', 'DomainsController@list');
 Route::resource('domains', 'DomainsController');
+Route::get('records/list', 'RecordsController@list');
 Route::resource('records', 'RecordsController');
+Route::get('servers/list', 'ServersController@list');
 Route::resource('servers', 'ServersController');
+Route::get('/tlds/list', 'TldsController@list');
 Route::resource('tlds', 'TldsController');
+Route::get('users/list', 'UsersController@list');
 Route::resource('users', 'UsersController');
+Route::get('websites/list', 'WebsitesController@list');
 Route::resource('websites', 'WebsitesController');
+Route::get('zones/list', 'ZonesController@list');
 Route::resource('zones', 'ZonesController');
