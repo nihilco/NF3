@@ -8,9 +8,22 @@ use App\Models\Tld;
 class TldsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    //
     public function index()
     {
-	return view('tlds.index');
+        $tlds = Tld::all();
+	return view('tlds.index', compact('tlds'));
+    }
+
+    //
+    public function create()
+    {
+        return view('tlds.create');
     }
 
     //
@@ -26,13 +39,30 @@ class TldsController extends Controller
     //
     public function store(Request $request)
     {
-        $tld = Tld::create($request->all());
+        $this->validate(request(), [
+	    'name' => 'required',
+	    'domain' => 'required|unique:tlds,domain',
+	    'description' => 'required',
+	]);
+
+	$tld = new Tld();
+
+	$tld->creator_id = auth()->id();
+	$tld->owner_id = auth()->id();
+	$tld->name = request('name');
+	$tld->domain = request('domain');
+	$tld->description = request('description');
+
+	$tld->save();
+
+	\Session::flash('message', 'TLD successfully created.');
+	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
             return response()->json($tld, 201);
 	}
 
-	return back();
+	return redirect('/tlds');
     }
 
     //
@@ -44,19 +74,35 @@ class TldsController extends Controller
     //
     public function update(Request $request, Tld $tld)
     {
-        $tld->update($request->all());
+        $this->validate(request(), [
+	    'name' => 'required',
+	    'domain' => 'required|unique:tlds,domain,' . $tld->id,
+	    'description' => 'required',
+	]);
+
+	$tld->name = request('name');
+	$tld->domain = request('domain');
+	$tld->description = request('description');
+
+	$tld->save();
+
+	\Session::flash('message', 'TLD successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json($tld, 200);
 	}
 
-	return back();
+	return redirect($tld->path());
     }
 
     //
-    public function delete(Tld $tld)
+    public function destroy(Tld $tld)
     {
         $tld->delete();
+
+	\Session::flash('message', 'TLD successfully deleted.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json(null, 204);

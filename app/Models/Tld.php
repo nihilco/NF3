@@ -2,9 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Tld extends Model
+class Tld extends Base
 {
     //
+    public function path()
+    {
+        return '/tlds/' . $this->id;
+    }
+
+    //
+    public function domains()
+    {
+	return $this->hasMany(Domain::class);
+    }
 }
