@@ -2,9 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Zone extends Model
+class Zone extends Base
 {
     //
+    public function path()
+    {
+	return '/zones/' . $this->id;
+    }
+
+    //
+    public function domain()
+    {
+        return $this->belongsTo(Domain::class);
+    }
+
+    //
+    public function records()
+    {
+	return $this->hasMany(Records::class);
+    }
 }

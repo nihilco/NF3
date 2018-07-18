@@ -17,13 +17,11 @@ class CreateZonesTable extends Migration
         Schema::create('zones', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('domain_id');
-	    $table->unsignedInteger('server_id');
-	    $table->unsignedInteger('serial');
-	    $table->unsignedInteger('refresh')->nullable();
-	    $table->unsignedInteger('retry')->nullable();
-	    $table->unsignedInteger('expire')->nullable();
-	    $table->unsignedInteger('ttl_negative')->nullable();
-	    $table->unsignedInteger('ttl_default')->nullable();
+	    $table->unsignedInteger('serial')->default(1);
+	    $table->unsignedInteger('refresh')->default(172800);
+	    $table->unsignedInteger('retry')->default(900);
+	    $table->unsignedInteger('expire')->default(1209600);
+	    $table->unsignedInteger('ttl')->default(3600);
 	    $table->unsignedInteger('records_count')->default(0);
 	    //$table->boolean('has_modifications')->default(false);
 	    $table->boolean('active')->default(false);
@@ -33,11 +31,6 @@ class CreateZonesTable extends Migration
 	    $table->foreign('domain_id')
 		->references('id')
 		->on('domains')
-		->onDelete('cascade');
-
-	    $table->foreign('server_id')
-		->references('id')
-		->on('servers')
 		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
