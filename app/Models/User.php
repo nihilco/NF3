@@ -20,6 +20,15 @@ class User extends Authenticatable
 	'api_key',
     ];
 
+    //
+    protected $dates = [
+      'created_at',
+      'updated_at',
+      'deleted_at',
+      'dob_at',
+      'last_login_at',
+    ];
+
     public static function boot()
     {
         parent::boot();

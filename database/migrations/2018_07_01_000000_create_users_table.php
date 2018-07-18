@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
 	    $table->date('dob_at');
 	    $table->datetime('accepted_tos_at')->nullable();
+	    $table->datetime('last_login_at')->nullable();
+	    $table->unsignedInteger('login_attempts')->default(0);
 	    $table->string('api_key', 60)->unique()->nullable();
 	    $table->boolean('active')->default(false);
             $table->rememberToken();
