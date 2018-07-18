@@ -16,9 +16,10 @@ class CreateWebsitesTable extends Migration
     {
         Schema::create('websites', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('account_id');
+	    $table->unsignedInteger('account_id')->nullable();
 	    $table->unsignedInteger('domain_id');
-	    $table->string('analytics_code');
+	    $table->string('hostname');
+	    $table->string('analytics_code')->nullable();
 	    $table->boolean('under_construction')->default(true);
 	    $table->boolean('active')->default(false);
 	    $table->softDeletes();
