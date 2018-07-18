@@ -16,12 +16,13 @@ class CreateDomainsTable extends Migration
     {
         Schema::create('domains', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('account_id');
 	    $table->unsignedInteger('tld_id');
+            $table->unsignedInteger('account_id')->nullable();
 	    $table->string('domain')->unique();
 	    $table->date('registered_at');
 	    $table->date('last_renewed_at');
 	    $table->date('renews_at');
+	    $table->unsignedInteger('websites_count')->default(0);
 	    $table->boolean('active')->default(false);
 	    $table->softDeletes();
             $table->timestamps();

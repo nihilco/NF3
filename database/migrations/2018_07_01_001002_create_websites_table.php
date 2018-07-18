@@ -19,6 +19,7 @@ class CreateWebsitesTable extends Migration
 	    $table->unsignedInteger('account_id');
 	    $table->unsignedInteger('domain_id');
 	    $table->string('analytics_code');
+	    $table->boolean('under_construction')->default(true);
 	    $table->boolean('active')->default(false);
 	    $table->softDeletes();
             $table->timestamps();

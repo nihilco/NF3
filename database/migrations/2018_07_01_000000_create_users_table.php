@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
 	    $table->date('dob_at');
 	    $table->datetime('accepted_tos_at')->nullable();
-	    $table->string('api_token', 60)->unique()->nullable();
+	    $table->string('api_key', 60)->unique()->nullable();
 	    $table->boolean('active')->default(false);
             $table->rememberToken();
 	    $table->softDeletes();

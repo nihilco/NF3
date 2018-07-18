@@ -24,6 +24,7 @@ class CreateZonesTable extends Migration
 	    $table->unsignedInteger('expire')->nullable();
 	    $table->unsignedInteger('ttl_negative')->nullable();
 	    $table->unsignedInteger('ttl_default')->nullable();
+	    $table->unsignedInteger('records_count')->default(0);
 	    //$table->boolean('has_modifications')->default(false);
 	    $table->boolean('active')->default(false);
 	    $table->softDeletes();

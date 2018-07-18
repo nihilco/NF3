@@ -18,7 +18,8 @@ class CreateTldsTable extends Migration
             $table->increments('id');
 	    $table->string('name');
 	    $table->string('description');
-	    $table->string('domain');
+	    $table->string('domain')->unique();
+	    $table->unsignedInteger('domains_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 

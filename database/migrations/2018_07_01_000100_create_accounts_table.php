@@ -16,11 +16,12 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');
+	    $table->enum('type', ['live', 'test']);
 	    $table->string('name');
 	    $table->string('description');
-	    $table->string('stripe_account_id');
-	    $table->string('stripe_publishable_key');
-	    $table->string('stripe_secret_key');
+	    $table->string('stripe_id');
+	    $table->string('publishable_key');
+	    $table->string('secret_key', 255);
 	    $table->boolean('active');
 	    $table->softDeletes();
             $table->timestamps();
