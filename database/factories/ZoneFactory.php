@@ -6,7 +6,9 @@ $factory->define(App\Models\Zone::class, function (Faker $faker) {
     return [
         'creator_id' => 1,
 	'owner_id' => 1,
-	'domain_id' => factory(\App\Models\Domain::class)->create()->id,
+	'domain_id' => function() {
+	    factory(\App\Models\Domain::class)->create()->id;
+	},
 	'serial' => 1,
 	'refresh' => 172800,
 	'retry' => 900,
