@@ -21,7 +21,7 @@
                       <label for="name">Type</label>
 		      <select class="form-control{{ $errors->first('type') ? ' is-invalid' : '' }}" id="type" name="type">
 		        @php
-		          $v = old('type') ?? $account->type; echo $v;
+		          $v = old('type') ?? $account->type;
 			@endphp
 		        <option></option>
 			<option value="test"{{ ($v == 'test') ? ' selected' : '' }}>Test</option>

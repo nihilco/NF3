@@ -73,7 +73,7 @@
 	            @if($errors->first('active'))
 	              <small id="activeHelp" class="form-text invalid-feedback">{{ $errors->first('active') }}</small>
 	            @endif
-	          </div>		    
+	          </div>
 	        </div>
 		<div class="card-footer text-muted">
                   <button type="submit" class="btn btn-primary">Create</button>
