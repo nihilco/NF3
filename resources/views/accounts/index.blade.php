@@ -61,7 +61,7 @@
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-		        <td>{{ $account->name }}</td>
+		        <td>{{ $account->name }} <span class="badge badge-{{ ($account->type == 'live') ? 'success' : 'secondary' }}">{{ $account->type }}</span></td>
 		        <td>{{ $account->stripe_id }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($account->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
