@@ -4,13 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Record;
+use App\Models\Zone;
 
 class RecordsController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    //
     public function index()
     {
-	return view('records.index');
+	$records = Record::all();
+	
+	return view('records.index', compact(['records']));
+    }
+
+    //
+    public function create()
+    {
+	$zones = Zone::all();
+	
+	return view('records.create', compact(['zones']));
     }
 
     //
@@ -26,35 +43,81 @@ class RecordsController extends Controller
     //
     public function store(Request $request)
     {
-        $record = Record::create($request->all());
+	//dd(request());
 	
+        $this->validate(request(), [
+	    'zone' => 'required|exists:zones,id',
+	    'name' => 'required',
+	    'ttl' => 'required',
+	    'type' => 'required|in:ns,mx,a,aaaa,txt',
+	    'priority' => '',
+	    'data' => 'required',
+	]);
+
+	$record = new Record();
+
+	$record->creator_id = auth()->id();
+	$record->owner_id = auth()->id();
+	$record->zone_id = request('zone');
+	$record->name = request('name');
+	$record->ttl = request('ttl');
+	$record->type = request('type');
+	$record->priority = request('priority');
+	$record->data = request('data');
+
+	$record->save();
+
+	\Session::flash('message', 'Record successfully created.');
+	\Session::flash('alert-class', 'alert-success');
+
 	if(request()->expectsJson()) {
             return response()->json($record, 201);
 	}
 
-	return back();
+	return redirect($record->path());
     }
 
     //
     public function edit(Record $record)
     {
-        return view('records.edit', compact(['record']));
+	$zones = Zone::all();
+	
+        return view('records.edit', compact(['record', 'zones']));
     }
 
     //
     public function update(Request $request, Record $record)
     {
-        $record->update($request->all());
+        $this->validate(request(), [
+	    'zone' => 'required|exists:zones,id',
+	    'name' => 'required',
+	    'ttl' => 'required',
+	    'type' => 'required|in:ns,mx,a,aaaa,txt',
+	    'priority' => '',
+	    'data' => 'required',
+	]);
+
+	$record->zone_id = request('zone');
+	$record->name = request('name');
+	$record->ttl = request('ttl');
+	$record->type = request('type');
+	$record->priority = request('priority');
+	$record->data = request('data');
+
+	$record->save();
+
+	\Session::flash('message', 'Record successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json($record, 200);
 	}
 
-	return back();
+	return redirect($record->path());
     }
 
     //
-    public function delete(Record $record)
+    public function destroy(Record $record)
     {
         $record->delete();
 
