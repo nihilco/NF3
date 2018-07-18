@@ -49,6 +49,7 @@
                         <th scope="col" class="td-count">#</th>
 	                <th scope="col">Name</th>
 		        <th scope="col">Domain</th>
+		        <th scope="col">Domains</th>			
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -63,6 +64,7 @@
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $tld->name }}</td>
 		        <td>{{ $tld->domain }}</td>
+		        <td>{{ $tld->domains_count }}</td>			
 		        <td class="td-action">
 			  <a href="{{ url($tld->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($tld->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -100,7 +102,7 @@
 		@empty
 
 		      <tr>
-		        <td colspan="4">No TLDs at this time.</td>
+		        <td colspan="5">No TLDs at this time.</td>
 		      </tr>
 
 		@endforelse
