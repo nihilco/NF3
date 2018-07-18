@@ -17,8 +17,7 @@ class CreateCustomersTable extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('account_id');
-	    $table->unsignedInteger('user_id');
-	    $table->string('stripe_customer_id');
+	    $table->string('stripe_id');
 	    $table->softDeletes();
             $table->timestamps();
 
@@ -27,7 +26,15 @@ class CreateCustomersTable extends Migration
 		->on('accounts')
 		->onDelete('cascade');
 
-	    $table->foreign('user_id')
+	    $table->unsignedInteger('creator_id');
+	    $table->unsignedInteger('owner_id');
+
+	    $table->foreign('creator_id')
+		->references('id')
+		->on('users')
+		->onDelete('cascade');
+
+	    $table->foreign('owner_id')
 		->references('id')
 		->on('users')
 		->onDelete('cascade');

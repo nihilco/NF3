@@ -3,14 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Account;
 use App\Models\Customer;
+use App\Models\User;
 
 class CustomersController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
+    //
     public function index()
     {
-	return view('customers.index');
+	$customers = Customer::all();
+	
+	return view('customers.index', compact('customers'));
+    }
+
+    //
+    public function create()
+    {
+	$accounts = Account::all();
+	$users = User::all();
+	
+        return view('customers.create', compact(['accounts', 'users']));
     }
 
     //
@@ -26,37 +45,72 @@ class CustomersController extends Controller
     //
     public function store(Request $request)
     {
-        $customer = Customer::create($request->all());
+        $this->validate(request(), [
+	    'account' => 'required|exists:accounts,id',
+	    'owner' => 'required|exists:users,id',
+	    'stripeId' => 'required',
+	]);
+
+	$customer = new Customer();
+
+	$customer->creator_id = auth()->id();
+	$customer->owner_id = request('owner');
+        $customer->account_id = request('account');
+	$customer->stripe_id = request('stripeId');
+
+	$customer->save();
+
+	\Session::flash('message', 'Customer successfully created.');
+	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
             return response()->json($customer, 201);
 	}
 
-	return back();
+	return redirect($customer->path());
     }
 
     //
     public function edit(Customer $customer)
     {
-        return view('customers.edit', compact(['customer']));
+	$accounts = Account::all();
+	$users = User::all();
+
+        return view('customers.edit', compact(['customer', 'accounts', 'users']));
     }
 
     //
     public function update(Request $request, Customer $customer)
     {
-        $customer->update($request->all());
+        $this->validate(request(), [
+	    'account' => 'required|exists:accounts,id',
+	    'owner' => 'required|exists:users,id',
+	    'stripeId' => 'required',
+	]);
+
+	$customer->owner_id = request('owner');
+	$customer->account_id = request('account');
+	$customer->stripe_id = request('stripeId');
+
+	$customer->save();
+
+	\Session::flash('message', 'Customer successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json($customer, 200);
 	}
 
-	return back();
+	return redirect($customer->path());
     }
 
     //
-    public function delete(Customer $customer)
+    public function destroy(Customer $customer)
     {
         $customer->delete();
+
+	\Session::flash('message', 'Customer successfully deleted.');
+	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
             return response()->json(null, 204);

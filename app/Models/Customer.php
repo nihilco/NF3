@@ -2,23 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Customer extends Model
+class Customer extends Base
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'account_id', 'user_id', 'stripe_customer_id',
-    ];
+    //
+    public function path()
+    {
+        return '/customers/' . $this->id;
+    }
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [];
+    public function account()
+    {
+	return $this->belongsTo(Account::class);
+    }
 }
