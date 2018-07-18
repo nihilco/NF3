@@ -2,28 +2,46 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Domain extends Model
+class Domain extends Base
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'account_id',
-	'tld_id',
-	'domain',
+    public static function boot()
+    {
+        parent::boot();
+
+	static::created(function($domain) {
+	    $domain->tld->increment('domains_count');
+	});
+
+	static::deleted(function($domain) {
+	    $domain->tld->decrement('domains_count');
+	});
+    }
+
+    //
+    protected $dates = [
+        'created_at',
+	'updated_at',
+	'deleted_at',
 	'registered_at',
 	'last_renewed_at',
 	'renews_at',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [];
+    //
+    public function path()
+    {
+        return '/domains/' . $this->id;
+    }
+
+    //
+    public function tld()
+    {
+        return $this->belongsTo(Tld::class);
+    }
+
+    //
+    public function websites()
+    {
+	return $this->hasMany(Website::class);
+    }
 }
