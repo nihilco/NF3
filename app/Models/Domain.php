@@ -44,4 +44,10 @@ class Domain extends Base
     {
 	return $this->hasMany(Website::class);
     }
+
+    //
+    public function zones()
+    {
+	return $this->hasMany(Zone::class);
+    }
 }
