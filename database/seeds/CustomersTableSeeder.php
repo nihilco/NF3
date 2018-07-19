@@ -45,14 +45,14 @@ class CustomersTableSeeder extends Seeder
 	//
 	factory(App\Models\Customer::class)->create([
 	    'account_id' => 1,
-	    'owner_id' => $users->where('email', 'carl@antiquarians.co')->first()->id,
+	    'owner_id' => $users->where('email', 'carlschow@gmail.com')->first()->id,
 	    'stripe_id' => 'cus_6xVe9WKzpBhTaA',
 	]);
 
 	//
 	factory(App\Models\Customer::class)->create([
 	    'account_id' => 1,
-	    'owner_id' => $users->where('email', 'chad@ternionathletics.com')->first()->id,
+	    'owner_id' => $users->where('email', 'chadegary@gmail.com')->first()->id,
 	    'stripe_id' => 'cus_5wXTVoB02GP2uw',
 	]);
     }

@@ -159,7 +159,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+	//
 	App\Providers\BreadcrumbsServiceProvider::class,
+	App\Providers\StripeServiceProvider::class,
     ],
 
     /*
@@ -210,6 +212,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 	//
 	'Breadcrumbs' => App\Facades\Breadcrumbs::class,
+	'Stripe' => App\Facades\Stripe::class,
     ],
 
 ];

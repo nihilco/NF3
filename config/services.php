@@ -30,9 +30,19 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+        'mode' => env('STRIPE_MODE', 'test'),
+	'version' => '2018-05-21',
+    	'account' => env('STRIPE_PLATFORM_ACCOUNT'),
+    	'keys' => [
+            'test' => [
+	        'secret' => env('STRIPE_PLATFORM_TEST_SECRET'),
+	        'publishable' => env('STRIPE_PLATFORM_TEST_PUBLISHABLE'),
+	    ],
+	    'live' => [
+	        'secret' => env('STRIPE_PLATFORM_LIVE_SECRET'),
+	        'publishable' => env('STRIPE_PLATFORM_LIVE_PUBLISHABLE'),
+	    ],
+        ],
     ],
 
 ];

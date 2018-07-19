@@ -32,7 +32,7 @@ class WebsitesTableSeeder extends Seeder
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => 2,
-	     'hostname' => 'www.nihilframework.com',
+	     'hostname' => 'dev.nihilframework.com',
 	]);
     }
 }

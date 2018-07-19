@@ -48,15 +48,19 @@ class CustomersController extends Controller
         $this->validate(request(), [
 	    'account' => 'required|exists:accounts,id',
 	    'owner' => 'required|exists:users,id',
-	    'stripeId' => 'required',
+	    'stripeId' => 'nullable|unique:customers,stripe_id',
 	]);
+
+	if(!request('stripeId') || !($c = \Stripe::getCustomer(request('stripeId')))) {
+	    $c = \Stripe::createCustomer(User::find(request('owner')));
+	}
 
 	$customer = new Customer();
 
 	$customer->creator_id = auth()->id();
 	$customer->owner_id = request('owner');
-        $customer->account_id = request('account');
-	$customer->stripe_id = request('stripeId');
+        $customer->account_id = request('account');	
+	$customer->stripe_id = $c->id;
 
 	$customer->save();
 

@@ -74,18 +74,27 @@ class UsersTableSeeder extends Seeder
 	//
 	factory(App\Models\User::class)
 	    ->create([
-	        'username' => 'carl@antiquarians.co',
+	        'username' => 'carlschow@gmail.com',
 		'name' => 'Carl Schow',
-		'email' => 'carl@antiquarians.co',
+		'email' => 'carlschow@gmail.com',
 		'active' => true,
         ]);
 
 	//
 	factory(App\Models\User::class)
 	    ->create([
-	        'username' => 'chad@ternionathletics.com',
+	        'username' => 'chadegary@gmail.com',
 		'name' => 'Chad Gary',
-		'email' => 'chad@ternionathletics.com',
+		'email' => 'chadegary@gmail.com',
+		'active' => true,
+        ]);
+
+	//
+	factory(App\Models\User::class)
+	    ->create([
+	        'username' => 'nancyclemmer@me.com',
+		'name' => 'Nancy Clemmer',
+		'email' => 'nancyclemmer@me.com',
 		'active' => true,
         ]);
     }

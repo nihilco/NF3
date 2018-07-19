@@ -1,6 +1,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+     overflow: hidden;
+}
+
 #mainContentDiv {
     margin-top: 57px;
 }

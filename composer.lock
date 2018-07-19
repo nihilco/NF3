@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3cd59ba740ab7ef6ddda3d1a8ccd4398",
+    "content-hash": "7ef43753f627e2ea91b740c236435303",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1267,6 +1267,61 @@
             "time": "2018-01-20T00:28:24+00:00"
         },
         {
+            "name": "stripe/stripe-php",
+            "version": "v6.10.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "dcd993f0ed2abc885f1c5c3a4fc3c1e3b162af70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/dcd993f0ed2abc885f1c5c3a4fc3c1e3b162af70",
+                "reference": "dcd993f0ed2abc885f1c5c3a4fc3c1e3b162af70",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6.1",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2018-07-16T11:49:48+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.1.2",
             "source": {
@@ -2240,6 +2295,36 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2017-11-27T11:13:29+00:00"
+        },
+        {
+            "name": "videojs/video.js",
+            "version": "v6.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/videojs/video.js.git",
+                "reference": "f1544a57f642fad6b5e6081ec150f5efba810249"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/videojs/video.js/zipball/f1544a57f642fad6b5e6081ec150f5efba810249",
+                "reference": "f1544a57f642fad6b5e6081ec150f5efba810249",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "An HTML5 and Flash video player with a common API and skin for both.",
+            "homepage": "http://www.videojs.com/",
+            "keywords": [
+                "HTML5",
+                "flash",
+                "player",
+                "video",
+                "videojs"
+            ],
+            "time": "2018-07-09T19:31:54+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
