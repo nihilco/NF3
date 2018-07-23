@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>Admin | The NIHIL Corporation</title>
+    <title>@yield('title') | NIHIL</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -22,7 +22,7 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">NF3</a>
+        <a class="navbar-brand" href="/">NIHIL</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -76,9 +76,9 @@
 		  </form>
 	      </div>
             </li>
-            <li class="nav-item">
-	      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#userMenuSection" aria-expanded="false" aria-controls="userMenuSection"><i class="fas fa-bars"></i></button>
-            </li>
+            <!--<li class="nav-item">
+	      <button class="btn btn-link nav-link" type="button" data-toggle="collapse" data-target="#userMenuSection" aria-expanded="false" aria-controls="userMenuSection"><i class="fas fa-bars"></i></button>
+            </li>-->
 	    @endguest
           </ul>
         </div>

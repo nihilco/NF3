@@ -10419,6 +10419,10 @@ body {
   margin-top: 57px;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: #FFFFFF;
+}
+
 #sideMenuSection {
   position: fixed;
   z-index: 5;

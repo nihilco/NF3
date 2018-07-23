@@ -7,11 +7,17 @@
     <meta name="author" content="Uriah M. Clemmer IV">
     <link rel="icon" href="/favicons/favicon.ico">
 
-    <title>Jupiter | The NIHIL Corporation</title>
+    <title>Under Construction | NIHIL</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{ url('/css/app.css?t=' . time()) }}" />
+    
     <!-- Custom styles for this template -->
     <style>
       /*
@@ -139,12 +145,72 @@
 
   </head>
 
-  <body class="text-center">
+  <body class="text-center bg-dark">
 
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
 
-      <header class="masthead mb-auto"></header>
-
+      <header class="masthead mb-auto">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:transparent!important;text-shadow:none;">
+        <a class="navbar-brand" href="/">NIHIL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <!--<li class="nav-item">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#sideMenuSection" aria-expanded="false" aria-controls="sideMenuSection"><i class="fas fa-bars"></i></button>
+            </li>-->
+          </ul>
+	  <ul class="navbar-nav">
+	    @guest
+	    <li class="nav-item">
+	      <a class="nav-link" href="{{ route('login') }}">Login</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="{{ route('signup') }}">Signup</a>
+	    </li>
+	    @else
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        <i class="fas fa-server text-success"></i>
+	      </a>
+	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+	        <a class="dropdown-item" href="#">Action</a>
+	        <a class="dropdown-item" href="#">Another action</a>
+	        <div class="dropdown-divider"></div>
+	        <a class="dropdown-item" href="#">Something else here</a>
+	      </div>
+	    </li>
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        <i class="far fa-bell"></i>
+	      </a>
+	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+	        <a class="dropdown-item" href="#">Action</a>
+	        <a class="dropdown-item" href="#">Another action</a>
+	        <div class="dropdown-divider"></div>
+	        <a class="dropdown-item" href="#">Something else here</a>
+	      </div>
+	    </li>
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        {{ auth()->user()->email }}
+	      </a>
+	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+	        <a class="dropdown-item" href="{{ url('/settings') }}">Settings</a>
+	        <div class="dropdown-divider"></div>
+	        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+		  {{ csrf_field() }}
+		  </form>
+	      </div>
+            </li>
+	    @endguest
+          </ul>
+        </div>
+      </nav>
+      </header>
+      
         <main role="main" class="inner cover">
 	  <h1 class="cover-heading">Under Construction</h1>
 	  <p class="lead">This website will be up and running soon.</p>
