@@ -151,7 +151,7 @@
 
       <header class="masthead mb-auto">
       <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:transparent!important;text-shadow:none;">
-        <a class="navbar-brand" href="/">NIHIL</a>
+        <!--<a class="navbar-brand" href="/">NIHIL</a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
