@@ -21,7 +21,7 @@ class CreateRecordsTable extends Migration
 	    $table->unsignedInteger('ttl')->nullable();
 	    $table->enum('type', ['NS', 'MX', 'A', 'AAAA', 'TXT']);
 	    $table->unsignedInteger('priority')->nullable();
-	    $table->string('data');
+	    $table->text('data');
 	    $table->softDeletes();
             $table->timestamps();
 

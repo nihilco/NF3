@@ -17,7 +17,7 @@ class CreateTldsTable extends Migration
         Schema::create('tlds', function (Blueprint $table) {
             $table->increments('id');
 	    $table->string('name');
-	    $table->string('description');
+	    $table->text('description');
 	    $table->string('domain')->unique();
 	    $table->unsignedInteger('domains_count')->default(0);
 	    $table->softDeletes();

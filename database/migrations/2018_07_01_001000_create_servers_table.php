@@ -17,7 +17,7 @@ class CreateServersTable extends Migration
         Schema::create('servers', function (Blueprint $table) {
             $table->increments('id');
 	    $table->string('name');
-	    $table->string('description');
+	    $table->text('description');
     	    $table->string('hostname');
 	    $table->enum('type', ['master', 'slave']);
 	    $table->string('ipv4', 16);
