@@ -57,6 +57,8 @@ Route::get('servers/list', 'ServersController@list');
 Route::resource('servers', 'ServersController');
 Route::get('/tlds/list', 'TldsController@list');
 Route::resource('tlds', 'TldsController');
+Route::get('/transactions/list', 'TransactionsController@list');
+Route::resource('transactions', 'TransactionsController');
 Route::get('users/list', 'UsersController@list');
 Route::resource('users', 'UsersController');
 Route::get('websites/list', 'WebsitesController@list');
