@@ -2,6 +2,7 @@
 public/media
 *.php~
 *~
+composer.lock
 
 #
 vendor/
