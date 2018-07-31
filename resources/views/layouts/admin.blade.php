@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ url('/css/app.css?t=' . time()) }}" />
   </head>
   <body class="bg-dark">
-  <div id="app">
+  <div id="">
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -87,7 +87,7 @@
 
     <div id="mainContentDiv">
       
-      <section id="sideMenuSection" class="bg-dark collapse show">
+      <!--<section id="sideMenuSection" class="bg-dark collapse show">
 	
 	<nav id="sideMenu" class="list-group">
 	  <a href="{{ url('/dashboard') }}" class="list-group-item list-group-item-action active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
@@ -101,7 +101,7 @@
 	  <a href="{{ url('/settings') }}" class="list-group-item list-group-item-action"><i class="fas fa-cogs"></i> Settings</a>
 	</nav>
 
-      </section>
+      </section>-->
       
       <main id="mainContent" role="main" class="">
 
@@ -151,10 +151,10 @@
 
 	<footer id="mainContentFooter" class="container-fluid">
 	  <div class="row">
-	    <div class="col-md-9 col-sm-8">
+	    <div class="col-md-9 col-sm-8" id="copyright">
 	      <p class="pt-3 pb-3 m-0">Copyright &copy; 2009-<?= date('Y') ?> The NIHIL Corporation.  All rights reserved.</p>
 	    </div>
-	    <div class="col-md-3 col-sm-4 text-right">
+	    <div class="col-md-3 col-sm-4" id="powered">
 	      <p class="pt-3 pb-3 m-0">Powered by <a href="https://www.nihil.co" target="_blank">NIHIL</a></p>
 	    </div>
 	  </div>
@@ -228,6 +228,7 @@
   <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>-->
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="{{ url('/js/app.js') }}"></script>-
   </body>
 </html>

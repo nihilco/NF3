@@ -47,6 +47,8 @@ Route::get('domains/list', 'DomainsController@list');
 Route::resource('domains', 'DomainsController');
 Route::get('invoice-items/list', 'InvoiceItemsController@list');
 Route::resource('invoice-items', 'InvoiceItemsController');
+Route::get('invoices/{invoice}/pay', 'PayInvoiceController@index');
+Route::post('invoices/{invoice}/pay', 'PayInvoiceController@store');
 Route::get('invoices/list', 'InvoicesController@list');
 Route::resource('invoices', 'InvoicesController');
 Route::get('provinces/list', 'ProvincesController@list');

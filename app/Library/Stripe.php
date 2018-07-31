@@ -33,6 +33,16 @@ class Stripe
 	\Stripe\Stripe::setApiKey($this->secretKey);
     }
 
+    public function getPublishableKey()
+    {
+	return $this->publishableKey;
+    }
+
+    public function getSecretKey()
+    {
+	return $this->secretKey;
+    }
+
     public function setVersion()
     {
 	\Stripe\Stripe::setApiVersion($this->version);

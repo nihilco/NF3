@@ -13,7 +13,14 @@ class CustomersTableSeeder extends Seeder
     {
 	$accounts = App\Models\Account::all();
 	$users = App\Models\User::all();
-	
+
+	//
+	factory(App\Models\Customer::class)->create([
+	    'account_id' => 1,
+	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
+	    'stripe_id' => 'cus_DI5RsqF6du6HgE',
+	]);
+
         //
 	factory(App\Models\Customer::class)->create([
 	    'account_id' => 1,
@@ -55,5 +62,27 @@ class CustomersTableSeeder extends Seeder
 	    'owner_id' => $users->where('email', 'chadegary@gmail.com')->first()->id,
 	    'stripe_id' => 'cus_5wXTVoB02GP2uw',
 	]);
+
+	//
+	factory(App\Models\Customer::class)->create([
+	    'account_id' => 1,
+	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
+	    'stripe_id' => 'cus_DHfeeiu54TQDSd',
+	]);
+
+	//
+	factory(App\Models\Customer::class)->create([
+	    'account_id' => 1,
+	    'owner_id' => $users->where('email', 'chandler@mazestonelaw.com')->first()->id,
+	    'stripe_id' => 'cus_DHfpfF9QloGXEx',
+	]);
+
+	//
+	factory(App\Models\Customer::class)->create([
+	    'account_id' => 2,
+	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
+	    'stripe_id' => 'cus_DFsb7DRwpDRA2f',
+	]);
+
     }
 }

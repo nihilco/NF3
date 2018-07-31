@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateTransactionsTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,27 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
+	    $table->enum('type', ['invoice', 'quote', 'estimate']);
 	    $table->unsignedInteger('account_id');
 	    $table->unsignedInteger('customer_id');
-	    $table->unsignedInteger('invoice_id');
-	    $table->enum('type', ['payment', 'donation', 'refund']);
-	    $table->string('reference_number')->nullable();
-	    $table->string('stripe_id')->nullable();
+	    $table->unsignedInteger('billing_address_id');
+	    $table->unsignedInteger('shipping_address_id');
+	    $table->string('slug')->unique();
+	    $table->integer('subtotal');
+	    $table->integer('tax_rate')->default(0);
+	    $table->integer('tax')->default(0);
+	    $table->integer('shipping')->default(0);
 	    $table->integer('total');
 	    $table->text('notes')->nullable();
-            $table->timestamps();
+	    $table->date('opened_at')->nullable();
+	    $table->date('due_at');
+	    $table->date('paid_at')->nullable();
+	    $table->enum('status', ['new', 'open', 'paid', 'partial', 'late','overdue', 'void']);
+	    $table->unsignedInteger('line_items_count')->default(0);
 	    $table->softDeletes();
+            $table->timestamps();
 
 	    $table->foreign('account_id')
 		->references('id')
@@ -37,9 +46,14 @@ class CreateTransactionsTable extends Migration
 		->on('customers')
 		->onDelete('cascade');
 
-	    $table->foreign('invoice_id')
-	        ->references('id')
-		->on('invoices')
+	    $table->foreign('billing_address_id')
+		->references('id')
+		->on('addresses')
+		->onDelete('cascade');
+
+	    $table->foreign('shipping_address_id')
+		->references('id')
+		->on('addresses')
 		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
@@ -64,6 +78,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('invoices');
     }
 }

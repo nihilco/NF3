@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateTransactionsTable extends Migration
+class CreateInvoiceItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,31 +14,20 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('invoice_items', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('account_id');
-	    $table->unsignedInteger('customer_id');
 	    $table->unsignedInteger('invoice_id');
-	    $table->enum('type', ['payment', 'donation', 'refund']);
-	    $table->string('reference_number')->nullable();
-	    $table->string('stripe_id')->nullable();
-	    $table->integer('total');
-	    $table->text('notes')->nullable();
-            $table->timestamps();
+	    $table->string('name');
+	    $table->text('description');
+	    $table->integer('units');
+	    $table->integer('unit_price');
+	    $table->integer('subtotal');
+	    $table->boolean('taxable')->default(false);
 	    $table->softDeletes();
-
-	    $table->foreign('account_id')
-		->references('id')
-		->on('accounts')
-		->onDelete('cascade');
-
-	    $table->foreign('customer_id')
-		->references('id')
-		->on('customers')
-		->onDelete('cascade');
+            $table->timestamps();
 
 	    $table->foreign('invoice_id')
-	        ->references('id')
+		->references('id')
 		->on('invoices')
 		->onDelete('cascade');
 
@@ -64,6 +53,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('invoice_items');
     }
 }

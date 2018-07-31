@@ -97,5 +97,14 @@ class UsersTableSeeder extends Seeder
 		'email' => 'nancyclemmer@me.com',
 		'active' => true,
         ]);
+
+	//
+	factory(App\Models\User::class)
+	    ->create([
+	        'username' => 'chandler@mazestonelaw.com',
+		'name' => 'Chandler Maze',
+		'email' => 'chandler@mazestonelaw.com',
+		'active' => true,
+        ]);
     }
 }
