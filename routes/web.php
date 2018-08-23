@@ -12,7 +12,12 @@
 */
 
 Route::name('home')->get('/', function () {
-    return view('layouts.construction');
+    if(!config('app.website')->under_construction) {
+         return view('default.index');
+    } else {
+         return view('layouts.construction');
+    }
+    
 });
 
 //
@@ -39,18 +44,30 @@ Route::get('accounts/list', 'AccountsController@list');
 Route::resource('accounts', 'AccountsController');
 Route::get('addresses/list', 'AddressesController@list');
 Route::resource('addresses', 'AddressesController');
+Route::get('chains/list', 'ChainsController@list');
+Route::resource('chains', 'ChainsController');
+Route::get('companies/list', 'CompaniesController@list');
+Route::resource('companies', 'CompaniesController');
 Route::get('countries/list', 'CountriesController@list');
 Route::resource('countries', 'CountriesController');
 Route::get('customers/list', 'CustomersController@list');
 Route::resource('customers', 'CustomersController');
 Route::get('domains/list', 'DomainsController@list');
 Route::resource('domains', 'DomainsController');
+Route::get('factions/list', 'FactionsController@list');
+Route::resource('factions', 'FactionsController');
+Route::get('hunts/list', 'HuntsController@list');
+Route::resource('hunts', 'HuntsController');
 Route::get('invoice-items/list', 'InvoiceItemsController@list');
 Route::resource('invoice-items', 'InvoiceItemsController');
 Route::get('invoices/{invoice}/pay', 'PayInvoiceController@index');
 Route::post('invoices/{invoice}/pay', 'PayInvoiceController@store');
 Route::get('invoices/list', 'InvoicesController@list');
 Route::resource('invoices', 'InvoicesController');
+Route::get('names/list', 'NamesController@list');
+Route::resource('names', 'NamesController');
+Route::get('obituaries/list', 'ObituariesController@list');
+Route::resource('obituaries', 'ObituariesController');
 Route::get('provinces/list', 'ProvincesController@list');
 Route::resource('provinces', 'ProvincesController');
 Route::get('records/list', 'RecordsController@list');
