@@ -7,7 +7,7 @@
     <meta name="author" content="Uriah M. Clemmer IV">
     <link rel="icon" href="/favicons/favicon.ico">
 
-    <title>Under Construction | NIHIL</title>
+    <title>Under Construction | {{ config('app.name') }}</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
