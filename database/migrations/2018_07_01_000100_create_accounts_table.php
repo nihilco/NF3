@@ -18,7 +18,7 @@ class CreateAccountsTable extends Migration
             $table->increments('id');
 	    $table->enum('type', ['live', 'test']);
 	    $table->string('name');
-	    $table->string('description');
+	    $table->text('description');
 	    $table->string('stripe_id');
 	    $table->string('publishable_key');
 	    $table->string('secret_key', 255);

@@ -20,6 +20,7 @@ class CreateProvincesTable extends Migration
 	    $table->string('code');
 	    $table->string('name');
 	    $table->text('description');
+	    $table->unsignedInteger('cities_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 

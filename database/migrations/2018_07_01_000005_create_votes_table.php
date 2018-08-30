@@ -16,11 +16,12 @@ class CreateVotesTable extends Migration
     {
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
-
+	    $table->unsignedInteger('resource_id');
+	    $table->string('resource_type');
+	    $table->text('vote');
 	    $table->softDeletes();
             $table->timestamps();
-	    $table->unsignedInteger('resource_id');
-	    $table->text('vote');
+	    
 	    $table->unsignedInteger('creator_id');
 	    $table->unsignedInteger('owner_id');
 

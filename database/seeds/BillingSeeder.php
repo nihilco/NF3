@@ -14,13 +14,70 @@ class BillingSeeder extends Seeder
         $provinces = App\Models\Province::all();
 	$countries = App\Models\Country::all();
 	$users = App\Models\User::all();
-	
+
+	$name1 = factory(App\Models\Name::class)->create([
+	    'prefix' => 'Mr.',
+	    'first' => 'Uriah',
+	    'middle' => 'M.',
+	    'last' => 'Clemmer',
+	    'suffix' => 'IV',
+	]);
+
+	$name2 = factory(App\Models\Name::class)->create([
+	    'prefix' => 'Ms.',
+	    'first' => 'Nancy',
+	    'last' => 'Clemmer',
+	]);
+
+	$name3 = factory(App\Models\Name::class)->create([
+	    'prefix' => 'Mr.',
+	    'first' => 'Carl',
+	    'last' => 'Schow',
+	]);
+
+	$name4 = factory(App\Models\Name::class)->create([
+	    'prefix' => 'Mr.',
+	    'first' => 'Chandler',
+	    'last' => 'Maze',
+	]);
+
+	//
+	$city1 = factory(App\Models\City::class)->create([
+	    'name' => 'Hixson',
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	]);
+
+	$city2 = factory(App\Models\City::class)->create([
+	    'name' => 'Lexington',
+	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	]);
+
+	$city3 = factory(App\Models\City::class)->create([
+	    'name' => 'Hazard',
+	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	]);
+
+	$city4 = factory(App\Models\City::class)->create([
+	    'name' => 'Signal Mountain',
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	]);
+
+	$city5 = factory(App\Models\City::class)->create([
+	    'name' => 'Chattanooga',
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	]);
+
+	$city6 = factory(App\Models\City::class)->create([
+	    'name' => 'Mount Sterling',
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	]);
+
 	//
 	$address1 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    'name' => 'Uriah M. Clemmer IV',
+	    'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
-	    'city' => 'Hixson',
+	    'city_id' => $city1->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37343',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -29,9 +86,9 @@ class BillingSeeder extends Seeder
 	//
 	$address2 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    'name' => 'Uriah M. Clemmer IV',
+	    'name_id' => $name1->id,
 	    'address1' => '855 Tremont Ave',
-	    'city' => 'Lexington',
+	    'city_id' => $city2->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '40502',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -40,10 +97,10 @@ class BillingSeeder extends Seeder
 	//
 	$address3 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    'name' => 'Uriah M. Clemmer IV',
+	    'name_id' => $name1->id,
 	    'address1' => '1897 Combs Road',
 	    'address2' => 'Apt #1',
-	    'city' => 'Hazard',
+	    'city_id' => $city3->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '41701',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -52,9 +109,9 @@ class BillingSeeder extends Seeder
 	//
 	$address4 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
-	    'name' => 'Nancy Clemmer',
+	    'name_id' => $name2->id,
 	    'address1' => '2773 Haywood Avenue',
-	    'city' => 'Chattanooga',
+	    'city_id' => $city5->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37415',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -63,10 +120,10 @@ class BillingSeeder extends Seeder
 	//
 	$address5 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'carlschow@gmail.com')->first()->id,
-	    'name' => 'Schows\' Estate Sales',
+	    'name_id' => $name3->id,
 	    'address1' => '956 Signal Road',
 	    'address2' => 'ATTN: Carl Schow',
-	    'city' => 'Signal Mountain',
+	    'city_id' => $city4->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37377',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -75,10 +132,10 @@ class BillingSeeder extends Seeder
 	//
 	$address6 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'chandler@mazestonelaw.com')->first()->id,
-	    'name' => 'Maze & Stone, PLLC',
+	    'name_id' => $name4->id,
 	    'address1' => '127 West High Street',
 	    'address2' => 'ATTN: Chandler Maze',
-	    'city' => 'Mount Sterling',
+	    'city_id' => $city6->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '40353',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -87,9 +144,9 @@ class BillingSeeder extends Seeder
 	//
 	$address7 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'mclemmer@gmail.com')->first()->id,
-	    'name' => 'Uriah M. Clemmer IV',
+	    'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
-	    'city' => 'Hixson',
+	    'city_id' => $city1->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37343',
 	    'country_id' => $countries->where('code', 'US')->first()->id,
@@ -204,6 +261,51 @@ class BillingSeeder extends Seeder
 	]);
 
 	$invoice5->addItem('Test Item', 'Fingers Crossed', 100 );
+
+	$payment1 = factory(App\Models\Transaction::class)->create([
+	    'creator_id' => 1,
+	    'owner_id' => 1,
+	    'account_id' => 1,
+	    'customer_id' => 1,
+	    'invoice_id' => $invoice5->id,
+	    'type' => 'payment',
+	    'reference_number' => 'Visa *4268',
+	    'total' => 100,
+	    'notes' => null,
+	    'created_at' => '2018-07-24 18:33:16',
+	    'updated_at' => '2018-07-24 18:33:16',
+	    'deleted_at' => null,
+	]);
+
+	$payment2 = factory(App\Models\Transaction::class)->create([
+	    'creator_id' => 1,
+	    'owner_id' => 1,
+	    'account_id' => 1,
+	    'customer_id' => 6,
+	    'invoice_id' => $invoice4->id,
+	    'type' => 'payment',
+	    'reference_number' => 'Visa *1280',
+	    'total' => 11278,
+	    'notes' => null,
+	    'created_at' => '2018-07-27 00:45:28',
+	    'updated_at' => '2018-07-27 00:45:28',
+	    'deleted_at' => null,
+	]);
+
+	$payment3 = factory(App\Models\Transaction::class)->create([
+	    'creator_id' => 1,
+	    'owner_id' => 1,
+	    'account_id' => 1,
+	    'customer_id' => 6,
+	    'invoice_id' => $invoice1->id,
+	    'type' => 'payment',
+	    'reference_number' => 'Visa *1280',
+	    'total' => 37985,
+	    'notes' => null,
+	    'created_at' => '2018-07-27 00:46:09',
+	    'updated_at' => '2018-07-27 00:46:09',
+	    'deleted_at' => null,
+	]);
 
     }
 }

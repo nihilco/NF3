@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
 	$this->call(DomainsTableSeeder::class);
 	$this->call(WebsitesTableSeeder::class);
 	$this->call(ZonesTableSeeder::class);
+	$this->call(PostsTableSeeder::class);
+	$this->call(CategoriesTableSeeder::class);
     }
 }

@@ -21,10 +21,10 @@ class CreateObituariesTable extends Migration
 	    $table->unsignedInteger('city_id');
 	    $table->unsignedInteger('name_id');
 	    $table->text('description');
-	    $table->text('obituary');
+	    $table->text('content');
 	    $table->string('reference')->nullable();
 	    $table->date('born_at');
-	    $table->date('death_at');
+	    $table->date('died_at');
 	    $table->boolean('broadcast')->default(false);
 	    $table->softDeletes();
             $table->timestamps();

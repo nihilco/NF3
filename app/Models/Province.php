@@ -5,6 +5,24 @@ namespace App\Models;
 class Province extends Base
 {
     //
+    public static function boot()
+    {
+        parent::boot();
+
+	static::created(function($province) {
+	     $province->country->increment('provinces_count');
+	});
+
+	static::deleting(function($province) {
+	    $province->cities->each->delete();
+	});
+
+	static::deleted(function($province) {
+	    $province->country->decrement('provinces_count');
+	});
+    }
+    
+    //
     public function path()
     {
 	return '/provinces/' . $this->id;
@@ -14,5 +32,10 @@ class Province extends Base
     public function country()
     {
 	return $this->belongsTo(Country::class);
+    }
+
+    public function cities()
+    {
+	return $this->hasMany(City::class);
     }
 }

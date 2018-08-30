@@ -10,6 +10,16 @@ class Address extends Base
 	return '/addresses/' . $this->id;
     }
 
+    public function name()
+    {
+	return $this->belongsTo(Name::class);
+    }
+
+    public function city()
+    {
+	return $this->belongsTo(City::class);
+    }
+
     public function province()
     {
 	return $this->belongsTo(Province::class);

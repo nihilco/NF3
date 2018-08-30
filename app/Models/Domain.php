@@ -4,12 +4,18 @@ namespace App\Models;
 
 class Domain extends Base
 {
+    //
     public static function boot()
     {
         parent::boot();
 
 	static::created(function($domain) {
 	    $domain->tld->increment('domains_count');
+	});
+
+	static::deleting(function($domain) {
+	    $domain->websites->each->delete();
+	    $domain->zones->each->delete();
 	});
 
 	static::deleted(function($domain) {

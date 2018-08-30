@@ -39,6 +39,7 @@ class CountriesController extends Controller
     //
     public function store(Request $request)
     {
+	//
         $this->validate(request(), [
 	    'code' => 'required|string|size:2',
 	    'name' => 'required|string',
@@ -99,6 +100,7 @@ class CountriesController extends Controller
     //
     public function destroy(Country $country)
     {
+	//
         $country->delete();
 
 	\Session::flash('message', 'Country successfully deleted.');

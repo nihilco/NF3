@@ -17,7 +17,11 @@ class CreateViewsTable extends Migration
         Schema::create('views', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('resource_id');
+	    $table->string('resource_type');
 	    $table->unsignedInteger('user_id')->nullable();
+	    $table->string('ipv4');
+	    $table->string('ipv6')->nullable();
+	    $table->string('user_agent');
 	    $table->softDeletes();
             $table->timestamps();
 

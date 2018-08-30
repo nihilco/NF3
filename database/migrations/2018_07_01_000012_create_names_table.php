@@ -22,6 +22,7 @@ class CreateNamesTable extends Migration
 	    $table->string('last');
 	    $table->string('suffix')->nullable();
 	    $table->string('nickname')->nullable();
+	    $table->string('company')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

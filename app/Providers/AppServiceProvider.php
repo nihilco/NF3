@@ -20,8 +20,10 @@ class AppServiceProvider extends ServiceProvider
         //
 	Schema::defaultStringLength(191);
 
-	$this->setAppName();
-	$this->setViewPaths();
+	if(request()->server('PHP_SELF') != 'artisan') {
+	     $this->setAppName();
+	     $this->setViewPaths();
+	}
     }
 
     /**

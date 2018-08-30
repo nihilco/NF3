@@ -19,6 +19,7 @@ class CreateWebsitesTable extends Migration
 	    $table->unsignedInteger('account_id')->nullable();
 	    $table->unsignedInteger('domain_id');
 	    $table->string('hostname');
+	    $table->string('name')->nullable();
 	    $table->string('analytics_code')->nullable();
 	    $table->boolean('under_construction')->default(true);
 	    $table->boolean('active')->default(false);

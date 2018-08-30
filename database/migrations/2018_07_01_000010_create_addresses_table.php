@@ -16,16 +16,26 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-	    $table->string('name');
+	    $table->unsignedInteger('name_id');
 	    $table->string('address1');
 	    $table->string('address2')->nullable();
 	    $table->string('address3')->nullable();
-	    $table->string('city');
+	    $table->unsignedInteger('city_id');
 	    $table->unsignedInteger('province_id');
 	    $table->string('postal_code');
 	    $table->unsignedInteger('country_id');
 	    $table->softDeletes();
             $table->timestamps();
+
+	    $table->foreign('name_id')
+		->references('id')
+		->on('provinces')
+		->onDelete('cascade');
+
+	    $table->foreign('city_id')
+		->references('id')
+		->on('provinces')
+		->onDelete('cascade');
 
 	    $table->foreign('province_id')
 		->references('id')
