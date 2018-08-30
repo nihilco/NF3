@@ -8,12 +8,18 @@
 
 @section('content')
 
+@php
+
+$latestThreePosts = \App\Models\Post::where('published_at', '!=', 'null')->orderByDesc('published_at')->take(3)->get();
+
+@endphp
+
 <div class="container">
   <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
     <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+      <h1 class="display-4 font-italic">{{ $latestThreePosts[0]->name }}</h1>
+      <p class="lead my-3">{{ $latestThreePosts[0]->description }}</p>
+      <p class="lead mb-0"><a href="{{ $latestThreePosts[0]->path() }}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
   </div>
 </div>
@@ -25,11 +31,11 @@
         <div class="card-body d-flex flex-column align-items-start">
           <strong class="d-inline-block mb-2 text-primary">World</strong>
           <h3 class="mb-0">
-            <a class="text-dark" href="#">Featured post</a>
+            <a class="text-dark" href="#">{{ $latestThreePosts[1]->name }}</a>
           </h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#">Continue reading</a>
+          <div class="mb-1 text-muted">{{ $latestThreePosts[1]->published_at->toFormattedDateString() }}</div>
+          <p class="card-text mb-auto">{{ $latestThreePosts[1]->description }}</p>
+          <a href="{{ $latestThreePosts[1]->path() }}">Continue reading</a>
          </div>
          <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
        </div>
@@ -39,11 +45,11 @@
          <div class="card-body d-flex flex-column align-items-start">
            <strong class="d-inline-block mb-2 text-success">Design</strong>
            <h3 class="mb-0">
-             <a class="text-dark" href="#">Post title</a>
+             <a class="text-dark" href="#">{{ $latestThreePosts[2]->name }}</a>
            </h3>
-           <div class="mb-1 text-muted">Nov 11</div>
-           <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-           <a href="#">Continue reading</a>
+           <div class="mb-1 text-muted">{{ $latestThreePosts[2]->published_at->toFormattedDateString() }}</div>
+           <p class="card-text mb-auto">{{ $latestThreePosts[2]->description }}</p>
+           <a href="{{ $latestThreePosts[2]->path() }}">Continue reading</a>
          </div>
          <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
        </div>

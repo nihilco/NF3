@@ -118,18 +118,9 @@
       <div class="container">
         <div class="nav-scroller py-1 mb-2">
   	  <nav class="nav d-flex justify-content-between">
-	    <a class="p-2 text-muted" href="#">Books</a>
-	    <a class="p-2 text-muted" href="#">Engineering</a>
-	    <a class="p-2 text-muted" href="#">Technology</a>
-	    <a class="p-2 text-muted" href="#">Design</a>
-	    <a class="p-2 text-muted" href="#">Software</a>
-	    <a class="p-2 text-muted" href="#">Business</a>
-	    <a class="p-2 text-muted" href="#">Politics</a>
-	    <a class="p-2 text-muted" href="#">Opinion</a>
-	    <a class="p-2 text-muted" href="#">Science</a>
-	    <a class="p-2 text-muted" href="#">Health</a>
-	    <a class="p-2 text-muted" href="#">Food</a>
-	    <a class="p-2 text-muted" href="#">Travel</a>
+	    @foreach(\App\Models\Category::all() as $category)
+	        <a class="p-2" href="{{ $category->path() }}">{{ $category->name }}</a>
+	    @endforeach
 	  </nav>
         </div>
       </div>

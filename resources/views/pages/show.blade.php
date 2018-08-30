@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 
-@section('title', $country->name)
+@section('title', $page->name)
 
 @section('meta', '')
 
-{{ Breadcrumbs::push('Countries', url('/countries') ) }}
-{{ Breadcrumbs::push($country->name) }}
+{{ Breadcrumbs::push('Pages', url('/pages') ) }}
+{{ Breadcrumbs::push($page->name) }}
 
 @section('content')
 
 	      <div class="card">
 		<div class="card-header">
-		  <h5 class="card-title mb-0">{{ $country->name }}</h5>
+		  <h5 class="card-title mb-0">{{ $page->name }}</h5>
 		</div>
 		<div class="card-body">
-		  <p>{{ $country->description }}</p>
+		  <p>{{ $page->description }}</p>
 		</div>
 	      </div>
 
