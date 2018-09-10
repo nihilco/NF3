@@ -2,10 +2,19 @@
 
 namespace App\Models;
 
+use App\Traits\Categorizable;
+
 class Page extends Base
 {
+    use Categorizable;
+
     //
-    public $dates = ['published_at', 'created_at', 'updated_at', 'deleted_at'];
+    public $dates = [
+        'published_at',
+	'created_at',
+	'updated_at',
+	'deleted_at'
+    ];
     
     //
     public function path()
@@ -19,13 +28,8 @@ class Page extends Base
 	return 'slug';
     }
 
-    public function categories()
+    public function website()
     {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
-
-    public function tags()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
+	return $this->belongsTo(Website::class);
     }
 }

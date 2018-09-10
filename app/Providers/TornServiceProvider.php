@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Library\Torn;
 use Illuminate\Support\ServiceProvider;
 
 class TornServiceProvider extends ServiceProvider
@@ -24,5 +25,8 @@ class TornServiceProvider extends ServiceProvider
     public function register()
     {
         //
+	$this->app->singleton(Torn::class, function ($app) {
+            return new Torn(config('torn'));
+        });
     }
 }

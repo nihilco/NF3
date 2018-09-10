@@ -18,13 +18,13 @@ class PageTest extends TestCase
 	$this->page = factory(\App\Models\Page::class)->create();
     }
 
+    public function testPageHasWebsite()
+    {
+	$this->assertInstanceOf(\App\Models\Website::class, $this->page->website);
+    }
+
     public function testPageHasCategories()
     {
 	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->page->categories);
-    }
-
-    public function testPageHasTags()
-    {
-	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->page->tags);
     }
 }

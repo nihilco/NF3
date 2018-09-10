@@ -66,12 +66,14 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'crosbyjeepclub.com')->first()->id,
 	     'hostname' => 'www.crosbyjeepclub.com',
+	     'name' => 'Crosby Jeep Club',
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'crosbyjeepclub.com')->first()->id,
 	     'hostname' => 'dev.crosbyjeepclub.com',
+	     'name' => 'Crosby Jeep Club',
 	]);
 
         //

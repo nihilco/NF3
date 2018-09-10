@@ -75,7 +75,7 @@ class BillingSeeder extends Seeder
 	//
 	$address1 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    'name_id' => $name1->id,
+	    //'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
 	    'city_id' => $city1->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
@@ -86,7 +86,7 @@ class BillingSeeder extends Seeder
 	//
 	$address2 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    'name_id' => $name1->id,
+	    //'name_id' => $name1->id,
 	    'address1' => '855 Tremont Ave',
 	    'city_id' => $city2->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
@@ -97,7 +97,7 @@ class BillingSeeder extends Seeder
 	//
 	$address3 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    'name_id' => $name1->id,
+	    //'name_id' => $name1->id,
 	    'address1' => '1897 Combs Road',
 	    'address2' => 'Apt #1',
 	    'city_id' => $city3->id,
@@ -109,7 +109,7 @@ class BillingSeeder extends Seeder
 	//
 	$address4 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
-	    'name_id' => $name2->id,
+	    //'name_id' => $name2->id,
 	    'address1' => '2773 Haywood Avenue',
 	    'city_id' => $city5->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
@@ -120,7 +120,7 @@ class BillingSeeder extends Seeder
 	//
 	$address5 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'carlschow@gmail.com')->first()->id,
-	    'name_id' => $name3->id,
+	    //'name_id' => $name3->id,
 	    'address1' => '956 Signal Road',
 	    'address2' => 'ATTN: Carl Schow',
 	    'city_id' => $city4->id,
@@ -132,7 +132,7 @@ class BillingSeeder extends Seeder
 	//
 	$address6 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'chandler@mazestonelaw.com')->first()->id,
-	    'name_id' => $name4->id,
+	    //'name_id' => $name4->id,
 	    'address1' => '127 West High Street',
 	    'address2' => 'ATTN: Chandler Maze',
 	    'city_id' => $city6->id,
@@ -143,8 +143,9 @@ class BillingSeeder extends Seeder
 
 	//
 	$address7 = factory(App\Models\Address::class)->create([
-	    'owner_id' => $users->where('email', 'mclemmer@gmail.com')->first()->id,
-	    'name_id' => $name1->id,
+	    //'owner_id' => $users->where('email', 'mclemmer@gmail.com')->first()->id,
+	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
+	    //'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
 	    'city_id' => $city1->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,

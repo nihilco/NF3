@@ -48,6 +48,7 @@
                       <tr>
                         <th scope="col" class="td-count">#</th>
 		        <th scope="col">Name</th>
+			<th scope="col">Date Published</th>
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -61,6 +62,7 @@
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $post->name }}</td>
+			<td>{{ $post->published_at->toFormattedDateString() }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($post->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($post->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -98,7 +100,7 @@
 		@empty
 
 		      <tr>
-		        <td colspan="3">No posts at this time.</td>
+		        <td colspan="4">No posts at this time.</td>
 		      </tr>
 
 		@endforelse

@@ -16,13 +16,8 @@ class Category extends Base
 	return 'slug';
     }
 
-    public function pages()
+    public function categorizable()
     {
-        return $this->morphedByMany(Page::class, 'categorizable');
-    }
-
-    public function posts()
-    {
-        return $this->morphedByMany(Post::class, 'categorizable');
+        return $this->morphTo();
     }
 }

@@ -18,16 +18,6 @@ class CategoryTest extends TestCase
 	$this->category = factory(\App\Models\Category::class)->create();
     }
 
-    public function testCategoryHasPages()
-    {
-	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->category->pages);
-    }
-
-    public function testCategoryHasPosts()
-    {
-	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->category->posts);
-    }
-
     public function testCategoryHasCreator()
     {
 	$this->assertInstanceOf(\App\Models\User::class, $this->category->creator);

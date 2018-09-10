@@ -15,15 +15,9 @@ class Tag extends Base
     {
 	return 'slug';
     }
-    
-    //
-    public function pages()
-    {
-        return $this->morphedByMany(Page::class, 'taggable');
-    }
 
-    public function posts()
+    public function taggable()
     {
-        return $this->morphedByMany(Post::class, 'taggable');
+        return $this->morphTo();
     }
 }

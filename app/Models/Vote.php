@@ -9,4 +9,9 @@ class Vote extends Base
     {
 	return '/votes/' . $this->id;
     }
+
+    public function votable()
+    {
+        return $this->morphTo();
+    }
 }

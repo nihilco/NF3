@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Blade;
 use App\Models\Website;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
 	     $this->setAppName();
 	     $this->setViewPaths();
 	}
+
+	Blade::directive('currency', function ($expression) {
+	    return "<?php echo ($expression < 0) ? '-$' . number_format(abs($expression)/100) : '$' . number_format($expression/100); ?>";
+	});
     }
 
     /**

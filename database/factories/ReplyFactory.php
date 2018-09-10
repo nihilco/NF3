@@ -14,8 +14,8 @@ $factory->define(\App\Models\Reply::class, function (Faker $faker) {
         //
 	'creator_id' => 1,
 	'owner_id' => 1,
-	'resource_id' => $resource->id,
-	'resource_type' => get_class($resource),
+	'repliable_id' => $resource->id,
+	'repliable_type' => get_class($resource),
 	'content' => $faker->paragraphs(rand(1,3), true),
     ];
 });

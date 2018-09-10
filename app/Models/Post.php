@@ -2,8 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Categorizable;
+use App\Traits\Repliable;
+use App\Traits\Taggable;
+
 class Post extends Base
 {
+    use Categorizable, Repliable, Taggable;
+    
     //
     public $dates = ['published_at', 'created_at', 'updated_at', 'deleted_at'];
     
@@ -19,13 +25,8 @@ class Post extends Base
 	return 'slug';
     }
 
-    public function categories()
+    public function website()
     {
-        return $this->morphToMany(Category::class, 'categorizable');
-    }
-
-    public function tags()
-    {
-        return $this->morphToMany(Tag::class, 'taggable');
+	return $this->belongsTo(Website::class);
     }
 }

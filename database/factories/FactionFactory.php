@@ -10,6 +10,6 @@ $factory->define(\App\Models\Faction::class, function (Faker $faker) {
 	'torn_id' => rand(1000,10000),
 	'name' => $faker->words(rand(1,3), true),
 	'respect' => rand(1,5000000),
-	'members_count' => rand(1,100),
+	'players_count' => rand(1,100),
     ];
 });

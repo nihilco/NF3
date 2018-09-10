@@ -16,7 +16,6 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('name_id');
 	    $table->string('address1');
 	    $table->string('address2')->nullable();
 	    $table->string('address3')->nullable();
@@ -26,11 +25,6 @@ class CreateAddressesTable extends Migration
 	    $table->unsignedInteger('country_id');
 	    $table->softDeletes();
             $table->timestamps();
-
-	    $table->foreign('name_id')
-		->references('id')
-		->on('provinces')
-		->onDelete('cascade');
 
 	    $table->foreign('city_id')
 		->references('id')

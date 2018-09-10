@@ -15,8 +15,8 @@ $factory->define(\App\Models\View::class, function (Faker $faker) {
         //
     	'owner_id' => 1,
 	'creator_id' => 1,
-	'resource_id' => $resource->id,
-	'resource_type' => get_class($resource),
+	'viewable_id' => $resource->id,
+	'viewable_type' => get_class($resource),
 	'ipv4' => $faker->ipv4,
 	'user_agent' => $faker->userAgent,
     ];

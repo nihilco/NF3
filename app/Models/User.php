@@ -41,6 +41,12 @@ class User extends Authenticatable
 	});
     }
 
+    //
+    public function getRouteKeyName()
+    {
+	return 'slug';
+    }
+
     public function generateApiKey()
     {
         $this->api_key = str_random(60);

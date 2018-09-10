@@ -16,6 +16,7 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
+	    $table->unsignedInteger('website_id');
 	    $table->string('name');
 	    $table->string('slug');
 	    $table->text('description');
@@ -23,6 +24,11 @@ class CreatePagesTable extends Migration
 	    $table->datetime('publish_at')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
+
+	    $table->foreign('website_id')
+		->references('id')
+		->on('websites')
+		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
 	    $table->unsignedInteger('owner_id');

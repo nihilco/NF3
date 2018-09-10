@@ -14,8 +14,8 @@ $factory->define(\App\Models\Vote::class, function (Faker $faker) {
         //
     	'owner_id' => 1,
 	'creator_id' => 1,
-	'resource_id' => $resource->id,
-	'resource_type' => get_class($resource),
+	'votable_id' => $resource->id,
+	'votable_type' => get_class($resource),
 	'vote' => $faker->randomElement($array = array ('up', 'down')),
     ];
 });

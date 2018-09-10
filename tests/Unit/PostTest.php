@@ -18,6 +18,11 @@ class PostTest extends TestCase
 	$this->post = factory(\App\Models\Post::class)->create();
     }
 
+    public function testPostHasWebsite()
+    {
+	$this->assertInstanceOf(\App\Models\Website::class, $this->post->website);
+    }
+
     public function testPostHasCategories()
     {
 	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->post->categories);
@@ -26,5 +31,10 @@ class PostTest extends TestCase
     public function testPostHasTags()
     {
 	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->post->tags);
+    }
+
+    public function testPostHasReplies()
+    {
+	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->post->replies);
     }
 }

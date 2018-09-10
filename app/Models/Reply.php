@@ -9,4 +9,9 @@ class Reply extends Base
     {
 	return '/replies/' . $this->id;
     }
+
+    public function repliable()
+    {
+        return $this->morphTo();
+    }
 }

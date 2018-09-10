@@ -17,11 +17,6 @@ class AddressTest extends TestCase
 
 	$this->address = factory(\App\Models\Address::class)->create();
     }
-    
-    public function testAddressHasName()
-    {
-	$this->assertInstanceOf(\App\Models\Name::class, $this->address->name);
-    }
 
     public function testAddressHasCity()
     {

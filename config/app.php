@@ -162,6 +162,8 @@ return [
 	//
 	App\Providers\BreadcrumbsServiceProvider::class,
 	App\Providers\StripeServiceProvider::class,
+	App\Providers\TornServiceProvider::class,
+	App\Providers\AmazonProductAdvertisingServiceProvider::class,	
     ],
 
     /*
@@ -213,6 +215,8 @@ return [
 	//
 	'Breadcrumbs' => App\Facades\Breadcrumbs::class,
 	'Stripe' => App\Facades\Stripe::class,
+	'Torn' => App\Facades\Torn::class,
+	'AmazonProductAdvertising' => App\Facades\AmazonProductAdvertising::class,
     ],
 
 ];

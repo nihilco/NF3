@@ -1,0 +1,73 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 136px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 136px;
+    color:#FFF;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color:#FFF;
+}
+
+#copyright {
+   text-align:center;
+}
+
+#powered {
+    text-align:center;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 56px;
+  }
+
+  .footer {
+    /* Set the fixed height of the footer here */
+    height: 56px;
+  }
+
+  #copyright {
+   text-align:left;
+  }
+
+  #powered {
+    text-align:right;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

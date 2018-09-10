@@ -22,7 +22,7 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">NIHIL</a>
+        <a class="navbar-brand" href="/">{{ config('app.name') }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,10 +46,15 @@
 	        <i class="fas fa-server text-success"></i>
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	        <a class="dropdown-item" href="#">Action</a>
-	        <a class="dropdown-item" href="#">Another action</a>
-	        <div class="dropdown-divider"></div>
-	        <a class="dropdown-item" href="#">Something else here</a>
+		@forelse($s = \App\Models\Server::all() as $server)
+		<a class="dropdown-item" href="{{ $server->path() }}"><i class="fas fa-circle text-success"></i> {{ $server->name }} ({{$server->hostname}})</a>
+		@empty
+		<p>No servers.</p>
+		@endforelse
+		@if($s->count() > 0)
+		<div class="dropdown-divider"></div>
+	        <a class="dropdown-item" href="/servers">All Servers</a>
+		@endif
 	      </div>
 	    </li>
 	    <li class="nav-item dropdown">
@@ -68,7 +73,8 @@
 	        {{ auth()->user()->email }}
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	        <a class="dropdown-item" href="{{ url('/settings') }}">Settings</a>
+	        <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> Profile</a>
+		<a class="dropdown-item" href="{{ url('/settings') }}"><i class="fas fa-cog"></i> Settings</a>
 	        <div class="dropdown-divider"></div>
 	        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> Logout</a>
 		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

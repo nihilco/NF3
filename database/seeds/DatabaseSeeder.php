@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
 	$this->call(ZonesTableSeeder::class);
 	$this->call(PostsTableSeeder::class);
 	$this->call(CategoriesTableSeeder::class);
+	$this->call(TornSeeder::class);
+	$this->call(SupportSeeder::class);
     }
 }

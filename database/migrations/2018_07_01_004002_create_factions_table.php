@@ -17,9 +17,11 @@ class CreateFactionsTable extends Migration
         Schema::create('factions', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('torn_id');
+    	    $table->unsignedInteger('leader_id')->nullable();
+	    $table->unsignedInteger('coleader_id')->nullable();
 	    $table->string('name');
 	    $table->unsignedInteger('respect');
-	    $table->unsignedInteger('members_count')->default(0);
+	    $table->unsignedInteger('players_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 

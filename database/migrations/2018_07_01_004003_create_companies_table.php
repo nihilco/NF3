@@ -17,7 +17,16 @@ class CreateCompaniesTable extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('torn_id');
-	    $table->unsignedInteger('company_type')->nullable();
+	    $table->unsignedInteger('director_id')->nullable();
+	    $table->enum('type', [
+	        'Fitness Center',
+	        'Gents Strip Club',
+		'Hair Salon',
+	        'Ladies Strip Club',
+		'Oil Rig',
+		'Sweet Shop',
+		'TV Company',
+	    ]);
 	    $table->string('name');
 	    $table->softDeletes();
             $table->timestamps();
