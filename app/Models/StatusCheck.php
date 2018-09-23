@@ -9,4 +9,19 @@ class StatusCheck extends Base
     {
 	return '/status-checks/' . $this->id;
     }
+
+    public function type()
+    {
+	return $this->belongsTo(Type::class);
+    }
+
+    public function resource()
+    {
+	return $this->morphTo();
+    }
+
+    public function status()
+    {
+	return $this->belongsTo(Type::class, 'status_type_id');
+    }
 }

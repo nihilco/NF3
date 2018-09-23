@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\StatusChecks;
+use App\Models\StatusCheck;
 use Illuminate\Http\Request;
 
 class StatusChecksController extends Controller
 {
+    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,8 @@ class StatusChecksController extends Controller
     public function index()
     {
         //
+	$statusChecks = StatusCheck::all();
+	return view('status-checks.index', compact('statusChecks'));
     }
 
     /**

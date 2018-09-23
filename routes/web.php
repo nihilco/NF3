@@ -107,6 +107,8 @@ Route::get('replies/list', 'RepliesController@list');
 Route::resource('replies', 'RepliesController');
 Route::get('servers/list', 'ServersController@list');
 Route::resource('servers', 'ServersController');
+Route::get('status-checks/list', 'StatusChecksController@list');
+Route::resource('status-checks', 'StatusChecksController');
 Route::get('tags/list', 'TagsController@list');
 Route::resource('tags', 'TagsController');
 Route::get('threads/list', 'ThreadsController@list');
