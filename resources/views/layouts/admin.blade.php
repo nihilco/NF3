@@ -73,6 +73,7 @@
 	        {{ auth()->user()->email }}
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+		<a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
 	        <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> Profile</a>
 		<a class="dropdown-item" href="{{ url('/settings') }}"><i class="fas fa-cog"></i> Settings</a>
 	        <div class="dropdown-divider"></div>

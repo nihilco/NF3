@@ -114,8 +114,9 @@
 	        {{ auth()->user()->email }}
 	      </a>
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="authDropdown">
-	        <a class="dropdown-item" href="{{ url('/dashboard') }}"><i class="fas fa-dashboard"></i> Dashboard</a>
-	        <a class="dropdown-item" href="{{ url('/settings') }}"><i class="fas fa-gear"></i> Settings</a>		
+	        <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+		<a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user"></i> Profile</a>
+	        <a class="dropdown-item" href="{{ url('/settings') }}"><i class="fas fa-cog"></i> Settings</a>		
 	        <div class="dropdown-divider"></div>
 	        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> Logout</a>
 	        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
