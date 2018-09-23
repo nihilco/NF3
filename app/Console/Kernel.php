@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
 	\App\Console\Commands\Torn\Players::class,
+	\App\Console\Commands\Monitors\Servers::class,
+	\App\Console\Commands\Monitors\Websites::class,
     ];
 
     /**
@@ -27,6 +29,9 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('torn:players')
                   ->daily();
+
+        $schedule->command('monitor:websites')
+                  ->hourly();
     }
 
     /**
