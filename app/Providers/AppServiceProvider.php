@@ -49,8 +49,12 @@ class AppServiceProvider extends ServiceProvider
 	     $this->website = Website::where('hostname', $appName)->first();
 	}
 
-	if($this->website && $this->website->name != '') {
-	     $appName = $this->website->name;
+	if($this->website) {
+	
+	     if($this->website->name != '') {
+	          $appName = $this->website->name;
+	     }
+	     
 	     config(['app.website' => $this->website]);
 	}
 

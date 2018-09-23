@@ -18,7 +18,7 @@ class CreateWorksTable extends Migration
             $table->increments('id');
 	    $table->unsignedInteger('type_id');
 	    $table->string('title');
-	    $table->string('subtitle');
+	    $table->string('subtitle')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

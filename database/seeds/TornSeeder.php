@@ -34,7 +34,7 @@ class TornSeeder extends Seeder
 	    'name' => '39 sausages',
 	]);
 
-	$networth1 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
            "player_id" => 1,
            "pending" => 0,
 	   "wallet" => 0,
@@ -61,7 +61,7 @@ class TornSeeder extends Seeder
 	   "owner_id" => 1,
 	]);
 
-	$networth2 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
             "wallet" => 1874500,
@@ -88,7 +88,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
         ]);
 
-	$networth3 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
 	    "wallet" => 1007900,
@@ -115,7 +115,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	$networth4 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "id" => 7,
             "player_id" => 1,
             "pending" => 9497300,
@@ -143,7 +143,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 	
-	$networth5 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
 	    "player_id" => 1,
             "pending" => 0,
             "wallet" => 0,
@@ -170,7 +170,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	$networth6 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
 	    "wallet" => 2593192300,
@@ -197,7 +197,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	$networth7 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 193100,
@@ -224,7 +224,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	$networth8 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 80538900,
@@ -251,7 +251,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	$networth9 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 82077400,
@@ -278,7 +278,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	$networth9 = factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 83233100,
@@ -303,6 +303,331 @@ class TornSeeder extends Seeder
             "updated_at" => "2018-09-10 00:00:01",
             "creator_id" => 1,
             "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([
+          "player_id" => 1,
+          "pending" => 0,
+          "wallet" => 52621200,
+	  "bank" => 231460000000,
+	  "points" => 186700500,
+	  "cayman" => 100000000000,
+	  "vault" => 887117700,
+	  "piggybank" => 0,
+	  "items" => 69522757000,
+	  "displaycase" => 455225488100,
+	  "bazaar" => 1812998100,
+	  "properties" => 195278800000,
+	  "stockmarket" => 752163476100,
+	  "auctionhouse" => 0,
+	  "company" => 12670650000,
+	  "bookie" => 0,
+	  "loan" => 0,
+	  "unpaidfees" => -141000000,
+	  "total" => 1819119608700,
+	  "deleted_at" => null,
+	  "created_at" => "2018-09-11 00:00:03",
+	  "updated_at" => "2018-09-11 00:00:03",
+	  "creator_id" => 1,
+	  "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([
+            "player_id" => 1,
+            "pending" => 0,
+            "wallet" => 35619900,
+            "bank" => 231460000000,
+            "points" => 186774000,
+            "cayman" => 100000000000,
+            "vault" => 687117700,
+            "piggybank" => 0,
+            "items" => 69680673000,
+            "displaycase" => 455475795700,
+            "bazaar" => 1812998100,
+            "properties" => 195353800000,
+            "stockmarket" => 763359435000,
+            "auctionhouse" => 0,
+            "company" => 12665637300,
+            "bookie" => 0,
+            "loan" => 0,
+            "unpaidfees" => 0,
+            "total" => 1830717850700,
+            "deleted_at" => null,
+            "created_at" => "2018-09-12 00:00:02",
+            "updated_at" => "2018-09-12 00:00:02",
+            "creator_id" => 1,
+            "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([	  
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 33705700,
+	    "bank" => 231460000000,
+	    "points" => 186735500,
+	    "cayman" => 100000000000,
+	    "vault" => 687117700,
+	    "piggybank" => 0,
+	    "items" => 72542327600,
+	    "displaycase" => 455491750400,
+	    "bazaar" => 1813803800,
+	    "properties" => 195353800000,
+	    "stockmarket" => 764344529800,
+	    "auctionhouse" => 0,
+	    "company" => 12666715700,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -35250000,
+	    "total" => 1834545236200,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-13 00:00:02",
+	    "updated_at" => "2018-09-13 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
 	]);	    
+
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 32567200,
+	    "bank" => 231460000000,
+	    "points" => 187257000,
+	    "cayman" => 100000000000,
+	    "vault" => 687117700,
+	    "piggybank" => 0,
+	    "items" => 72531968200,
+	    "displaycase" => 455592936400,
+	    "bazaar" => 1814504900,
+	    "properties" => 195353800000,
+	    "stockmarket" => 763047869600,
+	    "auctionhouse" => 0,
+	    "company" => 12660974200,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -70500000,
+	    "total" => 1833298495200,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-14 00:00:02",
+	    "updated_at" => "2018-09-14 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);	  
+
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 26164800,
+	    "bank" => 231460000000,
+	    "points" => 187813500,
+	    "cayman" => 100000000000,
+	    "vault" => 687117700,
+	    "piggybank" => 0,
+	    "items" => 72464629600,
+	    "displaycase" => 455625494500,
+	    "bazaar" => 1814621100,
+	    "properties" => 195353800000,
+	    "stockmarket" => 756487020100,
+	    "auctionhouse" => 0,
+	    "company" => 12658009800,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -105750000,
+	    "total" => 1826658921100,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-15 00:00:01",
+	    "updated_at" => "2018-09-15 00:00:01",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([
+            "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 22470900,
+	    "bank" => 231460000000,
+	    "points" => 188149500,
+	    "cayman" => 100000000000,
+	    "vault" => 687117700,
+	    "piggybank" => 0,
+	    "items" => 72946295000,
+	    "displaycase" => 455089583700,
+	    "bazaar" => 1814838000,
+	    "properties" => 195353800000,
+	    "stockmarket" => 751818265000,
+	    "auctionhouse" => 0,
+	    "company" => 12813563400,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -141000000,
+	    "total"=> 1822053083200,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-16 00:00:02",
+	    "updated_at" => "2018-09-16 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+            "pending" => 0,
+            "wallet" => 188212300,
+            "bank" => 231460000000,
+            "points" => 188555500,
+	    "cayman" => 100000000000,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 73645968300,
+	    "displaycase" => 455123435500,
+	    "bazaar" => 1815281400,
+	    "properties" => 195278800000,
+	    "stockmarket" => 753419282600,
+	    "auctionhouse" => 0,
+	    "company" => 12931938500,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => 0,
+	    "total" => 1824051474100,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-17 00:00:04",
+	    "updated_at" => "2018-09-17 00:00:04",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 152301500,
+	    "bank" => 231460000000,
+	    "points" => 189073500,
+	    "cayman" => 100000000000,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 73657734500,
+	    "displaycase" => 455067171800,
+	    "bazaar" => 1815261700,
+	    "properties" => 195278800000,
+	    "stockmarket" => 754413930200,
+	    "auctionhouse" => 0,
+	    "company" => 12928421400,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -35250000,
+	    "total" => 1824927444600,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-18 00:00:02",
+	    "updated_at" => "2018-09-18 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+	
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 152513000,
+            "bank" => 231460000000,
+            "points" => 593615000,
+            "cayman" => 100000000000,
+            "vault" => 0,
+            "piggybank" => 0,
+            "items" => 73726916700,
+            "displaycase" => 455307814400,
+            "bazaar" => 1816216000,
+            "properties" => 195278800000,
+	    "stockmarket" => 749158219500,
+	    "auctionhouse" => 0,
+	    "company" => 12925844200,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -70500000,
+	    "total" => 1820349438800,
+            "deleted_at" => null,
+            "created_at" => "2018-09-19 00:00:02",
+            "updated_at" => "2018-09-19 00:00:02",
+            "creator_id" => 1,
+            "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 128476100,
+	    "bank" => 227830000000,
+	    "points" => 321420000,
+	    "cayman" => 100000000000,
+	    "vault" => 12400000000,
+	    "piggybank" => 0,
+	    "items" => 73828506300,
+	    "displaycase" => 455318015200,
+	    "bazaar" => 1816685200,
+	    "properties" => 195278800000,
+	    "stockmarket" => 757015754400,
+	    "auctionhouse" => 0,
+	    "company" => 12920890300,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => 0,
+	    "total" => 1836858547500,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-20 00:00:02",
+	    "updated_at" => "2018-09-20 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+	
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 169476500,
+	    "bank" => 227830000000,
+	    "points" => 53776000,
+	    "cayman" => 100000000000,
+	    "vault" => 12400000000,
+	    "piggybank" => 0,
+	    "items" => 73834653200,
+	    "displaycase" => 455347955800,
+	    "bazaar" => 1817372100,
+	    "properties" => 195328800000,
+	    "stockmarket" => 763615431700,
+	    "auctionhouse" => 0,
+	    "company" => 12912893400,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -35250000,
+	    "total" => 1843275108700,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-21 00:00:02",
+	    "updated_at" => "2018-09-21 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+	
+	factory(\App\Models\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 169658300,
+	    "bank" => 227830000000,
+	    "points" => 53687000,
+	    "cayman" => 100000000000,
+	    "vault" => 12400000000,
+	    "piggybank" => 0,
+	    "items" => 75189683800,
+	    "displaycase" => 455862171900,
+	    "bazaar" => 1817390600,
+	    "properties" => 195328800000,
+	    "stockmarket" => 753380125100,
+	    "auctionhouse" => 0,
+	    "company" => 12898878600,
+	    "bookie" => 0,
+	    "loan" => 0,
+	    "unpaidfees" => -70500000,
+	    "total" => 1834859895300,
+	    "deleted_at" => null,
+	    "created_at" => "2018-09-22 00:00:02",
+	    "updated_at" => "2018-09-22 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+	
     }
 }

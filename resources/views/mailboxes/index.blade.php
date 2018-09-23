@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Countries')
+@section('title', 'Mailboxes')
 
 @section('meta', '')
 
-{{ Breadcrumbs::push('Countries') }}
+{{ Breadcrumbs::push('Mailboxes') }}
 
 @section('content')
 
@@ -16,11 +16,11 @@
 
 <div class="row">
 <div class="col-8">
-<h6>{{ $countries->count() }}</h6>
-<small>Countries</small>
+<h6>{{ $mailboxes->count() }}</h6>
+<small>Mailboxes</small>
 </div>
 <div class="col-4">
-<a href="{{ url('/countries/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
+<a href="{{ url('/mailboxes/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
 </div>
 </div>
 
@@ -39,7 +39,7 @@
 
 	      <div class="card">
 		<div class="card-header">
-		  <h5 class="card-title mb-0">Countries List</h5>
+		  <h5 class="card-title mb-0">Mailboxes List</h5>
 		</div>
 		<div class="card-body">
 
@@ -47,9 +47,8 @@
                     <thead>
                       <tr>
                         <th scope="col" class="td-count">#</th>
-	                <th scope="col">Code</th>
-		        <th scope="col">Name</th>
-			<th scope="col">Provinces</th>
+	                <th scope="col">Domain</th>
+		        <th scope="col">Address</th>
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -58,31 +57,30 @@
                   $c = 1;
                 @endphp
 		
-		@forelse($countries as $country)
+		@forelse($mailboxes as $mailbox)
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-		        <td>{{ $country->code }}</td>
-		        <td>{{ $country->name }}</td>
-			<td>{{ $country->provinces_count }}</td>
+		        <td>{{ $mailbox->domain->domain }}</td>
+		        <td>{{ $mailbox->email }}</td>
 		        <td class="td-action">
-			  <a href="{{ url($country->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
-			  <a href="{{ url($country->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-			  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ $country->id }}"><i class="fas fa-trash-alt"></i></button>
-                          <form action="{{ $country->path() }}" method="POST">
+			  <a href="{{ url($mailbox->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+			  <a href="{{ url($mailbox->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+			  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ $mailbox->id }}"><i class="fas fa-trash-alt"></i></button>
+                          <form action="{{ $mailbox->path() }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <div id="deleteModal-{{ $country->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div id="deleteModal-{{ $mailbox->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteModalLabel">Delete Country?</h5>
+                                    <h5 class="modal-title" id="deleteModalLabel">Delete Mailbox?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
                                   <div class="modal-body">
-                                    <p>Are you sure you want to delete the {{ $country->name }} Country?</p>
+                                    <p>Are you sure you want to delete the {{ $mailbox->id }} Mailbox?</p>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -102,7 +100,7 @@
 		@empty
 
 		      <tr>
-		        <td colspan="5">No countries at this time.</td>
+		        <td colspan="4">No mailboxes at this time.</td>
 		      </tr>
 
 		@endforelse

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class Works extends Base
+class Work extends Base
 {
     //
     public function path()

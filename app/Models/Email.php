@@ -10,7 +10,8 @@ class Email extends Base
         return '/emails/' . $this->id;
     }
 
-    //public function domain()
+    //
+    public function domain()
     {
         return $this->belongsTo(Domain::class);
     }

@@ -16,6 +16,9 @@ $factory->define(\App\Models\Ticket::class, function (Faker $faker) {
 	'status_type_id' => function() {
 	    return factory(App\Models\Type::class)->create()->id;
 	},
+	'priority_type_id' => function() {
+	    return factory(App\Models\Type::class)->create()->id;
+	},	
 	'resolution_type_id' => function() {
 	    return factory(App\Models\Type::class)->create()->id;
 	},

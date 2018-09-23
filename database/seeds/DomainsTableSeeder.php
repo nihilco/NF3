@@ -137,12 +137,14 @@ class DomainsTableSeeder extends Seeder
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.co')->first()->id,
 	    'domain' => 'nihil.co',
+	    'active' => true,
 	]);
 
 	//
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
 	    'domain' => 'nihilframework.com',
+	    'active' => true,
 	]);
 
 	//
@@ -221,12 +223,14 @@ class DomainsTableSeeder extends Seeder
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
 	    'domain' => 'uclemmer.com',
+	    'active' => true,
 	]);
 
 	//
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.net')->first()->id,
 	    'domain' => 'uclemmer.net',
+	    'active' => true,
 	]);
 
 	//

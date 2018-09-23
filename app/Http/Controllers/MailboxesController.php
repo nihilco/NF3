@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mailbox;
+use App\Models\Mailbox;
 use Illuminate\Http\Request;
 
-class MailboxController extends Controller
+class MailboxesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,8 @@ class MailboxController extends Controller
     public function index()
     {
         //
+	$mailboxes = Mailbox::all();
+	return view('mailboxes.index', compact(['mailboxes']));
     }
 
     /**

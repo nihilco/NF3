@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateMailboxesTable extends Migration
 {
@@ -15,7 +16,25 @@ class CreateMailboxesTable extends Migration
     {
         Schema::create('mailboxes', function (Blueprint $table) {
             $table->increments('id');
+	    $table->unsignedInteger('domain_id');
+	    $table->string('email')->unique();
+	    $table->string('password');
+	    $table->boolean('active')->default(false);
+	    $table->softDeletes();
             $table->timestamps();
+
+	    $table->unsignedInteger('creator_id');
+	    $table->unsignedInteger('owner_id');
+
+	    $table->foreign('creator_id')
+		->references('id')
+		->on('users')
+		->onDelete('cascade');
+
+	    $table->foreign('owner_id')
+		->references('id')
+		->on('users')
+		->onDelete('cascade');
         });
     }
 

@@ -20,6 +20,7 @@ class CreateTypesTable extends Migration
 	    $table->string('name');
 	    $table->string('slug');
 	    $table->text('description');
+	    $table->unsignedInteger('resource_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 
