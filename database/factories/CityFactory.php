@@ -9,6 +9,9 @@ $factory->define(App\Models\City::class, function (Faker $faker) {
 	'province_id' => function () {
 	    return factory(App\Models\Province::class)->create()->id;
 	},
+	'country_id' => function () {
+	    return factory(App\Models\Country::class)->create()->id;
+	},
 	'name' => $faker->city,
 	'description' => $faker->paragraph,
     ];

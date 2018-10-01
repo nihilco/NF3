@@ -11,23 +11,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(CountriesTableSeeder::class);
-	$this->call(ProvincesTableSeeder::class);
-	$this->call(AccountsTableSeeder::class);
-        $this->call(CustomersTableSeeder::class);
-	$this->call(BillingSeeder::class);
-        $this->call(ServersTableSeeder::class);	
-        $this->call(TldsTableSeeder::class);
-	$this->call(DomainsTableSeeder::class);
-	$this->call(WebsitesTableSeeder::class);
-	$this->call(ZonesTableSeeder::class);
-	$this->call(MailboxesTableSeeder::class);
-	$this->call(AliasesTableSeeder::class);
-	$this->call(StatusChecksTableSeeder::class);		
-	$this->call(PostsTableSeeder::class);
-	$this->call(CategoriesTableSeeder::class);
-	$this->call(TornSeeder::class);
-	$this->call(SupportSeeder::class);
+        $this->call([
+	    UsersTableSeeder::class,
+            CountriesTableSeeder::class,
+	    ProvincesTableSeeder::class,
+	    CitiesTableSeeder::class,
+	    AccountsTableSeeder::class,
+            CustomersTableSeeder::class,
+	    BillingSeeder::class,
+            ServersTableSeeder::class,	
+            TldsTableSeeder::class,
+	    DomainsTableSeeder::class,
+	    WebsitesTableSeeder::class,
+	    ZonesTableSeeder::class,
+	    MailboxesTableSeeder::class,
+	    AliasesTableSeeder::class,
+	    StatusChecksTableSeeder::class,		
+	    PostsTableSeeder::class,
+	    CategoriesTableSeeder::class,
+	    TornSeeder::class,
+	    SupportSeeder::class,
+	]);
     }
 }

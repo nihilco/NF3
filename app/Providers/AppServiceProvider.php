@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
 	     $this->setViewPaths();
 	}
 
+	$this->app['view']->addNamespace('emails', base_path() . '/resources/emails');
+
 	Blade::directive('currency', function ($expression) {
 	    return "<?php echo ($expression < 0) ? '-$' . number_format(abs($expression)/100) : '$' . number_format($expression/100); ?>";
 	});

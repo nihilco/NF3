@@ -11,7 +11,8 @@ class BillingSeeder extends Seeder
      */
     public function run()
     {
-        $provinces = App\Models\Province::all();
+        $cities = App\Models\City::all();
+	$provinces = App\Models\Province::all();
 	$countries = App\Models\Country::all();
 	$users = App\Models\User::all();
 
@@ -42,57 +43,67 @@ class BillingSeeder extends Seeder
 	]);
 
 	//
-	$city1 = factory(App\Models\City::class)->create([
-	    'name' => 'Hixson',
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
-	]);
+	//$city1 = factory(App\Models\City::class)->create([
+	//    'name' => 'Hixson',
+	//    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	//]);
 
-	$city2 = factory(App\Models\City::class)->create([
-	    'name' => 'Lexington',
-	    'province_id' => $provinces->where('code', 'KY')->first()->id,
-	]);
+	//$city2 = factory(App\Models\City::class)->create([
+	//    'name' => 'Lexington',
+	//    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	//]);
 
-	$city3 = factory(App\Models\City::class)->create([
-	    'name' => 'Hazard',
-	    'province_id' => $provinces->where('code', 'KY')->first()->id,
-	]);
+	//$city3 = factory(App\Models\City::class)->create([
+	//    'name' => 'Hazard',
+	//    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	//]);
 
-	$city4 = factory(App\Models\City::class)->create([
-	    'name' => 'Signal Mountain',
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
-	]);
+	//$city4 = factory(App\Models\City::class)->create([
+	//    'name' => 'Signal Mountain',
+	//    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	//]);
 
-	$city5 = factory(App\Models\City::class)->create([
-	    'name' => 'Chattanooga',
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
-	]);
+	//$city5 = factory(App\Models\City::class)->create([
+	//    'name' => 'Chattanooga',
+	//    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	//]);
 
-	$city6 = factory(App\Models\City::class)->create([
-	    'name' => 'Mount Sterling',
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
-	]);
+	//$city6 = factory(App\Models\City::class)->create([
+	//    'name' => 'Mount Sterling',
+	//    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	//]);
+
+	$cityId = $cities->where('name', 'Hixson')->first()->id;
+	$provinceId = $provinces->where('code', 'TN')->first()->id;
+	$countryId = $countries->where('code', 'US')->first()->id;
 
 	//
 	$address1 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
 	    //'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
-	    'city_id' => $city1->id,
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '37343',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
+
+	$cityId = $cities->where('name', 'Lexington')->first()->id;
+	$provinceId = $provinces->where('code', 'KY')->first()->id;
 
 	//
 	$address2 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
 	    //'name_id' => $name1->id,
 	    'address1' => '855 Tremont Ave',
-	    'city_id' => $city2->id,
-	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '40502',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
+
+	$cityId = $cities->where('name', 'Hazard')->first()->id;
+	$provinceId = $provinces->where('code', 'KY')->first()->id;
 
 	//
 	$address3 = factory(App\Models\Address::class)->create([
@@ -100,22 +111,28 @@ class BillingSeeder extends Seeder
 	    //'name_id' => $name1->id,
 	    'address1' => '1897 Combs Road',
 	    'address2' => 'Apt #1',
-	    'city_id' => $city3->id,
-	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '41701',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
+
+	$cityId = $cities->where('name', 'Chattanooga')->first()->id;
+	$provinceId = $provinces->where('code', 'TN')->first()->id;
 
 	//
 	$address4 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
 	    //'name_id' => $name2->id,
 	    'address1' => '2773 Haywood Avenue',
-	    'city_id' => $city5->id,
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '37415',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
+
+	$cityId = $cities->where('name', 'Signal Mountain')->first()->id;
+	$provinceId = $provinces->where('code', 'TN')->first()->id;
 
 	//
 	$address5 = factory(App\Models\Address::class)->create([
@@ -123,11 +140,14 @@ class BillingSeeder extends Seeder
 	    //'name_id' => $name3->id,
 	    'address1' => '956 Signal Road',
 	    'address2' => 'ATTN: Carl Schow',
-	    'city_id' => $city4->id,
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '37377',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
+
+	$cityId = $cities->where('name', 'Mount Sterling')->first()->id;
+	$provinceId = $provinces->where('code', 'TN')->first()->id;
 
 	//
 	$address6 = factory(App\Models\Address::class)->create([
@@ -135,11 +155,14 @@ class BillingSeeder extends Seeder
 	    //'name_id' => $name4->id,
 	    'address1' => '127 West High Street',
 	    'address2' => 'ATTN: Chandler Maze',
-	    'city_id' => $city6->id,
-	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '40353',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
+
+	$cityId = $cities->where('name', 'Hixson')->first()->id;
+	$provinceId = $provinces->where('code', 'TN')->first()->id;
 
 	//
 	$address7 = factory(App\Models\Address::class)->create([
@@ -147,10 +170,10 @@ class BillingSeeder extends Seeder
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
 	    //'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
-	    'city_id' => $city1->id,
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'city_id' => $cityId,
+	    'province_id' => $provinceId,
 	    'postal_code' => '37343',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryId,
 	]);
 
         // Schows website

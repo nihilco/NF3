@@ -11,10 +11,12 @@ class City extends Base
 
 	static::created(function($city) {
 	     $city->province->increment('cities_count');
+	     $city->country->increment('cities_count');	     
 	});
 
 	static::deleted(function($city) {
 	    $city->province->decrement('cities_count');
+	    $city->country->decrement('cities_count');
 	});
     }
     
@@ -28,5 +30,11 @@ class City extends Base
     public function province()
     {
         return $this->belongsTo(Province::class);
+    }
+
+    //
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
 }

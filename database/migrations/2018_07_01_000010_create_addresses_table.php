@@ -26,10 +26,10 @@ class CreateAddressesTable extends Migration
 	    $table->softDeletes();
             $table->timestamps();
 
-	    $table->foreign('city_id')
-		->references('id')
-		->on('provinces')
-		->onDelete('cascade');
+	    //$table->foreign('city_id')
+	    //	->references('id')
+	    //	->on('cities')
+	    //	->onDelete('cascade');
 
 	    $table->foreign('province_id')
 		->references('id')

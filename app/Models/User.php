@@ -58,4 +58,10 @@ class User extends Authenticatable
     {
 	return '/users/' . $this->id;
     }
+
+    //
+    public function name()
+    {
+	return $this->belongsTo(Name::class);
+    }
 }

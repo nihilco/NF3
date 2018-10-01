@@ -6,7 +6,9 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
 
     return [
         'username' => $faker->userName,
-	'name' => $faker->name,
+	//'name_id' => function() {
+	//    return factory(App\Models\Name::class)->create()->id;
+	//},
 	'email' => $faker->email,
 	'slug' => $faker->slug,
 	'password' => bcrypt(str_random(32)),
