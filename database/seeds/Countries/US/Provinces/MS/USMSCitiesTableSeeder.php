@@ -44,5 +44,19 @@ class USMSCitiesTableSeeder extends Seeder
 	    'province_id' => $province->id,
 	    'country_id' => $country->id,
 	]);
+
+	//
+	factory(App\Models\City::class)->create([
+	    'name' => 'Starkville',
+	    'province_id' => $province->id,
+	    'country_id' => $country->id,
+	]);
+
+	//
+	factory(App\Models\City::class)->create([
+	    'name' => 'University',
+	    'province_id' => $province->id,
+	    'country_id' => $country->id,
+	]);
     }
 }

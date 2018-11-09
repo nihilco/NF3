@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Organization;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 
-class OrganizationController extends Controller
+class OrganizationsController extends Controller
 {
+    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,9 @@ class OrganizationController extends Controller
     public function index()
     {
         //
+	$organizations = Organization::all();
+
+	return view('organizations.index', compact(['organizations']));
     }
 
     /**
@@ -25,6 +34,7 @@ class OrganizationController extends Controller
     public function create()
     {
         //
+	return view('organizations.create');
     }
 
     /**
@@ -35,7 +45,26 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	//
+        $this->validate(request(), [
+
+	]);
+
+        $organization = new Organization();
+
+	$organization->creator_id = auth()->id();
+	$organization->owner_id = auth()->id();
+
+	$organization->save();
+
+	\Session::flash('message', 'Organization successfully created.');
+	\Session::flash('alert-class', 'alert-success');
+	
+	if(request()->expectsJson()) {
+            return response()->json($organization, 201);
+	}
+
+	return redirect('/organizations');
     }
 
     /**
@@ -47,6 +76,11 @@ class OrganizationController extends Controller
     public function show(Organization $organization)
     {
         //
+	if(request()->expectsJson()) {
+	    return $organization;
+	}
+
+	return view('organizaions.show', compact(['organization']));
     }
 
     /**
@@ -58,6 +92,7 @@ class OrganizationController extends Controller
     public function edit(Organization $organization)
     {
         //
+	return view('organizaions.edit', compact(['organization']));
     }
 
     /**
@@ -69,7 +104,22 @@ class OrganizationController extends Controller
      */
     public function update(Request $request, Organization $organization)
     {
-        //
+        $this->validate(request(), [
+
+	]);
+
+	//
+
+	$organization->save();
+
+	\Session::flash('message', 'Organization successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
+
+	if(request()->expectsJson()) {
+            return response()->json($organization, 200);
+	}
+
+	return redirect($organization->path());
     }
 
     /**
@@ -80,6 +130,28 @@ class OrganizationController extends Controller
      */
     public function destroy(Organization $organization)
     {
-        //
+	//
+        $organization->delete();
+
+	\Session::flash('message', 'Organization successfully deleted.');
+	\Session::flash('alert-class', 'alert-success');
+
+	if(request()->expectsJson()) {
+            return response()->json(null, 204);
+	}
+
+	return back();        
+    }
+
+    //
+    public function list()
+    {
+        $organizations = Organization::all();
+
+	if(request()->expectsJson()) {
+            return $organizations;
+	}
+
+	return view('organizations.list', compact(['organizations']));
     }
 }

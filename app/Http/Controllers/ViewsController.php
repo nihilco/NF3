@@ -79,7 +79,7 @@ class ViewsController extends Controller
 	     return $view;
 	}
 
-	return view('views.show', compact(['view']))
+	return view('views.show', compact(['view']));
     }
 
     /**

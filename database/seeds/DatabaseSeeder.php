@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             CountriesTableSeeder::class,
 	    ProvincesTableSeeder::class,
 	    CitiesTableSeeder::class,
+	    AddressesTableSeeder::class,
+	    OrganizationsTableSeeder::class,
 	    AccountsTableSeeder::class,
             CustomersTableSeeder::class,
 	    BillingSeeder::class,
@@ -26,11 +28,13 @@ class DatabaseSeeder extends Seeder
 	    ZonesTableSeeder::class,
 	    MailboxesTableSeeder::class,
 	    AliasesTableSeeder::class,
-	    StatusChecksTableSeeder::class,		
+	    StatusChecksTableSeeder::class,
+	    CategoriesTableSeeder::class,	    
 	    PostsTableSeeder::class,
-	    CategoriesTableSeeder::class,
 	    TornSeeder::class,
 	    SupportSeeder::class,
+	    ContactsTableSeeder::class,
+	    EventsTableSeeder::class,
 	]);
     }
 }

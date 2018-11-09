@@ -18,434 +18,434 @@ class USProvincesTableSeeder extends Seeder
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AL',
-	    'name' => 'ALABAMA',
+	    'name' => 'Alabama',
 	]);
 	
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AK',
-	    'name' => 'ALASKA',
+	    'name' => 'Alaska',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AS',
-	    'name' => 'AMERICAN SAMOA',
+	    'name' => 'American Samoa',
 	]);
 	
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AZ',
-	    'name' => 'ARIZONA',
+	    'name' => 'Arizona',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AR',
-	    'name' => 'ARKANSAS',
+	    'name' => 'Arkansas',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'CA',
-	    'name' => 'CALIFORNIA',
+	    'name' => 'California',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'CO',
-	    'name' => 'COLORADO',
+	    'name' => 'Colorado',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'CT',
-	    'name' => 'CONNECTICUT',
+	    'name' => 'Connecticut',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'DE',
-	    'name' => 'DELAWARE',
+	    'name' => 'Delaware',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'DC',
-	    'name' => 'DISTRICT OF COLUMBIA',
+	    'name' => 'District of Columbia',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'FM',
-	    'name' => 'FEDERATED STATES OF MICRONESIA',
+	    'name' => 'Federated States of Micronesia',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'FL',
-	    'name' => 'FLORIDA',
+	    'name' => 'Florida',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'GA',
-	    'name' => 'GEORGIA',
+	    'name' => 'Georgia',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'GU',
-	    'name' => 'GUAM GU',
+	    'name' => 'Guam GU',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'HI',
-	    'name' => 'HAWAII',
+	    'name' => 'Hawaii',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'ID',
-	    'name' => 'IDAHO',
+	    'name' => 'Idaho',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'IL',
-	    'name' => 'ILLINOIS',
+	    'name' => 'Illinois',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'IN',
-	    'name' => 'INDIANA',
+	    'name' => 'Indiana',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'IA',
-	    'name' => 'IOWA',
+	    'name' => 'Iowa',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'KS',
-	    'name' => 'KANSAS',
+	    'name' => 'Kansas',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'KY',
-	    'name' => 'KENTUCKY',
+	    'name' => 'Kentucky',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'LA',
-	    'name' => 'LOUISIANA',
+	    'name' => 'Louisiana',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'ME',
-	    'name' => 'MAINE',
+	    'name' => 'Maine',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MH',
-	    'name' => 'MARSHALL ISLANDS',
+	    'name' => 'Marshall Islands',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MD',
-	    'name' => 'MARYLAND',
+	    'name' => 'Maryland',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MA',
-	    'name' => 'MASSACHUSETTS',
+	    'name' => 'Massachusetts',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MI',
-	    'name' => 'MICHIGAN',
+	    'name' => 'Michigan',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MN',
-	    'name' => 'MINNESOTA',
+	    'name' => 'Minnesota',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MS',
-	    'name' => 'MISSISSIPPI',
+	    'name' => 'Mississippi',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MO',
-	    'name' => 'MISSOURI',
+	    'name' => 'Missouri',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MT',
-	    'name' => 'MONTANA',
+	    'name' => 'Montana',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NE',
-	    'name' => 'NEBRASKA',
+	    'name' => 'Nebraska',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NV',
-	    'name' => 'NEVADA',
+	    'name' => 'Nevada',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NH',
-	    'name' => 'NEW HAMPSHIRE',
+	    'name' => 'New Hampshire',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NJ',
-	    'name' => 'NEW JERSEY',
+	    'name' => 'New Jersey',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NM',
-	    'name' => 'NEW MEXICO',
+	    'name' => 'New Mexico',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NY',
-	    'name' => 'NEW YORK',
+	    'name' => 'New York',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'NC',
-	    'name' => 'NORTH CAROLINA',
+	    'name' => 'North Carolina',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'ND',
-	    'name' => 'NORTH DAKOTA',
+	    'name' => 'North Dakota',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'MP',
-	    'name' => 'NORTHERN MARIANA ISLANDS',
+	    'name' => 'Northern Mariana Islands',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'OH',
-	    'name' => 'OHIO',
+	    'name' => 'Ohio',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'OK',
-	    'name' => 'OKLAHOMA',
+	    'name' => 'Oklahoma',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'OR',
-	    'name' => 'OREGON',
+	    'name' => 'Oregon',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'PW',
-	    'name' => 'PALAU',
+	    'name' => 'Palau',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'PA',
-	    'name' => 'PENNSYLVANIA',
+	    'name' => 'Pennsylvania',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'PR',
-	    'name' => 'PUERTO RICO',
+	    'name' => 'Puerto Rico',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'RI',
-	    'name' => 'RHODE ISLAND',
+	    'name' => 'Rhode Island',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'SC',
-	    'name' => 'SOUTH CAROLINA',
+	    'name' => 'South Carolina',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'SD',
-	    'name' => 'SOUTH DAKOTA',
+	    'name' => 'South Dakota',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'TN',
-	    'name' => 'TENNESSEE',
+	    'name' => 'Tennessee',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'TX',
-	    'name' => 'TEXAS',
+	    'name' => 'Texas',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'UT',
-	    'name' => 'UTAH',
+	    'name' => 'Utah',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'VT',
-	    'name' => 'VERMONT',
+	    'name' => 'Vermont',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'VI',
-	    'name' => 'VIRGIN ISLANDS',
+	    'name' => 'Virgin Islands',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'VA',
-	    'name' => 'VIRGINIA',
+	    'name' => 'Virginia',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'WA',
-	    'name' => 'WASHINGTON',
+	    'name' => 'Washington',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'WV',
-	    'name' => 'WEST VIRGINIA',
+	    'name' => 'West Virginia',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'WI',
-	    'name' => 'WISCONSIN',
+	    'name' => 'Wisconsin',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'WY',
-	    'name' => 'WYOMING',
+	    'name' => 'Wyoming',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AE',
-	    'name' => 'ARMED FORCES AFRICA \ CANADA \ EUROPE \ MIDDLE EAST',
+	    'name' => 'Armed Forces Africa \ Canada \ Europe \ Middle East',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AA',
-	    'name' => 'ARMED FORCES AMERICA (EXCEPT CANADA)',
+	    'name' => 'Armed Forces America (Except Canada)',
 	]);
 
 	//
 	factory(App\Models\Province::class)->create([
 	    'country_id' => $country->id,
 	    'code' => 'AP',
-	    'name' => 'ARMED FORCES PACIFIC',
+	    'name' => 'Armed Forces Pacific',
 	]);
     }
 }

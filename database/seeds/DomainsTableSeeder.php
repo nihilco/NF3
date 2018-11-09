@@ -59,18 +59,26 @@ class DomainsTableSeeder extends Seeder
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
 	    'domain' => 'coasttocoastcollegefair.com',
+	    'active' => true,
 	]);
 
 	//
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
 	    'domain' => 'crosbyjeepclub.com',
+	    'active' => true,
 	]);
 
 	//
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
 	    'domain' => 'duespay.com',
+	]);
+
+	//
+	factory(App\Models\Domain::class)->create([
+	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
+	    'domain' => 'electionbrief.com',
 	]);
 
 	//
@@ -211,6 +219,12 @@ class DomainsTableSeeder extends Seeder
 	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.org')->first()->id,
 	    'domain' => 'twilliamsclass.org',
+	]);
+
+	//
+	factory(App\Models\Domain::class)->create([
+	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
+	    'domain' => 'unclebucksfarm.com',
 	]);
 
 	//

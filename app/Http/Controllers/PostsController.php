@@ -10,7 +10,7 @@ class PostsController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['show']);
     }
     
     /**
@@ -56,6 +56,7 @@ class PostsController extends Controller
 
 	$post->creator_id = auth()->id();
 	$post->owner_id = auth()->id();
+	$post->website_id = config('app.website')->id;
 	$post->name = request('name');
 	$post->slug = request('slug');	
 	$post->description = request('description');
@@ -98,7 +99,7 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         //
-	return view('post.eidt', compact(['post']));
+	return view('posts.edit', compact(['post']));
     }
 
     /**

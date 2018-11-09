@@ -29,4 +29,9 @@ class Address extends Base
     {
 	return $this->belongsTo(Country::class);
     }
+
+    public function contact()
+    {
+        return $this->belongsToMany(Contact::class, 'contact_address');
+    }
 }

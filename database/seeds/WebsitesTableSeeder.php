@@ -31,6 +31,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'cclemmer.com')->first()->id,
 	     'hostname' => 'www.cclemmer.com',
 	     'name' => 'cclemmer.com',
+	     'analytics_code' => 4,
 	     'active' => true,
 	]);
 
@@ -46,6 +47,7 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'chattitup.com')->first()->id,
 	     'hostname' => 'www.chattitup.com',
+	     'name' => 'Chattitup',
 	     'active' => true,
 	]);
 
@@ -53,6 +55,7 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'chattitup.com')->first()->id,
 	     'hostname' => 'dev.chattitup.com',
+	     'name' => 'Chattitup',
 	     'active' => true,
 	]);
 
@@ -60,6 +63,8 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'coasttocoastcollegefair.com')->first()->id,
 	     'hostname' => 'www.coasttocoastcollegefair.com',
+	     'name' => 'Coast-to-Coast College Fair',
+	     'analytics_code' => 5,
 	     'active' => true,
 	]);
 
@@ -67,6 +72,8 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'coasttocoastcollegefair.com')->first()->id,
 	     'hostname' => 'dev.coasttocoastcollegefair.com',
+	     'name' => 'Coast-to-Coast College Fair',
+	     'under_construction' => false,
 	     'active' => true,
 	]);
 
@@ -75,6 +82,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'crosbyjeepclub.com')->first()->id,
 	     'hostname' => 'www.crosbyjeepclub.com',
 	     'name' => 'Crosby Jeep Club',
+	     'analytics_code' => 6,
 	     'active' => true,
 	]);
 
@@ -90,6 +98,8 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'duespay.com')->first()->id,
 	     'hostname' => 'www.duespay.com',
+	     'name' => 'Dues Pay',
+	     'analytics_code' => 7,
 	     'active' => true,
 	]);
 
@@ -97,6 +107,22 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'duespay.com')->first()->id,
 	     'hostname' => 'dev.duespay.com',
+	     'name' => 'Dues Pay',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'electionbrief.com')->first()->id,
+	     'hostname' => 'www.electionbrief.com',
+	     'name' => 'Election Brief',
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'electionbrief.com')->first()->id,
+	     'hostname' => 'dev.electionbrief.com',
+	     'name' => 'Election Brief',
 	     'active' => true,
 	]);
 
@@ -181,6 +207,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'nihil.co')->first()->id,
 	     'hostname' => 'www.nihil.co',
 	     'name' => 'NIHIL',
+	     'analytics_code' => 1,
 	     'active' => true,
 	]);
 
@@ -197,6 +224,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'nihilframework.com')->first()->id,
 	     'hostname' => 'www.nihilframework.com',
 	     'name' => 'NIHIL Framework',
+	     'analytics_code' => 2,
 	     'active' => true,
 	]);
 
@@ -292,6 +320,21 @@ class WebsitesTableSeeder extends Seeder
 
         //
 	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'unclebucksfarm.com')->first()->id,
+	     'hostname' => 'www.unclebucksfarm.com',
+	     'name' => 'Uncle Bucks Farm',
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'unclebucksfarm.com')->first()->id,
+	     'hostname' => 'dev.unclebucksfarm.com',
+	     'name' => 'Uncle Bucks Farm',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'unclebucksrednecks.com')->first()->id,
 	     'hostname' => 'www.unclebucksrednecks.com',
 	     'name' => 'Uncle Bucks Red Necks',
@@ -311,6 +354,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'uclemmer.com')->first()->id,
 	     'hostname' => 'www.uclemmer.com',
 	     'name' => 'uclemmer',
+	     'analytics_code' => 3,
 	     'active' => true,
 	]);
 

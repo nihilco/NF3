@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Cities')
 
@@ -47,9 +47,9 @@
                     <thead>
                       <tr>
                         <th scope="col" class="td-count">#</th>
-		        <th scope="col">Country</th>
-			<th scope="col">Province</th>
 			<th scope="col">City</th>
+			<th scope="col">Province</th>
+		        <th scope="col">Country</th>
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -62,9 +62,9 @@
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-		        <td>{{ $city->country->name }}</td>
-		        <td>{{ $city->province->name }}</td>
 			<td>{{ $city->name }}</td>
+		        <td>{{ $city->province->name }}</td>
+		        <td>{{ $city->country->name }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($city->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($city->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Users')
 
@@ -69,10 +69,10 @@
 		
 		@forelse($users as $user)
 
-		      <tr>
+		      <tr class="{{ ($user->email_confirmed_at != null) ? 'table-success' : '' }}">
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $user->username }}</td>
-		        <td>{{ $user->name }}</td>
+		        <td>{{ ($user->contact) ? $user->contact->name->fullName : '' }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($user->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($user->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

@@ -163,7 +163,9 @@ return [
 	App\Providers\BreadcrumbsServiceProvider::class,
 	App\Providers\StripeServiceProvider::class,
 	App\Providers\TornServiceProvider::class,
-	App\Providers\AmazonProductAdvertisingServiceProvider::class,	
+	App\Providers\AmazonProductAdvertisingServiceProvider::class,
+	App\Providers\PurifierServiceProvider::class,
+	App\Providers\AvatarServiceProvider::class,
     ],
 
     /*
@@ -217,6 +219,8 @@ return [
 	'Stripe' => App\Facades\Stripe::class,
 	'Torn' => App\Facades\Torn::class,
 	'AmazonProductAdvertising' => App\Facades\AmazonProductAdvertising::class,
+	'Purifier' => App\Facades\Purifier::class,
+	'Avatar' => App\Facades\Avatar::class,
     ],
 
 ];

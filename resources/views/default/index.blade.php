@@ -7,5 +7,7 @@
 {{ Breadcrumbs::push('Home') }}
 
 @section('content')
-{{ dd(view()) }}
+
+default.index
+
 @endsection

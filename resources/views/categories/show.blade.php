@@ -9,13 +9,12 @@
 
 @section('content')
 
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">{{ $category->name }}</h5>
-		</div>
-		<div class="card-body">
-		  <p>{{ $category->description }}</p>
-		</div>
-	      </div>
+<div class="container">
+
+<h1>{{ $category->name }}</h1>
+
+<p>{{ $category->description }}</p>
+
+</div>
 
 @endsection

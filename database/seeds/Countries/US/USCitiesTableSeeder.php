@@ -18,7 +18,8 @@ class USCitiesTableSeeder extends Seeder
 	    USCACitiesTableSeeder::class, // CA
 	    USCOCitiesTableSeeder::class, // CO
 	    USCTCitiesTableSeeder::class, // CT
-	    USFLCitiesTableSeeder::class, // FL
+	    USDCCitiesTableSeeder::class, // DC
+	    USFLCitiesTableSeeder::class, // FL	    
 	    USGACitiesTableSeeder::class, // GA
 	    USILCitiesTableSeeder::class, // IL
 	    USINCitiesTableSeeder::class, // IN
@@ -28,6 +29,7 @@ class USCitiesTableSeeder extends Seeder
 	    USMDCitiesTableSeeder::class, // MD
 	    USMECitiesTableSeeder::class, // ME
 	    USMICitiesTableSeeder::class, // MI
+	    USMNCitiesTableSeeder::class, // MN
 	    USMOCitiesTableSeeder::class, // MO
 	    USMSCitiesTableSeeder::class, // MS
 	    USNCCitiesTableSeeder::class, // NC

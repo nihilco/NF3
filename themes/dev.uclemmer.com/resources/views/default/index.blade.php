@@ -29,7 +29,11 @@ $latestThreePosts = \App\Models\Post::where('published_at', '!=', 'null')->order
     <div class="col-md-6">
       <div class="card flex-md-row mb-4 shadow-sm h-md-250">
         <div class="card-body d-flex flex-column align-items-start">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
+	  <ul class="list-inline mb-2">
+	  @foreach($latestThreePosts[1]->categories as $category)
+          <li class="list-inline-item"><a href="{{ $category->path() }}">{{ $category->name }}</a></li>
+	  @endforeach
+	  </ul>
           <h3 class="mb-0">
             <a class="text-dark" href="#">{{ $latestThreePosts[1]->name }}</a>
           </h3>
@@ -37,13 +41,16 @@ $latestThreePosts = \App\Models\Post::where('published_at', '!=', 'null')->order
           <p class="card-text mb-auto">{{ $latestThreePosts[1]->description }}</p>
           <a href="{{ $latestThreePosts[1]->path() }}">Continue reading</a>
          </div>
-         <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
        </div>
      </div>
      <div class="col-md-6">
        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
          <div class="card-body d-flex flex-column align-items-start">
-           <strong class="d-inline-block mb-2 text-success">Design</strong>
+	  <ul class="list-inline mb-2">
+	  @foreach($latestThreePosts[2]->categories as $category)
+          <li class="list-inline-item"><a href="{{ $category->path() }}">{{ $category->name }}</a></li>
+	  @endforeach
+	  </ul>
            <h3 class="mb-0">
              <a class="text-dark" href="#">{{ $latestThreePosts[2]->name }}</a>
            </h3>
@@ -51,7 +58,6 @@ $latestThreePosts = \App\Models\Post::where('published_at', '!=', 'null')->order
            <p class="card-text mb-auto">{{ $latestThreePosts[2]->description }}</p>
            <a href="{{ $latestThreePosts[2]->path() }}">Continue reading</a>
          </div>
-         <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
        </div>
      </div>
    </div>

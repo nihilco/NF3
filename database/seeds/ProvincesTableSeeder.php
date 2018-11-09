@@ -14,6 +14,8 @@ class ProvincesTableSeeder extends Seeder
         //
 	$this->call([
 	     DEProvincesTableSeeder::class, // Germany
+	     IEProvincesTableSeeder::class, // Ireland	     
+	     ESProvincesTableSeeder::class, // Spain
 	     CHProvincesTableSeeder::class, // Switzerland
 	     USProvincesTableSeeder::class, // United States
 	]);

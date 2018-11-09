@@ -9,4 +9,9 @@ class Organization extends Base
     {
         return '/organizations/' . $this->id;
     }
+
+    public function contact()
+    {
+        return $this->belongsToMany(Contact::class, 'contact_organization');
+    }
 }

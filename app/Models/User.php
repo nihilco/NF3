@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+//use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,7 +29,10 @@ class User extends Authenticatable
       'deleted_at',
       'dob_at',
       'last_login_at',
+      'email_confirmed_at',
     ];
+
+    protected $appends = ['avatar_url'];
 
     public static function boot()
     {
@@ -38,6 +43,12 @@ class User extends Authenticatable
 	        $user->username = $user->email;
 	    }
 	    $user->api_key = str_random(60);
+	});
+
+	static::created(function ($user) {
+	    // Create Avatar
+	    $avatar = \Avatar::create($user->email)->getImageObject()->encode('png');
+            Storage::put('avatars/' . $user->id . '/avatar.png', (string) $avatar);
 	});
     }
 
@@ -63,5 +74,16 @@ class User extends Authenticatable
     public function name()
     {
 	return $this->belongsTo(Name::class);
+    }
+
+    //
+    public function contact()
+    {
+        return $this->belongsTo(Contact::class);
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return \Storage::url('avatars/' . $this->id . '/' .$this->avatar);
     }
 }

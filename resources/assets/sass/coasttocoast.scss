@@ -1,0 +1,300 @@
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 561px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 561px;
+    color:#FFF;
+    text-align:center;
+    background: #444444;
+    color: #FFFFFF;
+}
+
+h2 {
+    font-size:1.5rem;
+}
+
+h3 {
+    font-size:1.25rem;
+}
+
+a {
+    color: #00447C;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #365d7e;
+}
+
+a:focus {
+    text-decoration: none;
+}
+
+.btn {
+    border-radius:0;
+}
+
+.btn-primary {
+    background: #00447C;
+    border: 1px solid #00447C;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #84aac9;
+    border: 1px solid #84aac9;
+    color: #fff;
+}
+
+a.btn-cta,
+.btn-cta {
+    background: #00447C;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    font-family: 'open sans', arial, sans-serif;
+    margin-top: 30px;
+    border: 1px solid #BBBDBF;
+}
+
+a.btn-cta:hover,
+.btn-cta:hover {
+  color: #fff;
+  background: #84aac9;
+  border: 1px solid #84aac9;
+}
+
+a.btn-cta .fa,
+.btn-cta .fa {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.form-control {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.form-control:focus {
+    border-color: #00447C;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.navbar {
+    background: #00447C;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    /*color:#00447C;*/
+    color:#FFFFFF;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+.navbar-brand img {
+    width:200px;
+    height:200px;
+}
+
+.carousel-caption-title {
+    background: #00447C;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.carousel-caption-body {
+    background: #444444;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.news-heading {
+    margin-top:0.5rem;
+}
+
+.event-details {
+
+}
+
+.event-title {
+    margin-top:5px;
+    margin-bottom: 5px;
+    /*font-size: 16px;*/
+    padding-left:15px;
+}
+
+.event-date {
+    margin-bottom:0;
+    padding-left:15px;
+    font-size:90%;
+}
+
+.event-time {
+    margin-bottom:0;
+    padding-left:15px;
+    font-size:90%;
+}
+
+.event-location {
+    padding-left:15px;
+    font-size:90%;
+    margin-bottom:5px;
+}
+
+.blockquote {
+    font-size:1.0rem;
+}
+
+.blockquote-footer {
+    font-size:100%;
+}
+
+.logo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-title {
+    margin-top: 15px;
+}
+
+.footer-list {
+    margin-bottom:0;
+}
+
+.footer a,
+.footer-list li a {
+    color:#FFFFFF;
+}
+
+.footer a:hover,
+.footer-list li a:hover {
+    color:#FFFFFF;
+    text-decoration: underline;
+}
+
+#copyright {
+   text-align:center;
+}
+
+#powered {
+    text-align:center;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 226px;
+  }
+
+  .footer {
+    /* Set the fixed height of the footer here */
+    height: 226px;
+    text-align:left;
+  }
+
+  .navbar {
+    margin-top:47px;
+  }
+
+  .navbar-brand {
+    position:absolute;
+    z-index:10;
+    /*top:0;*/
+    padding-top:5px;
+  }
+
+  .navbar-brand img {
+    width:150px;
+    height:150px;
+  }
+
+  .navbar-collapse {
+    padding-left:165px;
+  }
+
+  .carousel-caption {
+    right:auto;
+  }
+
+  .carousel-caption-title {
+    text-align:left;
+  }
+
+  .carousel-caption-body {
+    text-align:left;
+  }
+
+  #copyright {
+   text-align:left;
+  }
+
+  #powered {
+    text-align:right;
+  }
+
+
+  .page-title {
+    margin-top:50px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

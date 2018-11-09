@@ -34,6 +34,13 @@ class CountriesTableSeeder extends Seeder
 
         //
 	factory(App\Models\Country::class)->create([
+	    'code' => 'IE',
+	    'name' => 'Ireland',
+	    'description' => 'Ireland',
+	]);
+
+        //
+	factory(App\Models\Country::class)->create([
 	    'code' => 'US',
 	    'name' => 'United States',
 	    'description' => 'The United States of America',

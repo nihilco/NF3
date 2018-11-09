@@ -9,13 +9,14 @@
 
 @section('content')
 
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">{{ $post->name }}</h5>
-		</div>
-		<div class="card-body">
-		  <p>{{ $post->description }}</p>
-		</div>
-	      </div>
+<div class="container">
+
+<h1>{{ $post->name }}</h1>
+by {{ $post->owner->contact->name->fullName }} on {{ $post->published_at }}
+<p>{{ $post->description }}</p>
+
+{!! $post->content !!}
+
+</div>
 
 @endsection

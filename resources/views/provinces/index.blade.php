@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Provinces')
 
@@ -47,7 +47,7 @@
                     <thead>
                       <tr>
                         <th scope="col" class="td-count">#</th>
-	                <th scope="col">Code</th>
+	                <th scope="col">Code</th>			
 		        <th scope="col">Name</th>
 			<th scope="col">Country</th>
 			<th scope="col" class="td-action">&nbsp;</th>
@@ -62,7 +62,7 @@
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-		        <td>{{ $province->code }}</td>
+		        <td>{{ $province->code }}</td>			
 		        <td>{{ $province->name }}</td>
 			<td>{{ $province->country->name }}</td>
 		        <td class="td-action">

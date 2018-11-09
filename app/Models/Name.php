@@ -23,7 +23,9 @@ class Name extends Base
 	if($prefix) {
 	    $ret .= "{$this->prefix} ";
 	}
-        $ret .= "{$this->first_name} {$this->middleInitial}. {$this->last_name}";
+
+	$ret .= "{$this->first} {$this->last}";
+
 	if($suffix) {
 	    $ret .= "{$this->suffix} ";
 	}

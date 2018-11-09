@@ -9,7 +9,21 @@ use App\Traits\Taggable;
 class Post extends Base
 {
     use Categorizable, Repliable, Taggable;
-    
+
+    //
+    public static function boot()
+    {
+        parent::boot();
+
+	static::creating(function($post) {
+	     $post->content = \Purifier::clean($post->content);
+	});
+
+	static::updating(function($post) {
+	    $post->content = \Purifier::clean($post->content);
+	});
+    }
+
     //
     public $dates = ['published_at', 'created_at', 'updated_at', 'deleted_at'];
     

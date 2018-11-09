@@ -13,8 +13,10 @@ class CitiesTableSeeder extends Seeder
     {
 	//
 	$this->call([
-	    //DECitiesTableSeeder::class, // Germany
-	    //CHCitiesTableSeeder::class, // Switzerland
+	    DECitiesTableSeeder::class, // Germany
+	    IECitiesTableSeeder::class, // Ireland	    
+	    ESCitiesTableSeeder::class, // Spain
+	    CHCitiesTableSeeder::class, // Switzerland
 	    USCitiesTableSeeder::class, // United States
 	]);
     }

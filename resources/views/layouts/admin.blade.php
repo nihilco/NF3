@@ -14,8 +14,14 @@
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
+    <!-- TinyMCE -->
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=9yltz04z0f2w0h7irc6cvbc0n6ms63dd2t9dazioyebmr5fz'></script>
+    
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ url('/css/app.css?t=' . time()) }}" />
+
+    @include('partials.analytics')
+    
   </head>
   <body class="bg-dark">
   <div id="">
@@ -236,6 +242,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>-->
   <script src="https://js.stripe.com/v3/"></script>
-  <script src="{{ url('/js/app.js') }}"></script>-
+  <script src="{{ url('/js/app.js') }}"></script>
+  <script src="{{ url('/js/tinymce.js') }}"></script>
   </body>
 </html>

@@ -21,16 +21,16 @@ class AppServiceProvider extends ServiceProvider
         //
 	Schema::defaultStringLength(191);
 
+	Blade::directive('currency', function ($expression) {
+	    return "<?php echo ($expression < 0) ? '-$' . number_format(abs($expression)/100) : '$' . number_format($expression/100); ?>";
+	});
+
 	if(request()->server('PHP_SELF') != 'artisan') {
 	     $this->setAppName();
 	     $this->setViewPaths();
 	}
 
-	$this->app['view']->addNamespace('emails', base_path() . '/resources/emails');
-
-	Blade::directive('currency', function ($expression) {
-	    return "<?php echo ($expression < 0) ? '-$' . number_format(abs($expression)/100) : '$' . number_format($expression/100); ?>";
-	});
+        $this->setEmailPaths();
     }
 
     /**
@@ -66,16 +66,36 @@ class AppServiceProvider extends ServiceProvider
     private function setViewPaths()
     {
 	$paths = config('view.paths');
-	
+
+	if(!$paths) {
+	  $paths = [
+	      resource_path('views'),
+	  ];
+	  view()->getFinder()->addLocation(resource_path('views'));
+	}
+
 	if($this->website) {
 	    $themePath = base_path('themes/' . $this->website->hostname . '/resources/views');
 	    array_unshift($paths, $themePath);
 	    view()->getFinder()->addLocation($themePath);
-	    view()->getFinder()->addLocation(resource_path('views'));
 	    //dd(view());
 	}
 	
 	config(['view.paths' => $paths]);
 	//dd(config('view.paths'));
+    }
+
+    private function setEmailPaths()
+    {
+        $emailPaths = [base_path() . '/resources/emails'];
+
+	if($this->website) {
+	    $themePath = base_path('themes/' . $this->website->hostname . '/resources/emails');
+    	    array_unshift($emailPaths, $themePath);
+	}
+
+	//dd($emailPaths);
+
+	$this->app['view']->addNamespace('emails', $emailPaths);    
     }
 }

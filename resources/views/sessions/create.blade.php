@@ -1,73 +1,79 @@
-@extends('layouts.blank')
+@extends('layouts.auth')
 
-@section('title', 'Login')
-
-@section('meta', '')
-
-{{ Breadcrumbs::push('Login') }}
-
-@section('content')
-
-<div class="container">
-
-  <div class="row justify-content-md-center mt-5" style="">
-    <div class="col-md-5" style="background-color:#FFFFFF;">
-      <div class="card" style="border:0;">
-        <div class="card-body">
-	  <h1>Login</h1>
-
-	  <p>Sign in to your account.</p>
-
-          <form method="POST" action="{{ route('login') }}">
-	    {{ csrf_field() }}
-            <div class="form-group">
-              <label for="email">Email</label>
-              <div class="input-group{{ $errors->first('email') ? ' is-invalid' : '' }}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="email-addon"><i class="fas fa-user"></i></span>
-                </div>
-	        <input type="text" class="form-control" id="email" name="email" aria-label="Email" aria-describedby="email-addon" />
-	      </div>
-	      @if($errors->first('email'))
-	      <small id="emailHelp" class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
-	      @endif
-	    </div>
-  	    <div class="form-group">
-	      <label for="password">Password</label>
-              <div class="input-group{{ $errors->first('password') ? ' is-invalid' : '' }}">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="password-addon"><i class="fas fa-lock"></i></span>
-                </div>
-	        <input type="password" class="form-control" id="password" name="password" aria-label="Password" aria-describedby="password-addon">
-	      </div>
-	      @if($errors->first('password'))
-	      <small id="passwordHelp" class="form-text invalid-feedback">{{ $errors->first('password') }}</small>
-	      @endif
-	    </div>
-	    <div class="row">
-	      <div class="col-sm-6">
-	        <button type="submit" class="btn btn-primary">Login</button>
-	      </div>
-	      <div class="col-sm-6 text-right">
-	        <a href="#" class="btn btn-link">Forgot Password?</a>
-	      </div>
-	    </div>  	    
-	  </form>
-
-	</div>
+@section('auth')
+<div class="col-md-8">
+  <div class="card-group">
+    <div class="card">
+      <div class="card-body p-5">
+        <div class="text-center d-lg-none">
+	  <h1>{{ config('app.name') }}</h1>
+        </div>
+        <h1>{{ __('Login') }}</h1>
+        <p class="text-muted">Sign In to your account</p>
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="{{ __('Email Address') }}" required autofocus>
+            @if ($errors->has('email'))
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $errors->first('email') }}</strong>
+            </span>
+            @endif
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="icon-lock"></i>
+              </span>
+            </div>
+            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" required>
+            @if ($errors->has('password'))
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $errors->first('password') }}</strong>
+            </span>
+            @endif
+          </div>
+          <div class="input-group mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+              <label class="form-check-label" for="remember">
+                {{ __('Remember Me') }}
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary px4">
+                {{ __('Login') }}
+              </button>
+            </div>
+            <div class="col-8 text-right">
+              <a class="btn btn-link px-0" href="{{ route('password.request') }}">
+                {{ __('Forgot Your Password?') }}
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer p-4 d-lg-none">
+        <div class="col-12 text-right">
+          <a class="btn btn-outline-primary btn-block mt-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </div>
       </div>
     </div>
-    <div class="col-md-4 text-center" style="background-color:#187da0;">
-      <div class="card" style="background-color:#187da0;border:0;color:#FFFFFF;">
-        <div class="card-body">
-	  <h2>Signup</h2>
-	  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-	  <a href="{{ route('signup') }}" class="btn btn-primary active mt-3">Signup Now!</a>
-	</div>
+    <div class="card text-white bg-primary py-5 d-md-down-none">
+      <div class="card-body text-center">
+        <div>
+          <h1>{{ config('app.name') }}</h1>
+          <h2>{{ __('Sign up') }}</h2>
+          <p>If you don't have account create one.</p>
+          <a class="btn btn-primary active mt-2" href="{{ route('register') }}">{{ __('Register Now!') }}</a>
+        </div>
       </div>
     </div>
   </div>
-  
 </div>
-
 @endsection

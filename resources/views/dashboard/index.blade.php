@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Dashboard')
 
@@ -7,6 +7,8 @@
 {{ Breadcrumbs::push('Dashboard') }}
 
 @section('content')
+
+
 
 
 

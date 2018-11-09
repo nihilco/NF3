@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Posts')
 
@@ -62,7 +62,7 @@
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $post->name }}</td>
-			<td>{{ $post->published_at->toFormattedDateString() }}</td>
+			<td>{{ ($post->published_at) ? $post->published_at->toFormattedDateString() : '' }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($post->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($post->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>

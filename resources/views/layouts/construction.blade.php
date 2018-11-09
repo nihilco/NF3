@@ -143,6 +143,8 @@
 
     </style>
 
+    @include('partials.analytics')
+
   </head>
 
   <body class="text-center bg-dark">

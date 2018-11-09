@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Addresses')
 
@@ -47,7 +47,6 @@
                     <thead>
                       <tr>
                         <th scope="col" class="td-count">#</th>
-	                <th scope="col">Name</th>
 		        <th scope="col">Address</th>
 			<th scope="col">City</th>
 			<th scope="col">Province</th>
@@ -65,9 +64,8 @@
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-		        <td>{{ $address->name }}</td>
 		        <td>{{ $address->address1 }}</td>
-			<td>{{ $address->city }}</td>
+			<td>{{ $address->city->name }}</td>
 			<td>{{ $address->province->code }}</td>
 			<td>{{ $address->postal_code }}</td>
 			<td>{{ $address->country->code }}</td>
@@ -108,7 +106,7 @@
 		@empty
 
 		      <tr>
-		        <td colspan="8">No addresses at this time.</td>
+		        <td colspan="7">No addresses at this time.</td>
 		      </tr>
 
 		@endforelse

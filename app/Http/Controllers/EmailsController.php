@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Email;
+use App\Models\Email;
 use Illuminate\Http\Request;
 
-class EmailController extends Controller
+class EmailsController extends Controller
 {
     /**
      * Display a listing of the resource.

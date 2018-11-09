@@ -27,18 +27,18 @@ class CreateTaggablesTable extends Migration
 		->on('tags')
 		->onDelete('cascade');
 
-	    $table->unsignedInteger('creator_id');
-	    $table->unsignedInteger('owner_id');
-
-	    $table->foreign('creator_id')
-		->references('id')
-		->on('users')
-		->onDelete('cascade');
-
-	    $table->foreign('owner_id')
-		->references('id')
-		->on('users')
-		->onDelete('cascade');
+	    //$table->unsignedInteger('creator_id');
+	    //$table->unsignedInteger('owner_id');
+	    //
+	    //$table->foreign('creator_id')
+	    //	->references('id')
+	    //	->on('users')
+	    //	->onDelete('cascade');
+	    //
+	    //$table->foreign('owner_id')
+	    //	->references('id')
+	    //	->on('users')
+	    //	->onDelete('cascade');
         });
     }
 

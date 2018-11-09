@@ -20,23 +20,23 @@ class CategoriesTableSeeder extends Seeder
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Business',
-	     'slug' => 'business',
-	     'description' => 'Business description.',
+	     'name' => 'Finance',
+	     'slug' => 'finance',
+	     'description' => 'Finance description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Design',
-	     'slug' => 'design',
-	     'description' => 'Design description.',
+	     'name' => 'Health',
+	     'slug' => 'health',
+	     'description' => 'Health description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Engineering',
-	     'slug' => 'engineering',
-	     'description' => 'Engineering description.',
+	     'name' => 'Music',
+	     'slug' => 'music',
+	     'description' => 'Music description.',
 	]);
 
 	//
@@ -55,44 +55,51 @@ class CategoriesTableSeeder extends Seeder
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Opinion',
-	     'slug' => 'opinion',
-	     'description' => 'Opinion description.',
+	     'name' => 'Programming',
+	     'slug' => 'Programming',
+	     'description' => 'Programming description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Politics',
-	     'slug' => 'politics',
-	     'description' => 'Politics description.',
+	     'name' => 'Woodworking',
+	     'slug' => 'woodworking',
+	     'description' => 'Woodworking description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Science',
-	     'slug' => 'science',
-	     'description' => 'Science description.',
+	     'name' => 'Fishing',
+	     'slug' => 'fishing',
+	     'description' => 'Fishing description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Software',
-	     'slug' => 'software',
-	     'description' => 'Software description.',
+	     'name' => 'Gardening',
+	     'slug' => 'gardening',
+	     'description' => 'Gardening description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Technology',
-	     'slug' => 'technology',
-	     'description' => 'Technology  description.',
+	     'name' => 'Brewing',
+	     'slug' => 'brewing',
+	     'description' => 'Brewing  description.',
 	]);
 
 	//
 	factory(App\Models\Category::class)->create([
-	     'name' => 'Travel',
-	     'slug' => 'travel',
-	     'description' => 'Travel description.',
+	     'name' => 'Design',
+	     'slug' => 'design',
+	     'description' => 'Design description.',
+	]);
+
+	//
+	factory(App\Models\Category::class)->create([
+	     'name' => 'Writing',
+	     'slug' => 'writing',
+	     'description' => 'Writing description.',
 	]);
     }
 }
