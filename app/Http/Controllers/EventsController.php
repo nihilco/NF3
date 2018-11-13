@@ -49,14 +49,23 @@ class EventsController extends Controller
         $this->validate(request(), [
 	    'name' => 'required|string',
 	    'description' => 'required',
+	    'starts_at' => 'required|date',
+	    'ends_at' => 'required|date',
+	    'spots_availible' => 'nullable|min:0|integer',
 	]);
 
         $event = new Event();
 
+	$event->website_id = config('app.website')->id ?? 1;
 	$event->creator_id = auth()->id();
 	$event->owner_id = auth()->id();
 	$event->name = request('name');
 	$event->description = request('description');
+	$event->starts_at = request('starts_at');
+	$event->ends_at = request('ends_at');
+	if(request('spots_availible') > 0) {
+	    $event->spots_availible = request('spots_availible');
+	}
 
 	$event->save();
 
@@ -106,10 +115,16 @@ class EventsController extends Controller
         $this->validate(request(), [
 	    'name' => 'required|string',
 	    'description' => 'required|string',
+	    'starts_at' => 'required|date',
+	    'ends_at' => 'required|date',
+	    'spots_availible' => 'nullable|min:0|integer',	    
 	]);
 
 	$event->name = request('name');
 	$event->description = request('description');
+	$event->starts_at = request('starts_at');
+	$event->ends_at = request('ends_at');
+	$event->spots_availible = request('spots_availible');	
 
 	$event->save();
 

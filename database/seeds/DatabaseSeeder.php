@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 	    UsersTableSeeder::class,
+	    RolesTableSeeder::class,
+	    TypesTableSeeder::class,
             CountriesTableSeeder::class,
 	    ProvincesTableSeeder::class,
 	    CitiesTableSeeder::class,
@@ -20,6 +22,7 @@ class DatabaseSeeder extends Seeder
 	    OrganizationsTableSeeder::class,
 	    AccountsTableSeeder::class,
             CustomersTableSeeder::class,
+	    ProductsTableSeeder::class,
 	    BillingSeeder::class,
             ServersTableSeeder::class,	
             TldsTableSeeder::class,
@@ -32,9 +35,10 @@ class DatabaseSeeder extends Seeder
 	    CategoriesTableSeeder::class,	    
 	    PostsTableSeeder::class,
 	    TornSeeder::class,
-	    SupportSeeder::class,
+	    IssuesTableSeeder::class,
 	    ContactsTableSeeder::class,
 	    EventsTableSeeder::class,
+	    GameSeeder::class,
 	]);
     }
 }

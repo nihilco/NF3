@@ -7,6 +7,6 @@ class Product extends Base
     //
     public function path()
     {
-        return '/product/' . $this->id;
+        return '/products/' . $this->id;
     }
 }

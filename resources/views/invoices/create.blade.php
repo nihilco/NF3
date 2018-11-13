@@ -1,19 +1,19 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('title', 'Create Server')
+@section('title', 'Create Invoice')
 
 @section('meta', '')
 
-{{ Breadcrumbs::push('Servers', url('/servers') ) }}
+{{ Breadcrumbs::push('Invoices', url('/invoices') ) }}
 {{ Breadcrumbs::push('Create') }}
 
 @section('content')
 
-                  <form method="POST" action="{{ url('/servers') }}">
-		    {{ csrf_field() }}
+            <form method="POST" action="{{ url('/invoices') }}">
+	      {{ csrf_field() }}
 	      <div class="card">
 		<div class="card-header">
-		  <h5 class="card-title mb-0">Create Server</h5>
+		  <h5 class="card-title mb-0">Create Invoice</h5>
 		</div>
 		<div class="card-body">
                     <div class="form-group">

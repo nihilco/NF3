@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\App\Models\Chain::class, function (Faker $faker) {
+$factory->define(\App\Models\Torn\Chain::class, function (Faker $faker) {
 
     $today = \Carbon\Carbon::now();
 

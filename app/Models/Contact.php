@@ -5,6 +5,9 @@ namespace App\Models;
 class Contact extends Base
 {
     //
+    protected $appends = ['defaultAddress'];
+    
+    //
     public function path() {
         return '/contacts/' . $this->id;
     }
@@ -22,5 +25,10 @@ class Contact extends Base
     public function name()
     {
         return $this->belongsTo(Name::class);
+    }
+
+    public function getDefaultAddressAttribute()
+    {
+	return $this->addresses()->first();
     }
 }

@@ -12,14 +12,14 @@ class TornSeeder extends Seeder
     public function run()
     {
         //
-	$player1 = factory(\App\Models\Player::class)->create([
+	$player1 = factory(\App\Models\Torn\Player::class)->create([
 	    'torn_id' => 1949097,
 	    'name' => 'Uriah',
 	    'api_key' => 'tJJI25sLu1OHw7qD',
 	    'nnb' => 35,
 	]);
 
-	$faction1 = factory(\App\Models\Faction::class)->create([
+	$faction1 = factory(\App\Models\Torn\Faction::class)->create([
 	    'torn_id' => 18569,
 	    'leader_id' => $player1->id,
 	    'name' => 'Beach Side Ghetto',
@@ -27,14 +27,14 @@ class TornSeeder extends Seeder
 	    'players_count' => 92,
 	]);
 
-	$company1 = factory(\App\Models\Company::class)->create([
+	$company1 = factory(\App\Models\Torn\Company::class)->create([
 	    'torn_id' => '60260',
 	    'director_id' => $player1->id,
 	    'type' => 'Ladies Strip Club',
 	    'name' => '39 sausages',
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
            "player_id" => 1,
            "pending" => 0,
 	   "wallet" => 0,
@@ -61,7 +61,7 @@ class TornSeeder extends Seeder
 	   "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
             "wallet" => 1874500,
@@ -88,7 +88,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
         ]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
 	    "wallet" => 1007900,
@@ -115,7 +115,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "id" => 7,
             "player_id" => 1,
             "pending" => 9497300,
@@ -143,7 +143,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 	
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
             "pending" => 0,
             "wallet" => 0,
@@ -170,7 +170,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
 	    "wallet" => 2593192300,
@@ -197,7 +197,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 193100,
@@ -224,7 +224,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 80538900,
@@ -251,7 +251,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 82077400,
@@ -278,7 +278,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 83233100,
@@ -305,7 +305,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
           "player_id" => 1,
           "pending" => 0,
           "wallet" => 52621200,
@@ -332,7 +332,7 @@ class TornSeeder extends Seeder
 	  "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 35619900,
@@ -359,7 +359,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([	  
+	factory(\App\Models\Torn\Networth::class)->create([	  
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 33705700,
@@ -386,7 +386,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);	    
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 32567200,
@@ -413,7 +413,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);	  
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 26164800,
@@ -440,7 +440,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 22470900,
@@ -467,7 +467,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
             "pending" => 0,
             "wallet" => 188212300,
@@ -494,7 +494,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 152301500,
@@ -521,7 +521,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 152513000,
@@ -548,7 +548,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 128476100,
@@ -575,7 +575,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 169476500,
@@ -602,7 +602,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 169658300,
@@ -629,7 +629,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 169658300,
@@ -656,7 +656,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
             "pending" => 0,
 	    "wallet" => 30563500,
@@ -683,7 +683,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 13886200,
@@ -710,7 +710,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 14486400,
@@ -737,7 +737,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 14806100,
@@ -764,7 +764,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 14980700,
@@ -791,7 +791,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 14980700,
@@ -818,7 +818,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 15609900,
@@ -845,7 +845,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 15609900,
@@ -872,7 +872,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-	factory(\App\Models\Networth::class)->create([
+	factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 14594200,
@@ -899,7 +899,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 324800,
@@ -926,7 +926,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
         ]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 0,
@@ -953,7 +953,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
         ]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
  	    "wallet" => 891200,
@@ -980,7 +980,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 418400,
@@ -1007,7 +1007,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 1717200,
@@ -1034,7 +1034,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 0,
@@ -1061,7 +1061,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 790800,
@@ -1088,7 +1088,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 1802000,
@@ -1115,7 +1115,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 2827500,
@@ -1142,7 +1142,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 4220300,
@@ -1169,7 +1169,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 5063000,
@@ -1196,7 +1196,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 5637000,
@@ -1223,7 +1223,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 5914300,
@@ -1250,7 +1250,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 6629700,
@@ -1277,7 +1277,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 28511100,
@@ -1304,7 +1304,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 29447300,
@@ -1331,7 +1331,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 2955900,
@@ -1358,7 +1358,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 4385700,
@@ -1385,7 +1385,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 	
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 4680300,
@@ -1412,7 +1412,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 5255000,
@@ -1439,7 +1439,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 6415000,
@@ -1466,7 +1466,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 	
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 88184500,
@@ -1494,7 +1494,7 @@ class TornSeeder extends Seeder
 	]);
 
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 88184500,
@@ -1522,7 +1522,7 @@ class TornSeeder extends Seeder
 	]);
 	
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 33775000,
@@ -1550,7 +1550,7 @@ class TornSeeder extends Seeder
 	]);
 
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 34907500,
@@ -1578,7 +1578,7 @@ class TornSeeder extends Seeder
 	]);
 
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 35505300,
@@ -1606,7 +1606,7 @@ class TornSeeder extends Seeder
 	]);
 
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 36330700,
@@ -1633,7 +1633,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 37192600,
@@ -1660,7 +1660,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);																						    
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 438128000,
@@ -1687,7 +1687,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
             "player_id" => 1,
             "pending" => 0,
             "wallet" => 32290700,
@@ -1714,7 +1714,7 @@ class TornSeeder extends Seeder
             "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 3151900,
@@ -1741,7 +1741,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 4167200,
@@ -1768,7 +1768,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 4167200,
@@ -1795,7 +1795,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 5068300,
@@ -1822,7 +1822,7 @@ class TornSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
-        factory(\App\Models\Networth::class)->create([
+        factory(\App\Models\Torn\Networth::class)->create([
 	    "player_id" => 1,
 	    "pending" => 0,
 	    "wallet" => 379536600,
@@ -1845,6 +1845,168 @@ class TornSeeder extends Seeder
 	    "deleted_at" => null,
 	    "created_at" => "2018-11-06 00:00:03",
 	    "updated_at" => "2018-11-06 00:00:03",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+        factory(\App\Models\Torn\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 599443000,
+	    "bank" => 227830000000,
+	    "points" => 1766589000,
+	    "cayman" => 0,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 50609145500,
+	    "displaycase" => 501339129700,
+	    "bazaar" => 1618709400,
+	    "properties" => 196993800000,
+	    "stockmarket" => 819849156300,
+	    "auctionhouse" => 0,
+	    "company" => 12125701700,
+	    "bookie" => 0,
+	    "loan" => -90000000000,
+	    "unpaidfees" => -10556296700,
+	    "total" => 1712175377900,
+	    "deleted_at" => null,
+	    "created_at" => "2018-11-07 00:00:01",
+	    "updated_at" => "2018-11-07 00:00:01",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+        factory(\App\Models\Torn\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 43559000,
+	    "bank" => 227830000000,
+	    "points" => 1633576000,
+	    "cayman" => 0,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 48957683900,
+	    "displaycase" => 500423766000,
+	    "bazaar" => 1618276900,
+	    "properties" => 196993800000,
+	    "stockmarket" => 824062223100,
+	    "auctionhouse" => 0,
+	    "company" => 12101352600,
+	    "bookie" => 0,
+	    "loan" => -90000000000,
+	    "unpaidfees" => -10078741400,
+	    "total" => 1713585496100,
+	    "deleted_at" => null,
+	    "created_at" => "2018-11-08 00:00:03",
+	    "updated_at" => "2018-11-08 00:00:03",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+        factory(\App\Models\Torn\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 30315800,
+	    "bank" => 227830000000,
+	    "points" => 1499613000,
+	    "cayman" => 0,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 51345538700,
+	    "displaycase" => 500566862400,
+	    "bazaar" => 1618108100,
+	    "properties" => 196993800000,
+	    "stockmarket" => 830740536100,
+	    "auctionhouse" => 0,
+	    "company" => 12082040500,
+	    "bookie" => 0,
+	    "loan" => -90000000000,
+	    "unpaidfees" => -10113991400,
+	    "total" => 1722592823200,
+	    "deleted_at" => null,
+	    "created_at" => "2018-11-09 00:00:02",
+	    "updated_at" => "2018-11-09 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+        factory(\App\Models\Torn\Networth::class)->create([
+            "player_id" => 1,
+            "pending" => 0,
+            "wallet" => 30315800,
+            "bank" => 227830000000,
+            "points" => 1499613000,
+	    "cayman" => 0,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 51345538700,
+	    "displaycase" => 500566862400,
+	    "bazaar" => 1618108100,
+	    "properties" => 196993800000,
+	    "stockmarket" => 830740536100,
+	    "auctionhouse" => 0,
+	    "company" => 12082040500,
+	    "bookie" => 0,
+	    "loan" => -90000000000,
+	    "unpaidfees" => -10113991400,
+	    "total" => 1722592823200,
+	    "deleted_at" => null,
+	    "created_at" => "2018-11-10 00:00:02",
+	    "updated_at" => "2018-11-10 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+        factory(\App\Models\Torn\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 223882600,
+	    "bank" => 227830000000,
+	    "points" => 1232951000,
+	    "cayman" => 0,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 52592435100,
+	    "displaycase" => 499851390500,
+	    "bazaar" => 1617416500,
+	    "properties" => 195278800000,
+	    "stockmarket" => 831832640600,
+	    "auctionhouse" => 0,
+	    "company" => 12219599200,
+	    "bookie" => 0,
+	    "loan" => -90000000000,
+	    "unpaidfees" => -7035250000,
+	    "total" => 1725643865500,
+	    "deleted_at" => null,
+	    "created_at" => "2018-11-11 00:00:02",
+	    "updated_at" => "2018-11-11 00:00:02",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+        factory(\App\Models\Torn\Networth::class)->create([
+	    "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 1221601100,
+	    "bank" => 227830000000,
+	    "points" => 1102773000,
+	    "cayman" => 0,
+	    "vault" => 0,
+	    "piggybank" => 0,
+	    "items" => 53040696600,
+	    "displaycase" => 499856538900,
+	    "bazaar" => 1616664300,
+	    "properties" => 195278800000,
+	    "stockmarket" => 825809104700,
+	    "auctionhouse" => 0,
+	    "company" => 12309430100,
+	    "bookie" => 0,
+	    "loan" => -90000000000,
+	    "unpaidfees" => -7070500000,
+	    "total" => 1720995108700,
+	    "deleted_at" => null,
+	    "created_at" => "2018-11-12 00:00:01",
+	    "updated_at" => "2018-11-12 00:00:01",
 	    "creator_id" => 1,
 	    "owner_id" => 1,
 	]);

@@ -1,28 +1,21 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('title', 'Create Country')
+@section('title', 'Create Product')
 
 @section('meta', '')
 
-{{ Breadcrumbs::push('Countries', url('/countries') ) }}
+{{ Breadcrumbs::push('Products', url('/products') ) }}
 {{ Breadcrumbs::push('Create') }}
 
 @section('content')
 
-                  <form method="POST" action="{{ url('/countries') }}">
-		    {{ csrf_field() }}
+            <form method="POST" action="{{ url('/products') }}">
+	      {{ csrf_field() }}
 	      <div class="card">
 		<div class="card-header">
-		  <h5 class="card-title mb-0">Create Country</h5>
+		  <h5 class="card-title mb-0">Create Product</h5>
 		</div>
 		<div class="card-body">
-                    <div class="form-group">
-                      <label for="code">Code</label>
-                      <input type="text" class="form-control{{ $errors->first('code') ? ' is-invalid' : '' }}" id="code" name="code" value="{{ old('code') }}" />
-		      @if($errors->first('code'))
-		      <small id="codeHelp" class="form-text invalid-feedback">{{ $errors->first('code') }}</small>
-		      @endif
-	            </div>
 		    <div class="form-group">
                       <label for="name">Name</label>
                       <input type="text" class="form-control{{ $errors->first('name') ? ' is-invalid' : '' }}" id="name" name="name" value="{{ old('name') }}" />
@@ -30,6 +23,13 @@
 		      <small id="nameHelp" class="form-text invalid-feedback">{{ $errors->first('name') }}</small>
 		      @endif
 	            </div>
+		    <div class="form-group">
+                      <label for="slug">Slug</label>
+                      <input type="text" class="form-control{{ $errors->first('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" value="{{ old('slug') }}" />
+		      @if($errors->first('slug'))
+		      <small id="slugHelp" class="form-text invalid-feedback">{{ $errors->first('slug') }}</small>
+		      @endif
+	            </div>		    
      	            <div class="form-group">
 		      <label for="description">Description</label>
 		      <textarea class="form-control{{ $errors->first('description') ? ' is-invalid' : '' }}" id="description" name="description" rows="3">{{ old('description') }}</textarea>
@@ -37,6 +37,20 @@
 		      <small id="descriptionHelp" class="form-text invalid-feedback">{{ $errors->first('description') }}</small>
 		      @endif
 		    </div>
+                    <div class="form-group">
+                      <label for="cost">Cost</label>
+                      <input type="text" class="form-control{{ $errors->first('cost') ? ' is-invalid' : '' }}" id="cost" name="cost" value="{{ old('cost') }}" />
+		      @if($errors->first('cost'))
+		      <small id="costHelp" class="form-text invalid-feedback">{{ $errors->first('cost') }}</small>
+		      @endif
+	            </div>
+                    <div class="form-group">
+                      <label for="price">Price</label>
+                      <input type="text" class="form-control{{ $errors->first('price') ? ' is-invalid' : '' }}" id="price" name="price" value="{{ old('price') }}" />
+		      @if($errors->first('price'))
+		      <small id="priceHelp" class="form-text invalid-feedback">{{ $errors->first('price') }}</small>
+		      @endif
+	            </div>		    
 		</div>
 		<div class="card-footer text-muted">
                   <button type="submit" class="btn btn-primary">Create</button>

@@ -16,6 +16,8 @@ class UsersController extends Controller
     //
     public function index()
     {
+        $this->authorize('index', User::class);
+	
 	$users = User::all();
 	return view('users.index', compact('users'));
     }
@@ -23,12 +25,14 @@ class UsersController extends Controller
     //
     public function create()
     {
+        $this->authorize('create', User::class);    
         return view('users.create');
     }
 
     //
     public function show(User $user)
     {
+        $this->authorize('view', User::class);        
 	if(request()->expectsJson()) {
             return $user;
 	}
@@ -39,6 +43,8 @@ class UsersController extends Controller
     //
     public function store(Request $request)
     {
+        $this->authorize('create', User::class);
+	
         $thirteen = \Carbon\Carbon::now()->subYear(13)->format('m/d/Y');
     
 	$this->validate(request(), [
@@ -72,12 +78,16 @@ class UsersController extends Controller
     //
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
+	
         return view('users.edit', compact(['user']));
     }
 
     //
     public function update(Request $request, User $user)
     {
+        $this->authorize('update', $user);
+	
 	$thirteen = \Carbon\Carbon::now()->subYear(13)->format('m/d/Y');
 
 	$this->validate(request(), [
@@ -107,6 +117,8 @@ class UsersController extends Controller
     //
     public function destroy(User $user)
     {
+        $this->authorize('delete', $user);
+	
         $user->delete();
 
 	\Session::flash('message', 'User successfully deleted.');
@@ -122,6 +134,8 @@ class UsersController extends Controller
     //
     public function list()
     {
+        $this->authorize('list', User::class);    
+
         $users = User::all();
 
 	if(request()->expectsJson()) {

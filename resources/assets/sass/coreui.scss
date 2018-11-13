@@ -9,3 +9,19 @@ body {
 .breadcrumb {
     background-color: #FFF;
 }
+
+.table {
+    background-color: #FFF;
+}
+
+.alert-box {
+    position: absolute;
+    bottom: 35px;
+    right: 1rem;
+    margin-bottom: 1rem;
+    max-width:400px;
+}
+
+.alert {
+    border-radius: 0;
+}

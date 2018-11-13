@@ -2,7 +2,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\App\Models\Attack::class, function (Faker $faker) {
+$factory->define(\App\Models\Torn\Attack::class, function (Faker $faker) {
     return [
         //
 	'creator_id' => 1,

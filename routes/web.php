@@ -15,6 +15,9 @@ Route::name('home')->get('/', function () {
     if(!config('app.website')->under_construction) {
       return view('default.index');
     }
+    if(!auth()->guest()) {
+      return redirect()->route('dashboard');
+    }
   }
 
   return view('layouts.construction');
@@ -155,7 +158,7 @@ Route::resource('zones', 'ZonesController');
 //
 //  TORN ROUTES
 //
-Route::prefix('torn')->group(function () {
+Route::namespace('Torn')->prefix('torn')->group(function () {
 
     Route::get('attacks/list', 'AttacksController@list');
     Route::resource('attacks', 'AttacksController');
@@ -171,6 +174,25 @@ Route::prefix('torn')->group(function () {
     Route::resource('networths', 'NetworthsController');
 
 });
+
+//
+//  TORN ROUTES
+//
+Route::namespace('Game')->prefix('game')->group(function () {
+    Route::get('activities/list', 'ActivitiesController@list');
+    Route::resource('activities', 'ActivitiesController');
+    Route::get('items/list', 'ItemsController@list');
+    Route::resource('items', 'ItemsController');    
+    Route::get('players/list', 'PlayersController@list');
+    Route::resource('players', 'PlayersController');
+    Route::get('skills/list', 'SkillsController@list');
+    Route::resource('skills', 'SkillsController');
+    Route::get('stats/list', 'StatsController@list');
+    Route::resource('stats', 'StatsController');    
+});
+
+
+
 
 Route::get('send-test-email', function(){
     //Mail::raw('Sending emails with Mailgun and Laravel is easy!', function($message) {

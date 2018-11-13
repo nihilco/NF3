@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
+    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,8 @@ class OrdersController extends Controller
     public function index()
     {
         //
+	$orders = Order::all();
+	return view('orders.index', compact(['orders']));
     }
 
     /**
@@ -25,6 +33,7 @@ class OrdersController extends Controller
     public function create()
     {
         //
+	return view('orders.create');
     }
 
     /**
@@ -35,7 +44,27 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	//
+        $this->validate(request(), [
+	    'notes' => 'string',
+	]);
+
+        $order = new Order();
+
+	$order->creator_id = auth()->id();
+	$order->owner_id = auth()->id();
+	$order->notes = request('notes');
+
+	$order->save();
+
+	\Session::flash('message', 'Order successfully created.');
+	\Session::flash('alert-class', 'alert-success');
+	
+	if(request()->expectsJson()) {
+            return response()->json($order, 201);
+	}
+
+	return redirect('/orders');
     }
 
     /**
@@ -46,7 +75,12 @@ class OrdersController extends Controller
      */
     public function show(Order $order)
     {
-        //
+	//
+	if(request()->expectsJson()) {
+            return $order;
+	}
+
+	return view('orders.show', compact(['order']));
     }
 
     /**
@@ -58,6 +92,7 @@ class OrdersController extends Controller
     public function edit(Order $order)
     {
         //
+	return view('orders.edit', compact(['order']));
     }
 
     /**
@@ -69,7 +104,22 @@ class OrdersController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $this->validate(request(), [
+	    'notes' => 'string',
+	]);
+
+	$order->notes = request('notes');
+
+	$order->save();
+
+	\Session::flash('message', 'Order successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
+
+	if(request()->expectsJson()) {
+            return response()->json($order, 200);
+	}
+
+	return redirect($order->path());
     }
 
     /**
@@ -80,6 +130,28 @@ class OrdersController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+	//
+        $order->delete();
+
+	\Session::flash('message', 'Order successfully deleted.');
+	\Session::flash('alert-class', 'alert-success');
+
+	if(request()->expectsJson()) {
+            return response()->json(null, 204);
+	}
+
+	return back();
+    }
+
+    //
+    public function list()
+    {
+        $orders = Order::all();
+
+	if(request()->expectsJson()) {
+            return $orders;
+	}
+
+	return view('orders.list', compact(['orders']));
     }
 }

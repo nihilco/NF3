@@ -1,28 +1,21 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('title', 'Create Country')
+@section('title', 'Create Event')
 
 @section('meta', '')
 
-{{ Breadcrumbs::push('Countries', url('/countries') ) }}
+{{ Breadcrumbs::push('Events', url('/events') ) }}
 {{ Breadcrumbs::push('Create') }}
 
 @section('content')
 
-                  <form method="POST" action="{{ url('/countries') }}">
-		    {{ csrf_field() }}
+            <form method="POST" action="{{ url('/events') }}">
+	      {{ csrf_field() }}
 	      <div class="card">
 		<div class="card-header">
-		  <h5 class="card-title mb-0">Create Country</h5>
+		  <h5 class="card-title mb-0">Create Event</h5>
 		</div>
 		<div class="card-body">
-                    <div class="form-group">
-                      <label for="code">Code</label>
-                      <input type="text" class="form-control{{ $errors->first('code') ? ' is-invalid' : '' }}" id="code" name="code" value="{{ old('code') }}" />
-		      @if($errors->first('code'))
-		      <small id="codeHelp" class="form-text invalid-feedback">{{ $errors->first('code') }}</small>
-		      @endif
-	            </div>
 		    <div class="form-group">
                       <label for="name">Name</label>
                       <input type="text" class="form-control{{ $errors->first('name') ? ' is-invalid' : '' }}" id="name" name="name" value="{{ old('name') }}" />
@@ -37,6 +30,27 @@
 		      <small id="descriptionHelp" class="form-text invalid-feedback">{{ $errors->first('description') }}</small>
 		      @endif
 		    </div>
+                    <div class="form-group">
+                      <label for="starts_at">Starts At</label>
+                      <input type="text" class="form-control{{ $errors->first('starts_at') ? ' is-invalid' : '' }}" id="starts_at" name="starts_at" value="{{ old('starts_at') }}" />
+		      @if($errors->first('code'))
+		      <small id="startsAtHelp" class="form-text invalid-feedback">{{ $errors->first('starts_at') }}</small>
+		      @endif
+	            </div>
+                    <div class="form-group">
+                      <label for="ends_at">Ends At</label>
+                      <input type="text" class="form-control{{ $errors->first('ends_at') ? ' is-invalid' : '' }}" id="ends_at" name="ends_at" value="{{ old('ends_at') }}" />
+		      @if($errors->first('ends_at'))
+		      <small id="endsAtHelp" class="form-text invalid-feedback">{{ $errors->first('ends_at') }}</small>
+		      @endif
+	            </div>		    
+                    <div class="form-group">
+                      <label for="spots_availible">Spots Availible</label>
+                      <input type="text" class="form-control{{ $errors->first('spots_availible') ? ' is-invalid' : '' }}" id="spots_availible" name="spots_availible" value="{{ old('spots_availible') }}" />
+		      @if($errors->first('spots_availible'))
+		      <small id="codeHelp" class="form-text invalid-feedback">{{ $errors->first('spots_availible') }}</small>
+		      @endif
+	            </div>		    
 		</div>
 		<div class="card-footer text-muted">
                   <button type="submit" class="btn btn-primary">Create</button>

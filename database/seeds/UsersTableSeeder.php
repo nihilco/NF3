@@ -129,8 +129,8 @@ class UsersTableSeeder extends Seeder
 	//
 	factory(App\Models\User::class)
 	    ->create([
+	        'contact_id' => null,
 	        'username' => 'mclemmer@gmail.com',
-		'name' => 'Uriah M. Clemmer IV',
 		'email' => 'mclemmer@gmail.com',
 		'password' => Hash::make(env('MY_PASSWORD2')),
 		'dob_at' => Carbon\Carbon::createFromDate(1987, 9, 22, 'America/New_York'),

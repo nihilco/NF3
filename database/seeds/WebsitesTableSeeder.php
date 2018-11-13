@@ -266,6 +266,22 @@ class WebsitesTableSeeder extends Seeder
 
         //
 	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'reddo.online')->first()->id,
+	     'hostname' => 'www.reddo.online',
+	     'name' => 'Reddo',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'reddo.online')->first()->id,
+	     'hostname' => 'dev.reddo.online',
+	     'name' => 'Reddo',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'schowsestatesales.com')->first()->id,
 	     'hostname' => 'www.schowesestatesales.com',
 	]);

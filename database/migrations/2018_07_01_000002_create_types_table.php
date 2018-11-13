@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CreateTypesTable extends Migration
 {
@@ -17,6 +17,7 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('parent_id')->nullable();
+	    $table->string('grouping');
 	    $table->string('name');
 	    $table->string('slug');
 	    $table->text('description');

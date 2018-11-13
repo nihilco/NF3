@@ -17,4 +17,9 @@ class UserTest extends TestCase
 
 	$this->user = factory(\App\Models\User::class)->create();
     }
+
+    public function testUserHasRoles()
+    {
+	$this->assertInstanceOf(\Illuminate\Support\Collection::class, $this->user->roles);
+    }    
 }

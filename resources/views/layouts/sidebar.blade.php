@@ -1,12 +1,13 @@
 <div class="sidebar">
-<nav class="sidebar-nav">
-<ul class="nav">
-<li class="nav-item">
-<a class="nav-link" href="/dashboard">
-<i class="nav-icon icon-speedometer"></i> Dashboard
-<span class="badge badge-primary">NEW</span>
-</a>
-</li>
+  <nav class="sidebar-nav">
+    <ul class="nav">
+    
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard">
+          <i class="nav-icon icon-speedometer"></i> Dashboard
+          <span class="badge badge-primary">NEW</span>
+        </a>
+      </li>
 
       <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#">
@@ -20,12 +21,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/calendars">
-              <i class="nav-icon icon-puzzle"></i> Calendars
+              <i class="nav-icon icon-calendar"></i> Calendars
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/contacts">
-              <i class="nav-icon icon-puzzle"></i> Contacts
+              <i class="nav-icon icon-people"></i> Contacts
             </a>
           </li>
           <li class="nav-item">
@@ -175,7 +176,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/provinces">
+            <a class="nav-link" href="/countries">
               <i class="nav-icon icon-puzzle"></i> Countries
             </a>
           </li>	  
@@ -248,12 +249,7 @@
         <ul class="nav-dropdown-items">
           <li class="nav-item">
             <a class="nav-link" href="/events">
-              <i class="nav-icon icon-puzzle"></i> Events
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/attendees">
-              <i class="nav-icon icon-puzzle"></i> Attendees
+              <i class="nav-icon icon-calendar"></i> Events
             </a>
           </li>
         </ul>
@@ -304,7 +300,7 @@
 
       <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#">
-          <i class="nav-icon icon-puzzle"></i> Support
+          <i class="nav-icon icon-star"></i> Support
         </a>
         <ul class="nav-dropdown-items">
           <li class="nav-item">
@@ -327,7 +323,7 @@
 
       <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#">
-          <i class="nav-icon icon-puzzle"></i> System
+          <i class="nav-icon icon-globe"></i> System
         </a>
         <ul class="nav-dropdown-items">
           <li class="nav-item">
@@ -358,16 +354,18 @@
         </ul>
       </li>
 
-<li class="nav-item mt-auto">
-<a class="nav-link nav-link-success" href="#" target="_top">
-<i class="nav-icon icon-cloud-download"></i> Success!</a>
-</li>
-<li class="nav-item">
-<a class="nav-link nav-link-danger" href="#" target="_top">
-<i class="nav-icon icon-layers"></i> Danger!
-</a>
-</li>
-</ul>
-</nav>
-<button class="sidebar-minimizer brand-minimizer" type="button"></button>
+      <li class="nav-item mt-auto">
+        <a class="nav-link nav-link-success" href="#" target="_top">
+          <i class="nav-icon icon-cloud-download"></i> Success!
+	</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-link-danger" href="#" target="_top">
+          <i class="nav-icon icon-layers"></i> Danger!
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  <button class="sidebar-minimizer brand-minimizer" type="button"></button>
 </div>

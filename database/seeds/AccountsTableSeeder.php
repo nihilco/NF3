@@ -48,7 +48,7 @@ class AccountsTableSeeder extends Seeder
 	factory(App\Models\Account::class)->create([
             'type' => 'live',
             'name' => 'The Taraloka Foundation',
-            'description' => 'Connected Stripe live account for The Taraloka FOundation.',
+            'description' => 'Connected Stripe live account for The Taraloka Foundation.',
             'stripe_id' => env('STRIPE_TARALOKA_ACCOUNT'),
             'secret_key' => encrypt(env('STRIPE_TARALOKA_LIVE_SECRET')),
             'publishable_key' => env('STRIPE_TARALOKA_LIVE_PUBLISHABLE'),

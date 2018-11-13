@@ -42,7 +42,7 @@ class Players extends Command
 
 	//dd($n['networth']);
 
-	$nw = new \App\Models\Networth();
+	$nw = new \App\Models\Torn\Networth();
 
 	$nw->creator_id = 1;
 	$nw->owner_id = 1;

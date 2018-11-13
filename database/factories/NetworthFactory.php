@@ -2,13 +2,13 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(\App\Models\Networth::class, function (Faker $faker) {
+$factory->define(\App\Models\Torn\Networth::class, function (Faker $faker) {
     return [
         //
 	'creator_id' => 1,
 	'owner_id' => 1,
 	'player_id' => function() {
-	    return factory(App\Models\Player::class)->create()->id;
+	    return factory(App\Models\Torn\Player::class)->create()->id;
 	},	
 	'pending' => rand(1,10000000000),
 	'wallet' => rand(1,10000000000),

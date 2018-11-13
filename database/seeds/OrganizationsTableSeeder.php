@@ -25,26 +25,20 @@ class OrganizationsTableSeeder extends Seeder
 	]);
 
 	factory(\App\Models\Organization::class)->create([
-	    'name_display' => 'The University of Alabama',
-	    'name_alpha' => 'Alabama, The University of',
+	    'name_display' => 'University of Alabama',
+	    'name_alpha' => 'Alabama, University of',
 	    'website' => 'www.ua.edu'
 	]);
 
 	factory(\App\Models\Organization::class)->create([
-	    'name_display' => 'University of Alabama at Birmingham',
+	    'name_display' => 'University of Alabama, Birmingham',
 	    'name_alpha' => 'Alabama, University of, Birmingham',
 	    'website' => 'www.uab.edu'
 	]);
 
 	factory(\App\Models\Organization::class)->create([
-	    'name_display' => 'University of Alabama in Huntsville',
+	    'name_display' => 'University of Alabama, Huntsville',
 	    'name_alpha' => 'Alabama, University of, Huntsville',
-	    'website' => 'www.uah.edu'
-	]);
-
-	factory(\App\Models\Organization::class)->create([
-	    'name_display' => 'The University of Alabama in Huntsville',
-	    'name_alpha' => 'Alabama,The University of, Huntsville',
 	    'website' => 'www.uah.edu'
 	]);
 
@@ -73,8 +67,8 @@ class OrganizationsTableSeeder extends Seeder
 	]);
 
 	factory(\App\Models\Organization::class)->create([
-	'name_display' => 'Auburn University at Montgomery',
-	'name_alpha' => 'Auburn University at Montgomery',
+	'name_display' => 'Auburn University, Montgomery',
+	'name_alpha' => 'Auburn University, Montgomery',
 	'website' => 'www.aum.edu'
 	]);
 
@@ -271,8 +265,8 @@ class OrganizationsTableSeeder extends Seeder
 	]);
 
 	factory(\App\Models\Organization::class)->create([
-	'name_display' => 'Columbia College SC',
-	'name_alpha' => 'Columbia College SC',
+	'name_display' => 'Columbia College, South Carolina',
+	'name_alpha' => 'Columbia College, South Carolina',
 	'website' => 'www.columbiasc.edu'
 	]);
 
@@ -367,8 +361,8 @@ class OrganizationsTableSeeder extends Seeder
 	]);
 
 	factory(\App\Models\Organization::class)->create([
-	'name_display' => 'Ecole hôtelière de Lausanne',
-	'name_alpha' => 'Ecole hôtelière de Lausanne',
+	'name_display' => 'Ecole Hôtelière de Lausanne',
+	'name_alpha' => 'Ecole Hôtelière de Lausanne',
 	'website' => 'www.ehl.edu'
 	]);
 
@@ -438,7 +432,11 @@ class OrganizationsTableSeeder extends Seeder
 	'website' => 'www.furman.edu'
 	]);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'George Mason University','name_alpha' => 'George Mason University','website' => 'www.gmu.edu/']);
+	factory(\App\Models\Organization::class)->create([
+	'name_display' => 'George Mason University',
+	'name_alpha' => 'George Mason University',
+	'website' => 'www.gmu.edu'
+	]);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'George Washington University','name_alpha' => 'George Washington University','website' => 'undergraduate.admissions.gwu.edu']);
 
@@ -626,7 +624,7 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Southern Methodist University','name_alpha' => 'Southern Methodist University','website' => 'www.smu.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'The University of Southern Mississippi','name_alpha' => 'Southern Mississippi, The University of','website' => 'www.usm.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Southern Mississippi','name_alpha' => 'Southern Mississippi, University of','website' => 'www.usm.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Southwestern University','name_alpha' => 'Southwestern University','website' => 'http://go.southwestern.edu/']);
 
@@ -640,27 +638,25 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Syracuse University','name_alpha' => 'Syracuse University','website' => 'https://www.syracuse.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'The University of Tampa','name_alpha' => 'Tampa, The University of','website' => 'www.ut.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Tampa','name_alpha' => 'Tampa, University of','website' => 'www.ut.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'Tennessee Student Assistance Corporation (TSAC]);','name_alpha' => 'Tennessee Student Assistance Corporation (TSAC]);','website' => 'www.tn.gov/collegepays']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'Tennessee Student Assistance Corporation (TSAC)','name_alpha' => 'Tennessee Student Assistance Corporation (TSAC)','website' => 'www.tn.gov/collegepays']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Tennessee Tech University','name_alpha' => 'Tennessee Tech University','website' => 'www.tntech.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Tennessee Wesleyan College','name_alpha' => 'Tennessee Wesleyan College','website' => 'www.tnwesleyan.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'The University of Tennessee, Knoxville','name_alpha' => 'Tennessee, The University of, Knoxville','website' => 'www.utk.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Tennessee, Knoxville','name_alpha' => 'Tennessee, University of, Knoxville','website' => 'www.utk.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'The University of Tennessee, Martin','name_alpha' => 'Tennessee, The University of, Martin','website' => 'www.utm.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Tennessee, Martin','name_alpha' => 'Tennessee, University of, Martin','website' => 'www.utm.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Tennessee, Chattanooga','name_alpha' => 'Tennessee, University of, Chattanooga','website' => 'www.utc.edu']);
-
-	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Tennessee, Knoxville','name_alpha' => 'Tennessee, University of, Knoxville','website' => 'www.utk.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Texas A&M University','name_alpha' => 'Texas A&M University','website' => 'www.tamu.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Texas Christian University','name_alpha' => 'Texas Christian University','website' => 'http://www.tcu.edu/']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'The Art Institute of Tennessee-Nashville','name_alpha' => 'The Art Institute of Tennessee-Nashville','website' => 'www.artinstitutes.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'The Art Institute of Tennessee-Nashville','name_alpha' => 'Art Institute of Tennessee-Nashville, The','website' => 'www.artinstitutes.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Transylvania University','name_alpha' => 'Transylvania University','website' => 'www.transy.edu']);
 
@@ -672,7 +668,7 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Tulane University','name_alpha' => 'Tulane University','website' => 'www.tulane.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'The University of Tulsa','name_alpha' => 'Tulsa, The University of','website' => 'www.utulsa.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Tulsa','name_alpha' => 'Tulsa, University of','website' => 'www.utulsa.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Tusculum College','name_alpha' => 'Tusculum College','website' => 'www.tusculum.edu']);
 
@@ -686,9 +682,7 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'United States Naval Academy','name_alpha' => 'United States Naval Academy','website' => 'www.usna.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Limerick','name_alpha' => 'University of Limerick','website' => 'www.ul.ie']);
-
-	factory(\App\Models\Organization::class)->create(['name_display' => 'University of TN at Martin','name_alpha' => 'University of TN at Martin','website' => 'utm.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'University of Limerick','name_alpha' => 'Limerick, University of','website' => 'www.ul.ie']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Valdosta State University','name_alpha' => 'Valdosta State University','website' => 'valdosta.edu']);
 
@@ -706,7 +700,7 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Washington and Lee University','name_alpha' => 'Washington and Lee University','website' => 'www.wlu.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'Washington University in St. Louis','name_alpha' => 'Washington University in St. Louis','website' => 'www.wustl.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'Washington University, St. Louis','name_alpha' => 'Washington University, St. Louis','website' => 'www.wustl.edu']);
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Watkins College of Art','name_alpha' => 'Watkins College of Art','website' => 'http://www.watkins.edu/']);
 
@@ -722,9 +716,9 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create(['name_display' => 'Worcester Polytechnic Institute','name_alpha' => 'Worcester Polytechnic Institute','website' => 'www.wpi.edu']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'Xavier University School of Medicine','name_alpha' => 'Xavier University School of Medicine','website' => 'www.xusom.com']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'Xavier University School of Medicine','name_alpha' => 'Xavier University, School of Medicine','website' => 'www.xusom.com']);
 
-	factory(\App\Models\Organization::class)->create(['name_display' => 'Xavier University- Cincinnati, OH','name_alpha' => 'Xavier University- Cincinnati, OH','website' => 'www.xavier.edu']);
+	factory(\App\Models\Organization::class)->create(['name_display' => 'Xavier University','name_alpha' => 'Xavier University','website' => 'www.xavier.edu']);
 
 	factory(\App\Models\Organization::class)->create([
 	    'name_display' => 'Young Harris College',

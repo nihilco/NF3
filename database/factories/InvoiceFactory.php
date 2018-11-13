@@ -6,18 +6,20 @@ $factory->define(App\Models\Invoice::class, function (Faker $faker) {
     return [
         'creator_id' => 1,
 	'owner_id' => 1,
-	'type' => $faker->randomElement($array = array ('invoice', 'quote', 'estimate')),
+	'type_id' => function() {
+	    return factory(App\Models\Type::class)->create()->id;
+	},
 	'account_id' => function () {
 	    return factory(App\Models\Account::class)->create()->id;
 	},
 	'customer_id' => function () {
 	    return factory(App\Models\Customer::class)->create()->id;
 	},
-	'billing_address_id' => function () {
-	    return factory(App\Models\Address::class)->create()->id;
+	'billing_contact_id' => function () {
+	    return factory(App\Models\Contact::class)->create()->id;
 	},
-	'shipping_address_id' => function () {
-	    return factory(App\Models\Address::class)->create()->id;
+	'shipping_contact_id' => function () {
+	    return factory(App\Models\Contact::class)->create()->id;
 	},
 	'slug' => str_random(32),
 	'subtotal' => $faker->numberBetween($min = 1000, $max = 100000000),
@@ -26,6 +28,8 @@ $factory->define(App\Models\Invoice::class, function (Faker $faker) {
 	'shipping' => $faker->numberBetween($min = 100, $max = 100000),
 	'total' => $faker->numberBetween($min = 1000, $max = 100000000),
 	'due_at' => \Carbon\Carbon::now()->addMonth(1),
-	'status' => $faker->randomElement($array = array ('new', 'open', 'paid', 'late', 'void', 'overdue', 'partial')),
+	'status_type_id' => function () {
+	    return factory(App\Models\Type::class)->create()->id;
+	},
     ];
 });

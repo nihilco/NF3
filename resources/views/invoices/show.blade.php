@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('title', 'Invoice')
 
@@ -64,21 +64,21 @@
 			</thead>
 			<tbody>
 			  <tr>
-			    <td>{{ $invoice->billingAddress->name }}</td>
+			    <td>{{ $invoice->billingContact->name->fullName }}</td>
 			  </tr>
 			  <tr>
-			    <td>{{ $invoice->billingAddress->address1 }}</td>
+			    <td>{{ $invoice->billingContact->defaultAddress->address1 }}</td>
 			  </tr>
-			  @if($invoice->billingAddress->address2)
+			  @if($invoice->billingContact->defaultAddress->address2)
 			  <tr>
-		      	    <td>{{ $invoice->billingAddress->address2 }}</td>
+		      	    <td>{{ $invoice->billingContact->defaultAddress->address2 }}</td>
 			  </tr>  
 		      	  @endif
 			  <tr>
-			    <td>{{ $invoice->billingAddress->city . ', ' . $invoice->billingAddress->province->code . ' ' . $invoice->billingAddress->postal_code }}</td>
+			    <td>{{ $invoice->billingContact->defaultAddress->city->name . ', ' . $invoice->billingContact->defaultAddress->province->code . ' ' . $invoice->billingContact->defaultAddress->postal_code }}</td>
 			  </tr>
 			  <tr>
-			    <td>{{ $invoice->billingAddress->owner->email }}</td>
+			    <td>{{ $invoice->billingContact->owner->email }}</td>
 			  </tr>
 			</tbody>
 		      </table>
@@ -94,21 +94,21 @@
 			</thead>
 			<tbody>
 			  <tr>
-			    <td>{{ $invoice->shippingAddress->name }}</td>
+			    <td>{{ $invoice->shippingContact->name->fullName }}</td>
 			  </tr>
 			  <tr>
-			    <td>{{ $invoice->shippingAddress->address1 }}</td>
+			    <td>{{ $invoice->shippingContact->defaultAddress->address1 }}</td>
 			  </tr>
-			  @if($invoice->shippingAddress->address2)
+			  @if($invoice->shippingContact->defaultAddress->address2)
 			  <tr>
-		      	    <td>{{ $invoice->shippingAddress->address2 }}</td>
+		      	    <td>{{ $invoice->shippingContact->defaultAddress->address2 }}</td>
 			  </tr>  
 		      	  @endif
 			  <tr>
-			    <td>{{ $invoice->shippingAddress->city . ', ' . $invoice->billingAddress->province->code . ' ' . $invoice->billingAddress->postal_code }}</td>
+			    <td>{{ $invoice->shippingContact->defaultAddress->city->name . ', ' . $invoice->shippingContact->defaultAddress->province->code . ' ' . $invoice->shippingContact->defaultAddress->postal_code }}</td>
 			  </tr>
 			  <tr>
-			    <td>{{ $invoice->shippingAddress->owner->email }}</td>
+			    <td>{{ $invoice->shippingContact->owner->email }}</td>
 			  </tr>
 			</tbody>
 		      </table>

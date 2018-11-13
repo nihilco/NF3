@@ -81,5 +81,12 @@ class TldsTableSeeder extends Seeder
 		'description' => 'Personal',
 		'domain' => '.me',
 	    ]);
+
+	factory(App\Models\Tld::class)
+	    ->create([
+	        'name' => 'ONLINE',
+		'description' => 'Online',
+		'domain' => '.online',
+	    ]);
     }
 }

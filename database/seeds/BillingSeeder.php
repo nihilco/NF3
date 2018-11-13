@@ -15,6 +15,8 @@ class BillingSeeder extends Seeder
 	$provinces = App\Models\Province::all();
 	$countries = App\Models\Country::all();
 	$users = App\Models\User::all();
+	$typesTypes = App\Models\Type::where('grouping', App\Models\Invoice::class . ":Type")->get();
+	$typesStatuses = App\Models\Type::where('grouping', App\Models\Invoice::class . ":Status")->get();	
 
 	$name1 = factory(App\Models\Name::class)->create([
 	    'prefix' => 'Mr.',
@@ -80,7 +82,6 @@ class BillingSeeder extends Seeder
 	//
 	$address1 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    //'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
 	    'city_id' => $cityId,
 	    'province_id' => $provinceId,
@@ -94,7 +95,6 @@ class BillingSeeder extends Seeder
 	//
 	$address2 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    //'name_id' => $name1->id,
 	    'address1' => '855 Tremont Ave',
 	    'city_id' => $cityId,
 	    'province_id' => $provinceId,
@@ -108,7 +108,6 @@ class BillingSeeder extends Seeder
 	//
 	$address3 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    //'name_id' => $name1->id,
 	    'address1' => '1897 Combs Road',
 	    'address2' => 'Apt #1',
 	    'city_id' => $cityId,
@@ -123,7 +122,6 @@ class BillingSeeder extends Seeder
 	//
 	$address4 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
-	    //'name_id' => $name2->id,
 	    'address1' => '2773 Haywood Avenue',
 	    'city_id' => $cityId,
 	    'province_id' => $provinceId,
@@ -137,7 +135,6 @@ class BillingSeeder extends Seeder
 	//
 	$address5 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'carlschow@gmail.com')->first()->id,
-	    //'name_id' => $name3->id,
 	    'address1' => '956 Signal Road',
 	    'address2' => 'ATTN: Carl Schow',
 	    'city_id' => $cityId,
@@ -152,7 +149,6 @@ class BillingSeeder extends Seeder
 	//
 	$address6 = factory(App\Models\Address::class)->create([
 	    'owner_id' => $users->where('email', 'chandler@mazestonelaw.com')->first()->id,
-	    //'name_id' => $name4->id,
 	    'address1' => '127 West High Street',
 	    'address2' => 'ATTN: Chandler Maze',
 	    'city_id' => $cityId,
@@ -168,7 +164,6 @@ class BillingSeeder extends Seeder
 	$address7 = factory(App\Models\Address::class)->create([
 	    //'owner_id' => $users->where('email', 'mclemmer@gmail.com')->first()->id,
 	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
-	    //'name_id' => $name1->id,
 	    'address1' => '6409 Sail Pointe Lane',
 	    'city_id' => $cityId,
 	    'province_id' => $provinceId,
@@ -178,13 +173,13 @@ class BillingSeeder extends Seeder
 
         // Schows website
 	$invoice1 = factory(App\Models\Invoice::class)->create([
-	    'type' => 'invoice',
+	    'type_id' => $typesTypes->where('name', 'Invoice')->first()->id,
 	    'account_id' => 1,
 	    'customer_id' => 6,
-	    'billing_address_id' => 5,
-	    'shipping_address_id' => 5,
+	    //'billing_address_id' => 5,
+	    //'shipping_address_id' => 5,
 	    'slug' => 'sFPeZ2BTbVqznM21znz994MKTa4whped',
-	    'status' => 'open',
+	    'status_type_id' => $typesStatuses->where('name', 'Paid')->first()->id,
 	    'subtotal' => 35500,
 	    'tax_rate' => 700,
 	    'tax' => 2485,
@@ -200,13 +195,13 @@ class BillingSeeder extends Seeder
 
         // Maze & Stone admin
 	$invoice2 = factory(App\Models\Invoice::class)->create([
-	    'type' => 'invoice',
+	    'type_id' => $typesTypes->where('name', 'Invoice')->first()->id,
 	    'account_id' => 1,
 	    'customer_id' => 9,
-	    'billing_address_id' => 6,
-	    'shipping_address_id' => 6,
+	    //'billing_address_id' => 6,
+	    //'shipping_address_id' => 6,
 	    'slug' => '9Q31ZU2mU7TOGh8YwoD2CR2rxc9FUGJy',
-	    'status' => 'open',
+	    'status_type_id' => $typesStatuses->where('name', 'Paid')->first()->id,
 	    'subtotal' => 25000,
 	    'tax_rate' => 700,
 	    'tax' => 1750,
@@ -221,13 +216,13 @@ class BillingSeeder extends Seeder
 
 	// Nancy Clemmer hosting
 	$invoice3 = factory(App\Models\Invoice::class)->create([
-	    'type' => 'invoice',
+	    'type_id' => $typesTypes->where('name', 'Invoice')->first()->id,
 	    'account_id' => 1,
 	    'customer_id' => 8,
-	    'billing_address_id' => 4,
-	    'shipping_address_id' => 4,
+	    //'billing_address_id' => 4,
+	    //'shipping_address_id' => 4,
 	    'slug' => 'hwfFDHEHTY7HIJCGD3f5E0sfCuWUPlnB',
-	    'status' => 'open',
+	    'status_type_id' => $typesStatuses->where('name', 'Paid')->first()->id,
 	    'subtotal' => 3517,
 	    'tax_rate' => 700,
 	    'tax' => 105,
@@ -243,13 +238,13 @@ class BillingSeeder extends Seeder
 	
         // Schows hosting
 	$invoice4 = factory(App\Models\Invoice::class)->create([
-	    'type' => 'invoice',
+	    'type_id' => $typesTypes->where('name', 'Invoice')->first()->id,
 	    'account_id' => 1,
 	    'customer_id' => 6,
-	    'billing_address_id' => 5,
-	    'shipping_address_id' => 5,
+	    //'billing_address_id' => 5,
+	    //'shipping_address_id' => 5,
 	    'slug' => 'BmlNX9CMMBSaCwj4CnOnnx94rl4Jwe3e',
-	    'status' => 'open',
+	    'status_type_id' => $typesStatuses->where('name', 'Paid')->first()->id,
 	    'subtotal' => 11068,
 	    'tax_rate' => 700,
 	    'tax' => 210,
@@ -269,12 +264,12 @@ class BillingSeeder extends Seeder
 
 	// Test
 	$invoice5 = factory(App\Models\Invoice::class)->create([
-	    'type' => 'invoice',
+	    'type_id' => $typesTypes->where('name', 'Invoice')->first()->id,
 	    'account_id' => 1,
 	    'customer_id' => 1,
-	    'billing_address_id' => 3,
-	    'shipping_address_id' => 3,
-	    'status' => 'open',
+	    //'billing_address_id' => 3,
+	    //'shipping_address_id' => 3,
+	    'status_type_id' => $typesStatuses->where('name', 'Open')->first()->id,
 	    'subtotal' => 100,
 	    'tax_rate' => 700,
 	    'tax' => 0,

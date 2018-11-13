@@ -46,9 +46,9 @@ class User extends Authenticatable
 	});
 
 	static::created(function ($user) {
-	    // Create Avatar
-	    $avatar = \Avatar::create($user->email)->getImageObject()->encode('png');
-            Storage::put('avatars/' . $user->id . '/avatar.png', (string) $avatar);
+            // Create Avatar
+            $avatar = \Avatar::create($user->email)->getImageObject()->encode('png');
+            \Storage::put('avatars/' . $user->id . '/avatar.png', (string) $avatar);
 	});
     }
 
@@ -67,7 +67,7 @@ class User extends Authenticatable
     //
     public function path()
     {
-	return '/users/' . $this->id;
+	return '/users/' . $this->getRouteKey();
     }
 
     //
@@ -85,5 +85,10 @@ class User extends Authenticatable
     public function getAvatarUrlAttribute()
     {
         return \Storage::url('avatars/' . $this->id . '/' .$this->avatar);
+    }
+
+    public function roles()
+    {
+	return $this->hasMany(Role::class);
     }
 }

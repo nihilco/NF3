@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ContactsController extends Controller
 {
+    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,8 @@ class ContactsController extends Controller
     public function index()
     {
         //
+	$contacts = Contact::all();
+	return view('contacts.index', compact(['contacts']));
     }
 
     /**
@@ -25,6 +33,7 @@ class ContactsController extends Controller
     public function create()
     {
         //
+	return view('contacts.create');
     }
 
     /**
@@ -35,7 +44,27 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	//
+        $this->validate(request(), [
+
+	]);
+
+        $contact = new Contact();
+
+	$contact->creator_id = auth()->id();
+	$contact->owner_id = auth()->id();
+
+	$contact->save();
+
+	\Session::flash('message', 'Contact successfully created.');
+	\Session::flash('alert-class', 'alert-success');
+	
+	if(request()->expectsJson()) {
+            return response()->json($contact, 201);
+	}
+
+	return redirect('/contacts');
+
     }
 
     /**
@@ -46,7 +75,12 @@ class ContactsController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+	//
+	if(request()->expectsJson()) {
+            return $contact;
+	}
+
+	return view('contacts.show', compact(['contact']));	
     }
 
     /**
@@ -58,6 +92,7 @@ class ContactsController extends Controller
     public function edit(Contact $contact)
     {
         //
+        return view('contacts.edit', compact(['contact']));	
     }
 
     /**
@@ -69,7 +104,23 @@ class ContactsController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $this->validate(request(), [
+
+	]);
+
+	//
+
+	$contact->save();
+
+	\Session::flash('message', 'Contact successfully updated.');
+	\Session::flash('alert-class', 'alert-success');
+
+	if(request()->expectsJson()) {
+            return response()->json($contact, 200);
+	}
+
+	return redirect($contact->path());
+
     }
 
     /**
@@ -81,5 +132,27 @@ class ContactsController extends Controller
     public function destroy(Contact $contact)
     {
         //
+        $contact->delete();
+
+	\Session::flash('message', 'Contact successfully deleted.');
+	\Session::flash('alert-class', 'alert-success');
+
+	if(request()->expectsJson()) {
+            return response()->json(null, 204);
+	}
+
+	return back();	
+    }
+
+    //
+    public function list()
+    {
+        $contacts = Contact::all();
+
+	if(request()->expectsJson()) {
+            return $contacts;
+	}
+
+	return view('contacts.list', compact(['contacts']));
     }
 }

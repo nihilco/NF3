@@ -51,6 +51,27 @@
 	  </div>
         </div>
 
+	@if(\Session::has('message'))
+	<!-- Alerts Here -->
+	<div class="alert-box">
+	  <div class="alert {{ \Session::get('alert-class', 'alert-info') }} fade show" role="alert">
+	    <strong>
+	    @php
+	      if(\Session::get('alert-class') == 'alert-success') {
+	        echo "<i class='fas fa-check'></i> Success: ";
+	      } elseif (\Session::get('alert-class') == 'alert-warning') {
+	        echo '<i class="fas fa-exclamation-triangle"></i> Warning: ';
+	      } elseif (\Session::get('alert-class') == 'alert-danger') {
+	        echo '<i class="fas fa-exclamation-triangle"></i> Danger: ';
+	      } else {
+	        echo '<i class="fas fa-info-circle"></i> Info: ';
+	      }
+	    @endphp
+  	    </strong> {{ \Session::get('message') }}
+	  </div>
+	</div>
+	@endif
+	
       </main>
 
       <!-- Aside Here -->

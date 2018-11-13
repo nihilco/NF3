@@ -16,11 +16,11 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->increments('id');
-	    $table->enum('type', ['invoice', 'quote', 'estimate']);
+	    $table->unsignedInteger('type_id');
 	    $table->unsignedInteger('account_id');
 	    $table->unsignedInteger('customer_id');
-	    $table->unsignedInteger('billing_address_id');
-	    $table->unsignedInteger('shipping_address_id');
+	    $table->unsignedInteger('billing_contact_id');
+	    $table->unsignedInteger('shipping_contact_id');
 	    $table->string('slug')->unique();
 	    $table->integer('subtotal');
 	    $table->integer('tax_rate')->default(0);
@@ -31,7 +31,7 @@ class CreateInvoicesTable extends Migration
 	    $table->date('opened_at')->nullable();
 	    $table->date('due_at');
 	    $table->date('paid_at')->nullable();
-	    $table->enum('status', ['new', 'open', 'paid', 'partial', 'late','overdue', 'void']);
+	    $table->unsignedInteger('status_type_id');
 	    $table->unsignedInteger('line_items_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
@@ -46,14 +46,14 @@ class CreateInvoicesTable extends Migration
 		->on('customers')
 		->onDelete('cascade');
 
-	    $table->foreign('billing_address_id')
+	    $table->foreign('billing_contact_id')
 		->references('id')
-		->on('addresses')
+		->on('contacts')
 		->onDelete('cascade');
 
-	    $table->foreign('shipping_address_id')
+	    $table->foreign('shipping_contact_id')
 		->references('id')
-		->on('addresses')
+		->on('contacts')
 		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');

@@ -39,15 +39,15 @@ class Invoice extends Base
     }
 
     //
-    public function billingAddress()
+    public function billingContact()
     {
-	return $this->belongsTo(Address::class);
+	return $this->belongsTo(Contact::class);
     }
     
     //
-    public function shippingAddress()
+    public function shippingContact()
     {
-	return $this->belongsTo(Address::class);
+	return $this->belongsTo(Contact::class);
     }
 
     //

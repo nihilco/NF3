@@ -16,6 +16,8 @@ class AccountsController extends Controller
     //
     public function index()
     {
+        $this->authorize('index', Account::class);
+	
 	$accounts = Account::all();
 
 	return view('accounts.index', compact(['accounts']));
@@ -24,12 +26,16 @@ class AccountsController extends Controller
     //
     public function create()
     {
+        $this->authorize('create', Account::class);
+	
 	return view('accounts.create');
     }
 
     //
     public function show(Account $account)
     {
+        $this->authorize('view', $account);
+	
 	if(request()->expectsJson()) {
             return $account;
 	}
@@ -40,6 +46,8 @@ class AccountsController extends Controller
     //
     public function store(Request $request)
     {
+        $this->authorize('create', Account::class);
+	
         $this->validate(request(), [
 	    'type' => 'required|in:test,live',
 	    'name' => 'required',
@@ -75,18 +83,22 @@ class AccountsController extends Controller
             return response()->json($account, 201);
 	}
 
-	return back();
+	return redirect('/accounts');
     }
 
     //
     public function edit(Account $account)
     {
+        $this->authorize('update', $account);
+	
         return view('accounts.edit', compact(['account']));
     }
 
     //
     public function update(Request $request, Account $account)
     {
+        $this->authorize('update', $account);
+	
         $this->validate(request(), [
 	    'type' => 'required|in:test,live',
 	    'name' => 'required',
@@ -124,6 +136,8 @@ class AccountsController extends Controller
     //
     public function destroy(Account $account)
     {
+        $this->authorize('delete', $account);
+	
         $account->delete();
 
 	\Session::flash('message', 'Account successfully deleted.');
@@ -139,6 +153,8 @@ class AccountsController extends Controller
     //
     public function list()
     {
+        $this->authorize('list', Account::class);
+	
         $accounts = Account::all();
 
 	if(request()->expectsJson()) {

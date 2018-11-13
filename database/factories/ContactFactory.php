@@ -12,3 +12,8 @@ $factory->define(\App\Models\Contact::class, function (Faker $faker) {
 	},
     ];
 });
+
+$factory->afterCreating(\App\Models\Contact::class, function($model) {
+    $address = factory(\App\Models\Address::class)->create();
+    $model->addresses()->save($address);
+});

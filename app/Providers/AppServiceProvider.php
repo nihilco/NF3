@@ -67,20 +67,20 @@ class AppServiceProvider extends ServiceProvider
     {
 	$paths = config('view.paths');
 
-	if(!$paths) {
-	  $paths = [
-	      resource_path('views'),
-	  ];
-	  view()->getFinder()->addLocation(resource_path('views'));
-	}
-
 	if($this->website) {
 	    $themePath = base_path('themes/' . $this->website->hostname . '/resources/views');
-	    array_unshift($paths, $themePath);
+	    //array_unshift($paths, $themePath);
 	    view()->getFinder()->addLocation($themePath);
 	    //dd(view());
 	}
-	
+
+	  $paths[] = resource_path('views');
+	  view()->getFinder()->addLocation(resource_path('views'));
+
+	//if($paths) {
+
+	//}
+
 	config(['view.paths' => $paths]);
 	//dd(config('view.paths'));
     }

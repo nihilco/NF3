@@ -68,6 +68,42 @@ class ContactsTableSeeder extends Seeder
 
 	$user = App\Models\User::where('email', 'annenexum@gmail.com')->first();
 	$user->contact_id = $contact->id;
+	$user->save();
+
+	//
+	//
+	//
+        //
+	$name = factory(App\Models\Name::class)->create([
+            'prefix' => 'Mr',
+	    'first' => 'Matt',
+	    'last' => 'Clemmer',
+	]);
+	
+	$contact = factory(App\Models\Contact::class)->create([
+	    'name_id' => $name->id,
+	]);
+
+	$user = App\Models\User::where('email', 'mclemmer@gmail.com')->first();
+	$user->contact_id = $contact->id;
+	$user->save();
+
+	//
+	//
+	//
+        //
+	$name = factory(App\Models\Name::class)->create([
+            'prefix' => 'Mr',
+	    'first' => 'David',
+	    'last' => 'Cross',
+	]);
+	
+	$contact = factory(App\Models\Contact::class)->create([
+	    'name_id' => $name->id,
+	]);
+
+	$user = App\Models\User::where('email', 'dcross9999@gmail.com')->first();
+	$user->contact_id = $contact->id;
 	$user->save();	
 
     }

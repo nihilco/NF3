@@ -18,9 +18,9 @@
 <i class="icon-speech"></i>
 </a>
 <a class="btn" href="/dashboard">
-<i class="icon-graph"></i>  Dashboard</a>
+<i class="icon-graph"></i> Dashboard</a>
 <a class="btn" href="/settings">
-<i class="icon-settings"></i>  Settings</a>
+<i class="icon-settings"></i> Settings</a>
 </div>
 </li>
 </ol>
