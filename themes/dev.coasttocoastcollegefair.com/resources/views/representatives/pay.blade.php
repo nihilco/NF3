@@ -31,9 +31,9 @@
   <!--<li class="nav-item">
     <a class="nav-link" id="ba-tab" data-toggle="tab" href="#bank" role="tab" aria-controls="bank" aria-selected="false">Bank Account</a>
   </li>-->
-  <li class="nav-item">
+  <!--<li class="nav-item">
     <a class="nav-link" id="mail-tab" data-toggle="tab" href="#mail" role="tab" aria-controls="mail" aria-selected="false">Mail</a>
-  </li>
+  </li>-->
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">

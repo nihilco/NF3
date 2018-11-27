@@ -65,6 +65,7 @@ class WebsitesTableSeeder extends Seeder
 	     'hostname' => 'www.coasttocoastcollegefair.com',
 	     'name' => 'Coast-to-Coast College Fair',
 	     'analytics_code' => 5,
+	     'under_construction' => false,	     
 	     'active' => true,
 	]);
 

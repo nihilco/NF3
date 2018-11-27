@@ -1963,7 +1963,7 @@ class C2CSeeder extends Seeder
 
   $orgs = App\Models\Organization::all();
 
-  $wid = App\Models\Website::where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
+  $wid = App\Models\Website::where('hostname', 'www.coasttocoastcollegefair.com')->first()->id;
   
 	//
           foreach($reps as $rep) {

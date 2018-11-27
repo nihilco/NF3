@@ -14,6 +14,11 @@
     <div class="col-12">
       <h1 class="page-title">Representatives</h1>
       <p>{{ $event->participants->count() }} registered organizations.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-8">
 
 	@if(\Session::has('message'))
 	<!-- Alerts Here -->
@@ -35,12 +40,6 @@
 	  </div>
 	</div>
 	@endif
-
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-8">
 
 <div class="table-responsive">
                   <table class="table table-bordered table-striped">

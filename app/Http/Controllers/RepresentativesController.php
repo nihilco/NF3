@@ -228,7 +228,7 @@ class RepresentativesController extends Controller
 	    //
 	    // Set your secret key: remember to change this to your live secret key in production
 	    // See your keys here: https://dashboard.stripe.com/account/apikeys
-	    \Stripe\Stripe::setApiKey("sk_test_pkUBnMZ0EEuUhIWsJGeyVNuX");
+	    \Stripe\Stripe::setApiKey(env('STRIPE_PLATFORM_LIVE_SECRET'));
 
 	    // Token is created using Checkout or Elements!
 	    // Get the payment token ID submitted by the form:
