@@ -20,16 +20,13 @@
           {{ auth()->user()->email }}
         </a>
         <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="/dashboard">
+            <i class="icon-speedometer"></i> Dashboard
+          </a>
           <a class="dropdown-item" href="/profile">
             <i class="fa fa-user"></i> Profile
-          </a>
-          <a class="dropdown-item" href="/profile/settings">
-            <i class="fa fa-wrench"></i> Settings
-          </a>
+          </a>	  
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/lock-account">
-            <i class="fa fa-lock"></i> Lock Account
-          </a>
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
 	  </a>

@@ -16,7 +16,9 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
+	    $table->unsignedInteger('website_id');
 	    $table->unsignedInteger('name_id');
+	    $table->unsignedInteger('organizations_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 

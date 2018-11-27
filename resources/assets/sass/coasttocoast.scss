@@ -9,7 +9,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 561px;
+    margin-bottom: 610px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -18,7 +18,7 @@ body {
     bottom: 0;
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: 561px;
+    height: 610px;
     color:#FFF;
     text-align:center;
     background: #444444;
@@ -128,10 +128,28 @@ a.btn-cta .fa,
     font-weight:bold;
 }
 
+.navbar-brand {	   
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
 .navbar-brand img {
     width:200px;
     height:200px;
 }
+
+.navbar-toggler {
+    color:#FFF;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+
+.navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+	}
 
 .carousel-caption-title {
     background: #00447C;
@@ -221,6 +239,44 @@ a.btn-cta .fa,
     text-align:center;
 }
 
+
+
+
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+  * how you can use CSS to style your Element's container.
+   */
+   .StripeElement {
+     background-color: white;
+       height: 40px;
+         padding: 10px 12px;
+	   border-radius: 4px;
+	     border: 1px solid transparent;
+	       box-shadow: 0 1px 3px 0 #e6ebf1;
+	         -webkit-transition: box-shadow 150ms ease;
+		   transition: box-shadow 150ms ease;
+		   }
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+  }
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+  }
+  
+
+
+
+
+
+
+
 // Extra small devices (portrait phones, less than 576px)
 // No media query for `xs` since this is the default in Bootstrap
 
@@ -247,6 +303,12 @@ a.btn-cta .fa,
     z-index:10;
     /*top:0;*/
     padding-top:5px;
+    
+    margin-left: 0;
+    margin-right: 1rem;
+    width: auto;
+    text-align: left;
+    margin-top: 0;
   }
 
   .navbar-brand img {

@@ -16,11 +16,13 @@ class IssuesTableSeeder extends Seeder
 	$typesResolutions = $types->where('grouping', App\Models\Issue::class . ":Resolution");
 	$typesStatuses = $types->where('grouping', App\Models\Issue::class . ":Status");
 	$typesPriorities = $types->where('grouping', App\Models\Issue::class . ":Priority");
+	$wid = App\Models\Website::where('hostname', 'dev.nihil.co')->first()->id;
 
 	//
 	//  ISSUES
 	//
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Setup Second Web Server',
 	    'slug' => 'setup-second-web-server',
 	    'content' => 'Setup a master-master web server.',
@@ -32,6 +34,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Setup Second Database Server',
 	    'slug' => 'setup-second-database-server',
 	    'content' => 'Setup a master-master database server.',
@@ -43,6 +46,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Setup Email Servers',
 	    'slug' => 'setup-email-server',
 	    'content' => 'Setup master-master email servers.',
@@ -54,6 +58,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Migrate Taraloka Email to New Servers',
 	    'slug' => 'migrate-taraloka-email-to-new-servers',
 	    'content' => 'Migrate Taraloka Email to new servers.',
@@ -65,6 +70,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Install Website Analytics',
 	    'slug' => 'install-website-analytics',
 	    'content' => 'Install website analytics.',
@@ -76,6 +82,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Cancel All AWS Resources',
 	    'slug' => 'cancel-all-aws-resources',
 	    'content' => 'Cancel all AWS resources.',
@@ -87,6 +94,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Cancel ALl EC2 Instances',
 	    'slug' => 'cancel-all-ec2-instances',
 	    'content' => 'Cancel all EC2 instances.',
@@ -98,6 +106,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Cancel All Route 53 Zones',
 	    'slug' => 'cancel-all-route-53-zones',
 	    'content' => 'Cancel all Route 53 zones.',
@@ -109,6 +118,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Cancel Hostgator Reseller Account',
 	    'slug' => 'cancel-hostgator-reseller-account',
 	    'content' => 'Cancel Hostgator reseller account.',
@@ -120,6 +130,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Migrate Schows Estate Sales to new web server',
 	    'slug' => 'migrate-schows-estate-sales-to-new-web-server',
 	    'content' => 'Migrate Schows Estate Sales to new web server..',
@@ -131,6 +142,7 @@ class IssuesTableSeeder extends Seeder
 	]);
 
 	$issue = factory(\App\Models\Issue::class)->create([
+	    'website_id' => $wid,
 	    'subject' => 'Migrate Crosby Jeep Club to new web server',
 	    'slug' => 'migrate-crosby-jeep-club-to-new-web-server',
 	    'content' => 'Migrate Crosby Jeep CLub to new web server.',

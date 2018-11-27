@@ -14,6 +14,10 @@ class City extends Base
 	     $city->country->increment('cities_count');	     
 	});
 
+	static::deleting(function($city) {
+	    $city->addresses->each->delete();
+	});
+
 	static::deleted(function($city) {
 	    $city->province->decrement('cities_count');
 	    $city->country->decrement('cities_count');

@@ -72,4 +72,6 @@
   </tbody>
 </table>
 
+{{ $items->links() }}
+
 @endsection

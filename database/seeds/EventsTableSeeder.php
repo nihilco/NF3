@@ -16,17 +16,9 @@ class EventsTableSeeder extends Seeder
 	//
 	$event = factory(\App\Models\Event::class)->create([
 	    'website_id' => $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id,
-	    'name' => 'Fair 2015',
-	    'description' => '',
-	    'starts_at' => \Carbon\Carbon::create(2015, 3, 5, 18, 30, 00),
-	    'ends_at' => \Carbon\Carbon::create(2015, 3, 5, 20, 30, 00),
-	]);
-
-	//
-	$event = factory(\App\Models\Event::class)->create([
-	    'website_id' => $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id,
 	    'name' => 'Fair 2016',
-	    'description' => '',
+	    'slug' => 'fair-2016',
+	    'description' => 'Fair 2016 description.',
 	    'starts_at' => \Carbon\Carbon::create(2016, 3, 5, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2016, 3, 5, 20, 30, 00),
 	]);
@@ -35,7 +27,8 @@ class EventsTableSeeder extends Seeder
 	$event = factory(\App\Models\Event::class)->create([
 	    'website_id' => $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id,
 	    'name' => 'Fair 2017',
-	    'description' => '',
+	    'slug' => 'fair-2017',
+	    'description' => 'Fair 2017 description.',
 	    'starts_at' => \Carbon\Carbon::create(2017, 3, 5, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2017, 3, 5, 20, 30, 00),
 	]);
@@ -44,7 +37,8 @@ class EventsTableSeeder extends Seeder
 	$event = factory(\App\Models\Event::class)->create([
 	    'website_id' => $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id,
 	    'name' => 'Fair 2018',
-	    'description' => '',
+	    'slug' => 'fair-2018',
+	    'description' => 'Fair 2018 description.',
 	    'starts_at' => \Carbon\Carbon::create(2018, 3, 5, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2018, 3, 5, 20, 30, 00),
 	]);
@@ -53,7 +47,8 @@ class EventsTableSeeder extends Seeder
 	$event = factory(\App\Models\Event::class)->create([
 	    'website_id' => $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id,
 	    'name' => 'Fair 2019',
-	    'description' => '',
+	    'slug' => 'fair-2019',
+	    'description' => 'Fair 2019 description.',
 	    'starts_at' => \Carbon\Carbon::create(2019, 3, 5, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2019, 3, 5, 20, 30, 00),
 	]);

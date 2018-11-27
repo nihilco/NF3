@@ -9,7 +9,7 @@ class Player extends Base
     //
     public function path()
     {
-        return '/players/' . $this->id;
+        return '/torn/players/' . $this->id;
     }
 
     //

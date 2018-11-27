@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/coasttocoast.css": "/css/coasttocoast.css",
     "/css/uclemmer.css": "/css/uclemmer.css",
-    "/js/tinymce.js": "/js/tinymce.js"
+    "/js/tinymce.js": "/js/tinymce.js",
+    "/js/stripe.js": "/js/stripe.js"
 }

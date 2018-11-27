@@ -30,10 +30,10 @@
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-			<td>{{ $invoice->type }}</td>
+			<td>{{ $invoice->type->name }}</td>
 		        <td>{{ $invoice->account->name }}</td>
 			<td>{{ $invoice->customer->owner->name }}</td>
-			<td>{{ $invoice->status }}</td>
+			<td>{{ $invoice->status->name }}</td>
 			<td>{{ $invoice->due_at->toFormattedDateString() }}</td>
 			<td>${{ number_format($invoice->total/100,2) }}</td>
 		        <td class="td-action">

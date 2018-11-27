@@ -52,13 +52,13 @@ class C2CSeeder extends Seeder
     'first' => 'Kyle',
     'last' => 'Cutler',
     'email' => 'cutler@clemson.edu',
-    'organization' => 'Clemson University '
+    'organization' => 'Clemson University'
   ],
     [
     'first' => 'Amy',
     'last' => 'Smedberg',
     'email' => 'asmedbe@clemson.edu',
-    'organization' => 'Clemson University '
+    'organization' => 'Clemson University'
   ],
     [
     'first' => 'Trish',
@@ -277,13 +277,13 @@ class C2CSeeder extends Seeder
     'first' => 'Lauren',
     'last' => 'Hanhauser',
     'email' => 'leh@uab.edu',
-    'organization' => 'University of Alabama at Birmingham (UAB)'
+    'organization' => 'University of Alabama, Birmingham'
   ],
     [
     'first' => 'Kelly',
     'last' => 'Pietkiewicz',
     'email' => 'kpiet@uab.edu',
-    'organization' => 'University of Alabama at Birmingham (UAB)'
+    'organization' => 'University of Alabama, Birmingham'
   ],
     [
     'first' => 'Carol',
@@ -296,12 +296,6 @@ class C2CSeeder extends Seeder
     'last' => 'Kercheval',
     'email' => 'ckercheval@earthlink.net',
     'organization' => 'Wittenberg University'
-  ],
-    [
-    'first' => '',
-    'last' => '',
-    'email' => 'admissions@vt.edu',
-    'organization' => 'Virginia Tech'
   ],
     [
     'first' => 'Lauran',
@@ -433,7 +427,7 @@ class C2CSeeder extends Seeder
     [
     'first' => 'Adam',
     'last' => 'Brimanson',
-    'email' => 'abrimanson@uga.edu',
+    'email' => 'adm-hsc@uga.edu',
     'organization' => 'University of Georgia'
   ],
     [
@@ -516,7 +510,7 @@ class C2CSeeder extends Seeder
     'last' => 'Thomason',
     'middle' => 'Beth',
     'email' => 'anna.thomason@uah.edu',
-    'organization' => 'University of Alabama in Huntsville'
+    'organization' => 'University of Alabama, Huntsville'
   ],
     [
     'first' => 'Alex',
@@ -606,19 +600,19 @@ class C2CSeeder extends Seeder
     'first' => 'Heather',
     'last' => 'Lorenz',
     'email' => 'heather.lorenz@furman.edu',
-    'organization' => 'Furman Univerisity '
+    'organization' => 'Furman Univerisity'
   ],
     [
     'first' => 'Ray',
     'last' => 'Lian',
     'email' => 'rlian@brenau.edu',
-    'organization' => 'Brenau University '
+    'organization' => 'Brenau University'
   ],
     [
     'first' => 'Maletha',
     'last' => 'Hubbard',
     'email' => 'mhubbard1@brenau.edu',
-    'organization' => 'Brenau University '
+    'organization' => 'Brenau University'
   ],
     [
     'first' => 'Lisa',
@@ -630,13 +624,13 @@ class C2CSeeder extends Seeder
     'first' => 'Castwell',
     'last' => 'Fider',
     'email' => 'castwellfider@southern.edu',
-    'organization' => 'Southern Adventist University '
+    'organization' => 'Southern Adventist University'
   ],
     [
     'first' => 'Natalie',
     'last' => 'Anderson',
     'email' => 'nanderson@ut.edu',
-    'organization' => 'The University of Tampa'
+    'organization' => 'University of Tampa'
   ],
     [
     'first' => 'Benjamin',
@@ -726,7 +720,7 @@ class C2CSeeder extends Seeder
     'first' => 'Haley',
     'last' => 'Shore',
     'email' => 'hshore@brandeis.edu',
-    'organization' => 'Brandeis University '
+    'organization' => 'Brandeis University'
   ],
     [
     'first' => 'Hank',
@@ -768,20 +762,20 @@ class C2CSeeder extends Seeder
     'first' => 'Parker',
     'last' => 'Brogdon',
     'email' => 'pbrogdon@wustl.edu',
-    'organization' => 'Washington University in St. Louis'
+    'organization' => 'Washington University, St. Louis'
   ],
     [
     'first' => 'Mr.',
     'last' => 'Tejani',
     'middle' => 'Shalin',
     'email' => 'birda_lewis@wustl.edu',
-    'organization' => 'Washington University in St. Louis'
+    'organization' => 'Washington University, St. Louis'
   ],
     [
     'first' => 'Loren',
     'last' => 'Wright',
     'email' => 'loren.wright@wustl.edu',
-    'organization' => 'Washington University in St. Louis'
+    'organization' => 'Washington University, St. Louis'
   ],
     [
     'first' => 'Mary',
@@ -799,12 +793,6 @@ class C2CSeeder extends Seeder
     'first' => 'Lauren',
     'last' => 'Findley',
     'email' => 'lfindley@jsu.edu',
-    'organization' => 'Jacksonville State University'
-  ],
-    [
-    'first' => 'Haley',
-    'last' => 'Ginn',
-    'email' => 'hginn@jsu.edu',
     'organization' => 'Jacksonville State University'
   ],
     [
@@ -1125,7 +1113,7 @@ class C2CSeeder extends Seeder
     'first' => 'Sandra',
     'last' => 'Labrecque',
     'email' => 'sandra.labrecque@ehl.ch',
-    'organization' => 'Ecole hôtelière de Lausanne '
+    'organization' => 'Ecole hôtelière de Lausanne'
   ],
     [
     'first' => 'Mackenzie',
@@ -1138,7 +1126,7 @@ class C2CSeeder extends Seeder
     'last' => 'Brady',
     'middle' => 'Allen',
     'email' => 'bradybe@hiwassee.edu',
-    'organization' => 'Hiwassee College '
+    'organization' => 'Hiwassee College'
   ],
     [
     'first' => 'Christian',
@@ -1186,19 +1174,19 @@ class C2CSeeder extends Seeder
     'first' => 'Stacy',
     'last' => 'Hall',
     'email' => 'stacy.hall@ua.edu',
-    'organization' => 'The University of Alabama'
+    'organization' => 'University of Alabama'
   ],
     [
     'first' => 'Stacy',
     'last' => 'Hall',
     'email' => 'shall@ua.edu',
-    'organization' => 'The University of Alabama'
+    'organization' => 'University of Alabama'
   ],
     [
     'first' => 'Megan',
     'last' => 'Whitten',
     'email' => 'mwhitten@ua.edu',
-    'organization' => 'The University of Alabama'
+    'organization' => 'University of Alabama'
   ],
     [
     'first' => 'Jessica',
@@ -1325,14 +1313,14 @@ class C2CSeeder extends Seeder
     'first' => 'Katie',
     'last' => 'Davis',
     'email' => 'katie-davis@utulsa.edu',
-    'organization' => 'The University of Tulsa'
+    'organization' => 'University of Tulsa'
   ],
     [
     'first' => 'Audrey',
     'last' => 'Crum',
     'middle' => 'K',
     'email' => 'audrey-crum@utulsa.edu',
-    'organization' => 'The University of Tulsa'
+    'organization' => 'University of Tulsa'
   ],
     [
     'first' => 'MaggieMae',
@@ -1375,20 +1363,20 @@ class C2CSeeder extends Seeder
     'first' => 'Kristen',
     'last' => 'Richards',
     'email' => 'kristen.richards@usm.edu',
-    'organization' => 'The University of Southern Mississippi'
+    'organization' => 'University of Southern Mississippi'
   ],
     [
     'first' => 'Ally',
     'last' => 'Currie',
     'email' => 'acurrie@uu.edu',
-    'organization' => 'Union University '
+    'organization' => 'Union University'
   ],
     [
     'first' => 'Bailey',
     'last' => 'Bell',
     'middle' => 'Andrews',
     'email' => 'bbell@uu.edu',
-    'organization' => 'Union University '
+    'organization' => 'Union University'
   ],
     [
     'first' => 'Philip',
@@ -1418,8 +1406,7 @@ class C2CSeeder extends Seeder
     'first' => 'Allison',
     'last' => 'North',
     'email' => 'a.north@msstate.edu',
-    'organization' => 'Mississippi State University- CALS',
-    'email' => 'CFR'
+    'organization' => 'Mississippi State University',
   ],
     [
     'first' => 'Michael',
@@ -1455,7 +1442,7 @@ class C2CSeeder extends Seeder
     'first' => 'Mary',
     'last' => 'Kelley',
     'email' => 'abarrett@stlawu.edu',
-    'organization' => 'St. Lawrence University '
+    'organization' => 'St. Lawrence University'
   ],
     [
     'first' => 'Grace',
@@ -1515,7 +1502,7 @@ class C2CSeeder extends Seeder
     'first' => 'Taylor',
     'last' => 'Baird',
     'email' => 'taylorb@lsu.edu',
-    'organization' => 'Louisiana State University '
+    'organization' => 'Louisiana State University'
   ],
     [
     'first' => 'Gretchent',
@@ -1558,13 +1545,13 @@ class C2CSeeder extends Seeder
     'last' => 'Sparks',
     'middle' => 'Anne',
     'email' => 'esparks@utm.edu',
-    'organization' => 'The University of Tennessee, Martin'
+    'organization' => 'University of Tennessee, Martin'
   ],
     [
     'first' => 'Lauren',
     'last' => 'Thomas',
     'email' => 'lthoma49@utm.edu',
-    'organization' => 'The University of Tennessee, Martin'
+    'organization' => 'University of Tennessee, Martin'
   ],
     [
     'first' => 'Ryne',
@@ -1607,7 +1594,7 @@ class C2CSeeder extends Seeder
     'first' => 'Kayla',
     'last' => 'Phillips',
     'email' => 'Kayla@rsm.org',
-    'organization' => 'Redemption School of Ministry '
+    'organization' => 'Redemption School of Ministry'
   ],
     [
     'first' => 'LeeAnna',
@@ -1625,7 +1612,7 @@ class C2CSeeder extends Seeder
     'first' => 'Patty',
     'last' => 'Green',
     'email' => 'PNG0002@UAH.edu',
-    'organization' => 'The University of Alabama in Huntsville'
+    'organization' => 'University of Alabama, Huntsville'
   ],
     [
     'first' => 'Kimmy',
@@ -1851,14 +1838,13 @@ class C2CSeeder extends Seeder
     'first' => 'Brittany',
     'last' => 'Spicer',
     'email' => 'bspicer@fisk.edu',
-    'organization' => 'Fisk University '
+    'organization' => 'Fisk University'
   ],
     [
     'first' => 'Carter',
     'last' => 'Aylor',
     'email' => 'caylor@ehc.edu',
-    'organization' => 'Emory ',
-    'email' => ' Henry College'
+    'organization' => 'Emory & Henry College',
   ],
     [
     'first' => 'Mary',
@@ -1907,7 +1893,7 @@ class C2CSeeder extends Seeder
     'first' => 'Lindsey',
     'last' => 'Steller',
     'email' => 'stellerl@xavier.edu',
-    'organization' => 'Xavier University- Cincinnati, OH'
+    'organization' => 'Xavier University'
   ],
     [
     'first' => 'Carol',
@@ -1945,13 +1931,40 @@ class C2CSeeder extends Seeder
     'last' => 'Kavanagh',
     'email' => 'niamh.kavanagh@ul.ie',
     'organization' => 'University of Limerick'
-  ]
+  ],
+  [
+    'first' => 'Rebecca',
+    'last' => 'Rother',
+    'email' => 'rotherr@southwestern.edu',
+    'organization' => 'Southwestern University'
+  ],
+    [
+    'first' => 'Faith',
+    'middle' => 'Austin',
+    'last' => 'Vaughn',
+    'email' => 'vaughnf@etsu.edu',
+    'organization' => 'East Tennessee State University'
+  ],
+    [
+    'first' => 'Omar',
+    'last' => 'Elnahas',
+    'email' => 'oelnahas@lynn.edu',
+    'organization' => 'Lynn University'
+  ],
+    [
+    'first' => 'Ted',
+    'last' => 'McWilliams',
+    'email' => 'tmcwilliams@tntech.edu',
+    'organization' => 'Tennessee Tech University'
+  ]  
   ];
 
   
 
   $orgs = App\Models\Organization::all();
 
+  $wid = App\Models\Website::where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
+  
 	//
           foreach($reps as $rep) {
 
@@ -1976,6 +1989,7 @@ class C2CSeeder extends Seeder
 
 	    $contact = factory(App\Models\Contact::class)->create([
 	        'name_id' => $name->id,
+		'website_id' => $wid,
 	    ]);
 
 	    $o = $orgs->where('name_display', $rep['organization'])->first();
@@ -3792,13 +3806,61 @@ class C2CSeeder extends Seeder
   'email' => 'niamh.kavanagh@ul.ie',
   'year' => '2019',
 ],
+[
+  'email' => 'anthony.davis@ccga.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'paorr@davidson.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'awilson@leeuniversity.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'mwhitten@ua.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'marybennett@valdosta.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'marybeth.tift@vanderbilt.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'rotherr@southwestern.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'vaughnf@etsu.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'hlginn@jsu.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'oelnahas@lynn.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'tmcwilliams@tntech.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'adm-hsc@uga.edu',
+  'year' => '2019',
+],
 
 	];
 
 	$users = App\Models\User::all();
 	$events = App\Models\Event::all();
 	
-v	foreach($parts as $part) {
+	foreach($parts as $part) {
 	    $user = $users->where('email', $part['email'])->first();
 
 	    if($user) {

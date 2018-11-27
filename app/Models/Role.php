@@ -9,4 +9,10 @@ class Role extends Base
     {
         return "/roles/" . $this->id;
     }
+
+    //
+    public function users()
+    {
+	return $this->belongsToMany(User::class);
+    }
 }

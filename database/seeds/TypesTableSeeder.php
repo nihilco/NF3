@@ -447,6 +447,82 @@ class TypesTableSeeder extends Seeder
 	    'description' => 'Transaction type payment.',
 	]);
 
+	//
+        // STATUS CHECKS TYPES
+	//
+	$type = factory(\App\Models\Type::class)->create([
+	    'grouping' => \App\Models\StatusCheck::class,
+	    'name' => 'Status Check',
+	    'slug' => 'status-check',
+	    'description' => 'Status Check Type description.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Type",
+	    'name' => 'Server',
+	    'slug' => 'Server',
+	    'description' => 'Server.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Type",
+	    'name' => 'Website',
+	    'slug' => 'website',
+	    'description' => 'Website.',
+	]);
+
+	//
+        // STATUS CHECKS STATUS TYPES
+	//
+	$type = factory(\App\Models\Type::class)->create([
+	    'grouping' => \App\Models\StatusCheck::class,
+	    'name' => 'Status Check Status',
+	    'slug' => 'status-check-status',
+	    'description' => 'Status Check Status Type description.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Status",
+	    'name' => 'OK',
+	    'slug' => 'ok',
+	    'description' => 'Status OK.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Status",
+	    'name' => 'Inactive',
+	    'slug' => 'inactive',
+	    'description' => 'Status Inactive.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Status",
+	    'name' => 'Insecure',
+	    'slug' => 'insecure',
+	    'description' => 'Status Insecure.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Status",
+	    'name' => 'Unreachable',
+	    'slug' => 'unreachable',
+	    'description' => 'Status Unreachable.',
+	]);
+
+	factory(\App\Models\Type::class)->create([
+	    'parent_id' => $type->id,
+	    'grouping' => \App\Models\StatusCheck::class . ":Status",
+	    'name' => 'Error',
+	    'slug' => 'Error',
+	    'description' => 'Status Error.',
+	]);
+
     }
     
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Torn;
 
-use App\Models\Player;
+use App\Models\Torn\Player;
 use Illuminate\Http\Request;
-use App\Http\COntrollers\Controller
+use App\Http\Controllers\Controller;
 
 class PlayersController extends Controller
 {
@@ -23,7 +23,7 @@ class PlayersController extends Controller
     {
         //
 	$players = Player::all();
-	return view('players.index', compact(['players']));
+	return view('torn.players.index', compact(['players']));
     }
 
     /**

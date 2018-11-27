@@ -13,6 +13,7 @@ $factory->define(\App\Models\Event::class, function (Faker $faker) {
 	    return factory(\App\Models\Website::class)->create()->id;
 	},
 	'name' => $faker->words(rand(2,5), true),
+	'slug' => $faker->slug,
 	'description' => $faker->paragraph,
 	'starts_at' => $now,
 	'ends_at' => $now,

@@ -10,9 +10,6 @@
 @section('content')
 
 	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Invoice</h5>
-		</div>
 		<div class="card-body">
 
 		<div class="container-fluid">
@@ -22,7 +19,7 @@
 
 		      <div class="row">
 		        <div class="col text-primary">
-			  <h1>{{ strtoupper($invoice->type) }}</h1>
+			  <h1>{{ strtoupper($invoice->type->name) }}</h1>
 			</div>
 		      </div>
 		      <div class="row mb-2">
@@ -40,17 +37,18 @@
 		      </div>
 		      <div class="row">
 		        <div class="col">
-			  @if($invoice->status == 'new')
-			  <span class="badge badge-primary">{{ $invoice->status }}</span>
-			  @elseif($invoice->status == 'paid')
-			  <span class="badge badge-success">{{ $invoice->status }}</span>
-			  @elseif($invoice->status == 'late')
-			  <span class="badge badge-warning">{{ $invoice->status }}</span>
-			  @elseif($invoice->status == 'overdue')
-			  <span class="badge badge-danger">{{ $invoice->status }}</span>
+			  @if($invoice->status->name == 'New')
+			  <span class="badge badge-primary">
+			  @elseif($invoice->status->name == 'Paid')
+			  <span class="badge badge-success">
+			  @elseif($invoice->status->name == 'Late')
+			  <span class="badge badge-warning">
+			  @elseif($invoice->status->name == 'Overdue')
+			  <span class="badge badge-danger">
 			  @else
-			  <span class="badge badge-secondary">{{ $invoice->status }}</span>
+			  <span class="badge badge-secondary">
 			  @endif
+			  {{ $invoice->status->name }}</span>
 			</div>
 		      </div>
 		    </div>

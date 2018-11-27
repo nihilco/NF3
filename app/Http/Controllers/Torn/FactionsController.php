@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Torn;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Torn\Faction;
 
 class FactionsController extends Controller
 {
@@ -21,8 +22,8 @@ class FactionsController extends Controller
     public function index()
     {
         //
-	$players = Player::all();
-	return view('players.index', compact(['players']));
+	$factions = Faction::all();
+	return view('torn.factions.index', compact(['factions']));
     }
 
     /**

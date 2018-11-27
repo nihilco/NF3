@@ -8,48 +8,14 @@
 
 @section('content')
 
-<div class="row">
-<div class="col-sm-3">
-
-<div class="card mb-3">
-<div class="card-body">
-
-<div class="row">
-<div class="col-8">
-<h6>{{ $cities->count() }}</h6>
-<small>Cities</small>
-</div>
-<div class="col-4">
-<a href="{{ url('/cities/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="col-sm-3">
-
-
-
-</div>
-</div>
-<div class="row">
-<div class="col">
-
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Cities List</h5>
-		</div>
-		<div class="card-body">
-
-                  <table class="table table-bordered table-striped">
-                    <thead>
+                  <table class="table table-responsive-sm {{ ($cities->count()) ? 'table-hover ' : ''}}table-outline">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col" class="td-count">#</th>
 			<th scope="col">City</th>
 			<th scope="col">Province</th>
 		        <th scope="col">Country</th>
+			<th>Addresses</th>
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -63,8 +29,9 @@
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
 			<td>{{ $city->name }}</td>
-		        <td>{{ $city->province->name }}</td>
-		        <td>{{ $city->country->name }}</td>
+		        <td><a href="{{ $city->province->path() }}">{{ $city->province->name }}</a></td>
+		        <td><a href="{{ $city->country->path() }}">{{ $city->country->name }}</a></td>
+			<td>{{ $city->addresses_count }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($city->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($city->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -102,19 +69,12 @@
 		@empty
 
 		      <tr>
-		        <td colspan="5">No cities at this time.</td>
+		        <td colspan="6">No cities at this time.</td>
 		      </tr>
 
 		@endforelse
 
                     </tbody>
 		  </table>
-
-
-		</div>
-	      </div>
-
-</div>
-</div>
 
 @endsection

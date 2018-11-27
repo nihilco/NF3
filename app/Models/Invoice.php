@@ -68,6 +68,18 @@ class Invoice extends Base
 	return $this->transactions()->where('type', 'payment');
     }
 
+    //
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
+    //
+    public function status()
+    {
+	return $this->belongsTo(Type::class, 'status_type_id');
+    }
+
     public function addItem($name, $description, $unitPrice, $units = 1, $taxable = false)
     {
 	return $this->items()->create([

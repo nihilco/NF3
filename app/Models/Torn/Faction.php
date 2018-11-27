@@ -9,6 +9,6 @@ class Faction extends Base
     //
     public function path()
     {
-	return '/factions/' . $this->id;
+	return '/torn/factions/' . $this->id;
     }
 }

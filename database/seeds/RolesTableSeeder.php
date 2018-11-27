@@ -12,39 +12,50 @@ class RolesTableSeeder extends Seeder
     public function run()
     {
         //
-	factory(App\Models\Role::class)->create([
+	$gar = factory(App\Models\Role::class)->create([
 	    'name' => 'Global Administrator',
 	    'description' => 'Global Administrator description.',
 	]);
 
         //
-	factory(App\Models\Role::class)->create([
+	$gmr = factory(App\Models\Role::class)->create([
 	    'name' => 'Global Moderator',
 	    'description' => 'Global Moderator description.',
 	]);
 
         //
-	factory(App\Models\Role::class)->create([
+	$gur = factory(App\Models\Role::class)->create([
 	    'name' => 'Global User',
 	    'description' => 'Global User description.',
 	]);
 
         //
-	factory(App\Models\Role::class)->create([
+	$ar = factory(App\Models\Role::class)->create([
 	    'name' => 'Administrator',
 	    'description' => 'Administrator description.',
 	]);
 
         //
-	factory(App\Models\Role::class)->create([
+	$mr = factory(App\Models\Role::class)->create([
 	    'name' => 'Moderator',
 	    'description' => 'Moderator description.',
 	]);
 
         //
-	factory(App\Models\Role::class)->create([
+	$ur = factory(App\Models\Role::class)->create([
 	    'name' => 'User',
 	    'description' => 'User description.',
 	]);
+
+	$user = \App\Models\User::find(1);
+	$user->roles()->save($gar);
+	$user->roles()->save($ur);
+
+	$user = \App\Models\User::find(10);
+	$user->roles()->save($mr);
+	$user->roles()->save($ur);
+
+	$user = \App\Models\User::find(11);
+	$user->roles()->save($ur);
     }
 }

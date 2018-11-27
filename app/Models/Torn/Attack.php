@@ -9,6 +9,6 @@ class Attack extends Base
     //
     public function path()
     {
-	return '/attacks/' . $this->id;
+	return '/torn/attacks/' . $this->id;
     }
 }

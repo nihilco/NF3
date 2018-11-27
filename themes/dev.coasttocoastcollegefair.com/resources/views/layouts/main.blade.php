@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="/favicon.ico">
 
     <title>@yield('title') | {{ config('app.name') }}</title>
@@ -12,12 +13,14 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ url('/css/coasttocoast.css?t=' . time()) }}" />
-
+    
     @include('partials.analytics')
   </head>
 
   <body>
 
+<div id="app">
+    
     <header>
 
       <!-- Fixed navbar -->
@@ -27,7 +30,7 @@
 	    <img class="img-fluid" src="{{ url('/img/Logo2019.png') }}" alt="" />
 	  </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
@@ -35,7 +38,7 @@
               <a class="nav-link" href="/about">About</a>
             </li>      
             <li class="nav-item">
-              <a class="nav-link" href="/representatives">Representatives</a>
+              <a class="nav-link" href="/representatives/this-year">Representatives</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/sponsors">Sponsors</a>
@@ -50,66 +53,14 @@
           <ul class="navbar-nav">
             @guest
             <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/register">Register</a>
+              <a class="nav-link" href="/representatives/register">Register</a>
             </li>
             @else
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="far fa-bell"></i>
-	      </a>
-	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-	        <a class="dropdown-item" href="#">
-	          <div class="d-flex w-100 justify-content-between">
-	            <h5 class="mb-1">List group item heading</h5>
-		    <small>3 days ago</small>
-		  </div>
-		  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-		  <small>Donec id elit non mi porta.</small>
-		</a>
-		<a class="dropdown-item" href="#">
-		  <div class="d-flex w-100 justify-content-between">
-		    <h5 class="mb-1">List group item heading</h5>
-		    <small>3 days ago</small>
-		  </div>
-		  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-		  <small>Donec id elit non mi porta.</small>
-		</a>
-		<a class="dropdown-item" href="#">
-		  <div class="d-flex w-100 justify-content-between">
-		    <h5 class="mb-1">List group item heading</h5>
-		    <small>3 days ago</small>
-		  </div>
-		  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-		  <small>Donec id elit non mi porta.</small>
-		</a>
-		<a class="dropdown-item" href="#">
-		  <div class="d-flex w-100 justify-content-between">
-		    <h5 class="mb-1">List group item heading</h5>
-		    <small>3 days ago</small>
-		  </div>
-		  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-		  <small>Donec id elit non mi porta.</small>
-		</a>
-		<a class="dropdown-item" href="#">
-		  <div class="d-flex w-100 justify-content-between">
-		    <h5 class="mb-1">List group item heading</h5>
-		    <small>3 days ago</small>
-		  </div>
-		  <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-		  <small>Donec id elit non mi porta.</small>
-		</a>
-	      </div>
-	    </li>
 	    <li class="nav-item dropdown">
 	      <a class="nav-link dropdown-toggle" href="#" id="authDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Uriah</a>
 
 	      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="authDropdown">
 		<a class="dropdown-item" href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-		<a class="dropdown-item" href="/profile"><i class="fas fa-user"></i> Profile</a>
-		<a class="dropdown-item" href="{{ url('/settings') }}"><i class="fas fa-cog"></i> Settings</a>		
 		<div class="dropdown-divider"></div>
 		<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> Logout</a>
 		<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -177,6 +128,8 @@
       </div>
     </footer>
 
+</div>
+    
   <!-- Bootstrap core JavaScript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
@@ -184,5 +137,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
   <script src="{{ url('/js/app.js') }}"></script>
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // Create a Stripe client.
+    var stripe = Stripe('pk_test_oBG1UuDfekCXu72oDEOjRcqk');
+  </script>  
+  <script src="{{ url('/js/stripe.js') }}"></script>
 </body>
 </html>

@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
 	    $table->unsignedInteger('website_id');
 	    $table->string('name');
+	    $table->string('slug');
 	    $table->text('description');
 	    $table->datetime('starts_at');
 	    $table->datetime('ends_at');

@@ -4,47 +4,13 @@
 
 @section('meta', '')
 
+{{ Breadcrumbs::push('Torn', url('/torn')) }}
 {{ Breadcrumbs::push('Players') }}
 
 @section('content')
 
-<div class="row">
-<div class="col-sm-3">
-
-<div class="card mb-3">
-<div class="card-body">
-
-<div class="row">
-<div class="col-8">
-<h6>{{ $players->count() }}</h6>
-<small>Players</small>
-</div>
-<div class="col-4">
-<a href="{{ url('/players/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="col-sm-3">
-
-
-
-</div>
-</div>
-<div class="row">
-<div class="col">
-
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Players List</h5>
-		</div>
-		<div class="card-body">
-
-                  <table class="table table-bordered table-striped">
-                    <thead>
+                  <table class="table table-responsive-sm {{ ($players->count()) ? 'table-hover ' : ''}}table-outline">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col" class="td-count">#</th>
 		        <th scope="col">Torn ID</th>
@@ -64,6 +30,7 @@
 		        <td>{{ $player->torn_id }}</td>
 		        <td>{{ $player->name }}</td>
 		        <td class="td-action">
+			  <a href="https://www.torn.com/profiles.php?XID={{ $player->torn_id }}" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-globe"></i></a>
 			  <a href="{{ url($player->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($player->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
 			  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ $player->id }}"><i class="fas fa-trash-alt"></i></button>
@@ -107,12 +74,5 @@
 
                     </tbody>
 		  </table>
-
-
-		</div>
-	      </div>
-
-</div>
-</div>
 
 @endsection

@@ -21,7 +21,7 @@ class OrganizationsController extends Controller
     public function index()
     {
         //
-	$organizations = Organization::all();
+	$organizations = Organization::where('website_id', config('app.website')->id)->orderBy('name_alpha')->paginate(25);
 
 	return view('organizations.index', compact(['organizations']));
     }

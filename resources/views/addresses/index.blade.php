@@ -8,43 +8,8 @@
 
 @section('content')
 
-<div class="row">
-<div class="col-sm-3">
-
-<div class="card mb-3">
-<div class="card-body">
-
-<div class="row">
-<div class="col-8">
-<h6>{{ $addresses->count() }}</h6>
-<small>Addresses</small>
-</div>
-<div class="col-4">
-<a href="{{ url('/addresses/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="col-sm-3">
-
-
-
-</div>
-</div>
-<div class="row">
-<div class="col">
-
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Addresses List</h5>
-		</div>
-		<div class="card-body">
-
-                  <table class="table table-bordered table-striped">
-                    <thead>
+                  <table class="table table-responsive-sm {{ ($addresses->count()) ? 'table-hover ' : '' }}table-outline">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col" class="td-count">#</th>
 		        <th scope="col">Address</th>
@@ -65,10 +30,10 @@
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $address->address1 }}</td>
-			<td>{{ $address->city->name }}</td>
-			<td>{{ $address->province->code }}</td>
+			<td><a href="{{ $address->city->path() }}">{{ $address->city->name }}</a></td>
+			<td><a href="{{ $address->province->path() }}">{{ $address->province->code }}</a></td>
 			<td>{{ $address->postal_code }}</td>
-			<td>{{ $address->country->code }}</td>
+			<td><a href="{{ $address->country->path() }}">{{ $address->country->code }}</a></td>
 		        <td class="td-action">
 			  <a href="{{ url($address->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($address->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -113,12 +78,5 @@
 
                     </tbody>
 		  </table>
-
-
-		</div>
-	      </div>
-
-</div>
-</div>
 
 @endsection

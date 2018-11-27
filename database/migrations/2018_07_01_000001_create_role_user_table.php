@@ -19,20 +19,20 @@ class CreateRoleUserTable extends Migration
 	    $table->unsignedInteger('user_id');
 	    $table->unsignedInteger('role_id');
 	    $table->softDeletes();	    
-            $table->timestamps();
+            //$table->timestamps();
 
-	    $table->unsignedInteger('creator_id');
-	    $table->unsignedInteger('owner_id');
+	    //$table->unsignedInteger('creator_id');
+	    //$table->unsignedInteger('owner_id');
 
-	    $table->foreign('creator_id')
-		->references('id')
-		->on('users')
-		->onDelete('cascade');
+	    //$table->foreign('creator_id')
+	    //	->references('id')
+	    //	->on('users')
+	    //	->onDelete('cascade');
 
-	    $table->foreign('owner_id')
-		->references('id')
-		->on('users')
-		->onDelete('cascade');
+	    //$table->foreign('owner_id')
+	    //	->references('id')
+	    //	->on('users')
+	    //	->onDelete('cascade');
         });
     }
 

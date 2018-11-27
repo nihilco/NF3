@@ -5,7 +5,7 @@ namespace App\Models;
 class Contact extends Base
 {
     //
-    protected $appends = ['defaultAddress'];
+    protected $appends = ['defaultOrganization', 'defaultAddress'];
     
     //
     public function path() {
@@ -30,5 +30,10 @@ class Contact extends Base
     public function getDefaultAddressAttribute()
     {
 	return $this->addresses()->first();
+    }
+
+    public function getDefaultOrganizationAttribute()
+    {
+	return $this->organizations()->first();
     }
 }

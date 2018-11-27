@@ -9,6 +9,6 @@ class Company extends Base
     //
     public function path()
     {
-	return '/companies/' .$this->id;
+	return '/torn/companies/' .$this->id;
     }
 }

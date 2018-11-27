@@ -17,6 +17,7 @@ class CreateIssuesTable extends Migration
         Schema::create('issues', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('parent_id')->nullable();
+	    $table->unsignedInteger('website_id');
 	    $table->string('subject');
 	    $table->string('slug');
 	    $table->text('content');

@@ -81,7 +81,9 @@
 
     <!-- Footer Here-->
     @include('layouts.footer')
-    
+
+    <!-- Scripts -->
+    <script src="https://js.stripe.com/v3/"></script>
 
 </body>
 </html>

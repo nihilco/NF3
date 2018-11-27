@@ -9,6 +9,6 @@ class Hunt extends Base
     //
     public function path()
     {
-	return '/hunts/' . $this->id;
+	return '/torn/hunts/' . $this->id;
     }
 }

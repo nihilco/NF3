@@ -9,6 +9,6 @@ class Chain extends Base
     //
     public function path()
     {
-	return '/chains/' .$this->id();
+	return '/torn/chains/' .$this->id();
     }
 }

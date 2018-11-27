@@ -72,4 +72,6 @@
   </tbody>
 </table>
 
+{{ $activities->links() }}
+
 @endsection

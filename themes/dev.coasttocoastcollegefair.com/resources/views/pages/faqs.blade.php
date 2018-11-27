@@ -29,10 +29,10 @@
       <p>The Fair will be hosted at Chattanooga Convention and Trade Center located at 1150 Carter Street, downtown Chattanooga.</p>
 
       <h2>I am not sure how to get to Chattanooga Convention and Trade Center. Can you show me a map?</h2>
-      <p>Use this LINK to get detailed driving instructions from anywhere! Make certain you use Carter Street and not Carter Drive when looking up directions! To use this web tool, merely enter your current address and you will be given detailed turn by turn directions to Chattanooga Convention and Trade Center. At the bottom of the map, you can even select the option to display a map of every turn along with detailed text to make the journey easier. These maps are suitable for printing.</p>
+      <p>Use this <a href="https://goo.gl/maps/n4yVysruEgy" target="_blank">LINK</a> to get detailed driving instructions from anywhere! Make certain you use Carter Street and not Carter Drive when looking up directions! To use this web tool, merely enter your current address and you will be given detailed turn by turn directions to Chattanooga Convention and Trade Center. At the bottom of the map, you can even select the option to display a map of every turn along with detailed text to make the journey easier. These maps are suitable for printing.</p>
 
       <h2>My college is interested in sending a representative to the Coast-to-Coast College Fair. How should we proceed?</h2>
-      <p>You may register online using the Exhibitor Registration option from our main menu. Once you have registered we will add you to our mailing list and contact you with additional details.</p>
+      <p>You may <a href="{{ url('/representatives/register') }}">register online</a>. Once you have registered we will add you to our mailing list and contact you with additional details.</p>
 
       <h2>How can my college pay the registration fee?</h2>
       <p>Please fill out the Registration form on this site, print the completed form then submit the information online. If paying by check, send your printed registration form along with a check for the computed fees to: Coast-to-Coast College Fair ATTN: Anne Exum P.O. Box 4221 Chattanooga, TN 37405 This address will appear on the printed registration form for easy reference.</p>
@@ -43,7 +43,7 @@
       <h2>Can you provide information about hotels in the area?</h2>
       <p>The Chattanooga Convention and Trade Center is adjacent to the Marriott Hotel and reservations can be made by contacting the hotel directly at 800-841-1674. There are also many hotels located downtown very near the Convention Center. Consult the Chattanooga Area Convention and Visitors Bureau for additional information about hotels, restaurants, and area attractions at: www.chattanoogacvb.com.</p>
 
-<p>Every year we reserve a block of rooms. Please click here to check availability.</p>
+<p>Every year we reserve a block of rooms. Please <a href="https://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Coast%20to%20Coast%20College%20Fair%5Echadt%60ctcctca%7Cctcctcb%7Cctcctcf%60149.00%60USD%60false%605%603/4/19%603/6/19%6002/11/19&app=resvlink&stop_mobi=yes" target="_blank">click here</a> to check availability.</p>
 
     </div>
     <div class="col-sm-4">

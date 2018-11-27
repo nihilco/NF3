@@ -85,7 +85,7 @@ class Api
 
     public function __construct()
     {
-        $this->player = \App\Models\Player::find(1);
+        $this->player = \App\Models\Torn\Player::find(1);
 
 	$this->api_key = $this->player->api_key;	
     }

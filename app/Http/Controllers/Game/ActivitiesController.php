@@ -18,7 +18,7 @@ class ActivitiesController extends Controller
     //
     public function index()
     {
-	$activities = Activity::all();
+	$activities = Activity::orderBy('skill_id')->orderBy('skill_rank')->paginate(25);
 	return view('game.activities.index', compact('activities'));
     }
 

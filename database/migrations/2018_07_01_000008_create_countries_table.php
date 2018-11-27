@@ -21,6 +21,7 @@ class CreateCountriesTable extends Migration
 	    $table->text('description');
 	    $table->unsignedInteger('provinces_count')->default(0);
 	    $table->unsignedInteger('cities_count')->default(0);
+	    $table->unsignedInteger('addresses_count')->default(0);	    
 	    $table->softDeletes();
             $table->timestamps();
 

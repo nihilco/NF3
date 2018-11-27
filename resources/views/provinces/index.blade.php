@@ -8,48 +8,14 @@
 
 @section('content')
 
-<div class="row">
-<div class="col-sm-3">
-
-<div class="card mb-3">
-<div class="card-body">
-
-<div class="row">
-<div class="col-8">
-<h6>{{ $provinces->count() }}</h6>
-<small>Provinces</small>
-</div>
-<div class="col-4">
-<a href="{{ url('/provinces/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="col-sm-3">
-
-
-
-</div>
-</div>
-<div class="row">
-<div class="col">
-
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Provinces List</h5>
-		</div>
-		<div class="card-body">
-
-                  <table class="table table-bordered table-striped">
-                    <thead>
+                  <table class="table table-responsive-sm {{ ($provinces->count()) ? 'table-hover ' : '' }}table-outline">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col" class="td-count">#</th>
 	                <th scope="col">Code</th>			
 		        <th scope="col">Name</th>
 			<th scope="col">Country</th>
+			<th>Cities</th>
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -64,7 +30,8 @@
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $province->code }}</td>			
 		        <td>{{ $province->name }}</td>
-			<td>{{ $province->country->name }}</td>
+			<td><a href="{{ $province->country->path() }}">{{ $province->country->name }}</a></td>
+			<td>{{ $province->cities_count }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($province->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($province->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -102,19 +69,12 @@
 		@empty
 
 		      <tr>
-		        <td colspan="5">No provinces at this time.</td>
+		        <td colspan="6">No provinces at this time.</td>
 		      </tr>
 
 		@endforelse
 
                     </tbody>
 		  </table>
-
-
-		</div>
-	      </div>
-
-</div>
-</div>
 
 @endsection

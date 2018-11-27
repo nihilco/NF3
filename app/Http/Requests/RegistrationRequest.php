@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Contact;
 use App\Models\Name;
 use App\Models\User;
+use App\Models\Role;
 
 class RegistrationRequest extends FormRequest
 {
@@ -89,6 +90,8 @@ class RegistrationRequest extends FormRequest
 	$user->accepted_tos_at = \Carbon\Carbon::now();
 
 	$user->save();
+
+        $user->roles()->save(Role::where('name', 'User')->first());
 
 	\Mail::to($user->email)
             ->send(new \App\Mail\UserRegistered($user));

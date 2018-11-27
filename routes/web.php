@@ -51,6 +51,23 @@ Route::name('system')->get('/system', 'SystemController@index');
 Route::name('system')->get('/settings', 'SettingsController@index');
 
 //
+//
+//
+Route::name('contact')->get('contact', 'ContactController@create');
+Route::get('contact/list', 'ContactController@list');
+Route::get('contact/{issue}', 'ContactController@show');
+Route::post('contact', 'ContactController@store');
+
+//
+//
+//
+Route::get('representatives', 'RepresentativesController@index');
+Route::get('representatives/this-year', 'RepresentativesController@thisyear');
+Route::get('representatives/last-year', 'RepresentativesController@lastyear');
+Route::get('representatives/register', 'RepresentativesController@create');
+Route::post('representatives/register', 'RepresentativesController@store');
+
+//
 //  RESOURCE ROUTES
 //
 Route::get('accounts/list', 'AccountsController@list');
@@ -65,8 +82,6 @@ Route::get('categories/list', 'CategoriesController@list');
 Route::resource('categories', 'CategoriesController');
 Route::get('cities/list', 'CitiesController@list');
 Route::resource('cities', 'CitiesController');
-Route::get('contact', 'ContactController@index');
-Route::post('contact', 'ContactController@store');
 Route::get('contacts/list', 'ContactsController@list');
 Route::resource('contacts', 'ContactsController');
 Route::get('countries/list', 'CountriesController@list');
@@ -123,7 +138,6 @@ Route::get('records/list', 'RecordsController@list');
 Route::resource('records', 'RecordsController');
 Route::get('replies/list', 'RepliesController@list');
 Route::resource('replies', 'RepliesController');
-Route::get('representatives', 'RepresentativesController@index');
 Route::get('roles/list', 'RolesController@list');
 Route::resource('roles', 'RolesController');
 Route::get('servers/list', 'ServersController@list');
@@ -172,11 +186,13 @@ Route::namespace('Torn')->prefix('torn')->group(function () {
     Route::resource('hunts', 'HuntsController');
     Route::get('networths/list', 'NetworthsController@list');
     Route::resource('networths', 'NetworthsController');
+    Route::get('players/list', 'PlayersController@list');
+    Route::resource('players', 'PlayersController');    
 
 });
 
 //
-//  TORN ROUTES
+//  GAME ROUTES
 //
 Route::namespace('Game')->prefix('game')->group(function () {
     Route::get('activities/list', 'ActivitiesController@list');
@@ -634,20 +650,58 @@ $reps = [
 
 ];
 
-$reps = [
-'uriah@nihil.co',
-'uriah@nihil.co',
+
+$exclude = [
+  'michael.waters@belmont.edu',
+  'branhamr@bethelu.edu',
+  'kphamilt@bsc.edu',
+  'lfekete@cn.edu',
+  'sara.morency@centre.edu',
+  'anthony.davis@ccga.edu',
+  'paorr@davidson.edu',
+  'hallam@dickinson.edu',
+  'will.brown@gcsu.edu',
+  'pcarney@jwu.edu',
+  'admissions@leeuniversity.edu',
+  'jaye.west@msstate.edu',
+  'ccoffey@ncobs.org',
+  'mark.muenzer@rit.edu',
+  'jsimpso2@samford.edu',
+  'lwburns@sewanee.edu',
+  'rotherr@southwestern.edu',
+  'lmcgauvran@tntech.edu',
+  'collegefairs@ua.edu',
+  'bbell@uu.edu',
+  'pwalsh.seg@gmail.com',
+  'rynemc@uchicago.edu',
+  'niamh.kavanagh@ul.ie',
+  'engler@montevallo.edu',
+  'lthoma49@utm.edu',
+  'Marybennett@valdosta.edu',
+  'marybeth.tift@vanderbilt.edu',
+  'slytle@warren-wilson.edu',
+  'jmayo@watkins.edu',
+  'nfhedden@yhc.edu',
 ];
 
+$reps = [
+//'uriah@nihil.co',
+//'mclemmer@gmail.com',
+//'annenexum@gmail.com',
+];
+
+$reps = [];
 
 $reps = array_unique($reps);
+
+$reps = array_diff($reps, $exclude);
 
 $c = 0;
 
 foreach($reps as $rep) {
 
     Mail::to($rep)
-        ->send(new \App\Mail\FairInvitation());
+        ->send(new \App\Mail\FairHoliday());
 
     $c++;
     
@@ -660,8 +714,9 @@ return $c;
 Route::get('/mailable', function () {
     $user = \App\Models\User::find(1);
 
-    return new \App\Mail\UserRegistered($user);
-    //return new \App\Mail\FairInvitation();    
+    //return new \App\Mail\UserRegistered($user);
+    //return new \App\Mail\FairInvitation();
+    return new \App\Mail\FairHoliday();    
 });
 
 Route::get('/testing', function () {

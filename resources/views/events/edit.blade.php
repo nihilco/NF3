@@ -24,6 +24,13 @@
 		      <small id="nameHelp" class="form-text invalid-feedback">{{ $errors->first('name') }}</small>
 		      @endif
 	            </div>
+		    <div class="form-group">
+                      <label for="slug">Slug</label>
+                      <input type="text" class="form-control{{ $errors->first('slug') ? ' is-invalid' : '' }}" id="slug" name="slug" value="{{ old('slug') ?? $event->slug }}" />
+		      @if($errors->first('slug'))
+		      <small id="slugHelp" class="form-text invalid-feedback">{{ $errors->first('slug') }}</small>
+		      @endif
+	            </div>		    
      	            <div class="form-group">
 		      <label for="description">Description</label>
 		      <textarea class="form-control{{ $errors->first('description') ? ' is-invalid' : '' }}" id="description" name="description" rows="3">{{ old('description') ?? $event->description }}</textarea>

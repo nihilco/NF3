@@ -15,6 +15,91 @@ class AddressesTableSeeder extends Seeder
 	$cities = \App\Models\City::all();
 	$provinces = \App\Models\Province::all();
 	$countries = \App\Models\Country::all();
+	$users = \App\Models\User::all();
+
+	$countryUS = $countries->where('code', 'US')->first()->id;
+
+	//
+	//  NIHIL
+	//
+
+	//
+	factory(App\Models\Address::class)->create([
+	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
+	    'address1' => '6409 Sail Pointe Lane',
+	    'city_id' => $cities->where('name', 'Hixson')->first()->id,
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'postal_code' => '37343',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	factory(App\Models\Address::class)->create([
+	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
+	    'address1' => '855 Tremont Ave',
+	    'city_id' => $cities->where('name', 'Lexington')->first()->id,
+	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	    'postal_code' => '40502',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	factory(App\Models\Address::class)->create([
+	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
+	    'address1' => '1897 Combs Road',
+	    'address2' => 'Apt #1',
+	    'city_id' => $cities->where('name', 'Hazard')->first()->id,
+	    'province_id' => $provinces->where('code', 'KY')->first()->id,
+	    'postal_code' => '41701',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	factory(App\Models\Address::class)->create([
+	    'owner_id' => $users->where('email', 'nancyclemmer@me.com')->first()->id,
+	    'address1' => '2773 Haywood Avenue',
+	    'city_id' => $cities->where('name', 'Chattanooga')->first()->id,
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'postal_code' => '37415',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	factory(App\Models\Address::class)->create([
+	    'owner_id' => $users->where('email', 'carlschow@gmail.com')->first()->id,
+	    'address1' => '956 Signal Road',
+	    'address2' => 'ATTN: Carl Schow',
+	    'city_id' => $cities->where('name', 'Signal Mountain')->first()->id,
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'postal_code' => '37377',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	factory(App\Models\Address::class)->create([
+	    'owner_id' => $users->where('email', 'chandler@mazestonelaw.com')->first()->id,
+	    'address1' => '127 West High Street',
+	    'address2' => 'ATTN: Chandler Maze',
+	    'city_id' => $cities->where('name', 'Mount Sterling')->first()->id,
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'postal_code' => '40353',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	factory(App\Models\Address::class)->create([
+	    //'owner_id' => $users->where('email', 'mclemmer@gmail.com')->first()->id,
+	    'owner_id' => $users->where('email', 'uriah@nihil.co')->first()->id,
+	    'address1' => '6409 Sail Pointe Lane',
+	    'city_id' => $cities->where('name', 'Hixson')->first()->id,
+	    'province_id' => $provinces->where('code', 'TN')->first()->id,
+	    'postal_code' => '37343',
+	    'country_id' => $countryUS,
+	]);
+
+	//
+	//  UNIVERSITIES
+	//
 
         //
 	factory(\App\Models\Address::class)->create([
@@ -23,7 +108,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Decatur')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30030',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -32,7 +117,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Normal')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35762',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -41,7 +126,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Tuscaloosa')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35487',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -50,16 +135,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Birmingham')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35294',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
-	]);
-
-	factory(\App\Models\Address::class)->create([
-	    'address1' => '301 Sparkman Drive ',
-	    'address2' => NULL,
-	    'city_id' => $cities->where('name', 'Huntsville')->first()->id,
-	    'province_id' => $provinces->where('code', 'AL')->first()->id,
-	    'postal_code' => '35899',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -68,7 +144,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Huntsville')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35899',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -77,7 +153,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Jackson')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38301',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -86,7 +162,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Washington')->first()->id,
 	    'province_id' => $provinces->where('code', 'DC')->first()->id,
 	    'postal_code' => '20016',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -95,7 +171,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Glenside')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '19038',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -104,7 +180,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Worcester')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '01609',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -113,7 +189,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Auburn')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '36849',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -122,7 +198,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Montgomery')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '36124',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -131,7 +207,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Clarksville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37044',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -140,7 +216,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lewiston')->first()->id,
 	    'province_id' => $provinces->where('code', 'ME')->first()->id,
 	    'postal_code' => '04240',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -149,7 +225,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Waco')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '76798',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -158,7 +234,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37212',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -167,7 +243,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Berea')->first()->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '40404',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -176,7 +252,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Mount Berry')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30149',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -185,7 +261,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'McKenzie')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38201',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -194,7 +270,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Birmingham')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35254',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -203,7 +279,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Boston')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '02215',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -212,7 +288,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Brunswick')->first()->id,
 	    'province_id' => $provinces->where('code', 'ME')->first()->id,
 	    'postal_code' => '04011',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -221,7 +297,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Waltham')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '02453',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -230,7 +306,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Gainesville')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30501',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -239,7 +315,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Dayton')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37321',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -248,7 +324,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Northfield')->first()->id,
 	    'province_id' => $provinces->where('code', 'MN')->first()->id,
 	    'postal_code' => '55057',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -257,7 +333,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Jefferson City')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37760',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -266,7 +342,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Cleveland')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '44106',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -275,7 +351,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Salisbury')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '28144',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -284,7 +360,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Charleston')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29414',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -293,7 +369,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Chattanooga')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37411',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -302,7 +378,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Chattanooga')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37406',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -311,7 +387,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Chicago')->first()->id,
 	    'province_id' => $provinces->where('code', 'IL')->first()->id,
 	    'postal_code' => '60637',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -320,7 +396,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Memphis')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38104',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -329,7 +405,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Memphis')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38104',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -338,7 +414,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Worcester')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '01610',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -347,7 +423,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Clemson')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29634',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -356,7 +432,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Conway')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29528',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -365,7 +441,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Brunswick')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '31520',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -374,7 +450,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Hamilton')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '13346',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -383,7 +459,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Colorado Springs')->first()->id,
 	    'province_id' => $provinces->where('code', 'CO')->first()->id,
 	    'postal_code' => '80903',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -392,7 +468,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Chicago')->first()->id,
 	    'province_id' => $provinces->where('code', 'IL')->first()->id,
 	    'postal_code' => '60605',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -401,7 +477,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Columbia')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29203',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -410,7 +486,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Spartanburg')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29302',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -419,7 +495,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lookout Mountain')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30750',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -428,7 +504,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lebanon')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37087',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -437,7 +513,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Dallas')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '75211',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -446,7 +522,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Dalton')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30720',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -455,7 +531,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Dayton')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '45469',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -464,7 +540,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Davidson')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '28035',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -473,7 +549,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Granivlle')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '43023',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -482,7 +558,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Greencastle')->first()->id,
 	    'province_id' => $provinces->where('code', 'IN')->first()->id,
 	    'postal_code' => '46135',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -491,7 +567,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Carlisle')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '17013',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -500,7 +576,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Madison')->first()->id,
 	    'province_id' => $provinces->where('code', 'NJ')->first()->id,
 	    'postal_code' => '07940',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -509,7 +585,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Philadelphia')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '19104',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -518,7 +594,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Richmond')->first()->id,
 	    'province_id' => $provinces->where('code', 'IN')->first()->id,
 	    'postal_code' => '47374',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -527,7 +603,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Johnson City')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37614',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -536,7 +612,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Saint Petersburg')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '33711',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -549,21 +625,12 @@ class AddressesTableSeeder extends Seeder
 	]);
 
 	factory(\App\Models\Address::class)->create([
-	    'address1' => '501 Corporate Centre Drive – Suite 320',
-	    'address2' => NULL,
+	    'address1' => '501 Corporate Centre Drive',
+	    'address2' => 'Suite 320',
 	    'city_id' => $cities->where('name', 'Franklin')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37067',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
-	]);
-
-	factory(\App\Models\Address::class)->create([
-	    'address1' => '501 Corporate Centre Drive – Suite 320',
-	    'address2' => NULL,
-	    'city_id' => $cities->where('name', 'Franklin')->first()->id,
-	    'province_id' => $provinces->where('code', 'TN')->first()->id,
-	    'postal_code' => '37067',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -572,7 +639,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Elon')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '27244',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -581,7 +648,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Daytona Beach')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '32114',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -590,7 +657,7 @@ class AddressesTableSeeder extends Seeder
 	     'city_id' => $cities->where('name', 'Emory')->first()->id,
 	     'province_id' => $provinces->where('code', 'VA')->first()->id,
 	     'postal_code' => '24327',
-	     'country_id' => $countries->where('code', 'US')->first()->id,
+	     'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -599,7 +666,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Oxford')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30054',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -608,7 +675,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37208',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -617,7 +684,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lakeland')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '33801',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -626,7 +693,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lancaster')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '17604',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -635,7 +702,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Henderson')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38340',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -644,7 +711,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Greenville')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29613',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -653,7 +720,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Fairfax')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '22030',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -662,7 +729,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Washington')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '20052',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -671,7 +738,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Milledgeville')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '31061',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -680,7 +747,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Atlanta')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30332',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -689,7 +756,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Statesboro')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30458',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -698,7 +765,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Athens')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30602',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -707,7 +774,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Baltimore')->first()->id,
 	    'province_id' => $provinces->where('code', 'MD')->first()->id,
 	    'postal_code' => '21204',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -716,7 +783,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Greensboro')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '27410',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -725,7 +792,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Clinton')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '13323',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -734,7 +801,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Conway')->first()->id,
 	    'province_id' => $provinces->where('code', 'AR')->first()->id,
 	    'postal_code' => '72032',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -743,7 +810,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'High Point')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '27268',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -752,7 +819,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Hillsdale')->first()->id,
 	    'province_id' => $provinces->where('code', 'MI')->first()->id,
 	    'postal_code' => '49242',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -761,7 +828,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Madisonville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37354',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -770,7 +837,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Roanoke')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '24019',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -779,7 +846,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Worcester')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '01610',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -797,7 +864,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Bloomington')->first()->id,
 	    'province_id' => $provinces->where('code', 'IL')->first()->id,
 	    'postal_code' => '61701',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -806,7 +873,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Jacksonville')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '36265',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -815,7 +882,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Jacksonville')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '32211',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -833,7 +900,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Bremen')->first()->id,
 	    'province_id' => $provinces->where('code', 'CA')->first()->id,
 	    'postal_code' => '28759',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -842,7 +909,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Maryville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37804',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -851,7 +918,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Baltimore')->first()->id,
 	    'province_id' => $provinces->where('code', 'MD')->first()->id,
 	    'postal_code' => '21218',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -860,7 +927,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Providence')->first()->id,
 	    'province_id' => $provinces->where('code', 'RI')->first()->id,
 	    'postal_code' => '02903',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -869,7 +936,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Huntingdon')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '16652',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -887,7 +954,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'West Palm Beach')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '33409',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -896,7 +963,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Kennesaw')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30144',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -905,7 +972,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lexington')->first()->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '40506',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -914,7 +981,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Gambier')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '43022',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -923,7 +990,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Bristol')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37620',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -932,7 +999,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Easton')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '18042',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -941,7 +1008,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lake Forest')->first()->id,
 	    'province_id' => $provinces->where('code', 'IL')->first()->id,
 	    'postal_code' => '60645',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -950,7 +1017,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Cleveland')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37320',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -959,7 +1026,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Bethlehem')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '18015',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -977,7 +1044,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Harrogate')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37752',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -986,7 +1053,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37204',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -995,7 +1062,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Brookville')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '11458',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1004,7 +1071,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Baton Rouge')->first()->id,
 	    'province_id' => $provinces->where('code', 'LA')->first()->id,
 	    'postal_code' => '70803',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1013,7 +1080,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'New Orleans')->first()->id,
 	    'province_id' => $provinces->where('code', 'LA')->first()->id,
 	    'postal_code' => '70118',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1022,7 +1089,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Boca Raton')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '33431',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1031,7 +1098,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Poughkeepsie')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '12601',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1040,7 +1107,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Huntington')->first()->id,
 	    'province_id' => $provinces->where('code', 'WV')->first()->id,
 	    'postal_code' => '25701',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1049,7 +1116,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Fredericksburg')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '22401',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1058,7 +1125,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Maryville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37804',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1067,7 +1134,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Westminster')->first()->id,
 	    'province_id' => $provinces->where('code', 'MD')->first()->id,
 	    'postal_code' => '21157',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1076,7 +1143,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Memphis')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38104',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1085,7 +1152,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Memphis')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38152',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 ]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1094,7 +1161,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Macon')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '31207',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1103,7 +1170,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Oxford')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '45056',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1112,7 +1179,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Murfreesboro')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37130',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1121,7 +1188,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Jackson')->first()->id,
 	    'province_id' => $provinces->where('code', 'MS')->first()->id,
 	    'postal_code' => '39210',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1130,7 +1197,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Miss State')->first()->id,
 	    'province_id' => $provinces->where('code', 'MS')->first()->id,
 	    'postal_code' => '39762',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1139,7 +1206,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Starkville')->first()->id,
 	    'province_id' => $provinces->where('code', 'MS')->first()->id,
 	    'postal_code' => '39762',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1148,7 +1215,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'University')->first()->id,
 	    'province_id' => $provinces->where('code', 'MS')->first()->id,
 	    'postal_code' => '38677',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1157,7 +1224,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Columbia')->first()->id,
 	    'province_id' => $provinces->where('code', 'MO')->first()->id,
 	    'postal_code' => '65211',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1166,7 +1233,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Montevallo')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35115',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1175,7 +1242,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Montreat')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '28757',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1184,7 +1251,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Cleveland')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37311',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1193,7 +1260,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'New York')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '10003',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1202,7 +1269,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Florence')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35630',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1211,7 +1278,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Asheville')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '28805',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1220,7 +1287,7 @@ class AddressesTableSeeder extends Seeder
 	     'city_id' => $cities->where('name', 'Dalonega')->first()->id,
 	     'province_id' => $provinces->where('code', 'GA')->first()->id,
 	     'postal_code' => '30597',
-	     'country_id' => $countries->where('code', 'US')->first()->id,
+	     'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1229,7 +1296,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Boston')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '02115',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1238,7 +1305,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Fort Lauderdale')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '33314',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1247,7 +1314,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Los Angeles')->first()->id,
 	    'province_id' => $provinces->where('code', 'CA')->first()->id,
 	    'postal_code' => '90041',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1256,7 +1323,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Atlanta')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30319',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1265,7 +1332,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Norfolk')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '23529',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1274,7 +1341,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Demorest')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30535',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1283,7 +1350,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Clinton')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29325',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1292,7 +1359,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Providence')->first()->id,
 	    'province_id' => $provinces->where('code', 'RI')->first()->id,
 	    'postal_code' => '02918',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1301,7 +1368,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'West Lafayette')->first()->id,
 	    'province_id' => $provinces->where('code', 'IN')->first()->id,
 	    'postal_code' => '47907',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1310,7 +1377,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Charlotte')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '28274',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1319,7 +1386,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Radford')->first()->id,
 	    'province_id' => $provinces->where('code', 'VT')->first()->id,
 	    'postal_code' => '24142',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1328,7 +1395,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Chattanooga')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37404',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1337,7 +1404,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Waleska')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30183',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1346,7 +1413,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Memphis')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38112',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1355,7 +1422,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Richmond')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '23173',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1364,7 +1431,7 @@ class AddressesTableSeeder extends Seeder
 	   'city_id' => $cities->where('name', 'Salem')->first()->id,
 	   'province_id' => $provinces->where('code', 'VA')->first()->id,
 	   'postal_code' => '24153',
-	   'country_id' => $countries->where('code', 'US')->first()->id,
+	   'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1373,7 +1440,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Rochester')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '14623',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1382,7 +1449,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Holly Springs')->first()->id,
 	    'province_id' => $provinces->where('code', 'MS')->first()->id,
 	    'postal_code' => '38635',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1391,7 +1458,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'St. Louis')->first()->id,
 	    'province_id' => $provinces->where('code', 'MO')->first()->id,
 	    'postal_code' => '63103',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1400,7 +1467,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Winston-Salem')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '27101',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1409,7 +1476,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Birmingham')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '35229',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1418,7 +1485,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'San Francisco')->first()->id,
 	    'province_id' => $provinces->where('code', 'CA')->first()->id,
 	    'postal_code' => '94117',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1427,7 +1494,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Savannah')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '36102',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1436,7 +1503,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Sewanee')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37383',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1445,7 +1512,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Rome')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30165',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1454,7 +1521,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Boston')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '02115',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1463,7 +1530,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Saratoga Springs')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '12866',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1472,7 +1539,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Mobile')->first()->id,
 	    'province_id' => $provinces->where('code', 'AL')->first()->id,
 	    'postal_code' => '36688',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1481,7 +1548,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Columbia')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29208',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1490,7 +1557,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Collegedale')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37315',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1499,7 +1566,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Dallas')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '75205',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1508,7 +1575,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Hattiesburg')->first()->id,
 	    'province_id' => $provinces->where('code', 'MS')->first()->id,
 	    'postal_code' => '39406',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1517,7 +1584,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Georgetown')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '78626',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1526,7 +1593,7 @@ class AddressesTableSeeder extends Seeder
 	   'city_id' => $cities->where('name', 'Canton')->first()->id,
 	   'province_id' => $provinces->where('code', 'NY')->first()->id,
 	   'postal_code' => '13617',
-	   'country_id' => $countries->where('code', 'US')->first()->id,
+	   'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1535,7 +1602,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Hoboken')->first()->id,
 	    'province_id' => $provinces->where('code', 'NJ')->first()->id,
 	    'postal_code' => '07030',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1544,7 +1611,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Cortland')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '13045',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1553,7 +1620,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Sweet Briar')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '24595',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1562,7 +1629,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Syracuse')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '13244',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1571,7 +1638,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Tampa')->first()->id,
 	    'province_id' => $provinces->where('code', 'FL')->first()->id,
 	    'postal_code' => '33606',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1580,7 +1647,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37243',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1589,7 +1656,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Cookeville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38505',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1598,7 +1665,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Athens')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37303',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1607,7 +1674,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Knoxville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37996',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1616,7 +1683,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Martin')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38261',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1625,16 +1692,16 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Chattanooga')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37403',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
-	    'address1' => 'University of Tennessee',
+	    'address1' => 'University of Tennessee, Knoxville',
 	    'address2' => NULL,
 	    'city_id' => $cities->where('name', 'Knoxville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37996',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1643,7 +1710,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'College Station')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '77843',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1652,7 +1719,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Fort Worth')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '76129',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1661,7 +1728,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37214',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1670,7 +1737,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lexington')->first()->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '40508',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1679,7 +1746,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Hartford')->first()->id,
 	    'province_id' => $provinces->where('code', 'CT')->first()->id,
 	    'postal_code' => '06106',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1688,7 +1755,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'San Antonio')->first()->id,
 	    'province_id' => $provinces->where('code', 'TX')->first()->id,
 	    'postal_code' => '78212',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1697,7 +1764,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Medford')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '02155',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1706,7 +1773,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'New Orleans')->first()->id,
 	    'province_id' => $provinces->where('code', 'LA')->first()->id,
 	    'postal_code' => '70118',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1715,7 +1782,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Tulsa')->first()->id,
 	    'province_id' => $provinces->where('code', 'OK')->first()->id,
 	    'postal_code' => '74104',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1724,7 +1791,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Greeneville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37743',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1733,7 +1800,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Schnectady')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '12308',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1742,7 +1809,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Jackson')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38301',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1751,7 +1818,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'New London')->first()->id,
 	    'province_id' => $provinces->where('code', 'CT')->first()->id,
 	    'postal_code' => '06320',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1760,7 +1827,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'West Point')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '10966',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1769,7 +1836,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Annapolis')->first()->id,
 	    'province_id' => $provinces->where('code', 'MD')->first()->id,
 	    'postal_code' => '21402',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1787,7 +1854,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Martin')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '38238',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1796,7 +1863,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Valdosta')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '31698',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1805,7 +1872,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37203',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1814,7 +1881,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Villanova')->first()->id,
 	    'province_id' => $provinces->where('code', 'PA')->first()->id,
 	    'postal_code' => '19085',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1823,7 +1890,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Richmond')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '23284',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1832,7 +1899,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Blacksburg')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '24061',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1841,7 +1908,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Winston-Salem')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '27109',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1850,7 +1917,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Asheville')->first()->id,
 	    'province_id' => $provinces->where('code', 'NC')->first()->id,
 	    'postal_code' => '28815',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1859,7 +1926,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Lexington')->first()->id,
 	    'province_id' => $provinces->where('code', 'VA')->first()->id,
 	    'postal_code' => '24450',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1868,7 +1935,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'St. Louis')->first()->id,
 	    'province_id' => $provinces->where('code', 'MO')->first()->id,
 	    'postal_code' => '63130',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1877,7 +1944,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Nashville')->first()->id,
 	    'province_id' => $provinces->where('code', 'TN')->first()->id,
 	    'postal_code' => '37228',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1886,7 +1953,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Macon')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '31210',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1895,7 +1962,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Bowling Green')->first()->id,
 	    'province_id' => $provinces->where('code', 'KY')->first()->id,
 	    'postal_code' => '42101',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1904,7 +1971,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Springfield')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '45501',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1913,7 +1980,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Spartanburg')->first()->id,
 	    'province_id' => $provinces->where('code', 'SC')->first()->id,
 	    'postal_code' => '29303',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1922,7 +1989,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Wooster')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '44691',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1931,7 +1998,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Worcester')->first()->id,
 	    'province_id' => $provinces->where('code', 'MA')->first()->id,
 	    'postal_code' => '01609',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1940,7 +2007,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Woodbury')->first()->id,
 	    'province_id' => $provinces->where('code', 'NY')->first()->id,
 	    'postal_code' => '11797',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1949,7 +2016,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Cincinnati')->first()->id,
 	    'province_id' => $provinces->where('code', 'OH')->first()->id,
 	    'postal_code' => '45207',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
 
 	factory(\App\Models\Address::class)->create([
@@ -1958,7 +2025,7 @@ class AddressesTableSeeder extends Seeder
 	    'city_id' => $cities->where('name', 'Young Harris')->first()->id,
 	    'province_id' => $provinces->where('code', 'GA')->first()->id,
 	    'postal_code' => '30582',
-	    'country_id' => $countries->where('code', 'US')->first()->id,
+	    'country_id' => $countryUS,
 	]);
     }
 }

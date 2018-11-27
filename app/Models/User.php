@@ -32,7 +32,7 @@ class User extends Authenticatable
       'email_confirmed_at',
     ];
 
-    protected $appends = ['avatar_url'];
+    protected $appends = ['roles', 'avatar_url'];
 
     public static function boot()
     {
@@ -46,6 +46,8 @@ class User extends Authenticatable
 	});
 
 	static::created(function ($user) {
+	    //
+		
             // Create Avatar
             $avatar = \Avatar::create($user->email)->getImageObject()->encode('png');
             \Storage::put('avatars/' . $user->id . '/avatar.png', (string) $avatar);
@@ -89,6 +91,37 @@ class User extends Authenticatable
 
     public function roles()
     {
-	return $this->hasMany(Role::class);
+	return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * @param string|array $roles
+     */
+    public function authorizeRoles($roles)
+    {
+        if (is_array($roles)) {
+            return $this->hasAnyRole($roles) ||
+	    abort(401, 'This action is unauthorized.');
+	}
+
+	return $this->hasRole($roles) || abort(401, 'This action is unauthorized.');
+    }
+    
+    /**
+     * Check multiple roles
+     * @param array $roles
+     */
+    public function hasAnyRole($roles)
+    {
+        return null !== $this->roles()->whereIn(‘name’, $roles)->first();
+    }
+
+    /**
+     * Check one role
+     * @param string $role
+     */
+    public function hasRole($role)
+    {
+        return null !== $this->roles()->where(‘name’, $role)->first();
     }
 }

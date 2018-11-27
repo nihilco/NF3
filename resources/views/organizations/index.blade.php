@@ -19,7 +19,7 @@
    	            </thead>
 		    <tbody>
                 @php
-                  $c = 1;
+                  $c = ($organizations->perPage() * $organizations->currentPage()) - ($organizations->perPage() -1);
                 @endphp
 		
 		@forelse($organizations as $organization)
@@ -27,7 +27,7 @@
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $organization->name_display }}</td>
-		        <td>{{ $organization->website }}</td>
+		        <td><a href="https://{{ $organization->website }}" target="_blank">{{ $organization->website }}</a></td>
 		        <td class="td-action">
 			  <a href="{{ url($organization->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($organization->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -72,5 +72,7 @@
 
                     </tbody>
 		  </table>
+
+		  {{ $organizations->links() }}
 
 @endsection

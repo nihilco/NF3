@@ -1,55 +1,18 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
-@section('title', 'Countries')
+@section('title', 'Contacts')
 
 @section('meta', '')
 
-{{ Breadcrumbs::push('Countries') }}
+{{ Breadcrumbs::push('Contacts') }}
 
 @section('content')
 
-<div class="row">
-<div class="col-sm-3">
-
-<div class="card mb-3">
-<div class="card-body">
-
-<div class="row">
-<div class="col-8">
-<h6>{{ $countries->count() }}</h6>
-<small>Countries</small>
-</div>
-<div class="col-4">
-<a href="{{ url('/countries/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="col-sm-3">
-
-
-
-</div>
-</div>
-<div class="row">
-<div class="col">
-
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Countries List</h5>
-		</div>
-		<div class="card-body">
-
-                  <table class="table table-bordered table-striped">
-                    <thead>
+                  <table class="table table-responsive-sm {{ ($contacts->count()) ? 'table-hover ' : '' }}table-outline">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col" class="td-count">#</th>
-	                <th scope="col">Code</th>
 		        <th scope="col">Name</th>
-			<th scope="col">Provinces</th>
 			<th scope="col" class="td-action">&nbsp;</th>
 		      </tr>
    	            </thead>
@@ -58,31 +21,29 @@
                   $c = 1;
                 @endphp
 		
-		@forelse($countries as $country)
+		@forelse($contacts as $contact)
 
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
-		        <td>{{ $country->code }}</td>
-		        <td>{{ $country->name }}</td>
-			<td>{{ $country->provinces_count }}</td>
+		        <td>{{ $contact->name->fullName }}</td>
 		        <td class="td-action">
-			  <a href="{{ url($country->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
-			  <a href="{{ url($country->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-			  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ $country->id }}"><i class="fas fa-trash-alt"></i></button>
-                          <form action="{{ $country->path() }}" method="POST">
+			  <a href="{{ url($contact->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
+			  <a href="{{ url($contact->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+			  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal-{{ $contact->id }}"><i class="fas fa-trash-alt"></i></button>
+                          <form action="{{ $contact->path() }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                            <div id="deleteModal-{{ $country->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                            <div id="deleteModal-{{ $contact->id }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteModalLabel">Delete Country?</h5>
+                                    <h5 class="modal-title" id="deleteModalLabel">Delete Contact?</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
                                   </div>
                                   <div class="modal-body">
-                                    <p>Are you sure you want to delete the {{ $country->name }} Country?</p>
+                                    <p>Are you sure you want to delete the {{ $contact->name->fullName }} Contact?</p>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -102,19 +63,12 @@
 		@empty
 
 		      <tr>
-		        <td colspan="5">No countries at this time.</td>
+		        <td colspan="3">No contacts at this time.</td>
 		      </tr>
 
 		@endforelse
 
                     </tbody>
 		  </table>
-
-
-		</div>
-	      </div>
-
-</div>
-</div>
 
 @endsection

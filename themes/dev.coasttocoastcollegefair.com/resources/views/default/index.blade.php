@@ -131,7 +131,7 @@
                 <div class="col-sm-8">
 
                   <h3 class="news-heading">Centre College Registered</h3>
-                  <p>Hannah Colliver will be representing Centre College at this year's Coast to Coast College Fair. Interested in Centre? Send her an email.</p>
+                  <p>Sara Morency will be representing Centre College at this year's Coast to Coast College Fair. Interested in Centre? Send her an email.</p>
 
                 </div>
               </div>
@@ -221,13 +221,26 @@
 
 <div class="row">
 <div class="col-12">
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+
+		    <div class="form-group">
+		      <div class="input-group mb-3">
+       		      <select class="form-control{{ $errors->first('representative') ? ' is-invalid' : '' }}" id="representative" name="representative">
+		        <option></option>
+			@foreach(\App\Models\Event::find(4)->participants->sortBy('owner.contact.defaultOrganization.name_alpha') as $participant)
+		        <option value="{{ $participant->id }}"{{ (old('representative') == $participant->id) ? ' selected' : '' }}>{{ $participant->owner->contact->defaultOrganization->name_display }}</option>
+			@endforeach
+		      </select>
     <div class="input-group-append">
         <button class="btn btn-primary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
 	  </div>
 	  </div>
-	  <a href="#">View all representatives</a>
+
+		      @if($errors->first('country'))
+		      <small id="representativeHelp" class="form-text invalid-feedback">{{ $errors->first('representative') }}</small>
+		      @endif
+	            </div>
+
+	  <a href="{{ url('/representatives/this-year') }}">View all representatives</a>
 </div>
 </div>
 

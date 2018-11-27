@@ -16,7 +16,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'uriah.clemmer@nihil.co',
-		//'name' => 'Uriah M. Clemmer IV',
 		'email' => 'uriah@nihil.co',
 		'slug' => 'uclemmer',
 		'password' => Hash::make(env('MY_PASSWORD')),
@@ -30,7 +29,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'kgribbin2@gmail.com',
-		//'name' => 'Kate Gribbin',
 		'email' => 'kgribbin2@gmail.com',
 		'slug' => 'kgribbin',
 		'active' => true,
@@ -41,7 +39,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'ataylor@baylorschool.org',
-		//'name' => 'Ann Katherine Taylor',
 		'email' => 'ataylor@baylorschool.org',
 		'slug' => 'aktaylor',
 		'active' => true,
@@ -52,7 +49,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'wray@caseantiques.com',
-		//'name' => 'Wray Williams',
 		'email' => 'wray@caseantiques.com',
 		'slug' => 'wwilliams',
 		'active' => true,
@@ -63,7 +59,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'ben.hollerbach@gmail.com',
-		//'name' => 'Ben Hollerbach',
 		'email' => 'ben.hollerbach@gmail.com',
 		'slug' => 'bhollerbach',
 		'active' => true,
@@ -74,7 +69,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'carlschow@gmail.com',
-		//'name' => 'Carl Schow',
 		'email' => 'carlschow@gmail.com',
 		'slug' => 'cschow',
 		'active' => true,
@@ -85,7 +79,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'chadegary@gmail.com',
-		//'name' => 'Chad Gary',
 		'email' => 'chadegary@gmail.com',
 		'slug' => 'cgary',
 		'active' => true,
@@ -96,7 +89,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'nancyclemmer@me.com',
-		//'name' => 'Nancy Clemmer',
 		'email' => 'nancyclemmer@me.com',
 		'slug' => 'nclemmer',
 		'active' => true,
@@ -107,7 +99,6 @@ class UsersTableSeeder extends Seeder
 	    ->create([
 	        'contact_id' => null,
 	        'username' => 'chandler@mazestonelaw.com',
-		//'name' => 'Chandler Maze',
 		'email' => 'chandler@mazestonelaw.com',
 		'slug' => 'cmaze',
 		'active' => true,

@@ -20,6 +20,7 @@ class CreateCitiesTable extends Migration
     	    $table->unsignedInteger('country_id');
 	    $table->string('name');
 	    $table->text('description');
+	    $table->unsignedInteger('addresses_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 

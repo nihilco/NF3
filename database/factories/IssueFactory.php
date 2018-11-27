@@ -7,6 +7,9 @@ $factory->define(\App\Models\Issue::class, function (Faker $faker) {
         //
 	'creator_id' => 1,
 	'owner_id' => 1,
+	'website_id' => function() {
+	    return factory(App\Models\Website::class)->create()->id;
+	},
 	'subject' => $faker->words(rand(1,5), true),
 	'slug' => $faker->slug,
 	'content' => $faker->paragraphs(rand(1,5), true),

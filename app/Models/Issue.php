@@ -11,14 +11,14 @@ class Issue extends Base
     //
     public function path()
     {
-        return '/issue/' . $this->id;
+        return '/issues/' . $this->id;
     }
 
     //
-    public function getRouteKeyName()
-    {
-	return 'slug';
-    }
+    //public function getRouteKeyName()
+    //{
+    //	return 'slug';
+    //}
 
     public function replies()
     {

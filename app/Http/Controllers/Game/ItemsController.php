@@ -18,7 +18,7 @@ class ItemsController extends Controller
     //
     public function index()
     {
-	$items = Item::all();
+	$items = Item::orderBy('type_id')->orderBy('type_rank')->paginate(25);
 	return view('game.items.index', compact('items'));
     }
 

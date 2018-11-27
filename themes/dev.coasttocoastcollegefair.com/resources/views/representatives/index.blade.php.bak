@@ -30,10 +30,10 @@
    	            </thead>
 		    <tbody>
 		
-		@forelse($event->participants as $representative)
+		@forelse($event->participants->sortBy('owner.contact.defaultOrganization.name_alpha') as $representative)
 
 		      <tr>
-		        <td><a href="https://{{ $representative->owner->contact->organizations->first()->website }}" target="_blank">{{ $representative->owner->contact->organizations->first()->name_display }}</a></td>
+		        <td><a href="{{ $representative->owner->contact->organizations->first()->website }}">{{ $representative->owner->contact->organizations->first()->name_display ?? ''}}</a></td>
 		        <td><a href="mailto:{{ $representative->owner->email }}">{{ $representative->owner->contact->name->fullName }}</a></td>
 		      </tr>
 

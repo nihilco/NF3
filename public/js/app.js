@@ -35095,7 +35095,7 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-  * CoreUI v2.1.0 (https://coreui.io)
+  * CoreUI v2.1.3 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -36073,7 +36073,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.0): ajax-load.js
+   * CoreUI (v2.1.3): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -36085,7 +36085,7 @@ module.exports = function(module) {
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.1.0';
+    var VERSION = '2.1.3';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var ClassName = {
@@ -36278,7 +36278,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.0): toggle-classes.js
+   * CoreUI (v2.1.3): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -36303,7 +36303,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.0): aside-menu.js
+   * CoreUI (v2.1.3): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -36315,7 +36315,7 @@ module.exports = function(module) {
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.1.0';
+    var VERSION = '2.1.3';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -36509,7 +36509,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.0): get-css-custom-properties.js
+   * CoreUI Utilities (v2.1.3): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -36577,7 +36577,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.0): sidebar.js
+   * CoreUI (v2.1.3): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -36589,7 +36589,7 @@ module.exports = function(module) {
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.1.0';
+    var VERSION = '2.1.3';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -36877,7 +36877,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.0): hex-to-rgb.js
+   * CoreUI Utilities (v2.1.3): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -36913,7 +36913,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.0): hex-to-rgba.js
+   * CoreUI Utilities (v2.1.3): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -36993,7 +36993,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.0): rgb-to-hex.js
+   * CoreUI (v2.1.3): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -37022,7 +37022,7 @@ module.exports = function(module) {
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.0): index.js
+   * CoreUI (v2.1.3): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
