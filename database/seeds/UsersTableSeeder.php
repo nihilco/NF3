@@ -108,6 +108,16 @@ class UsersTableSeeder extends Seeder
 	factory(App\Models\User::class)
 	    ->create([
 	        'contact_id' => null,
+	        'username' => 'clayton@mazestonelaw.com',
+		'email' => 'clayton@mazestonelaw.com',
+		'slug' => 'cstone',
+		'active' => true,
+        ]);
+
+	//
+	factory(App\Models\User::class)
+	    ->create([
+	        'contact_id' => null,
 	        'username' => 'annenexum@gmail.com',
 		'email' => 'annenexum@gmail.com',
 		'password' => '$2y$10$rD69WvWOXyvmWALLaps/peY8pBUf2Bx5RBqcX5wqDWZtxrl1myqQi',
