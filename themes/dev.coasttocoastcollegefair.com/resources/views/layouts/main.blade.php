@@ -141,7 +141,7 @@
   <script src="https://js.stripe.com/v3/"></script>
   <script>
     // Create a Stripe client.
-    var stripe = Stripe('{{ env('STRIPE_PLATFORM_LIVE_PUBLISHABLE') }}');
+    var stripe = Stripe('{{ env('STRIPE_PLATFORM_TEST_PUBLISHABLE') }}');
   </script>  
   <script src="{{ url('/js/stripe.js') }}"></script>
 </body>
