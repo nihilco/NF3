@@ -14,7 +14,7 @@ class Province extends Base
 	});
 
 	static::deleting(function($province) {
-	    $province->cities->each->delete();
+	    $province->counties->each->delete();
 	});
 
 	static::deleted(function($province) {
@@ -32,6 +32,11 @@ class Province extends Base
     public function country()
     {
 	return $this->belongsTo(Country::class);
+    }
+
+    public function counties()
+    {
+	return $this->hasMany(County::class);
     }
 
     public function cities()

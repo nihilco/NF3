@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateCountriesTable extends Migration
+class County extends Migration
 {
     /**
      * Run the migrations.
@@ -14,17 +14,27 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('countries', function (Blueprint $table) {
+        //
+        Schema::create('counties', function (Blueprint $table) {
             $table->increments('id');
+	    $table->unsignedInteger('country_id');
+	    $table->unsignedInteger('province_id');
 	    $table->string('code');
 	    $table->string('name');
 	    $table->text('description');
-	    $table->unsignedInteger('provinces_count')->default(0);
-	    $table->unsignedInteger('counties_count')->default(0);	    
 	    $table->unsignedInteger('cities_count')->default(0);
-	    $table->unsignedInteger('addresses_count')->default(0);	    
 	    $table->softDeletes();
             $table->timestamps();
+
+	    $table->foreign('country_id')
+		->references('id')
+		->on('countries')
+		->onDelete('cascade');
+
+	    $table->foreign('province_id')
+		->references('id')
+		->on('provinces')
+		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
 	    $table->unsignedInteger('owner_id');
@@ -38,7 +48,7 @@ class CreateCountriesTable extends Migration
 		->references('id')
 		->on('users')
 		->onDelete('cascade');
-        });
+        });	
     }
 
     /**
@@ -48,6 +58,7 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');
+        //
+        Schema::dropIfExists('counties');	
     }
 }

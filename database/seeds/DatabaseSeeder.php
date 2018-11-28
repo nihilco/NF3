@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
 	    NamesTableSeeder::class,
             CountriesTableSeeder::class,
 	    ProvincesTableSeeder::class,
+	    CountiesTableSeeder::class,	    
 	    CitiesTableSeeder::class,
 	    AddressesTableSeeder::class,
             ServersTableSeeder::class,	

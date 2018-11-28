@@ -10,7 +10,8 @@ class City extends Base
         parent::boot();
 
 	static::created(function($city) {
-	     $city->province->increment('cities_count');
+	     $city->county->increment('cities_count');
+	     $city->province->increment('cities_count');	     
 	     $city->country->increment('cities_count');	     
 	});
 
@@ -19,7 +20,8 @@ class City extends Base
 	});
 
 	static::deleted(function($city) {
-	    $city->province->decrement('cities_count');
+	    $city->county->decrement('cities_count');
+	    $city->province->decrement('cities_count');	    
 	    $city->country->decrement('cities_count');
 	});
     }
@@ -28,6 +30,12 @@ class City extends Base
     public function path()
     {
 	return '/cities/' . $this->id;
+    }
+
+    //
+    public function county()
+    {
+        return $this->belongsTo(County::class);
     }
 
     //
