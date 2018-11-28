@@ -32,7 +32,7 @@ class User extends Authenticatable
       'email_confirmed_at',
     ];
 
-    protected $appends = ['roles', 'avatar_url'];
+    protected $appends = ['avatar_url'];
 
     public static function boot()
     {

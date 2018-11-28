@@ -28,7 +28,8 @@
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
 
-
+<div id="app" class="app">
+  
     <!-- Header Here -->
     @include('layouts.header')
   
@@ -82,8 +83,10 @@
     <!-- Footer Here-->
     @include('layouts.footer')
 
+</div>
+    
     <!-- Scripts -->
     <script src="https://js.stripe.com/v3/"></script>
-
+    
 </body>
 </html>

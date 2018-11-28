@@ -82,6 +82,8 @@ Route::get('categories/list', 'CategoriesController@list');
 Route::resource('categories', 'CategoriesController');
 Route::get('cities/list', 'CitiesController@list');
 Route::resource('cities', 'CitiesController');
+Route::get('clients/list', 'CustomersController@list');
+Route::resource('clients', 'CustomersController');
 Route::get('contacts/list', 'ContactsController@list');
 Route::resource('contacts', 'ContactsController');
 Route::get('countries/list', 'CountriesController@list');
