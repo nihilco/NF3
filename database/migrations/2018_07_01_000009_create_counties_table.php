@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class County extends Migration
+class CreateCountiesTable extends Migration
 {
     /**
      * Run the migrations.
