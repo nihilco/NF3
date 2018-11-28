@@ -18,7 +18,7 @@ class CustomersController extends Controller
     //
     public function index()
     {
-	$customers = Customer::all();
+	$customers = Customer::where('account_id', config('app.website')->account_id)->paginate(25);
 	
 	return view('customers.index', compact('customers'));
     }
@@ -126,7 +126,7 @@ class CustomersController extends Controller
     //
     public function list()
     {
-        $customers = Customer::all();
+	$customers = Customer::where('account_id', config('app.website')->account_id)->paginate(25);
 
 	if(request()->expectsJson()) {
             return $customers;
