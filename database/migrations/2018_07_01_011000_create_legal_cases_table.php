@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateContactsTable extends Migration
+class CreateLegalCasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,17 +14,18 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('legal_cases', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('website_id');
-	    $table->unsignedInteger('name_id');
-	    $table->unsignedInteger('addreses_count')->default(0);
-	    $table->unsignedInteger('organizations_count')->default(0);
-	    $table->unsignedInteger('phone_numbers_count')->default(0);
-	    $table->date('dob')->nullable();
-	    $table->string('tax_number')->nullable();
-	    $table->unsignedInteger('tax_number_type_id')->nullable();
-	    $table->softDeletes();
+	    $table->unsignedInteger('type_id');
+	    $table->unsignedInteger('status_type_id');
+	    $table->unsignedInteger('plaintiff_contact_id')->nullable();
+	    $table->unsignedInteger('defendant_contact_id')->nullable();
+	    $table->unsignedInteger('county_id');
+	    $table->string('name');
+	    $table->text('description')->nullable();
+	    $table->datetime('incident_at')->nullable();
+	    $table->datetime('settled_at')->nullable();
+	    $table->softDeletes();	    
             $table->timestamps();
 
 	    $table->unsignedInteger('creator_id');
@@ -49,6 +50,6 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('legal_cases');
     }
 }

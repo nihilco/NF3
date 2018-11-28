@@ -22,6 +22,11 @@ class Contact extends Base
         return $this->belongsToMany(Address::class, 'contact_address');
     }
 
+    public function phonenumbers()
+    {
+        return $this->belongsToMany(PhoneNumber::class, 'contact_phonenumber');
+    }
+
     public function name()
     {
         return $this->belongsTo(Name::class);
@@ -35,5 +40,10 @@ class Contact extends Base
     public function getDefaultOrganizationAttribute()
     {
 	return $this->organizations()->first();
+    }
+
+    public function getDefaultPhoneNumberAttribute()
+    {
+	return $this->phonenumbers()->first();
     }
 }

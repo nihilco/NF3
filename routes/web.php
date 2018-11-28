@@ -78,6 +78,8 @@ Route::get('aliases/list', 'AliasesController@list');
 Route::resource('aliases', 'AliasesController');
 Route::get('authors/list', 'AuthorsController@list');
 Route::resource('authors', 'AuthorsController');
+Route::get('cases/list', 'LegalCasesController@list');
+Route::resource('cases', 'LegalCasesController');
 Route::get('categories/list', 'CategoriesController@list');
 Route::resource('categories', 'CategoriesController');
 Route::get('cities/list', 'CitiesController@list');

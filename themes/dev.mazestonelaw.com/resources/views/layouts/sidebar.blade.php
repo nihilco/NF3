@@ -8,21 +8,23 @@
         </a>
       </li>
 
-      @can('index', \App\Models\Contact::class)
-      <li class="nav-item">
-        <a class="nav-link" href="/clients">
-          <i class="nav-icon icon-people"></i> Clients
-        </a>
-      </li>
-      @endcan
-
-      @can('index', \App\Models\Issue::class)
-      <li class="nav-item">
-        <a class="nav-link" href="/cases">
+      <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
           <i class="nav-icon icon-briefcase"></i> Cases
         </a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" href="/cases?active=true">
+              <i class="nav-icon icon-briefcase"></i> Active
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cases?closed=true">
+              <i class="nav-icon icon-briefcase"></i> Closed
+            </a>
+          </li>
+        </ul>
       </li>
-      @endcan
 
       @can('index', \App\Models\Issue::class)
       <li class="nav-item">
