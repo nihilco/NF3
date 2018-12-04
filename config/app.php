@@ -224,4 +224,40 @@ return [
 	'Avatar' => App\Facades\Avatar::class,
     ],
 
+    'debug_blacklist' => [
+        '_ENV' => [
+             'APP_KEY',
+	     'DB_USERNAME',
+             'DB_PASSWORD',
+             'MAILGUN_SECRET',
+             'APA_SECRET_KEY',
+	     'MY_PASSWORD',
+	     'MY_PASSWORD2',
+	     'STRIPE_PLATFORM_TEST_SECRET',
+	     'STRIPE_PLATFORM_LIVE_SECRET',
+	     'STRIPE_SHIRLOCK_LIVE_SECRET',
+	     'STRIPE_TARALOKA_LIVE_SECRET',
+	     'STRIPE_BLUESPRINGS_LIVE_SECRET',
+	     'STRIPE_COASTTOCOAST_LIVE_SECRET',	    
+        ],
+        '_SERVER' => [
+	     'APP_KEY',
+	     'DB_USERNAME',
+	     'DB_PASSWORD',
+	     'MAILGUN_SECRET',
+	     'APA_SECRET_KEY',
+	     'MY_PASSWORD',
+	     'MY_PASSWORD2',
+	     'STRIPE_PLATFORM_TEST_SECRET',
+	     'STRIPE_PLATFORM_LIVE_SECRET',
+	     'STRIPE_SHIRLOCK_LIVE_SECRET',
+	     'STRIPE_TARALOKA_LIVE_SECRET',
+	     'STRIPE_BLUESPRINGS_LIVE_SECRET',
+	     'STRIPE_COASTTOCOAST_LIVE_SECRET',
+	],
+        '_POST' => [
+	    'password',
+	],
+    ],
+
 ];

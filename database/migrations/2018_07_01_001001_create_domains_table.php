@@ -22,7 +22,6 @@ class CreateDomainsTable extends Migration
 	    $table->date('registered_at');
 	    $table->date('last_renewed_at');
 	    $table->date('renews_at');
-	    $table->string('mailgun_api_key')->nullable();
 	    $table->unsignedInteger('websites_count')->default(0);
 	    $table->boolean('active')->default(false);
 	    $table->softDeletes();

@@ -18,6 +18,7 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'bluespringshistoricalassociation.org')->first()->id,
 	     'hostname' => 'www.bluespringshistoricalassociation.org',
+	     'analytics_code' => 'UA-2228318-38',
 	]);
 
         //
@@ -31,7 +32,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'cclemmer.com')->first()->id,
 	     'hostname' => 'www.cclemmer.com',
 	     'name' => 'cclemmer.com',
-	     'analytics_code' => 4,
+	     'analytics_code' => 'UA-2228318-12',
 	     'active' => true,
 	]);
 
@@ -48,6 +49,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'chattitup.com')->first()->id,
 	     'hostname' => 'www.chattitup.com',
 	     'name' => 'Chattitup',
+	     'analytics_code' => 'UA-2228318-28',
 	     'active' => true,
 	]);
 
@@ -74,7 +76,6 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'coasttocoastcollegefair.com')->first()->id,
 	     'hostname' => 'dev.coasttocoastcollegefair.com',
 	     'name' => 'Coast-to-Coast College Fair',
-	     'analytics_code' => 'UA-2228318-37',	     
 	     'under_construction' => false,
 	     'active' => true,
 	]);
@@ -84,7 +85,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'crosbyjeepclub.com')->first()->id,
 	     'hostname' => 'www.crosbyjeepclub.com',
 	     'name' => 'Crosby Jeep Club',
-	     'analytics_code' => 6,
+	     'analytics_code' => 'UA-2228318-39',
 	     'active' => true,
 	]);
 
@@ -101,7 +102,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'duespay.com')->first()->id,
 	     'hostname' => 'www.duespay.com',
 	     'name' => 'Dues Pay',
-	     'analytics_code' => 7,
+	     'analytics_code' => 'UA-2228318-8',
 	     'active' => true,
 	]);
 
@@ -156,6 +157,7 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'laundr.co')->first()->id,
 	     'hostname' => 'www.laundr.co',
+	     'analytics_code' => 'UA-2228318-40',
 	]);
 
         //
@@ -181,6 +183,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'mazestonelaw.com')->first()->id,
 	     'hostname' => 'www.mazestonelaw.com',
 	     'name' => 'Maze & Stone Law PLLC.',
+	     'analytics_code' => 'UA-2228318-41',
 	     'active' => true,
 	]);
 
@@ -209,7 +212,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'nihil.co')->first()->id,
 	     'hostname' => 'www.nihil.co',
 	     'name' => 'NIHIL',
-	     'analytics_code' => 1,
+	     'analytics_code' => 'UA-2228318-24',
 	     'active' => true,
 	]);
 
@@ -226,7 +229,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'nihilframework.com')->first()->id,
 	     'hostname' => 'www.nihilframework.com',
 	     'name' => 'NIHIL Framework',
-	     'analytics_code' => 2,
+	     'analytics_code' => 'UA-2228318-13',
 	     'active' => true,
 	]);
 
@@ -255,6 +258,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'outofmorbidcuriosity.com')->first()->id,
 	     'hostname' => 'www.outofmorbidcuriosity.com',
 	     'name' => 'Out of Morbid Curiosity',
+	     'analytics_code' => 'UA-2228318-29',
 	     'active' => true,
 	]);
 
@@ -298,6 +302,7 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'taraloka.org')->first()->id,
 	     'hostname' => 'www.taraloka.org',
+	     'analytics_code' => 'UA-2228318-23',
 	     'name' => 'Taraloka',
 	]);
 
@@ -325,6 +330,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'tornaddict.com')->first()->id,
 	     'hostname' => 'www.tornaddict.com',
 	     'name' => 'Torn Addict',
+	     'analytics_code' => 'UA-2228318-42',
 	     'active' => true,
 	]);
 
@@ -341,6 +347,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'unclebucksfarm.com')->first()->id,
 	     'hostname' => 'www.unclebucksfarm.com',
 	     'name' => 'Uncle Bucks Farm',
+	     'analytics_code' => 'UA-2228318-43',
 	]);
 
         //
@@ -372,7 +379,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'uclemmer.com')->first()->id,
 	     'hostname' => 'www.uclemmer.com',
 	     'name' => 'uclemmer',
-	     'analytics_code' => 3,
+	     'analytics_code' => 'UA-2228318-7',
 	     'active' => true,
 	]);
 
@@ -402,6 +409,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'virtuosolo.com')->first()->id,
 	     'hostname' => 'www.virtuosolo.com',
 	     'name' => 'Virtuosolo',
+	     'analytics_code' => 'UA-2228318-44',
 	     'active' => true,
 	]);
 
