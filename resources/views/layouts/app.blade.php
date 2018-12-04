@@ -9,6 +9,8 @@
 
   <title>@yield('title') | {{ config('app.name') }}</title>
 
+  @include('partials.analytics')
+
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
   

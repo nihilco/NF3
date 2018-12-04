@@ -3854,12 +3854,26 @@ class C2CSeeder extends Seeder
   'email' => 'adm-hsc@uga.edu',
   'year' => '2019',
 ],
+[
+  'email' => 'katie.morgan@auburn.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'cconchar@gwu.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'kfowler@piedmont.edu',
+  'year' => '2019',
+],
 
 	];
 
 	$users = App\Models\User::all();
 	$events = App\Models\Event::all();
-	
+
+	$dt = \Carbon\Carbon::now()->subMonth();
+
 	foreach($parts as $part) {
 	    $user = $users->where('email', $part['email'])->first();
 
@@ -3867,6 +3881,8 @@ class C2CSeeder extends Seeder
 	        factory(App\Models\Participant::class)->create([
 		    'owner_id' => $user->id,
 		    'event_id' => $events->where('name', 'Fair ' . $part['year'])->first()->id,
+		    'created_at' => $dt,
+		    'updated_at' => $dt,
 		]);        
 	    }
 	}

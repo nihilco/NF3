@@ -23,6 +23,11 @@ class CreateMailboxesTable extends Migration
 	    $table->softDeletes();
             $table->timestamps();
 
+	    $table->foreign('domain_id')
+		->references('id')
+		->on('domains')
+		->onDelete('cascade');
+
 	    $table->unsignedInteger('creator_id');
 	    $table->unsignedInteger('owner_id');
 

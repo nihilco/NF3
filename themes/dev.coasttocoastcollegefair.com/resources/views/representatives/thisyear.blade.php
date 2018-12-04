@@ -57,6 +57,10 @@
 		        <td>
 			  @if($representative->owner->contact->defaultOrganization)
 			  <a href="https://{{ $representative->owner->contact->defaultOrganization->website }}" target="_blank">{{ $representative->owner->contact->defaultOrganization->name_display ?? ''}}</a>
+			  @if($representative->created_at > \Carbon\Carbon::now()->subWeek())
+			  <span class="badge badge-success">New</span>			  
+			  @endif
+			  
 			  @else
 			  N/A
 			  @endif

@@ -64,7 +64,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'coasttocoastcollegefair.com')->first()->id,
 	     'hostname' => 'www.coasttocoastcollegefair.com',
 	     'name' => 'Coast-to-Coast College Fair',
-	     'analytics_code' => 5,
+	     'analytics_code' => 'UA-2228318-37',
 	     'under_construction' => false,	     
 	     'active' => true,
 	]);
@@ -74,6 +74,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'coasttocoastcollegefair.com')->first()->id,
 	     'hostname' => 'dev.coasttocoastcollegefair.com',
 	     'name' => 'Coast-to-Coast College Fair',
+	     'analytics_code' => 'UA-2228318-37',	     
 	     'under_construction' => false,
 	     'active' => true,
 	]);

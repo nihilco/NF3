@@ -10,7 +10,9 @@ class City extends Base
         parent::boot();
 
 	static::created(function($city) {
-	     $city->county->increment('cities_count');
+	     if($city->county) {
+	         $city->county->increment('cities_count');
+	     }
 	     $city->province->increment('cities_count');	     
 	     $city->country->increment('cities_count');	     
 	});
@@ -20,7 +22,9 @@ class City extends Base
 	});
 
 	static::deleted(function($city) {
-	    $city->county->decrement('cities_count');
+	    if($city->county) {
+	        $city->county->decrement('cities_count');
+	    }
 	    $city->province->decrement('cities_count');	    
 	    $city->country->decrement('cities_count');
 	});

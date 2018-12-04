@@ -12,7 +12,7 @@ class CountiesTableSeeder extends Seeder
     public function run()
     {
 	$country = App\Models\Country::where('code', 'US')->first();
-	$province = App\Mdoels\Province::where('code', 'KY')->first();
+	$province = App\Models\Province::where('code', 'KY')->first();
 
         //
 	factory(App\Models\County::class)->create([
