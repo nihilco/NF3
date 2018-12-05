@@ -21,6 +21,7 @@ class EventsTableSeeder extends Seeder
 	    'description' => 'Fair 2016 description.',
 	    'starts_at' => \Carbon\Carbon::create(2016, 3, 30, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2016, 3, 30, 20, 30, 00),
+	    'owner_id' => 11,
 	]);
 
 	//
@@ -31,6 +32,7 @@ class EventsTableSeeder extends Seeder
 	    'description' => 'Fair 2017 description.',
 	    'starts_at' => \Carbon\Carbon::create(2017, 3, 30, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2017, 3, 30, 20, 30, 00),
+	    'owner_id' => 11,
 	]);
 
 	//
@@ -41,6 +43,7 @@ class EventsTableSeeder extends Seeder
 	    'description' => 'Fair 2018 description.',
 	    'starts_at' => \Carbon\Carbon::create(2018, 4, 23, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2018, 4, 23, 20, 30, 00),
+	    'owner_id' => 11,
 	]);
 
         //
@@ -51,13 +54,7 @@ class EventsTableSeeder extends Seeder
 	    'description' => 'Fair 2019 description.',
 	    'starts_at' => \Carbon\Carbon::create(2019, 3, 5, 18, 30, 00),
 	    'ends_at' => \Carbon\Carbon::create(2019, 3, 5, 20, 30, 00),
+	    'owner_id' => 11,
 	]);
-
-//	for($i = 1; $i <= 25; $i++) {
-//	    $participant = factory(App\Models\Participant::class)->create([
-//	        'event_id' => $event->id,
-//	    ]);
-//	    $participant->owner->contact->organizations()->save(App\Models\Organization::find(rand(1,200)));
-//	}
     }
 }

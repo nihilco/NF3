@@ -259,7 +259,7 @@ class RepresentativesController extends Controller
 		'event_id' => $event->id,
 	    ]);        	
 
-	    // Email receipt and notify Anne
+	    // Email receipt and notify event owner
 	    \Mail::to([$rep->email, $event->owner->email])
                 ->send(new \App\Mail\Fair\Registered($event, $rep, $charge, session('additional'), session('scanner')));	    
 
