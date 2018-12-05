@@ -6,6 +6,7 @@
     <link rel="icon" href="/favicon.ico">
 
     <title>@yield('title') | {{ config('app.name') }}</title>
+<<<<<<< HEAD
 
     @include('partials.analytics')    
 
@@ -14,10 +15,18 @@
 
     <!-- Fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+=======
+>>>>>>> development
 
+    @include('partials.analytics')
+      
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ url('/css/app.css?t=' . time()) }}" />
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> development
   </head>
 
   <body>
