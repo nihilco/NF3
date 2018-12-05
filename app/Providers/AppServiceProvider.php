@@ -57,7 +57,8 @@ class AppServiceProvider extends ServiceProvider
 	          $appName = $this->website->name;
 	     }
 
-	     config(['service.mailgun.domain' => 'mailgun.' . $this->website->domain->domain]);
+	     config(['services.mailgun.domain' => 'mailgun.' . $this->website->domain->domain]);
+     	     config(['services.mailgun.secret' => env('MAILGUN_SECRET')]);
 
 	     config(['app.website' => $this->website]);
 	}

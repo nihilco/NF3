@@ -689,9 +689,9 @@ $exclude = [
 ];
 
 $reps = [
-//'uriah@nihil.co',
-//'mclemmer@gmail.com',
-//'annenexum@gmail.com',
+  //'uriah@nihil.co',
+  //'mclemmer@gmail.com',
+  //'annenexum@gmail.com',
 ];
 
 $reps = [];
@@ -705,7 +705,7 @@ $c = 0;
 foreach($reps as $rep) {
 
     Mail::to($rep)
-        ->send(new \App\Mail\FairHoliday());
+        ->send(new \App\Mail\Fair\Holiday());
 
     $c++;
     
