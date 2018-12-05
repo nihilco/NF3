@@ -48,7 +48,7 @@ class RepresentativesController extends Controller
     //
     public function create()
     {
-	//session()->forget(['step', 'organization', 'representative', 'invoice', 'payment']);
+	//session()->forget(['step', 'organization', 'representative', 'invoice', 'payment', 'additional', 'scanner']);
 
         if(session('step') == 2) {
     	    $organizations = Organization::where('website_id', config('app.website')->id)->orderBy('name_alpha')->get();
@@ -170,6 +170,10 @@ class RepresentativesController extends Controller
 		]);
 	    }
 
+	    if(!$user->contact->defaultOrganization) {
+	        $user->contact->organizations()->save(Organization::find(session('organization')));
+	    }
+
 	    session([
 	        'step' => 4,
 		'representative' => $user->id,
@@ -248,16 +252,19 @@ class RepresentativesController extends Controller
 	    ], ["stripe_account" => "acct_17QhV9DdmwKxmYbz"]);
 
 	    //
+	    $event = Event::where('name', 'Fair 2019')->first();
+
             factory(Participant::class)->create([
     	        'owner_id' => session('representative'),
-		'event_id' => Event::where('name', 'Fair 2019')->first()->id,
+		'event_id' => $event->id,
 	    ]);        	
 
-	    //
-	    session()->forget(['step', 'organization', 'representative', 'invoice', 'payment']);
-
 	    // Email receipt and notify Anne
-	    
+	    \Mail::to([$rep->email, $event->owner->email])
+                ->send(new \App\Mail\Fair\Registered($event, $rep, $charge, session('additional'), session('scanner')));	    
+
+	    //
+	    session()->forget(['step', 'organization', 'representative', 'invoice', 'payment', 'additional', 'scanner']);
 
 	    //
   	    \Session::flash('message', 'Registration successful.');

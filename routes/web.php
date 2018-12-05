@@ -721,10 +721,11 @@ Route::get('/mailable', function () {
     //return new \App\Mail\User\Registered($user);
     //return new \App\Mail\Fair\Invitation();
     //return new \App\Mail\Fair\Holiday();
-    return new \App\Mail\Fair\Registered(\App\Models\Event::find(3), \App\Models\Contact::find(1));    
+    return new \App\Mail\Fair\Registered(\App\Models\Event::find(4), $user, new \Stripe\Charge());    
 });
 
 Route::get('/testing', function () {
+    dd('testing');
     $users = \App\Models\User::where('email_confirmed_at', NULL)->with(['contact', 'contact.organizations'])->get();
     $orgs = [];
     foreach($users as $user) {

@@ -7,25 +7,32 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\Event;
-use App\Models\Contact;
+use App\Models\User;
+use Stripe\Charge;
 
 class Registered extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contact;
+    public $user;
     public $event;
+    public $charge;
+    public $additional;
+    public $scanner;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Event $event, Contact $contact)
+    public function __construct(Event $event, User $user, Charge $charge, $additional = 0, $scanner = 'no')
     {
         //
-	$this->contact = $contact;
+	$this->user = $user;
 	$this->event = $event;
+	$this->charge = $charge;
+	$this->additional = $additional;
+	$this->scanner = $scanner;
     }
 
     /**

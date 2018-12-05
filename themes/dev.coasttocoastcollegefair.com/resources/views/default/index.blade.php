@@ -227,7 +227,7 @@
        		      <select class="form-control{{ $errors->first('representative') ? ' is-invalid' : '' }}" id="representative" name="representative">
 		        <option></option>
 			@foreach(\App\Models\Event::find(4)->participants->sortBy('owner.contact.defaultOrganization.name_alpha') as $participant)
-		        <option value="{{ $participant->id }}"{{ (old('representative') == $participant->id) ? ' selected' : '' }}>{{ $participant->owner->contact->defaultOrganization->name_display }}</option>
+		        <option value="{{ $participant->id }}"{{ (old('representative') == $participant->id) ? ' selected' : '' }}>{{ ($participant->owner->contact->defaultOrganization) ? $participant->owner->contact->defaultOrganization->name_display : 'N/A' }}</option>
 			@endforeach
 		      </select>
     <div class="input-group-append">

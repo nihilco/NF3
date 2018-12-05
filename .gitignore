@@ -17,6 +17,7 @@ app/storage/
 public/storage
 public/hot
 public/img
+public/files
 public/robots.txt
 storage/*.key
 .env.*.php

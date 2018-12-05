@@ -32,18 +32,18 @@
 			<td valign="top" class="bodyContent" mc:edit="body_content00" style="-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;mso-table-lspace: 0pt;mso-table-rspace: 0pt;color: #505050;font-family: Helvetica;font-size: 14px;line-height: 150%;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;padding-left: 20px;text-align: left;">
 			  <h1 style="display: block;font-family: Helvetica;font-size: 26px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #202020 !important;">Coast-to-Coast College Fair</h1>
 			  <h3 style="display: block;font-family: Helvetica;font-size: 16px;font-style: italic;font-weight: normal;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #606060 !important;">Registration Confirmation</h3>
-			  <p>Dear {{ $contact->name->first }},</p>
+			  <p>Dear {{ $user->contact->name->first }},</p>
 
 			  <p>The Coast to Coast College Fair will be held at the Chattanooga Convention Center on {{ $event->starts_at->format('l, F jS, Y') }} from 6:30pm to 8:30pm - be sure to save the date! Dinner will be provided before hand and for those needing lodging, a block of rooms is reserved at the downtown <a href="https://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Coast%20to%20Coast%20College%20Fair%5Echadt%60ctcctca%7Cctcctcb%7Cctcctcf%60149.00%60USD%60false%605%603/4/19%603/6/19%6002/11/19&app=resvlink&stop_mobi=yes">Chattanooga Marriott</a>.</p>
 
                           <h2 style="display: block;font-family: Helvetica;font-size: 20px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #404040 !important;">Payment Details</h2>
 
 			  <ul style="list-style:none;">
-			    <li><strong>Name: </strong> <code>{{ $contact->name->fullName }}</code></li>
-			    <li><strong>Organization: </strong> <code>{{ $contact->defaultOrganization->name_display }}</code></li>
-			    <li><strong>Amount: </strong> <code></code></li>
-			    <li><strong>Reps: </strong> <code></code></li>
-			    <li><strong>Scanner: </strong> <code></code></li>
+			    <li><strong>Name: </strong> <code>{{ $user->contact->name->fullName }}</code></li>
+			    <li><strong>Organization: </strong> <code>{{ $user->contact->defaultOrganization->name_display }}</code></li>
+			    <li><strong>Amount: </strong> <code>${{ number_format($charge->amount/100,2) }}</code></li>
+			    <li><strong>Reps: </strong> <code>{{ 1 + $additional }}</code></li>
+			    <li><strong>Scanner: </strong> <code>{{ ucfirst($scanner) }}</code></li>
 			  </ul>
 
 			  <p>Thank you,<br />

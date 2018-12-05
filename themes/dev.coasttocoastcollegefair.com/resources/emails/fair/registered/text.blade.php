@@ -1,10 +1,39 @@
 Coast-to-Coast College Fair
 
-Welcome to {{ config('app.name') }}
+Registration Confirmation
 
-As the holiday season approaches, don't forget to register for Chattanooga's Coast to Coast College Fair on Tuesday, March 5, 2019 from 6:30 to 8:30 p.m. at the Chattanooga Trade and Convention Center.  Through the years, the Coast to Coast Fair has drawn close to 800 students from area public and independent schools. REGISTER NOW...see you next March!
+Dear {{ $user->contact->name->first }},
 
-Sponsored by the Baylor School, Girls Preparatory School, McCallie School, and St. Andrew's-Sewanee.
+The Coast to Coast College Fair will be held at the Chattanooga Convention Center on {{ $event->starts_at->format('l, F jS, Y') }} from 6:30pm to 8:30pm - be sure to save the date! Dinner will be provided before hand and for those needing lodging, a block of rooms is reserved at the downtown Chattanooga Marriott:
+
+https://www.marriott.com/meeting-event-hotels/group-corporate-travel/groupCorp.mi?resLinkData=Coast%20to%20Coast%20College%20Fair%5Echadt%60ctcctca%7Cctcctcb%7Cctcctcf%60149.00%60USD%60false%605%603/4/19%603/6/19%6002/11/19&app=resvlink&stop_mobi=yes
+
+Payment Details
+
+Name: {{ $user->contact->name->fullName }}
+Organization: {{ $user->contact->defaultOrganization->name_display }}
+Amount: ${{ number_format($charge->amount/100,2) }}
+Reps: {{ 1 + $additional }}
+Scanner: {{ ucfirst($scanner) }}
+
+Thank you,
+Anne Exum
+Fair Coordinator
+
+
+Additional Information
+
+For more information, or if you have any questions or concerns, about the Fair, please contact us directly. Look here to download our W-9:
+
+{{ url('/files/2018_C2C_W9.pdf') }}
+
+Contact Us
+
+Coast to Coast College Fair
+P.O. Box 4221
+Chattanooga, TN 37405
+(423) 505-4036
+
 
 Copyright &copy; {{ date('Y') }} {{ config('app.name') }}.  All rights reserved.
 
