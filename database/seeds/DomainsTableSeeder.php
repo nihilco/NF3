@@ -131,6 +131,12 @@ class DomainsTableSeeder extends Seeder
 
 	//
 	factory(App\Models\Domain::class)->create([
+	    'tld_id' => $tlds->where('domain', '.world')->first()->id,
+	    'domain' => 'lists.world',
+	]);
+
+	//
+	factory(App\Models\Domain::class)->create([
 	    'tld_id' => $tlds->where('domain', '.com')->first()->id,
 	    'domain' => 'mazestonelaw.com',
 	]);

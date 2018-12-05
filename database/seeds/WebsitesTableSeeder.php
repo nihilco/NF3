@@ -18,13 +18,17 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'bluespringshistoricalassociation.org')->first()->id,
 	     'hostname' => 'www.bluespringshistoricalassociation.org',
+	     'name' => 'Blue Springs Historicall Association',
 	     'analytics_code' => 'UA-2228318-38',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'bluespringshistoricalassociation.org')->first()->id,
 	     'hostname' => 'dev.bluespringshistroicalassociation.org',
+	     'name' => 'Blue Springs Historicall Association',
+	     'active' => true,
 	]);
 
         //
@@ -119,6 +123,8 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'electionbrief.com')->first()->id,
 	     'hostname' => 'www.electionbrief.com',
 	     'name' => 'Election Brief',
+	     'analytics_code' => 'UA-2228318-46',
+	     'active' => true,	     
 	]);
 
         //
@@ -133,49 +139,98 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'fisherscholarship.com')->first()->id,
 	     'hostname' => 'www.fisherscholarship.com',
+	     'name' => 'Fisher Scholarship',
+	     'active' => false,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'fisherscholarship.com')->first()->id,
 	     'hostname' => 'dev.fisherscholarship.com',
+	     'name' => 'Fisher Scholarship',
+	     'active' => false,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'homeapothecarie.com')->first()->id,
 	     'hostname' => 'www.homeapothecarie.com',
+	     'name' => 'Home Apothecarie',
+	     'active' => false,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'homeapothecarie.com')->first()->id,
 	     'hostname' => 'dev.homeapothecarie.com',
+	     'name' => 'Home Apothecarie',
+	     'active' => false,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'laundr.co')->first()->id,
 	     'hostname' => 'www.laundr.co',
+	     'name' => 'Laundr',
 	     'analytics_code' => 'UA-2228318-40',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'laundr.co')->first()->id,
 	     'hostname' => 'dev.laundr.co',
+	     'name' => 'Laundr',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'laqhia.com')->first()->id,
 	     'hostname' => 'www.laqhia.com',
+	     'name' => 'Laqhia',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'laqhia.com')->first()->id,
 	     'hostname' => 'dev.laqhia.com',
+	     'name' => 'Laqhia',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'lexanderfarm.com')->first()->id,
+	     'hostname' => 'www.lexanderfarm.com',
+	     'name' => 'Lexander Farm',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'lexanderfarm.com')->first()->id,
+	     'hostname' => 'dev.lexanderfarm.com',
+	     'name' => 'Lexander Farm',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'lists.world')->first()->id,
+	     'hostname' => 'www.lists.world',
+	     'name' => 'Lists World',
+	     'analytics_code' => 'UA-2228318-45',
+	     'active' => true,	     
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'lists.world')->first()->id,
+	     'hostname' => 'dev.lists.world',
+	     'name' => 'Lists World',
+	     'active' => true,	     
 	]);
 
         //
@@ -199,12 +254,16 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'myrun-mycause.org')->first()->id,
 	     'hostname' => 'www.myrun-mycause.org',
+	     'name' => 'My Run, My Cause',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'myrun-mycause.org')->first()->id,
 	     'hostname' => 'dev.myrun-mycause.org',
+	     'name' => 'My Run, My Cause',
+	     'active' => true,
 	]);
 
         //
@@ -245,12 +304,16 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'nurses4change.org')->first()->id,
 	     'hostname' => 'www.nurses4change.org',
+	     'name' => 'Nurses 4 Change',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'nurses4change.org')->first()->id,
 	     'hostname' => 'dev.nurses4change.org',
+	     'name' => 'Nurses 4 Change',
+	     'active' => true,
 	]);
 
         //
@@ -290,20 +353,25 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'schowsestatesales.com')->first()->id,
 	     'hostname' => 'www.schowesestatesales.com',
+	     'name' => 'Schows\' Estate Sales',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'schowsestatesales.com')->first()->id,
 	     'hostname' => 'dev.schowsestatesales.com',
+	     'name' => 'Schows\' Estate Sales',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'taraloka.org')->first()->id,
 	     'hostname' => 'www.taraloka.org',
-	     'analytics_code' => 'UA-2228318-23',
 	     'name' => 'Taraloka',
+	     'analytics_code' => 'UA-2228318-23',
+	     'active' => true,
 	]);
 
         //
@@ -311,18 +379,39 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'taraloka.org')->first()->id,
 	     'hostname' => 'dev.taraloka.org',
 	     'name' => 'Taraloka',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'taralokafoundation.org')->first()->id,
+	     'hostname' => 'www.taralokafoundation.org',
+	     'name' => 'Taraloka',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'taralokafoundation.org')->first()->id,
+	     'hostname' => 'dev.taralokafoundation.org',
+	     'name' => 'Taraloka',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'throughhike.org')->first()->id,
 	     'hostname' => 'www.throughhike.org',
+	     'name' => 'Through Hike',
+	     'active' => true,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'throughhike.org')->first()->id,
 	     'hostname' => 'dev.throughhike.org',
+	     'name' => 'Through Hike',
+	     'active' => true,
 	]);
 
         //
@@ -348,6 +437,7 @@ class WebsitesTableSeeder extends Seeder
 	     'hostname' => 'www.unclebucksfarm.com',
 	     'name' => 'Uncle Bucks Farm',
 	     'analytics_code' => 'UA-2228318-43',
+	     'active' => true,
 	]);
 
         //
@@ -396,12 +486,16 @@ class WebsitesTableSeeder extends Seeder
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'utkdelts.org')->first()->id,
 	     'hostname' => 'www.utkdelts.org',
+	     'name' => 'UTK Delts',
+	     'active' => false,
 	]);
 
         //
 	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'utkdelts.org')->first()->id,
 	     'hostname' => 'dev.utkdelts.org',
+	     'name' => 'UTK Delts',
+	     'active' => false,
 	]);
 
         //

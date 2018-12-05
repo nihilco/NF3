@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="/favicon.ico">
 
-      <title>@yield('title') | {{ config('app.name') }}</title>
+    <title>@yield('title') | {{ config('app.name') }}</title>
 
-      <!-- Bootstrap CSS -->
+    @include('partials.analytics')    
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
     <!-- Fontawesome -->
@@ -16,7 +18,6 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ url('/css/app.css?t=' . time()) }}" />
 
-    @include('partials.analytics')
   </head>
 
   <body>
