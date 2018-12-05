@@ -718,9 +718,10 @@ return $c;
 Route::get('/mailable', function () {
     $user = \App\Models\User::find(1);
 
-    //return new \App\Mail\UserRegistered($user);
-    //return new \App\Mail\FairInvitation();
-    return new \App\Mail\FairHoliday();    
+    //return new \App\Mail\User\Registered($user);
+    //return new \App\Mail\Fair\Invitation();
+    //return new \App\Mail\Fair\Holiday();
+    return new \App\Mail\Fair\Registered(\App\Models\Event::find(3), \App\Models\Contact::find(1));    
 });
 
 Route::get('/testing', function () {

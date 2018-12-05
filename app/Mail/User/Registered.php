@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail;
+namespace App\Mail\User;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Models\User;
 
-class VerifyUserEmail extends Mailable
+class Registered extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,12 +32,12 @@ class VerifyUserEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Verify Your Email Address')
+        return $this->subject('Welcome to ' . config('app.website')->name)
 		    ->withSwiftMessage(function($message) {
 		        $message->getHeaders()->addTextHeader('Sender', config('app.website')->name . ' <no-reply@' . config('app.website')->domain->domain . '>');
 		    })
 	            ->from('no-reply@' . config('app.website')->domain->domain, config('app.website')->name)
-	            ->view('emails::users.verify.html')
-		    ->text('emails::users.verify.text');
+	            ->view('emails::users.registered.html')
+		    ->text('emails::users.registered.text');
     }
 }

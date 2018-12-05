@@ -5,6 +5,15 @@ namespace App\Models;
 class Event extends Base
 {
     //
+    protected $dates = [
+        'created_at',
+	'updated_at',
+	'deleted_at',
+	'starts_at',
+	'ends_at',
+    ];
+	
+    //
     public static function boot()
     {
         parent::boot();

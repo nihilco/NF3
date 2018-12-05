@@ -228,7 +228,8 @@ class RepresentativesController extends Controller
 	    //
 	    // Set your secret key: remember to change this to your live secret key in production
 	    // See your keys here: https://dashboard.stripe.com/account/apikeys
-	    \Stripe\Stripe::setApiKey(env('STRIPE_PLATFORM_TEST_SECRET'));
+	    //\Stripe\Stripe::setApiKey(env('STRIPE_PLATFORM_TEST_SECRET'));
+	    \Stripe\Stripe::setApiKey(config('services.stripe.keys.' . config('services.stripe.mode') . '.secret'));
 
 	    // Token is created using Checkout or Elements!
 	    // Get the payment token ID submitted by the form:
@@ -254,7 +255,10 @@ class RepresentativesController extends Controller
 
 	    //
 	    session()->forget(['step', 'organization', 'representative', 'invoice', 'payment']);
+
+	    // Email receipt and notify Anne
 	    
+
 	    //
   	    \Session::flash('message', 'Registration successful.');
 	    \Session::flash('alert-class', 'alert-success');

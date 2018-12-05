@@ -94,7 +94,7 @@ class RegistrationRequest extends FormRequest
         $user->roles()->save(Role::where('name', 'User')->first());
 
 	\Mail::to($user->email)
-            ->send(new \App\Mail\UserRegistered($user));
+            ->send(new \App\Mail\User\Registered($user));
 
 	return $user;
     }

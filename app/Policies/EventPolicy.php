@@ -12,7 +12,7 @@ class EventPolicy extends BasePolicy
 
     public function before($user, $ability)
     {
-        if($user->id == 10) {
+        if($user->id == 11) {
 	    return true;
 	}
 

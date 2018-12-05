@@ -1956,14 +1956,22 @@ class C2CSeeder extends Seeder
     'last' => 'McWilliams',
     'email' => 'tmcwilliams@tntech.edu',
     'organization' => 'Tennessee Tech University'
-  ]  
+  ],
+    [
+    'first' => 'Zachary',
+    'middle' => 'D',
+    'last' => 'Plating',
+    'email' => 'zach.plating@covenant.edu',
+    'organization' => 'Covenant College'
+  ]    
   ];
 
   
 
   $orgs = App\Models\Organization::all();
 
-  $wid = App\Models\Website::where('hostname', 'www.coasttocoastcollegefair.com')->first()->id;
+  $wid = App\Models\Website::where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
+  //$wid = App\Models\Website::where('hostname', 'www.coasttocoastcollegefair.com')->first()->id;
   
 	//
           foreach($reps as $rep) {
@@ -3864,6 +3872,10 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'kfowler@piedmont.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'zach.plating@covenant.edu',
   'year' => '2019',
 ],
 

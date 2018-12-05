@@ -2624,6 +2624,33 @@ class TornSeeder extends Seeder
 	    "creator_id" => 1,
 	    "owner_id" => 1,
 	]);
-	
+
+        factory(\App\Models\Torn\Networth::class)->create([
+            "player_id" => 1,
+	    "pending" => 0,
+	    "wallet" => 78804100,
+	    "bank" => 228072000000,
+	    "points" => 0,
+	    "cayman" => 50000000,
+	    "vault" => 31281945000,
+	    "piggybank" => 0,
+	    "items" => 59790631700,
+	    "displaycase" => 595105927900,
+	    "bazaar" => 1587789700,
+	    "properties" => 199307600000,
+	    "stockmarket" => 844597103000,
+	    "auctionhouse" => 0,
+	    "company" => 12861499500,
+	    "bookie" => 0,
+	    "loan" => -180500000000,
+	    "unpaidfees" => -2418734500,
+	    "total" => 1789814566400,
+	    "deleted_at" => null,
+	    "created_at" => "2018-12-05 00:00:03",
+	    "updated_at" => "2018-12-05 00:00:03",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
     }
 }
