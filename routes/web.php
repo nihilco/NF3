@@ -10,9 +10,9 @@
 |
 */
 Route::name('home')->get('/', function () {
-  if(config('app.website'))
+  if(config('app')['website'])
   {
-    if(!config('app.website')->under_construction) {
+    if(!config('app')['website']->under_construction) {
       return view('default.index');
     }
     if(!auth()->guest()) {

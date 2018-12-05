@@ -259,5 +259,6 @@ return [
 	    'password',
 	],
     ],
+    'website' => false,
 
 ];
