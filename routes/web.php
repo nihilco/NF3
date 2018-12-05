@@ -725,7 +725,7 @@ Route::get('/mailable', function () {
 });
 
 Route::get('/testing', function () {
-    dd('testing');
+    dd(app()->environment());
     $users = \App\Models\User::where('email_confirmed_at', NULL)->with(['contact', 'contact.organizations'])->get();
     $orgs = [];
     foreach($users as $user) {

@@ -679,6 +679,9 @@ class OrganizationsTableSeeder extends Seeder
 		'name_display' => 'Louisiana State University','name_alpha' => 'Louisiana State University','website' => 'www.lsu.edu']);
 
 	factory(\App\Models\Organization::class)->create(['website_id' => $wid,
+		'name_display' => 'Loyola University Maryland','name_alpha' => 'Loyola University Maryland','website' => 'www.loyola.edu/']);
+
+	factory(\App\Models\Organization::class)->create(['website_id' => $wid,
 		'name_display' => 'Loyola University New Orleans','name_alpha' => 'Loyola University New Orleans','website' => 'www.loyno.edu']);
 
 	factory(\App\Models\Organization::class)->create(['website_id' => $wid,

@@ -1963,15 +1963,24 @@ class C2CSeeder extends Seeder
     'last' => 'Plating',
     'email' => 'zach.plating@covenant.edu',
     'organization' => 'Covenant College'
-  ]    
+  ],
+    [
+    'first' => 'Nathaniel',
+    'last' => 'Brickhouse',
+    'email' => 'nbrickhouse@loyola.edu',
+    'organization' => 'Loyola University Maryland'
+  ]      
   ];
 
   
 
   $orgs = App\Models\Organization::all();
 
-  $wid = App\Models\Website::where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
-  //$wid = App\Models\Website::where('hostname', 'www.coasttocoastcollegefair.com')->first()->id;
+  if(app()->environment() == 'production' || app()->environment() == 'prod') {
+      $wid = App\Models\Website::where('hostname', 'www.coasttocoastcollegefair.com')->first()->id;
+  } else {
+      $wid = App\Models\Website::where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
+  }
   
 	//
           foreach($reps as $rep) {
@@ -3876,6 +3885,10 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'zach.plating@covenant.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'nbrickhouse@loyola.edu',
   'year' => '2019',
 ],
 
