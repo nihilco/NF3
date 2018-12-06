@@ -80,7 +80,7 @@ class OrganizationsController extends Controller
 	    return $organization;
 	}
 
-	return view('organizaions.show', compact(['organization']));
+	return view('organizations.show', compact(['organization']));
     }
 
     /**

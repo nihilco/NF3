@@ -2009,10 +2009,13 @@ class C2CSeeder extends Seeder
 		'website_id' => $wid,
 	    ]);
 
-	    $o = $orgs->where('name_display', $rep['organization'])->first();
+	    $o = $orgs->where('name_display', $rep['organization'])
+	        ->where('website_id', $wid)
+	        ->first();
 
 	    if($o) {
-	        $contact->organizations()->save($o);
+	        //$contact->organizations()->save($o);
+		$contact->addOrganization($o);
 	    }
 	
 	    $user = factory(App\Models\User::class)->create([

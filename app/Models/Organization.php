@@ -22,9 +22,14 @@ class Organization extends Base
         return '/organizations/' . $this->id;
     }
 
+    public function website()
+    {
+	return $this->belongsTo(Website::class);
+    }
+
     public function contacts()
     {
-        return $this->belongsToMany(Contact::class, 'contact_organization');
+        return $this->belongsToMany(Contact::class, 'contact_organization')->withTimestamps();
     }
 
     public static function createAlphaName(string $name)
@@ -59,5 +64,25 @@ class Organization extends Base
 	}
 
         return $head . $tail;
+    }
+
+    public function addContact(Contact $contact)
+    {
+	$ret = $this->contacts()->save($contact);
+
+	$this->increment('contacts_count');
+	$contact->increment('organizations_count');
+
+	return $ret;
+    }
+
+    public function removeContact(Contact $contact)
+    {
+	$ret = $this->contacts()->save($contact);
+
+	$this->decrement('contacts_count');
+	$contact->decrement('organizations_count');
+
+	return $ret;
     }
 }
