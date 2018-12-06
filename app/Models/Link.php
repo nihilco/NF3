@@ -7,6 +7,12 @@ class Link extends Base
     //
     public function path()
     {
-        return "/link/" . $this->slug;
+        return "/links/" . $this->slug;
+    }
+
+    //
+    public function getRouteKeyName()
+    {
+	return 'slug';
     }
 }
