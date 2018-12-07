@@ -49,13 +49,19 @@ class RegistrationRequest extends FormRequest
 
 	$c = count($names);
 	
-	if($c == 2) {
+	
+	if($c ==1) {
+	
+	    $name->first = $names[0];
+	    $name->nickname = $names[0];
+	    
+	} elseif($c == 2) {
 
 	    $name->first = $names[0];
 	    $name->nickname = $names[0];
 	    $name->last = $names[1];
 
-	}elseif($c == 3) {
+	}elseif($c >= 3) {
 
 	    $name->first = $names[0];
 	    $name->nickname = $names[0];
@@ -83,7 +89,7 @@ class RegistrationRequest extends FormRequest
 	$emailParts = explode('@', request('email'));
 
 	//
-	$user->slug = $emailParts[0];
+	$user->slug = request('email');
 	$user->email = request('email');
 	$user->contact_id = $contact->id;
 	$user->password = \Hash::make(request('password'));

@@ -16,4 +16,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/tinymce.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
    .sass('resources/assets/sass/coasttocoast.scss', 'public/css')
+   .sass('resources/assets/sass/mazestonelaw.scss', 'public/css')
    .sass('resources/assets/sass/uclemmer.scss', 'public/css');

@@ -41,6 +41,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+	if ($this->app->environment() == 'development' || $this->app->environment() == 'dev') {
+            $this->app->register(\App\Providers\TelescopeServiceProvider::class);
+        }
     }
 
     private function setAppName()

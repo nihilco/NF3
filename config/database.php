@@ -35,7 +35,7 @@ return [
 
         'sqlite' => [
             'driver' => 'sqlite',
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+	    'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
 
@@ -75,6 +75,12 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
+            'prefix' => '',
+        ],
+
+        'testing' => [
+            'driver' => 'sqlite',
+	    'database' => database_path('testdb.sqlite'),
             'prefix' => '',
         ],
 

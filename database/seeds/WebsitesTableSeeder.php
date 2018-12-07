@@ -255,6 +255,7 @@ class WebsitesTableSeeder extends Seeder
 	     'domain_id' => $domains->where('domain', 'mazestonelaw.com')->first()->id,
 	     'hostname' => 'dev.mazestonelaw.com',
 	     'name' => 'Maze & Stone Law PLLC.',
+	     'under_construction' => false,
 	     'active' => true,
 	]);
 

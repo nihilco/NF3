@@ -1441,5 +1441,61 @@ class TornPlayersTableSeeder extends Seeder
 	    "owner_id" => 1,
 	]);
 
+	factory(\App\Models\Torn\Player::class)->create([
+	    "torn_id" => "1904534",
+	    "faction_id" => null,
+	    "company_id" => null,
+	    "name" => "MackRaw",
+	    "api_key" => null,
+	    "nnb" => null,
+	    "deleted_at" => null,
+	    "created_at" => "2018-12-06 02:00:54",
+	    "updated_at" => "2018-12-06 02:00:54",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Torn\Player::class)->create([
+	    "torn_id" => "1957419",
+	    "faction_id" => null,
+	    "company_id" => null,
+	    "name" => "m8urafkinskrub",
+	    "api_key" => null,
+	    "nnb" => null,
+	    "deleted_at" => null,
+	    "created_at" => "2018-12-06 02:00:54",
+	    "updated_at" => "2018-12-06 02:00:54",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Torn\Player::class)->create([
+	    "torn_id" => "1953634",
+	    "faction_id" => null,
+	    "company_id" => null,
+	    "name" => "Lunitic_Fringe",
+	    "api_key" => null,
+	    "nnb" => null,
+	    "deleted_at" => null,
+	    "created_at" => "2018-12-06 02:00:54",
+	    "updated_at" => "2018-12-06 02:00:54",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
+	factory(\App\Models\Torn\Player::class)->create([
+	    "torn_id" => "1933237",
+	    "faction_id" => null,
+	    "company_id" => null,
+	    "name" => "Lunitunes",
+	    "api_key" => null,
+	    "nnb" => null,
+	    "deleted_at" => null,
+	    "created_at" => "2018-12-06 02:00:54",
+	    "updated_at" => "2018-12-06 02:00:54",
+	    "creator_id" => 1,
+	    "owner_id" => 1,
+	]);
+
   }
 }

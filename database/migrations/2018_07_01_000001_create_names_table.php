@@ -17,11 +17,11 @@ class CreateNamesTable extends Migration
         Schema::create('names', function (Blueprint $table) {
             $table->increments('id');
 	    $table->string('prefix')->nullable();
-	    $table->string('first');
+	    $table->string('first')->nullable();
 	    $table->string('middle')->nullable();
-	    $table->string('last');
+	    $table->string('last')->nullable();
 	    $table->string('suffix')->nullable();
-	    $table->string('nickname')->nullable();
+	    $table->string('nickname');
 	    $table->softDeletes();
             $table->timestamps();
 

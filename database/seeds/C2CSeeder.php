@@ -2000,6 +2000,7 @@ class C2CSeeder extends Seeder
 
 	    $na = [
   	        'first' => $rep['first'],
+		'nickname' => $rep['first'],
 		'last' => $rep['last'],
 	    ];
 
