@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers\Torn;
 
-use App\Models\Torn\Networth;
+use App\Models\Torn\Item;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NetworthsController extends Controller
+class ItemsController extends Controller
 {
     //
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +22,8 @@ class NetworthsController extends Controller
     public function index()
     {
         //
-	$networths = Networth::paginate(25);
-	return view('torn.networths.index', compact(['networths']));
+	$items = Item::paginate(25);
+	return view('torn.items.index', compact(['items']));
     }
 
     /**
@@ -34,7 +34,7 @@ class NetworthsController extends Controller
     public function create()
     {
         //
-	return view('torn.networths.create');
+	return view('torn.items.create');
     }
 
     /**
@@ -50,61 +50,61 @@ class NetworthsController extends Controller
 
 	]);
 
-        $networth = new Networth();
+        $item = new Item();
 
-	$networth->creator_id = auth()->id();
-	$networth->owner_id = auth()->id();
+	$item->creator_id = auth()->id();
+	$item->owner_id = auth()->id();
 
-	$networth->save();
+	$item->save();
 
-	\Session::flash('message', 'Networth successfully created.');
+	\Session::flash('message', 'Item successfully created.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($networth, 201);
+            return response()->json($item, 201);
 	}
 
-	return redirect('/torn/networths');
-	
+	return redirect('/torn/items');	
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Networth  $networth
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Networth $networth)
+    public function show(Item $item)
     {
         //
 	if(request()->expectsJson()) {
-            return $networth;
+            return $item;
 	}
 
-	return view('torn.networths.show', compact(['networth']));	
+	return view('torn.items.show', compact(['item']));	
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Networth  $networth
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function edit(Networth $networth)
+    public function edit(Item $item)
     {
         //
-	return view('networths.edit', compact(['networth']));
+	return view('torn.items.edit', compact(['item']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Networth  $networth
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Networth $networth)
+    public function update(Request $request, Item $item)
     {
+        //
         //
         $this->validate(request(), [
 
@@ -112,30 +112,30 @@ class NetworthsController extends Controller
 
 	//
 
-	$networth->save();
+	$item->save();
 
-	\Session::flash('message', 'Networth successfully updated.');
+	\Session::flash('message', 'Item successfully updated.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($networth, 200);
+            return response()->json($item, 200);
 	}
 
-	return redirect($networth->path());	
+	return redirect($item->path());		
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Networth  $networth
+     * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Networth $networth)
+    public function destroy(Item $item)
     {
         //
-        $networth->delete();
+        $item->delete();
 
-	\Session::flash('message', 'Networth successfully deleted.');
+	\Session::flash('message', 'Item successfully deleted.');
 	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
@@ -148,13 +148,12 @@ class NetworthsController extends Controller
     //
     public function list()
     {
-        $networths = Networth::all();
+        $items = Item::all();
 
 	if(request()->expectsJson()) {
-            return $networths;
+            return $items;
 	}
 
-	return view('torn.networths.list', compact(['networths']));
+	return view('torn.items.list', compact(['items']));
     }
-
 }

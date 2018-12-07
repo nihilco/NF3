@@ -40,8 +40,6 @@ class Players extends Command
         //
         $n = \Torn::user();
 
-	//dd($n['networth']);
-
 	$nw = new \App\Models\Torn\Networth();
 
 	$nw->creator_id = 1;
@@ -68,7 +66,6 @@ class Players extends Command
 
 	$nw->save();
 
-	//dd($nw);
 	return $nw;
     }
 }

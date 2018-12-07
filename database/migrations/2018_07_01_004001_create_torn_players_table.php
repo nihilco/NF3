@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateAttacksTable extends Migration
+class CreateTornPlayersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,17 @@ class CreateAttacksTable extends Migration
      */
     public function up()
     {
-        Schema::create('attacks', function (Blueprint $table) {
+        Schema::create('torn_players', function (Blueprint $table) {
             $table->increments('id');
-
+	    $table->unsignedInteger('torn_id');
+	    $table->unsignedInteger('faction_id')->nullable();
+	    $table->unsignedInteger('company_id')->nullable();
+	    $table->string('name');
+	    $table->string('api_key')->nullable();
+	    $table->unsignedInteger('nnb')->nullable();
+	    $table->enum('gender', ['male', 'female'])->nullable();
+	    $table->unsignedInteger('level')->nullable();
+	    $table->unsignedInteger('age')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 
@@ -42,6 +50,6 @@ class CreateAttacksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attacks');
+        Schema::dropIfExists('torn_players');
     }
 }

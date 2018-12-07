@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Torn;
 
+use App\Models\Torn\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -21,8 +22,8 @@ class CompaniesController extends Controller
     public function index()
     {
         //
-	$players = Player::all();
-	return view('players.index', compact(['players']));
+	$companies = Company::paginate(25);
+	return view('torn.companies.index', compact(['companies']));
     }
 
     /**
@@ -33,7 +34,7 @@ class CompaniesController extends Controller
     public function create()
     {
         //
-	return view('players.create');
+	return view('torn.companies.create');
     }
 
     /**
@@ -49,59 +50,59 @@ class CompaniesController extends Controller
 
 	]);
 
-        $player = new Player();
+        $company = new Company();
 
-	$player->creator_id = auth()->id();
-	$player->owner_id = auth()->id();
+	$company->creator_id = auth()->id();
+	$company->owner_id = auth()->id();
 
-	$player->save();
+	$company->save();
 
-	\Session::flash('message', 'Player successfully created.');
+	\Session::flash('message', 'Company successfully created.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($player, 201);
+            return response()->json($company, 201);
 	}
 
-	return redirect('/players');	
+	return redirect('/torn/companies');	
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Player $player)
+    public function show(Company $company)
     {
         //
 	if(request()->expectsJson()) {
-            return $player;
+            return $company;
 	}
 
-	return view('players.show', compact(['player']));	
+	return view('torn.companies.show', compact(['company']));	
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Player $player)
+    public function edit(Company $company)
     {
         //
-	return view('players.edit', compact(['player']));
+	return view('torn.companies.edit', compact(['company']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Player  $player
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, Company $company)
     {
         //
         //
@@ -111,30 +112,30 @@ class CompaniesController extends Controller
 
 	//
 
-	$player->save();
+	$company->save();
 
-	\Session::flash('message', 'Player successfully updated.');
+	\Session::flash('message', 'Company successfully updated.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($player, 200);
+            return response()->json($company, 200);
 	}
 
-	return redirect($player->path());		
+	return redirect($company->path());		
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Player $player)
+    public function destroy(Company $company)
     {
         //
-        $player->delete();
+        $company->delete();
 
-	\Session::flash('message', 'Player successfully deleted.');
+	\Session::flash('message', 'Company successfully deleted.');
 	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
@@ -147,12 +148,12 @@ class CompaniesController extends Controller
     //
     public function list()
     {
-        $players = Player::all();
+        $companies = Company::all();
 
 	if(request()->expectsJson()) {
-            return $players;
+            return $companies;
 	}
 
-	return view('players.list', compact(['players']));
+	return view('torn.companies.list', compact(['companies']));
     }
 }

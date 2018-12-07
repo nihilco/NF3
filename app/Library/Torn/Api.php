@@ -83,6 +83,21 @@ class Api
 	'chains',
     ];
 
+    public $TORN_SELECTIONS = [
+         'items',
+	 'medals',
+	 'honors',
+	 'organisedcrimes',
+	 'gyms',
+	 'companies',
+	 'properties',
+	 'education',
+	 'stats',
+	 'stocks',
+	 'factiontree',
+	 'timestamp'
+    ];
+
     public function __construct()
     {
         $this->player = \App\Models\Torn\Player::find(1);
@@ -110,7 +125,24 @@ class Api
 
     public function faction($torn_id)
     {
-    
+        $url = $this->api_url . '/faction/' . $torn_id;
+
+	$url .= '?selections=basic&key=' . $this->api_key;
+
+	$json = json_decode(file_get_contents($url), true);
+
+	return $json;
+    }
+
+    public function torn()
+    {
+        $url = $this->api_url . '/torn/';
+
+	$url .= '?selections=items&key=' . $this->api_key;
+
+	$json = json_decode(file_get_contents($url), true);
+
+	return $json;	
     }
     
 }

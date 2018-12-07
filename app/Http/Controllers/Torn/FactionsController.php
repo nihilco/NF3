@@ -22,7 +22,7 @@ class FactionsController extends Controller
     public function index()
     {
         //
-	$factions = Faction::all();
+	$factions = Faction::paginate(25);
 	return view('torn.factions.index', compact(['factions']));
     }
 
@@ -34,7 +34,7 @@ class FactionsController extends Controller
     public function create()
     {
         //
-	return view('players.create');
+	return view('torn.factions.create');
     }
 
     /**
@@ -50,59 +50,59 @@ class FactionsController extends Controller
 
 	]);
 
-        $player = new Player();
+        $faction = new Faction();
 
-	$player->creator_id = auth()->id();
-	$player->owner_id = auth()->id();
+	$faction->creator_id = auth()->id();
+	$faction->owner_id = auth()->id();
 
-	$player->save();
+	$faction->save();
 
-	\Session::flash('message', 'Player successfully created.');
+	\Session::flash('message', 'Faction successfully created.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($player, 201);
+            return response()->json($faction, 201);
 	}
 
-	return redirect('/players');	
+	return redirect('/torn/factions');	
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Faction  $faction
      * @return \Illuminate\Http\Response
      */
-    public function show(Player $player)
+    public function show(Faction $faction)
     {
         //
 	if(request()->expectsJson()) {
-            return $player;
+            return $faction;
 	}
 
-	return view('players.show', compact(['player']));	
+	return view('torn.factions.show', compact(['faction']));	
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Faction  $faction
      * @return \Illuminate\Http\Response
      */
-    public function edit(Player $player)
+    public function edit(Faction $faction)
     {
         //
-	return view('players.edit', compact(['player']));
+	return view('torn.factions.edit', compact(['faction']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Player  $player
+     * @param  \App\Faction  $faction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, Faction $faction)
     {
         //
         //
@@ -112,30 +112,30 @@ class FactionsController extends Controller
 
 	//
 
-	$player->save();
+	$faction->save();
 
-	\Session::flash('message', 'Player successfully updated.');
+	\Session::flash('message', 'Faction successfully updated.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($player, 200);
+            return response()->json($faction, 200);
 	}
 
-	return redirect($player->path());		
+	return redirect($faction->path());		
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Faction  $faction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Player $player)
+    public function destroy(Faction $faction)
     {
         //
-        $player->delete();
+        $faction->delete();
 
-	\Session::flash('message', 'Player successfully deleted.');
+	\Session::flash('message', 'Faction successfully deleted.');
 	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
@@ -148,12 +148,12 @@ class FactionsController extends Controller
     //
     public function list()
     {
-        $players = Player::all();
+        $factions = Faction::all();
 
 	if(request()->expectsJson()) {
-            return $players;
+            return $factions;
 	}
 
-	return view('players.list', compact(['players']));
+	return view('torn.factions.list', compact(['factions']));
     }
 }

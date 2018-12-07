@@ -16,6 +16,14 @@ class WebsitesTableSeeder extends Seeder
 
         //
 	factory(App\Models\Website::class)->create([
+	     'domain_id' => $domains->where('domain', 'nihilframework.com')->first()->id,
+	     'hostname' => 'dev.nihilframework.com',
+	     'name' => 'NIHIL Framework',
+	     'active' => true,
+	]);
+
+        //
+	factory(App\Models\Website::class)->create([
 	     'domain_id' => $domains->where('domain', 'bluespringshistoricalassociation.org')->first()->id,
 	     'hostname' => 'www.bluespringshistoricalassociation.org',
 	     'name' => 'Blue Springs Historicall Association',
@@ -289,14 +297,6 @@ class WebsitesTableSeeder extends Seeder
 	     'hostname' => 'www.nihilframework.com',
 	     'name' => 'NIHIL Framework',
 	     'analytics_code' => 'UA-2228318-13',
-	     'active' => true,
-	]);
-
-        //
-	factory(App\Models\Website::class)->create([
-	     'domain_id' => $domains->where('domain', 'nihilframework.com')->first()->id,
-	     'hostname' => 'dev.nihilframework.com',
-	     'name' => 'NIHIL Framework',
 	     'active' => true,
 	]);
 

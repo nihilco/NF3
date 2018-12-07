@@ -21,7 +21,7 @@ class HuntsController extends Controller
     public function index()
     {
         //
-	$players = Player::all();
+	$players = Player::paginate(25);
 	return view('players.index', compact(['players']));
     }
 

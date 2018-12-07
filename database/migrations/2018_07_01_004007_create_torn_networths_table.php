@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateNetworthsTable extends Migration
+class CreateTornNetworthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateNetworthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('networths', function (Blueprint $table) {
+        Schema::create('torn_networths', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('player_id');
 	    $table->bigInteger('pending')->default(0);
@@ -60,6 +60,6 @@ class CreateNetworthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('networths');
+        Schema::dropIfExists('torn_networths');
     }
 }

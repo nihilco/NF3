@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateHuntsTable extends Migration
+class CreateTornCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,20 @@ class CreateHuntsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hunts', function (Blueprint $table) {
+        Schema::create('torn_companies', function (Blueprint $table) {
             $table->increments('id');
-	    $table->enum('type', ['beginner', 'intermediate', 'advanced']);
-	    $table->unsignedInteger('award');
-	    $table->unsignedInteger('skill');
-	    $table->unsignedInteger('animals_killed_count')->default(0);
+	    $table->unsignedInteger('torn_id');
+	    $table->unsignedInteger('director_player_id')->nullable();
+	    $table->enum('type', [
+	        'Fitness Center',
+	        'Gents Strip Club',
+		'Hair Salon',
+	        'Ladies Strip Club',
+		'Oil Rig',
+		'Sweet Shop',
+		'TV Company',
+	    ]);
+	    $table->string('name');
 	    $table->softDeletes();
             $table->timestamps();
 
@@ -45,6 +53,6 @@ class CreateHuntsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hunts');
+        Schema::dropIfExists('torn_companies');
     }
 }

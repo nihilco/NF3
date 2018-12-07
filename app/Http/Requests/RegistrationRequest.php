@@ -74,6 +74,7 @@ class RegistrationRequest extends FormRequest
 	$contact->name_id = $name->id;
 	$contact->creator_id = 1;
 	$contact->owner_id = 1;
+	$contact->website_id = config('app.website')->id ?? 1;
 	$contact->save();
 
 	//

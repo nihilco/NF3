@@ -4,49 +4,14 @@
 
 @section('meta', '')
 
+{{ Breadcrumbs::push('Torn', url('/torn')) }}
 {{ Breadcrumbs::push('Networths') }}
 
 @section('content')
 
-<div class="row">
-<div class="col-sm-3">
-
-<div class="card mb-3">
-<div class="card-body">
-
-<div class="row">
-<div class="col-8">
-<h6>{{ $networths->count() }}</h6>
-<small>Networths</small>
-</div>
-<div class="col-4">
-<a href="{{ url('/networths/create') }}" class="btn btn-widget btn-primary"><i class="fas fa-plus"></i></a>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="col-sm-3">
-
-
-
-</div>
-</div>
-<div class="row">
-<div class="col">
-
-	      <div class="card">
-		<div class="card-header">
-		  <h5 class="card-title mb-0">Networths List</h5>
-		</div>
-		<div class="card-body">
-
-		<div class="table-responsive">
-
-                  <table class="table table-bordered table-striped">
-                    <thead>
+	        <div class="table-responsive">
+                  <table class="table table-responsive-sm {{ ($networths->count()) ? 'table-hover ' : ''}}table-outline">
+                    <thead class="thead-light">
                       <tr>
                         <th scope="col" class="td-count">#</th>
 			<th scope="col">Player</th>
@@ -100,7 +65,6 @@
 		        <td>@currency($networth->loan)</td>
 			<td>@currency($networth->unpaidfees)</td>
 			<td>@currency($networth->total)</td>
-			<td>{{ $networth->created_at->toFormattedDateString() }}</td>
 		        <td class="td-action">
 			  <a href="{{ url($networth->path()) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
 			  <a href="{{ url($networth->path() . '/edit') }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -145,13 +109,7 @@
 
                     </tbody>
 		  </table>
-
-                  </div>
-
-		</div>
-	      </div>
-
-</div>
-</div>
+                </div>
+		{{ $networths->links() }}
 
 @endsection

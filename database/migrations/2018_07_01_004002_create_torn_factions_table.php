@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateCompaniesTable extends Migration
+class CreateTornFactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,20 +14,14 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('torn_factions', function (Blueprint $table) {
             $table->increments('id');
 	    $table->unsignedInteger('torn_id');
-	    $table->unsignedInteger('director_id')->nullable();
-	    $table->enum('type', [
-	        'Fitness Center',
-	        'Gents Strip Club',
-		'Hair Salon',
-	        'Ladies Strip Club',
-		'Oil Rig',
-		'Sweet Shop',
-		'TV Company',
-	    ]);
+    	    $table->unsignedInteger('leader_player_id')->nullable();
+	    $table->unsignedInteger('coleader_player_id')->nullable();
 	    $table->string('name');
+	    $table->integer('respect');
+	    $table->unsignedInteger('players_count')->default(0);
 	    $table->softDeletes();
             $table->timestamps();
 
@@ -53,6 +47,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('torn_factions');
     }
 }

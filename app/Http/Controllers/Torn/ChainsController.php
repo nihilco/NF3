@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Torn;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Torn\Chain;
 
 class ChainsController extends Controller
 {
@@ -21,8 +22,8 @@ class ChainsController extends Controller
     public function index()
     {
         //
-	$players = Player::all();
-	return view('players.index', compact(['players']));
+	$chains = Chain::paginate(25);
+	return view('torn.chains.index', compact(['chains']));
     }
 
     /**
@@ -33,7 +34,7 @@ class ChainsController extends Controller
     public function create()
     {
         //
-	return view('players.create');
+	return view('torn.chains.create');
     }
 
     /**
@@ -49,59 +50,59 @@ class ChainsController extends Controller
 
 	]);
 
-        $player = new Player();
+        $chain = new Chain();
 
-	$player->creator_id = auth()->id();
-	$player->owner_id = auth()->id();
+	$chain->creator_id = auth()->id();
+	$chain->owner_id = auth()->id();
 
-	$player->save();
+	$chain->save();
 
-	\Session::flash('message', 'Player successfully created.');
+	\Session::flash('message', 'Chain successfully created.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($player, 201);
+            return response()->json($chain, 201);
 	}
 
-	return redirect('/players');	
+	return redirect('/torn/chains');	
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Chain  $chain
      * @return \Illuminate\Http\Response
      */
-    public function show(Player $player)
+    public function show(Chain $chain)
     {
         //
 	if(request()->expectsJson()) {
-            return $player;
+            return $chain;
 	}
 
-	return view('players.show', compact(['player']));	
+	return view('torn.chains.show', compact(['chain']));	
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Chain  $chain
      * @return \Illuminate\Http\Response
      */
-    public function edit(Player $player)
+    public function edit(Chain $chain)
     {
         //
-	return view('players.edit', compact(['player']));
+	return view('torn.chains.edit', compact(['chain']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Player  $player
+     * @param  \App\Chain  $chain
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, Chain $chain)
     {
         //
         //
@@ -111,30 +112,30 @@ class ChainsController extends Controller
 
 	//
 
-	$player->save();
+	$chain->save();
 
-	\Session::flash('message', 'Player successfully updated.');
+	\Session::flash('message', 'Chain successfully updated.');
 	\Session::flash('alert-class', 'alert-success');
 	
 	if(request()->expectsJson()) {
-            return response()->json($player, 200);
+            return response()->json($chain, 200);
 	}
 
-	return redirect($player->path());		
+	return redirect($chain->path());		
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Player  $player
+     * @param  \App\Chain  $chain
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Player $player)
+    public function destroy(Chain $chain)
     {
         //
-        $player->delete();
+        $chain->delete();
 
-	\Session::flash('message', 'Player successfully deleted.');
+	\Session::flash('message', 'Chain successfully deleted.');
 	\Session::flash('alert-class', 'alert-success');
 
 	if(request()->expectsJson()) {
@@ -147,12 +148,12 @@ class ChainsController extends Controller
     //
     public function list()
     {
-        $players = Player::all();
+        $chains = Chain::all();
 
 	if(request()->expectsJson()) {
-            return $players;
+            return $chains;
 	}
 
-	return view('players.list', compact(['players']));
+	return view('torn.chains.list', compact(['chains']));
     }
 }

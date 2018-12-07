@@ -7,6 +7,9 @@ use App\Models\Base;
 class Player extends Base
 {
     //
+    protected $table = 'torn_players';
+
+    //
     public function path()
     {
         return '/torn/players/' . $this->id;

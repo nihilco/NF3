@@ -7,6 +7,9 @@ use App\Models\Base;
 class Networth extends Base
 {
     //
+    protected $table = 'torn_networths';
+
+    //
     public static function boot()
     {
          parent::boot();

@@ -188,6 +188,8 @@ Route::namespace('Torn')->prefix('torn')->group(function () {
     Route::resource('factions', 'FactionsController');
     Route::get('hunts/list', 'HuntsController@list');
     Route::resource('hunts', 'HuntsController');
+    Route::get('items/list', 'ItemsController@list');
+    Route::resource('items', 'ItemsController');    
     Route::get('networths/list', 'NetworthsController@list');
     Route::resource('networths', 'NetworthsController');
     Route::get('players/list', 'PlayersController@list');
@@ -725,17 +727,36 @@ Route::get('/mailable', function () {
 });
 
 Route::get('/testing', function () {
-    dd(app()->environment());
-    $users = \App\Models\User::where('email_confirmed_at', NULL)->with(['contact', 'contact.organizations'])->get();
-    $orgs = [];
-    foreach($users as $user) {
-        if($user->contact) {
-	    if($o = $user->contact->organizations->first()) {
-	        $orgs[] = $o->name_display;
-	    }
+
+    //$json = \Torn::torn();
+
+    $items = \App\Models\Torn\Item::all();
+
+    $c = 0;
+
+    foreach($json['items'] as $key => $titem) {
+
+        if(!$item = $items->where('torn_id', $key)->first()) {
+	    $item = new \App\Models\Torn\Item();
 	}
+	
+	$item->torn_id = $key;
+        $item->name = $titem['name'];
+	$item->description = $titem['description'];
+	$item->buy_price = $titem['buy_price'];
+	$item->sell_price = $titem['sell_price'];
+	$item->market_value = $titem['market_value'];
+	$item->circulation = $titem['circulation'];
+	$item->image = $titem['image'];
+	$item->creator_id = 1;
+	$item->owner_id = 1;
+
+	//$item->save();
+
+        $c++;
     }
-    dd($orgs);
+
+    return 'Added ' . $c . ' items.';
 });
 
 Route::get('{slug}', function ($slug) {

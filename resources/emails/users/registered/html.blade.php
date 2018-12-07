@@ -52,7 +52,7 @@
 			  <h3 style="display: block;font-family: Helvetica;font-size: 16px;font-style: italic;font-weight: normal;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #606060 !important;">Thanks for registering at {{ config('app.website')->hostname }}.</h3>
 			  For your records, here is a copy of the data you provided when you signed up on our website.  We will not spam your inbox, but we will notify you for administrative purposes.  Please keep this email for future reference.
 			  <ul>
-			    <li><strong>Name:</strong> {{ $user->name }}</li>
+			    <li><strong>Name:</strong> {{ $user->contact->name->fullName }}</li>
 			    <li><strong>Username:</strong> {{ $user->username }}</li>
 			    <li><strong>Email:</strong> {{ $user->email }}</li>
 			    <li><strong>Birthday:</strong> {{ $user->dob_at->toFormattedDateString() }}</li>

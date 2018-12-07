@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Torn;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Attack;
+use App\Models\Torn\Attack;
 
-class AttackController extends Controller
+class AttacksController extends Controller
 {
     //
     public function __construct()
@@ -22,8 +22,8 @@ class AttackController extends Controller
     public function index()
     {
         //
-	$attacks = Attack::all();
-	return view('attacks.index', compact(['attacks']));
+	$attacks = Attack::paginate(25);
+	return view('torn.attacks.index', compact(['attacks']));
     }
 
     /**
@@ -34,7 +34,7 @@ class AttackController extends Controller
     public function create()
     {
         //
-	return view('attacks.create');
+	return view('torn.attacks.create');
     }
 
     /**
@@ -64,7 +64,7 @@ class AttackController extends Controller
             return response()->json($attack, 201);
 	}
 
-	return redirect('/attacks');        
+	return redirect('/torn/attacks');        
     }
 
     /**
@@ -80,7 +80,7 @@ class AttackController extends Controller
 	     return $attack;
 	}
 
-	return view('attacks.show', compact(['attack']));
+	return view('torn.attacks.show', compact(['attack']));
     }
 
     /**
@@ -92,7 +92,7 @@ class AttackController extends Controller
     public function edit(Attack $attack)
     {
         //
-	return view('attacks.edit', compact(['attack']));
+	return view('torn.attacks.edit', compact(['attack']));
     }
 
     /**
@@ -153,6 +153,6 @@ class AttackController extends Controller
             return $attacks;
 	}
 
-	return view('attacks.list', compact(['attacks']));
+	return view('torn.attacks.list', compact(['attacks']));
     }
 }

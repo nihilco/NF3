@@ -1969,7 +1969,20 @@ class C2CSeeder extends Seeder
     'last' => 'Brickhouse',
     'email' => 'nbrickhouse@loyola.edu',
     'organization' => 'Loyola University Maryland'
-  ]      
+  ],
+    [
+    'first' => 'Colleen',
+    'last' => 'Lovely',
+    'email' => 'lovelyc@union.edu',
+    'organization' => 'Union College'
+  ],
+    [
+    'first' => 'Michael',
+    'middle' => 'J',
+    'last' => 'Cusanza',
+    'email' => 'mjcusanz@loyno.edu',
+    'organization' => 'Loyola University New Orleans'
+  ]          
   ];
 
   
@@ -3892,6 +3905,14 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'nbrickhouse@loyola.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'lovelyc@union.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'mjcusanz@loyno.edu',
   'year' => '2019',
 ],
 
