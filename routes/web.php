@@ -717,11 +717,10 @@ return $c;
 
 Route::get('/mailable', function () {
     $user = \App\Models\User::find(1);
+    $event = \App\Models\Event::find(4);
+    $charge = new \Stripe\Charge();
 
-    //return new \App\Mail\User\Registered($user);
-    //return new \App\Mail\Fair\Invitation();
-    //return new \App\Mail\Fair\Holiday();
-    return new \App\Mail\Fair\Registered(\App\Models\Event::find(4), $user, new \Stripe\Charge());    
+    return new \App\Mail\Fair\Registered($event, $user, $charge, 1, 'yes');    
 });
 
 Route::get('/testing', function () {
