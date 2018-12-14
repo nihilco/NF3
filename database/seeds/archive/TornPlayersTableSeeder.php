@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TornPlayersTableSeeder extends Seeder
+class ATornPlayersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

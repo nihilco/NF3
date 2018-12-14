@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TornNetworthsUriahSeeder extends Seeder
+class ATornNetworthsUriahSeeder extends Seeder
 {
     /**
      * Run the database seeds.
