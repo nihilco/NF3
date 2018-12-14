@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateTornCompaniesTable extends Migration
+class CreateDomainsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,22 +14,28 @@ class CreateTornCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('torn_companies', function (Blueprint $table) {
+        Schema::create('domains', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('torn_id');
-	    $table->unsignedInteger('director_player_id')->nullable();
-	    $table->enum('type', [
-	        'Fitness Center',
-	        'Gents Strip Club',
-		'Hair Salon',
-	        'Ladies Strip Club',
-		'Oil Rig',
-		'Sweet Shop',
-		'TV Company',
-	    ]);
-	    $table->string('name')->nullable();
+	    $table->unsignedInteger('tld_id');
+            $table->unsignedInteger('account_id')->nullable();
+	    $table->string('name')->unique();
+	    $table->date('registered_at');
+	    $table->date('last_renewed_at');
+	    $table->date('renews_at');
+	    $table->unsignedInteger('websites_count')->default(0);
+	    $table->boolean('active')->default(false);
 	    $table->softDeletes();
             $table->timestamps();
+
+	    $table->foreign('account_id')
+		->references('id')
+		->on('accounts')
+		->onDelete('cascade');
+
+	    $table->foreign('tld_id')
+		->references('id')
+		->on('tlds')
+		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
 	    $table->unsignedInteger('owner_id');
@@ -53,6 +59,6 @@ class CreateTornCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('torn_companies');
+        Schema::dropIfExists('domains');
     }
 }

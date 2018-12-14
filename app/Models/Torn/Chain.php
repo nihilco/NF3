@@ -12,13 +12,19 @@ class Chain extends Base
     //
     public function path()
     {
-	return '/torn/chains/' .$this->id();
+	return '/torn/chains/' .$this->torn_id;
+    }
+
+    //
+    public function getRouteKeyName()
+    {
+	return 'torn_id';
     }
 
     //
     public function faction()
     {
-        return $this->belongsTo(Faction::class);
+        return $this->belongsTo(Faction::class, 'faction_id', 'torn_id');
     }
 
     public function players()

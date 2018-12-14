@@ -19,7 +19,7 @@ class CreateTornPlayersTable extends Migration
 	    $table->unsignedInteger('torn_id');
 	    $table->unsignedInteger('faction_id')->nullable();
 	    $table->unsignedInteger('company_id')->nullable();
-	    $table->string('name');
+	    $table->string('name')->nullable();
 	    $table->string('api_key')->nullable();
 	    $table->unsignedInteger('nnb')->nullable();
 	    $table->enum('gender', ['male', 'female'])->nullable();

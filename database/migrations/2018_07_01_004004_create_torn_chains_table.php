@@ -16,13 +16,14 @@ class CreateTornChainsTable extends Migration
     {
         Schema::create('torn_chains', function (Blueprint $table) {
             $table->increments('id');
+	    $table->unsignedInteger('torn_id');	    
 	    $table->unsignedInteger('faction_id');
-	    $table->unsignedInteger('links');
-	    $table->unsignedInteger('respect');
-	    $table->unsignedInteger('players_count')->default(0);
-	    $table->unsignedInteger('attacks_count')->default(0);
-	    $table->datetime('started_at');
-	    $table->datetime('ended_at');
+	    $table->unsignedInteger('links')->nullable();
+	    $table->unsignedInteger('respect')->nullable();
+	    $table->unsignedInteger('players_count')->nullable();
+	    $table->unsignedInteger('attacks_count')->nullable();
+	    $table->datetime('started_at')->nullable();
+	    $table->datetime('ended_at')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

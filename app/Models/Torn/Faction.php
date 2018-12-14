@@ -12,16 +12,22 @@ class Faction extends Base
     //
     public function path()
     {
-	return '/torn/factions/' . $this->id;
+	return '/torn/factions/' . $this->torn_id;
+    }
+
+    //
+    public function getRouteKeyName()
+    {
+	return 'torn_id';
     }
 
     public function leader()
     {
-	return $this->belongsTo(Player::class, 'leader_player_id');
+	return $this->belongsTo(Player::class, 'leader_player_id', 'torn_id');
     }
 
     public function coleader()
     {
-	return $this->belongsTo(Player::class, 'coleader_player_id');
+	return $this->belongsTo(Player::class, 'coleader_player_id', 'torn_id');
     }
 }

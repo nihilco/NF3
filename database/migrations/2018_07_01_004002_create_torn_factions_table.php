@@ -19,9 +19,9 @@ class CreateTornFactionsTable extends Migration
 	    $table->unsignedInteger('torn_id');
     	    $table->unsignedInteger('leader_player_id')->nullable();
 	    $table->unsignedInteger('coleader_player_id')->nullable();
-	    $table->string('name');
-	    $table->integer('respect');
-	    $table->unsignedInteger('players_count')->default(0);
+	    $table->string('name')->nullable();
+	    $table->integer('respect')->nullable();
+	    $table->unsignedInteger('players_count')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

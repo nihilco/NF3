@@ -20,13 +20,13 @@ class CreateTornAttacksTable extends Migration
 	    $table->unsignedInteger('attacker_player_id')->nullable();
 	    $table->unsignedInteger('attacker_faction_id')->nullable();
 	    $table->unsignedInteger('defender_player_id');
-	    $table->unsignedInteger('defender_faction_id');
-	    $table->enum('result', ['Attacked', 'Mugged', 'Hospitalized', 'Won', 'Lost']);
-	    $table->boolean('stealthed')->default(false);
-	    $table->decimal('respect_gain', 12, 5)->default(0);
-	    $table->unsignedInteger('chain_link')->default(0);
-	    $table->datetime('started_at');
-	    $table->datetime('ended_at');
+	    $table->unsignedInteger('defender_faction_id')->nullable();
+	    $table->enum('result', ['Attacked', 'Mugged', 'Hospitalized', 'Won', 'Lost', 'Stalemate', 'Assist', 'Escape' ,'Timeout', 'Arrested', 'Looted', 'Special']);
+	    $table->boolean('stealthed')->nullable();
+	    $table->decimal('respect_gain', 12, 5)->nullable();
+	    $table->unsignedInteger('chain_link')->nullable();
+	    $table->datetime('started_at')->nullable();
+	    $table->datetime('ended_at')->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

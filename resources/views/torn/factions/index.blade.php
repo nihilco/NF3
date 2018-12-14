@@ -32,8 +32,8 @@
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $faction->torn_id }}</td>
 		        <td>{{ $faction->name }}</td>
-		        <td>{{ $faction->leader->name }}</td>
-			<td>{{ $faction->coleader->name ?? 'N/A'}}</td>
+		        <td>{{ ($faction->leader) ? $faction->leader->name : 'N/A' }}</td>
+			<td>{{ ($faction->coleader) ? $faction->coleader->name : 'N/A'}}</td>
 			<td>{{ $faction->players_count }}</td>
 		        <td class="td-action">
 			  <a href="https://www.torn.com/factions.php?XID={{ $faction->torn_id }}" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-globe"></i></a>

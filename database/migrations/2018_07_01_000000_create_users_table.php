@@ -26,9 +26,9 @@ class CreateUsersTable extends Migration
 	    $table->datetime('accepted_tos_at')->nullable();
 	    $table->datetime('last_login_at')->nullable();
 	    $table->datetime('email_confirmed_at')->nullable();
-	    $table->unsignedInteger('login_attempts')->default(0);
+	    $table->unsignedInteger('login_attempts')->nullable();
 	    $table->string('api_key', 60)->unique()->nullable();
-	    $table->boolean('active')->default(false);
+	    $table->boolean('active')->nullable();
             $table->rememberToken();
 	    $table->softDeletes();
             $table->timestamps();

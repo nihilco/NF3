@@ -12,7 +12,13 @@ class Player extends Base
     //
     public function path()
     {
-        return '/torn/players/' . $this->id;
+        return '/torn/players/' . $this->torn_id;
+    }
+
+    //
+    public function getRouteKeyName()
+    {
+	return 'torn_id';
     }
 
     //

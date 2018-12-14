@@ -41,6 +41,7 @@ class DatabaseSeeder extends Seeder
 	    TornSeeder::class,
 	    IssuesTableSeeder::class,
 	    EventsTableSeeder::class,
+	    //ParticipantsTableSeeder::class,
 	    GameSeeder::class,
 	]);
     }

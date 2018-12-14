@@ -14,4 +14,10 @@ class Hunt extends Base
     {
 	return '/torn/hunts/' . $this->id;
     }
+
+    //
+    public function getRouteKeyName()
+    {
+	return 'id';
+    }
 }

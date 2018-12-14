@@ -30,8 +30,8 @@
 		      <tr>
 		        <th scope="row" class="td-count">{{ $c }}</th>
 		        <td>{{ $attack->torn_id }}</td>
-		        <td>{{ $attack->attacker->name }}</td>
-			<td>{{ $attack->defender->name }}</td>
+		        <td>{{ ($attack->attacker) ? $attack->attacker->name : 'N/A' }}</td>
+			<td>{{ ($attack->defender) ? $attack->defender->name : 'N/A' }}</td>
 			<td>{{ $attack->result }}</td>
 		        <td class="td-action">
 			  <a href="https://www.torn.com/attacks.php?XID={{ $attack->torn_id }}" target="_blank" class="btn btn-primary btn-sm"><i class="fas fa-globe"></i></a>

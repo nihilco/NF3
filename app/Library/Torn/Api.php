@@ -118,12 +118,30 @@ class Api
 	return $json;
     }
 
-    public function company($torn_id)
+    public function players($torn_id = null)
+    {
+
+    }
+
+    public function networths($torn_id = null)
+    {
+        $url = $this->api_url . '/user';
+	if($torn_id) {
+	    $url .= '/' . $torn_id;
+	}
+	$url .= '?selections=networth&key=' . $this->api_key;
+
+	$json = json_decode(file_get_contents($url), true);
+
+	return $json;
+    }
+
+    public function companies($torn_id)
     {
     
     }
 
-    public function faction($torn_id)
+    public function factions($torn_id)
     {
         $url = $this->api_url . '/faction/' . $torn_id;
 
@@ -134,7 +152,40 @@ class Api
 	return $json;
     }
 
+    public function chains($torn_id)
+    {
+        $url = $this->api_url . '/faction/' . $torn_id;
+
+	$url .= '?selections=chains&key=' . $this->api_key;
+
+	$json = json_decode(file_get_contents($url), true);
+
+	return $json;
+    }
+
+    public function attacks($torn_id)
+    {
+        $url = $this->api_url . '/faction/' . $torn_id;
+
+	$url .= '?selections=attacks&key=' . $this->api_key;
+
+	$json = json_decode(file_get_contents($url), true);
+
+	return $json;
+    }
+
     public function torn()
+    {
+        $url = $this->api_url . '/torn/';
+
+	$url .= '?selections=items&key=' . $this->api_key;
+
+	$json = json_decode(file_get_contents($url), true);
+
+	return $json;	
+    }
+
+    public function items()
     {
         $url = $this->api_url . '/torn/';
 

@@ -4,21 +4,21 @@ namespace App\Console\Commands\Torn;
 
 use Illuminate\Console\Command;
 
-class Players extends Command
+class Factions extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'torn:players';
+    protected $signature = 'torn:factions';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Scrape data for Torn players.';
+    protected $description = 'Scrape data for Torn factions.';
 
     /**
      * Create a new command instance.

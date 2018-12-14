@@ -997,6 +997,13 @@ class OrganizationsTableSeeder extends Seeder
 	    'website' => 'www.yhc.edu'
 	]);
 
+	factory(\App\Models\Organization::class)->create([
+	    'website_id' => $wid,
+            'name_display' => 'United States Air Force Academy',
+	    'name_alpha' => 'United States Air Force Academy',
+	    'website' => 'www.usafa.af.mil/'
+	]);
+
 	$wid = $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
 
         //
@@ -1619,6 +1626,9 @@ class OrganizationsTableSeeder extends Seeder
 		'name_display' => 'Loyola University New Orleans','name_alpha' => 'Loyola University New Orleans','website' => 'www.loyno.edu']);
 
 	factory(\App\Models\Organization::class)->create(['website_id' => $wid,
+		'name_display' => 'Loyola University Maryland','name_alpha' => 'Loyola University Maryland','website' => 'www.loyola.edu/']);
+
+	factory(\App\Models\Organization::class)->create(['website_id' => $wid,
 		'name_display' => 'Lynn University','name_alpha' => 'Lynn University','website' => 'www.lynn.edu']);
 
 	factory(\App\Models\Organization::class)->create(['website_id' => $wid,
@@ -1929,6 +1939,13 @@ class OrganizationsTableSeeder extends Seeder
             'name_display' => 'Young Harris College',
 	    'name_alpha' => 'Young Harris College',
 	    'website' => 'www.yhc.edu'
+	]);
+
+	factory(\App\Models\Organization::class)->create([
+	    'website_id' => $wid,
+            'name_display' => 'United States Air Force Academy',
+	    'name_alpha' => 'United States Air Force Academy',
+	    'website' => 'www.usafa.af.mil/'
 	]);
 	
     }

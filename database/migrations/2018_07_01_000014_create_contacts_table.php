@@ -18,9 +18,9 @@ class CreateContactsTable extends Migration
             $table->increments('id');
 	    $table->unsignedInteger('website_id');
 	    $table->unsignedInteger('name_id');
-	    $table->unsignedInteger('addreses_count')->default(0);
-	    $table->unsignedInteger('organizations_count')->default(0);
-	    $table->unsignedInteger('phone_numbers_count')->default(0);
+	    $table->unsignedInteger('addreses_count')->nullable();
+	    $table->unsignedInteger('organizations_count')->nullable();
+	    $table->unsignedInteger('phone_numbers_count')->nullable();
 	    $table->date('dob')->nullable();
 	    $table->string('tax_number')->nullable();
 	    $table->unsignedInteger('tax_number_type_id')->nullable();

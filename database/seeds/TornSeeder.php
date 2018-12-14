@@ -18,6 +18,8 @@ class TornSeeder extends Seeder
 	    TornFactionsTableSeeder::class,
 	    TornCompaniesTableSeeder::class,
 	    TornNetworthsTableSeeder::class,
+	    TornChainsTableSeeder::class,
+	    TornAttacksTableSeeder::class,
 	]);
 
     }

@@ -147,7 +147,20 @@ class UsersTableSeeder extends Seeder
 		'email' => 'dcross9999@gmail.com',
 		'password' => '$2y$10$fA0XbRKrpHBkKpjPVsZiPuzGMzVuyMiiw4o3Yg6fAAWWT1LN6AsDy',
 		'slug' => 'dcross9999',
-		'dob_at' => Carbon\Carbon::createFromDate(1949, 10, 22, 'America/New_York'),
+		'dob_at' => Carbon\Carbon::createFromDate(2018, 11, 06, 'America/New_York'),
+                'accepted_tos_at' => Carbon\Carbon::create(2018, 11, 06, 11, 30, 47, 'America/New_York'),
+		'active' => true,
+        ]);
+
+	//
+	factory(App\Models\User::class)
+	    ->create([
+	        'contact_id' => null,
+	        'username' => 'klooz.chris@gmail.com',
+		'email' => 'klooz.chris@gmail.com',
+		'password' => '$2y$10$6./jWosi/dkRwv7n2FY.W.i9AZ.LOf2WAfij5rMwnBxDlRfBkpFuq',
+		'slug' => 'klooz.chris',
+		'dob_at' => Carbon\Carbon::createFromDate(2018, 11, 06, 'America/New_York'),
                 'accepted_tos_at' => Carbon\Carbon::create(2018, 11, 06, 11, 30, 47, 'America/New_York'),
 		'active' => true,
         ]);

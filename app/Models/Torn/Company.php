@@ -12,7 +12,13 @@ class Company extends Base
     //
     public function path()
     {
-	return '/torn/companies/' .$this->id;
+	return '/torn/companies/' .$this->torn_id;
+    }
+
+    //
+    public function getRouteKeyName()
+    {
+	return 'torn_id';
     }
 
     public function director()
