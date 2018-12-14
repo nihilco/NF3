@@ -65,7 +65,7 @@
 			  N/A
 			  @endif
 			</td>
-		        <td><a href="mailto:{{ $representative->owner->email }}" target="_blank">{{ $representative->owner->contact->name->fullName }}</a></td>
+		        <td><a href="mailto:{{ $representative->owner->email }}" target="_blank">{{ $representative->owner->contact->name->fullName ?? 'N/A' }}</a></td>
 		      </tr>
 
 		@empty

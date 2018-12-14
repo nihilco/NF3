@@ -728,35 +728,154 @@ Route::get('/mailable', function () {
 
 Route::get('/testing', function () {
 
-    //$json = \Torn::torn();
+        //
+        $json = \Torn::chains(18569);
 
-    $items = \App\Models\Torn\Item::all();
+	$attacks = App\Models\Torn\Attack::all();
+	$chains = App\Models\Torn\Chain::all();
 
-    $c = 0;
+	$a = 0; // API chains
+	$b = 0; // New chains added to database
 
-    foreach($json['items'] as $key => $titem) {
+        foreach($json['chains'] as $key => $chain) {	
+ 
+            if(!$ch = $chains->where('torn_id', $key)->first()) {
+	        $ch = new \App\Models\Torn\Chain();
 
-        if(!$item = $items->where('torn_id', $key)->first()) {
-	    $item = new \App\Models\Torn\Item();
+	        $ch->torn_id = $key;
+	        $ch->faction_id = 18569;
+                $ch->links = $chain['chain'];
+	        $ch->respect = $chain['respect'];
+	        $ch->started_at = \Carbon\Carbon::createFromTimestamp($chain['start'], 'Europe/London');
+	        $ch->ended_at = \Carbon\Carbon::createFromTimestamp($chain['end'], 'Europe/London');
+	        $ch->creator_id = 1;
+	        $ch->owner_id = 1;
+
+	        $ch->save();
+
+		$chains->push($ch);
+
+		$b++;
+	    }
+
+	    $a++;
+
 	}
-	
-	$item->torn_id = $key;
-        $item->name = $titem['name'];
-	$item->description = $titem['description'];
-	$item->buy_price = $titem['buy_price'];
-	$item->sell_price = $titem['sell_price'];
-	$item->market_value = $titem['market_value'];
-	$item->circulation = $titem['circulation'];
-	$item->image = $titem['image'];
-	$item->creator_id = 1;
-	$item->owner_id = 1;
 
-	//$item->save();
+	$json = \Torn::attacks(18569);
 
-        $c++;
-    }
+        $c = 0;
+	$d = 0;
+	$e = 0;
+	$f = 0;
 
-    return 'Added ' . $c . ' items.';
+	$players = App\Models\Torn\Player::all();
+	$factions = App\Models\Torn\Faction::all();
+	$attacks = App\Models\Torn\Attack::all();
+
+        foreach($json['attacks'] as $key => $attack) {
+
+            if(!$at = $attacks->where('torn_id', $key)->first()) {
+	        $at = new \App\Models\Torn\Attack();
+
+	        $at->torn_id = $key;
+	        $at->attacker_player_id = ($attack['attacker_id'] != 0) ? $attack['attacker_id'] : null;
+	        $at->attacker_faction_id = ($attack['attacker_faction'] != 0) ? $attack['attacker_faction'] : null;
+	        $at->defender_player_id = ($attack['defender_id'] != 0) ? $attack['defender_id'] : null;
+	        $at->defender_faction_id = ($attack['defender_faction'] != 0) ? $attack['defender_faction'] : null;
+	        $at->result = $attack['result'];
+	        $at->stealthed = $attack['stealthed'];
+	        $at->respect_gain = $attack['respect_gain'];
+	        $at->chain_link = $attack['chain'];
+	        $at->started_at = \Carbon\Carbon::createFromTimestamp($attack['timestamp_started'], 'Europe/London');
+	        $at->ended_at = \Carbon\Carbon::createFromTimestamp($attack['timestamp_ended'], 'Europe/London');
+	        $at->creator_id = 1;
+	        $at->owner_id = 1;
+	    
+	        $at->save();
+
+	        $attacks->push($at);
+
+		$f++;
+	    }
+
+	    if($attack['attacker_id'] > 0 && !$players->where('torn_id', $attack['attacker_id'])->first()) {
+	        $player = new App\Models\Torn\Player();
+
+		$player->torn_id = $attack['attacker_id'];
+		$player->faction_id = $attack['attacker_faction'];
+		$player->name = $attack['attacker_name'];
+		$player->creator_id = 1;
+		$player->owner_id = 1;
+
+		$player->save();
+
+		$players->push($player);
+
+		$d++;
+	    }
+
+	    if($attack['defender_id'] > 0 && !$players->where('torn_id', $attack['defender_id'])->first()) {
+	        $player = new App\Models\Torn\Player();
+
+		$player->torn_id = $attack['defender_id'];
+		$player->faction_id = $attack['defender_faction'];
+		$player->name = $attack['defender_name'];
+		$player->creator_id = 1;
+		$player->owner_id = 1;
+
+		$player->save();
+
+		$players->push($player);
+
+		$d++;
+	    }
+
+	    if($attack['attacker_faction'] > 0 && !$factions->where('torn_id', $attack['attacker_faction'])->first()) {
+	        $faction = new App\Models\Torn\Faction();
+
+		$faction->torn_id = $attack['attacker_faction'];
+		$faction->name = $attack['attacker_factionname'];
+		$faction->respect = 0;
+		$faction->creator_id = 1;
+		$faction->owner_id = 1;
+
+		$faction->save();
+
+		$factions->push($faction);
+
+		$e++;
+	    }
+
+	    if($attack['defender_faction'] > 0 && !$factions->where('torn_id', $attack['defender_faction'])->first()) {
+	        $faction = new App\Models\Torn\Faction();
+
+		$faction->torn_id = $attack['defender_faction'];
+		$faction->name = $attack['defender_factionname'];
+		$faction->respect = 0;
+		$faction->creator_id = 1;
+		$faction->owner_id = 1;
+
+		$faction->save();
+
+		$factions->push($faction);
+
+		$e++;
+	    }
+
+            $c++;
+        }
+
+        return 'Processed ' . $a .
+	' chains and ' . $c .
+	' attacks' .
+	'<br />' .
+	'Added ' . $f . 
+	' attacks, ' . $b .
+	' chains, ' . $d .
+	' players, and ' . $e .
+	' factions.';	
+
 });
 
 Route::get('{slug}', function ($slug) {

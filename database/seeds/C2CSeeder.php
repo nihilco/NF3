@@ -1982,7 +1982,25 @@ class C2CSeeder extends Seeder
     'last' => 'Cusanza',
     'email' => 'mjcusanz@loyno.edu',
     'organization' => 'Loyola University New Orleans'
-  ]          
+  ],
+  [
+    'first' => 'Scott',
+    'last' => 'Greene',
+    'email' => 'sgreene@ehd.edu',
+    'organization' => 'Emory & Henry College'
+  ],
+    [
+    'first' => 'Elizabeth',
+    'last' => 'Guyer',
+    'email' => 'guyere@wittenberg.edu',
+    'organization' => 'Wittenberg University'
+  ],
+    [
+    'first' => 'Matthew',
+    'last' => 'Clayton',
+    'email' => 'matteclayton@yahoo.com',
+    'organization' => 'United States Air Force Academy'
+  ],         
   ];
 
   
@@ -3914,6 +3932,22 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'mjcusanz@loyno.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'guyere@wittenberg.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'sgreene@ehd.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'cbradham@berry.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'matteclayton@yahoo.com',
   'year' => '2019',
 ],
 
