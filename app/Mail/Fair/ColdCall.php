@@ -6,23 +6,24 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\Contact;
 
-class Invitation extends Mailable
+class ColdCall extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $contact;
+    public $organization;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Contact $contact)
+    public function __construct($organization = null)
     {
         //
-	//$this->contact = $contact;
+	if($organization) {
+	    $this->organization = $organization;
+	}
     }
 
     /**
@@ -37,9 +38,9 @@ class Invitation extends Mailable
 		        $message->getHeaders()->addTextHeader('Sender', 'Coast-to-Coast College Fair <no-reply@coasttocoastcollegefair.com>');
 		    })
 	            ->from('no-reply@coasttocoastcollegefair.com', 'Coast-to-Coast College Fair')
-	            ->view('emails::fair.invitation.html')
-		    ->text('emails::fair.invitation.text')
+	            ->view('emails::fair.coldcall.html')
+		    ->text('emails::fair.coldcall.text')
 		    ->attach('/var/www/NF3/dev/public/img/Postcard-Front.jpg')
-		    ->attach('/var/www/NF3/dev/public/img/Postcard-Back.jpg');
+		    ->attach('/var/www/NF3/dev/public/img/Postcard-Back.jpg');    
     }
 }

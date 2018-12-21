@@ -77,7 +77,7 @@ class ContactController extends Controller
 	//
 	$contact = factory(App\Models\Contact::class)->create([
 	    'name_id' => $name->id,
-	    'website_id' = config('app.website')->id ?? 1;
+	    'website_id' => config('app.website')->id ?? 1,
 	    'creator_id' => 1,
 	    'owner_id' => 1,
 	]);
@@ -85,7 +85,7 @@ class ContactController extends Controller
 	$emailParts = explode('@', request('email'));
 
 	$user = factory(App\Models\User::class)->create([
-	    'contact' => $contact->id
+	    'contact' => $contact->id,
 	    'slug' => $emailParts[0],
 	    'email' => request('email'),
 	]);
