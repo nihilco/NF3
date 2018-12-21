@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Issue;
 use App\Models\Type;
+use App\Models\Name;
+use App\Models\Contact;
+use App\Models\User;
 
 class ContactController extends Controller
 {
@@ -38,57 +41,59 @@ class ContactController extends Controller
 	$priorityTypes = $types->where('grouping', Issue::class . ':Priority');
 	$resolutionTypes = $types->where('grouping', Issue::class . ':Resolution');
 
-	//
-	//
-	//
-	$names = explode(" ", request('name'));
-	
-        //
-	$name = new Name();
+	if(!$user = User::where('email', request('email'))->first()) {
 
-	$c = count($names);
+	    //
+	    //
+	    //
+	    $names = explode(" ", request('name'));
+	
+            //
+	    $name = new Name();
+
+	    $c = count($names);
 	
 	
-	if($c ==1) {
+	    if($c ==1) {
 	
-	    $name->first = $names[0];
-	    $name->nickname = $names[0];
+	        $name->first = $names[0];
+	        $name->nickname = $names[0];
 	    
-	} elseif($c == 2) {
+	    } elseif($c == 2) {
 
-	    $name->first = $names[0];
-	    $name->nickname = $names[0];
-	    $name->last = $names[1];
+	        $name->first = $names[0];
+	        $name->nickname = $names[0];
+	        $name->last = $names[1];
 
-	}elseif($c >= 3) {
+	    }elseif($c >= 3) {
 
-	    $name->first = $names[0];
-	    $name->nickname = $names[0];
-	    $name->middle = $names[1];
-	    $name->last = $names[2];
+	        $name->first = $names[0];
+	        $name->nickname = $names[0];
+	        $name->middle = $names[1];
+	        $name->last = $names[2];
+
+	    }
+
+	    $name->creator_id = 1;
+	    $name->owner_id = 1;
+	
+	    $name->save();
+
+	    //
+	    $contact = factory(Contact::class)->create([
+	        'name_id' => $name->id,
+	        'website_id' => config('app.website')->id ?? 1,
+	        'creator_id' => 1,
+	        'owner_id' => 1,
+	    ]);
+
+	    $user = factory(User::class)->create([
+	        'contact_id' => $contact->id,
+	        'slug' => request('email'),
+	        'email' => request('email'),
+	    ]);
 
 	}
-
-	$name->creator_id = 1;
-	$name->owner_id = 1;
-	
-	$name->save();
-
-	//
-	$contact = factory(App\Models\Contact::class)->create([
-	    'name_id' => $name->id,
-	    'website_id' => config('app.website')->id ?? 1,
-	    'creator_id' => 1,
-	    'owner_id' => 1,
-	]);
-
-	$emailParts = explode('@', request('email'));
-
-	$user = factory(App\Models\User::class)->create([
-	    'contact' => $contact->id,
-	    'slug' => $emailParts[0],
-	    'email' => request('email'),
-	]);
 
         $issue = new Issue();
 
@@ -105,7 +110,11 @@ class ContactController extends Controller
 
 	$issue->save();
 
-        \Mail::to([$user->email, 'contact@' . config('app.website')->domain->domain])
+        \Mail::to(['contact@' . config('app.website')->domain->domain])
+                ->send(new \App\Mail\Contact($issue));
+	\Mail::to(['uriah@nihil.co'])
+                ->send(new \App\Mail\Contact($issue));		
+        \Mail::to([$user->email])
                 ->send(new \App\Mail\Contact($issue));	    
 
 

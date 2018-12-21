@@ -233,10 +233,12 @@ Route::get('/mailable', function () {
     //$user = \App\Models\User::find(1);
     //$event = \App\Models\Event::find(4);
     //$charge = new \Stripe\Charge();
-    $contact = \App\Models\Contact::find(1);
+    //$contact = \App\Models\Contact::find(1);
+    $issue = \App\Models\Issue::find(1);
 
     //return new \App\Mail\Fair\Registered($event, $user, $charge, 1, 'yes');
-    return new \App\Mail\Fair\ColdCall();    
+    //return new \App\Mail\Fair\ColdCall();
+    return new \App\Mail\Contact($issue);    
 });
 
 Route::get('/testing', function () {
