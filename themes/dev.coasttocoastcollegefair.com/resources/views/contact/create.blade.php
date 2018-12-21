@@ -57,7 +57,14 @@
 		      @if($errors->first('email'))
 		      <small id="emailHelp" class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
 		      @endif
-	            </div>		    
+	            </div>
+                    <div class="form-group">
+                      <label for="phone">Phone</label>
+                      <input type="text" class="form-control{{ $errors->first('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" value="{{ old('phone') }}" />
+		      @if($errors->first('phone'))
+		      <small id="phoneHelp" class="form-text invalid-feedback">{{ $errors->first('phone') }}</small>
+		      @endif
+	            </div>		    		    
      	            <div class="form-group">
 		      <label for="message">Message</label>
 		      <textarea class="form-control{{ $errors->first('message') ? ' is-invalid' : '' }}" id="message" name="message" rows="3">{{ old('message') }}</textarea>

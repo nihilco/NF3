@@ -155,6 +155,7 @@ class RepresentativesController extends Controller
 	        $name = factory(Name::class)->create([
 		    'first' => request('first'),
 		    'last' => request('last'),
+		    'nickname' => request('first'),
 		]);
 
 		$contact = factory(Contact::class)->create([
