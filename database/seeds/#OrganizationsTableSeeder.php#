@@ -90,8 +90,8 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create([
 	    'website_id' => $wid,
-		'name_display' => 'University of Alabama at Birmingham',
-	    'name_alpha' => 'Alabama, University of, at Birmingham',
+		'name_display' => 'University of Alabama, Birmingham',
+	    'name_alpha' => 'Alabama, University of, Birmingham',
 	    'website' => 'www.uab.edu'
 	]);
 
@@ -1034,8 +1034,8 @@ class OrganizationsTableSeeder extends Seeder
 
 	factory(\App\Models\Organization::class)->create([
 	    'website_id' => $wid,
-		'name_display' => 'University of Alabama at Birmingham',
-	    'name_alpha' => 'Alabama, University of, at Birmingham',
+		'name_display' => 'University of Alabama, Birmingham',
+	    'name_alpha' => 'Alabama, University of, Birmingham',
 	    'website' => 'www.uab.edu'
 	]);
 

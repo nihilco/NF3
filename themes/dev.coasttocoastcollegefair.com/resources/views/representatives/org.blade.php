@@ -54,7 +54,8 @@
 		      @endif
 	            </div>
 
-<button type="submit" class="btn btn-primary">Next</button>
+<button type="submit" class="btn btn-primary float-left" name="action" value="back">Back</button>
+<button type="submit" class="btn btn-primary float-right" name="action" value="next">Next</button>
 </form>
 
     </div>

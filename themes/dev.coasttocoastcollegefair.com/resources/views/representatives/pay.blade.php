@@ -21,6 +21,8 @@
   <div class="row">
     <div class="col-sm-8">
 
+<p>Using the tabs below, you can either pay online by credit card or send a check by mail:</p>
+
 <form method="POST" action="{{ url('/representatives/register') }}" id="payment-form">
 {{ csrf_field() }}
 
@@ -28,12 +30,12 @@
   <li class="nav-item">
     <a class="nav-link active" id="card-tab" data-toggle="tab" href="#card" role="tab" aria-controls="card" aria-selected="true">Credit Card</a>
   </li>
-  <!--<li class="nav-item">
+ <!--<li class="nav-item">
     <a class="nav-link" id="ba-tab" data-toggle="tab" href="#bank" role="tab" aria-controls="bank" aria-selected="false">Bank Account</a>
   </li>-->
-  <!--<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" id="mail-tab" data-toggle="tab" href="#mail" role="tab" aria-controls="mail" aria-selected="false">Mail</a>
-  </li>-->
+  </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
@@ -82,7 +84,9 @@
   </div>
 </div>
 
-                  <button type="submit" class="btn btn-primary">Next</button>
+<button type="submit" class="btn btn-primary float-left" id="back-button" name="action" value="back">Back</button>
+<button type="submit" class="btn btn-primary float-right" id="submit-button" name="action" value="next">Next</button>
+
 </form>
 
 

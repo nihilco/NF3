@@ -4,23 +4,20 @@
       // Custom styling can be passed to options when creating an Element.
       // (Note that this demo uses a wider set of styles than the guide below.)
       var style = {
-          base: {
-              color: '#495057',
-              lineHeight: '1.5',
-              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-              fontSmoothing: 'antialiased',
-              fontSize: '16px',
-              borderRadius: '0',
-              border: '1px solid #ced4da',
-	      iconColor: '#495057',
-              '::placeholder': {
-                  color: '#495057'
-              }
-          },
-          invalid: {
-              color: '#fa755a',
-              iconColor: '#fa755a'
-          }
+      base: {
+      color: '#32325d',
+      lineHeight: '18px',
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: 'antialiased',
+      fontSize: '16px',
+      '::placeholder': {
+      color: '#aab7c4'
+      }
+      },
+      invalid: {
+      color: '#fa755a',
+      iconColor: '#fa755a'
+      }
       };
 
       // Create an instance of the card Element.
@@ -48,11 +45,7 @@ var form = document.getElementById('payment-form');
 if(form) {
     
 	form.addEventListener('submit', function(event) {
-	    event.preventDefault();
-
-	    var b = form.querySelector('button[name=action]').value;
-	    document.write(b);
-	    window.alert(b);
+	event.preventDefault();
 	    
 	  var extraDetails = {
 	  name: form.querySelector('input[name=name]').value,

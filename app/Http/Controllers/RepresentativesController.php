@@ -98,6 +98,11 @@ class RepresentativesController extends Controller
 
         if(session('step') == 2)
 	{
+	    if(request('action') == 'back') {
+	        session(['step' => 1]);
+		back();
+	    }
+
 	    if(request('organization') > 0) {
 	        $this->validate(request(), [
 		    'organization' => 'required|exists:organizations,id',
@@ -141,6 +146,11 @@ class RepresentativesController extends Controller
 
         if(session('step') == 3)
 	{
+	    if(request('action') == 'back') {
+	        session(['step' => 2]);
+		back();
+	    }
+
 	    $this->validate(request(), [
 	        'first' => 'required|string',
 		'last' => 'required|string',
@@ -187,6 +197,11 @@ class RepresentativesController extends Controller
 
         if(session('step') == 4)
 	{
+	    if(request('action') == 'back') {
+	        session(['step' => 3]);
+		back();
+	    }	 
+
 	    if(request('mail') == 'yes') {
 	    
 	    } else {
@@ -216,6 +231,11 @@ class RepresentativesController extends Controller
 
         if(session('step') == 5)
 	{
+	    if(request('action') == 'back') {
+	        session(['step' => 4]);
+		back();
+	    }
+	    
 	    //
 	    $total = 160;
 

@@ -41,11 +41,20 @@
 			  <ul style="list-style:none;">
 			    <li><strong>Name: </strong> <code>{{ $user->contact->name->fullName }}</code></li>
 			    <li><strong>Organization: </strong> <code>{{ $user->contact->defaultOrganization->name_display }}</code></li>
-			    <li><strong>Amount: </strong> <code>${{ number_format($charge->amount/100,2) }}</code></li>
+			    <li><strong>Amount: </strong> <code>${{ number_format(150+($additional * 25)+(($scanner == 'yes') ? 80 : 0),2) }}</code></li>
 			    <li><strong>Reps: </strong> <code>{{ 1 + $additional }}</code></li>
 			    <li><strong>Scanner: </strong> <code>{{ ucfirst($scanner) }}</code></li>
 			  </ul>
 
+			  <p>Please make checks payable to <strong>"Chattanooga's Coast-to-Coast College Fair"</strong> and mail to:</p>
+
+			  <ul style="list-style:none;">
+			    <li>Coast-to-Coast College fair</li>
+			    <li>Attn: Anne Exum</li>
+			    <li>P.O. Box 4221</li>
+			    <li>Chattanooga, TN 37405</li>
+			  </ul>
+			  
 			  <p>Thank you,<br />
 			  Anne Exum<br />Fair Coordinator</p>
 			  

@@ -93,7 +93,8 @@
 {{ csrf_field() }}
 
 
-                  <button type="submit" class="btn btn-primary">Complete</button>
+                  <button type="submit" class="btn btn-primary float-left" name="action" value="back">Back</button>
+		  <button type="submit" class="btn btn-primary float-right" name="action" value="confirm">Confirm</button>
 </form>
 
     </div>

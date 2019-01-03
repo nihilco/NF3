@@ -277,13 +277,13 @@ class C2CSeeder extends Seeder
     'first' => 'Lauren',
     'last' => 'Hanhauser',
     'email' => 'leh@uab.edu',
-    'organization' => 'University of Alabama, Birmingham'
+    'organization' => 'University of Alabama at Birmingham'
   ],
     [
     'first' => 'Kelly',
     'last' => 'Pietkiewicz',
     'email' => 'kpiet@uab.edu',
-    'organization' => 'University of Alabama, Birmingham'
+    'organization' => 'University of Alabama at Birmingham'
   ],
     [
     'first' => 'Carol',
@@ -1874,7 +1874,7 @@ class C2CSeeder extends Seeder
     [
     'first' => 'Andrew',
     'last' => 'Starnes',
-    'email' => 'gking@iwu.edu',
+    'email' => 'astarnes@iwu.edu',
     'organization' => 'Illinois Wesleyan University'
   ],
     [
@@ -2000,7 +2000,31 @@ class C2CSeeder extends Seeder
     'last' => 'Clayton',
     'email' => 'matteclayton@yahoo.com',
     'organization' => 'United States Air Force Academy'
-  ],         
+  ],
+    [
+    'first' => 'Madeline',
+    'last' => 'Conover',
+    'email' => 'mconover@hillsdale.edu',
+    'organization' => 'Hillsdale College'
+  ],
+    [
+    'first' => 'Loretta',
+    'last' => 'Wilburn',
+    'email' => 'admissions@vt.edu',
+    'organization' => 'Virginia Tech'
+  ],
+    [
+    'first' => 'Kristen',
+    'last' => 'Russell',
+    'email' => 'kmruss@uab.edu',
+    'organization' => 'University of Alabama at Birmingham'
+  ],
+    [
+    'first' => 'Carrie',
+    'last' => 'Loveless',
+    'email' => 'cloveles@nova.edu',
+    'organization' => 'Nova Southeastern University'
+  ],               
   ];
 
   
@@ -3948,6 +3972,26 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'matteclayton@yahoo.com',
+  'year' => '2019',
+],
+[
+  'email' => 'astarnes@iwu.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'mconover@hillsdale.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'admissions@vt.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'kmruss@uab.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'cloveles@nova.edu',
   'year' => '2019',
 ],
 

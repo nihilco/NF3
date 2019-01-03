@@ -30,7 +30,7 @@
         Representative
 	  </label>
 	  </div>
-                  <button type="submit" class="btn btn-primary">Next</button>
+                  <button type="submit" class="btn btn-primary mt-2" name="action" value="next">Next</button>
 </form>
 
     </div>

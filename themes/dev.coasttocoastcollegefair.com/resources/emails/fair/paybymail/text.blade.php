@@ -12,9 +12,16 @@ Payment Details
 
 Name: {{ $user->contact->name->fullName }}
 Organization: {{ $user->contact->defaultOrganization->name_display }}
-Amount: ${{ number_format($charge->amount/100,2) }}
+Amount: ${{ number_format( 150 + ($additional * 25) + (($scanner=='yes') ? 80 : 0), 2 ) }}
 Reps: {{ 1 + $additional }}
 Scanner: {{ ucfirst($scanner) }}
+
+Please make checks payable to "Chattanooga's Coast-to-Coast College Fair" and mail to:
+
+Coast-to-Coast College Fair
+Attn: Anne Exum
+P.O. Box 4221
+Chattanooga, TN 37405
 
 Thank you,
 Anne Exum
