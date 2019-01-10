@@ -84,8 +84,8 @@
   </div>
 </div>
 
-<button type="submit" class="btn btn-primary float-left" id="back-button" name="action" value="back">Back</button>
-<button type="submit" class="btn btn-primary float-right" id="submit-button" name="action" value="next">Next</button>
+<button type="button" class="btn btn-primary float-left" id="back-button" name="back" value="back">Back</button>
+<button type="submit" class="btn btn-primary float-right" id="submit-button" name="next" value="next">Next</button>
 
 </form>
 

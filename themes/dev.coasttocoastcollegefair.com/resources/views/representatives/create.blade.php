@@ -21,6 +21,8 @@
   <div class="row">
     <div class="col-sm-8">
 
+    <p>Before we get started, you should know that the registration fee is $150.  You will have the options to pay online by credit/debit card (a small service fee applies) or by mail with a paper check.</p>
+
 <form method="POST" action="{{ url('/representatives/register') }}">
 {{ csrf_field() }}
 <label>Are you a student or organization representative?</label>

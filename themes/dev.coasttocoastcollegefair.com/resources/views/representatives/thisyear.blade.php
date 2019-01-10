@@ -87,6 +87,8 @@
 
       <p>Don't see your organization on this list? Click the button below to signup for the Coast-to-Coast College Fair.</p>
 
+      <p>Registration fee is $150.</p>
+
       <a class="btn btn-primary" href="/representatives/register">Register Now</a>
 
       @include('partials.contact')

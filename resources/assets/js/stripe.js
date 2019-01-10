@@ -43,31 +43,55 @@
 	  });	  
       }
 
+var b = document.getElementById('back-button');
+if(b) {
+    b.addEventListener('click', function (event) {
+	event.preventDefault();
+
+	var form = document.getElementById('payment-form');
+	var hiddenInput = document.createElement('input');
+	hiddenInput.setAttribute('type', 'hidden');
+	hiddenInput.setAttribute('name', 'action');
+	hiddenInput.setAttribute('value', 'back');
+	form.appendChild(hiddenInput);
+
+	// Submit the form
+	form.submit();	
+    });
+}
+
 	// Handle form submission.
 var form = document.getElementById('payment-form');
 if(form) {
     
 	form.addEventListener('submit', function(event) {
 	    event.preventDefault();
-
-	    var b = form.querySelector('button[name=action]').value;
-	    document.write(b);
-	    window.alert(b);
 	    
-	  var extraDetails = {
-	  name: form.querySelector('input[name=name]').value,
-	    };
+	    if(form.querySelector('select[name=mail]').value == 'yes') {
+
+		form.submit();
+		
+	    } else {
+
+	        var extraDetails = {
+	            name: form.querySelector('input[name=name]').value,
+	        };
 	  
-	stripe.createToken(card, extraDetails).then(function(result) {
-	if (result.error) {
-	// Inform the user if there was an error.
-	var errorElement = document.getElementById('card-errors');
-	errorElement.textContent = result.error.message;
-	} else {
-	// Send the token to your server.
-	stripeTokenHandler(result.token);
-	}
-	});
+	        stripe.createToken(card, extraDetails).then(function(result) {
+
+		    if (result.error) {
+	                // Inform the user if there was an error.
+	                var errorElement = document.getElementById('card-errors');
+	                errorElement.textContent = result.error.message;
+	            } else {
+	                // Send the token to your server.
+	                stripeTokenHandler(result.token);
+	            }
+
+		});
+
+	    }
+	    
 	});
     
 }

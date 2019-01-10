@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 
 class OrganizationsTableSeeder extends Seeder
@@ -1004,6 +1003,13 @@ class OrganizationsTableSeeder extends Seeder
 	    'website' => 'www.usafa.af.mil/'
 	]);
 
+	factory(\App\Models\Organization::class)->create([
+	    'website_id' => $wid,
+            'name_display' => 'Muhlenberg College',
+	    'name_alpha' => 'Muhlenberg College',
+	    'website' => 'https://www.muhlenberg.edu/'
+	]);
+
 	$wid = $websites->where('hostname', 'dev.coasttocoastcollegefair.com')->first()->id;
 
         //
@@ -1947,6 +1953,13 @@ class OrganizationsTableSeeder extends Seeder
 	    'name_alpha' => 'United States Air Force Academy',
 	    'website' => 'www.usafa.af.mil/'
 	]);
-	
+
+	factory(\App\Models\Organization::class)->create([
+	    'website_id' => $wid,
+            'name_display' => 'Muhlenberg College',
+	    'name_alpha' => 'Muhlenberg College',
+	    'website' => 'https://www.muhlenberg.edu/'
+	]);
+
     }
 }

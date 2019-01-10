@@ -70,12 +70,16 @@ class RepresentativesController extends Controller
     	    $org = Organization::find(session('organization'));
 	    $rep = User::find(session('representative'));
 
-	    $total = 160;
+	    $total = 150;
 
 	    $total += session('additional') * 25;
 
 	    if(session('scanner') == 'yes') {
 	        $total += 80;
+	    }
+
+	    if(session('payment') != 'check') {
+	        $total += (($total * 0.035) + 0.30);
 	    }
 
 	    return view('representatives.confirm', compact(['org', 'rep', 'total']));
@@ -203,27 +207,33 @@ class RepresentativesController extends Controller
 	    }	 
 
 	    if(request('mail') == 'yes') {
-	    
+	        $payment = 'check';
 	    } else {
 	        $this->validate(request(), [
 	            'stripeToken' => 'required',
-	        ]);	    
+	        ]);
+
+		$payment = request('stripeToken');
 	    }
 
 	    session([
 	        'step' => 5,
-		'payment' => request('stripeToken'),
+		'payment' => $payment,
 	    ]);
 
 	    $org = Organization::find(session('organization'));
 	    $rep = User::find(session('representative'));
 
-	    $total = 160;
+	    $total = 150;
 
 	    $total += session('additional') * 25;
 
 	    if(session('scanner') == 'yes') {
 	        $total += 80;
+	    }
+
+	    if(request('mail') != 'yes') {
+	        $total += (($total * 0.035) + 0.30);
 	    }
 
 	    return view('representatives.confirm', compact(['org', 'rep', 'total']));
@@ -237,7 +247,7 @@ class RepresentativesController extends Controller
 	    }
 	    
 	    //
-	    $total = 160;
+	    $total = 150;
 
 	    $total += session('additional') * 25;
 
@@ -247,42 +257,53 @@ class RepresentativesController extends Controller
 
 	    $org = Organization::find(session('organization'));
 	    $rep = User::find(session('representative'));
-
-	    $fee = floor((10 - (($total * .029) + 0.3)) * 100);
-
-	    //
-	    // Set your secret key: remember to change this to your live secret key in production
-	    // See your keys here: https://dashboard.stripe.com/account/apikeys
-	    //\Stripe\Stripe::setApiKey(env('STRIPE_PLATFORM_TEST_SECRET'));
-	    \Stripe\Stripe::setApiKey(config('services.stripe.keys.' . config('services.stripe.mode') . '.secret'));
-
-	    // Token is created using Checkout or Elements!
-	    // Get the payment token ID submitted by the form:
-	    $charge = \Stripe\Charge::create([
-	        'amount' => $total * 100,
-		'currency' => 'usd',
-	        'description' => 'Coast-to-Coast College Fair Registration',
-		'application_fee' => ($fee > 0) ? $fee : 0,
-	        'source' => session('payment'),
-		'metadata' => [
-		    'organization' => $org->name_display . ' [' . $org->id . ']',
-		    'representative' => $rep->contact->name->fullName . ' (' . $rep->email . ')',
-		    'additional' => session('additional'),
-		    'scanner' => session('scanner'),
-		],
-	    ], ["stripe_account" => "acct_17QhV9DdmwKxmYbz"]);
-
-	    //
 	    $event = Event::where('name', 'Fair 2019')->first();
+
+	    if(session('payment') == 'check') {
+
+	        // Email receipt and notify event owner
+	        \Mail::to([$rep->email, $event->owner->email])
+                    ->send(new \App\Mail\Fair\PayByMail($event, $rep, session('additional'), session('scanner')));
+
+	    } else {
+
+
+	        $fee = round(($total * 0.035) + 0.30, 2);
+	    
+	        $total += $fee;
+
+	        //
+	        // Set your secret key: remember to change this to your live secret key in production
+	        // See your keys here: https://dashboard.stripe.com/account/apikeys
+	        //\Stripe\Stripe::setApiKey(env('STRIPE_PLATFORM_TEST_SECRET'));
+	        \Stripe\Stripe::setApiKey(config('services.stripe.keys.' . config('services.stripe.mode') . '.secret'));
+
+	        // Token is created using Checkout or Elements!
+	        // Get the payment token ID submitted by the form:
+	        $charge = \Stripe\Charge::create([
+	            'amount' => $total * 100,
+		    'currency' => 'usd',
+	            'description' => 'Coast-to-Coast College Fair Registration',
+		    'application_fee' => ($fee > 0) ? $fee * 100 : 0,
+	            'source' => session('payment'),
+		    'metadata' => [
+		        'organization' => $org->name_display . ' [' . $org->id . ']',
+		        'representative' => $rep->contact->name->fullName . ' (' . $rep->email . ')',
+		        'additional' => session('additional'),
+		        'scanner' => session('scanner'),
+		    ],
+	        ], ["stripe_account" => "acct_17QhV9DdmwKxmYbz"]);
+
+	        // Email receipt and notify event owner
+	        \Mail::to([$rep->email, $event->owner->email])
+                    ->send(new \App\Mail\Fair\Registered($event, $rep, $charge, session('additional'), session('scanner')));
+
+	    }
 
             factory(Participant::class)->create([
     	        'owner_id' => session('representative'),
-		'event_id' => $event->id,
+	        'event_id' => $event->id,
 	    ]);        	
-
-	    // Email receipt and notify event owner
-	    \Mail::to([$rep->email, $event->owner->email])
-                ->send(new \App\Mail\Fair\Registered($event, $rep, $charge, session('additional'), session('scanner')));	    
 
 	    //
 	    session()->forget(['step', 'organization', 'representative', 'invoice', 'payment', 'additional', 'scanner']);

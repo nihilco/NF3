@@ -143,6 +143,6 @@
     // Create a Stripe client.
     var stripe = Stripe('{{ config('services.stripe.keys.' . config('services.stripe.mode') . '.publishable') }}');
   </script>  
-  <script src="{{ url('/js/stripe.js') }}"></script>
+  <script src="{{ url('/js/stripe.js?t=' . time()) }}"></script>
 </body>
 </html>

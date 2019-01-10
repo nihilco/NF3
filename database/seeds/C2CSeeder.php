@@ -2024,7 +2024,43 @@ class C2CSeeder extends Seeder
     'last' => 'Loveless',
     'email' => 'cloveles@nova.edu',
     'organization' => 'Nova Southeastern University'
-  ],               
+  ],
+    [
+    'first' => 'Kianna',
+    'last' => 'Davis',
+    'email' => 'daviskn@hollins.edu',
+    'organization' => 'Hollins University'
+  ],
+    [
+    'first' => 'Reshard',
+    'last' => 'Albert',
+    'email' => 'ralbert@keiseruniversity.edu',
+    'organization' => 'Keiser University - Flagship Campus'
+  ],
+    [
+    'first' => 'Cayman',
+    'last' => 'McMahan',
+    'email' => 'cmcmhan2@memphis.edu',
+    'organization' => 'University of Memphis'
+  ],
+    [
+    'first' => 'Tara',
+    'last' => 'Nelan',
+    'email' => 'taranelan@muhlenberg.edu',
+    'organization' => 'Muhlenberg College'
+  ],
+    [
+    'first' => 'Amina',
+    'last' => 'Harris',
+    'email' => 'amina.harris@tcu.edu',
+    'organization' => 'Texas Christian University'
+  ],
+    [
+    'first' => 'Jordan',
+    'last' => 'Scott',
+    'email' => 'scottjd@apsu.edu',
+    'organization' => 'Austin Peay State University'
+  ],                         
   ];
 
   
@@ -3992,6 +4028,34 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'cloveles@nova.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'daviskn@hollins.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'ralbert@keiseruniversity.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'cmcmhan2@memphis.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'taranelan@muhlenberg.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'amina.harris@tcu.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'audrey-crum@utulsa.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'scottjd@apsu.edu',
   'year' => '2019',
 ],
 

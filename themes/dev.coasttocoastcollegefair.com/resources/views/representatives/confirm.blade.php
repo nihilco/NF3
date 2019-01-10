@@ -74,12 +74,14 @@
       <td>${{ (session('scanner') == 'yes') ? '80.00' : '0.00' }}</td>
       <td>${{ (session('scanner') == 'yes') ? '80.00' : '0.00' }}</td>
     </tr>
+    @if(session('payment') != 'check')
     <tr>
       <th scope="row">Service Charge</th>
       <td>1</td>
-      <td>$10.00</td>
-      <td>$10.00</td>
-    </tr>    
+      <td>$ {{ number_format(round(((150 + ( (session('scanner') == 'yes') ? 80 : 0 ) + (session('additional') * 25) )  * 0.035) + 0.30, 2), 2) }}</td>
+      <td>$ {{ number_format(round(((150 + ( (session('scanner') == 'yes') ? 80 : 0 ) + (session('additional') * 25) )  * 0.035) + 0.30, 2), 2) }}</td>
+    </tr>
+    @endif
   </tbody>
   <tfoot>
     <tr>
