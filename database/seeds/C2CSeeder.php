@@ -4058,6 +4058,10 @@ class C2CSeeder extends Seeder
   'email' => 'scottjd@apsu.edu',
   'year' => '2019',
 ],
+[
+  'email' => 'tyler@utk.edu',
+  'year' => '2019',
+],
 
 	];
 

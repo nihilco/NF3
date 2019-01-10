@@ -269,7 +269,8 @@ class RepresentativesController extends Controller
 
 
 	        $fee = round(($total * 0.035) + 0.30, 2);
-	    
+		$appfee = round($fee - (($total * 0.029) + 0.30), 2);
+
 	        $total += $fee;
 
 	        //
@@ -284,7 +285,7 @@ class RepresentativesController extends Controller
 	            'amount' => $total * 100,
 		    'currency' => 'usd',
 	            'description' => 'Coast-to-Coast College Fair Registration',
-		    'application_fee' => ($fee > 0) ? $fee * 100 : 0,
+		    'application_fee' => ($appfee > 0) ? $appfee * 100 : 0,
 	            'source' => session('payment'),
 		    'metadata' => [
 		        'organization' => $org->name_display . ' [' . $org->id . ']',
