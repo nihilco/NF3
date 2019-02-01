@@ -231,20 +231,22 @@ Route::get('send-test-email', function(){
 
 Route::get('/mailable', function () {
     //$user = \App\Models\User::find(1);
-    $user = \App\Models\User::find(347);
+    $user = \App\Models\User::find(382);
     $event = \App\Models\Event::find(4);
-    //$charge = new \Stripe\Charge();
+    //\Stripe\Stripe::setApiKey(config('services.stripe.keys.live.secret'));
+    //$charge = \Stripe\Charge::retrieve('ch_1DsvrADdmwKxmYbzXeN00Fzu', ["stripe_account" => "acct_17QhV9DdmwKxmYbz"]);
+    $charge = new \Stripe\Charge();
     //$contact = \App\Models\Contact::find(1);
     //$issue = \App\Models\Issue::find(1);
 
     //
-    //Mail::to('scottjd@apsu.edu')
+    //Mail::to('slytle@warren-wilson.edu')
     //Mail::to('annenexum@gmail.com')
     //Mail::to('uriah@nihil.co')
-    //    ->send(new \App\Mail\Fair\PayByMail($event, $user, 0, 'no'));
+    //    ->send(new \App\Mail\Fair\Registered($event, $user, $charge, 0, 'no'));
 
-    //return new \App\Mail\Fair\Registered($event, $user, $charge, 1, 'yes');
-    return new \App\Mail\Fair\PayByMail($event, $user, 0, 'no');
+    return new \App\Mail\Fair\Registered($event, $user, $charge, 0, 'no');
+    //return new \App\Mail\Fair\PayByMail($event, $user, 0, 'no');
     //return new \App\Mail\Fair\ColdCall();
     //return new \App\Mail\Contact($issue);    
 });

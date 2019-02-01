@@ -176,8 +176,8 @@
   <li class="list-group-item">
 
     <div class="event-details">
-      <h3 class="event-title">Early Registration Ends</h3>
-      <p class="event-date"><i class="fas fa-calendar-alt"></i> February 5, 2019</p>
+      <h3 class="event-title">Registration Ends</h3>
+      <p class="event-date"><i class="fas fa-calendar-alt"></i> February 19, 2019</p>
       <p class="event-time"><i class="fas fa-clock"></i> 11:59pm</p>      
       <p class="event-location"><i class="fa fa-map-marker"></i> Online</p>
     </div>

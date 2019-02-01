@@ -23,16 +23,16 @@ class CreateInvoicesTable extends Migration
 	    $table->unsignedInteger('shipping_contact_id');
 	    $table->string('slug')->unique();
 	    $table->integer('subtotal');
-	    $table->integer('tax_rate')->default(0);
-	    $table->integer('tax')->default(0);
-	    $table->integer('shipping')->default(0);
+	    $table->integer('tax_rate')->default(0)->nullable();
+	    $table->integer('tax')->default(0)->nullable();
+	    $table->integer('shipping')->default(0)->nullable();
 	    $table->integer('total');
 	    $table->text('notes')->nullable();
 	    $table->date('opened_at')->nullable();
 	    $table->date('due_at');
 	    $table->date('paid_at')->nullable();
 	    $table->unsignedInteger('status_type_id');
-	    $table->unsignedInteger('line_items_count')->default(0);
+	    $table->unsignedInteger('line_items_count')->default(0)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

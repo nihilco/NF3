@@ -9,6 +9,12 @@ class Player extends Base
     //
     protected $table = 'torn_players';
 
+    protected $dates = [
+        'deleted_at',
+	'created_at',
+	'updated_at',
+    ];
+
     //
     public function path()
     {

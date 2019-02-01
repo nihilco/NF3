@@ -22,9 +22,9 @@ class CreateZonesTable extends Migration
 	    $table->unsignedInteger('retry')->default(900);
 	    $table->unsignedInteger('expire')->default(1209600);
 	    $table->unsignedInteger('ttl')->default(3600);
-	    $table->unsignedInteger('records_count')->default(0);
+	    $table->unsignedInteger('records_count')->default(0)->nullable();
 	    //$table->boolean('has_modifications')->default(false);
-	    $table->boolean('active')->default(false);
+	    $table->boolean('active')->default(false)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

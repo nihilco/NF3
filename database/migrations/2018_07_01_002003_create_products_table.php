@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
 	    $table->text('description');
 	    $table->integer('cost')->nullable();
 	    $table->integer('price');
-	    $table->boolean('taxable')->default(false);
+	    $table->boolean('taxable')->default(false)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

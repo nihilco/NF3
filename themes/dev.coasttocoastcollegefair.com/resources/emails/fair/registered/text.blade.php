@@ -13,6 +13,10 @@ Payment Details
 Name: {{ $user->contact->name->fullName }}
 Organization: {{ $user->contact->defaultOrganization->name_display }}
 Amount: ${{ number_format($charge->amount/100,2) }}
+@if(isset($charge->source))
+Reference Number: {{ $charge->source->brand }} *{{ $charge->source->last4 }}
+Date: {{ \Carbon\Carbon::createFromTimestamp($charge->created)->toDateTimeString() }}
+@endif
 Reps: {{ 1 + $additional }}
 Scanner: {{ ucfirst($scanner) }}
 

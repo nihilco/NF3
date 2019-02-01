@@ -22,7 +22,7 @@ class CreateCountiesTable extends Migration
 	    $table->string('code');
 	    $table->string('name');
 	    $table->text('description');
-	    $table->unsignedInteger('cities_count')->default(0);
+	    $table->unsignedInteger('cities_count')->default(0)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

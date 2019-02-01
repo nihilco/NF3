@@ -20,8 +20,14 @@
 		      </tr>
    	            </thead>
 		    <tbody>
+                
                 @php
-                  $c = 1;
+		  if(isset($_GET['page'])) {
+		      $p = $_GET['page'];
+		      $c = 1 + (25 * ($p-1));
+		  }else {
+                      $c = 1;
+		  }
                 @endphp
 		
 		@forelse($companies as $company)

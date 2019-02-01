@@ -16,7 +16,8 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('website_id');
+	    $table->unsignedInteger('user_id')->nullable();
+	    $table->unsignedInteger('website_id');	    
 	    $table->unsignedInteger('name_id');
 	    $table->unsignedInteger('addreses_count')->nullable();
 	    $table->unsignedInteger('organizations_count')->nullable();
@@ -38,6 +39,16 @@ class CreateContactsTable extends Migration
 	    $table->foreign('owner_id')
 		->references('id')
 		->on('users')
+		->onDelete('cascade');
+
+	    $table->foreign('website_id')
+		->references('id')
+		->on('websites')
+		->onDelete('cascade');
+
+	    $table->foreign('name_id')
+		->references('id')
+		->on('names')
 		->onDelete('cascade');
         });
     }

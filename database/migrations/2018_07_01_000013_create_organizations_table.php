@@ -22,7 +22,7 @@ class CreateOrganizationsTable extends Migration
 	    $table->string('name_alpha');
 	    $table->string('email')->nullable();
 	    $table->string('website')->nullable();
-	    $table->unsignedInteger('contacts_count')->default(0);
+	    $table->unsignedInteger('contacts_count')->default(0)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

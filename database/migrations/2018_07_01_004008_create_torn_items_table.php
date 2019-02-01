@@ -18,7 +18,7 @@ class CreateTornItemsTable extends Migration
             $table->increments('id');
 	    $table->unsignedInteger('torn_id');
 	    $table->string('name');
-	    $table->text('description');
+	    $table->text('description')->nullable();
 	    $table->unsignedBigInteger('buy_price')->nullable();
 	    $table->unsignedBigInteger('sell_price')->nullable();
 	    $table->unsignedBigInteger('market_value')->nullable();

@@ -18,7 +18,7 @@ class CreateGameItemsTable extends Migration
             $table->increments('id');
 	    $table->unsignedInteger('type_id');
 	    $table->unsignedInteger('type_rank');
-	    $table->string('name');
+	    $table->string('name')->nullable();
 	    $table->text('description');
 	    $table->softDeletes();	    
             $table->timestamps();

@@ -34,6 +34,7 @@ class Chain extends Base
 
     public function attacks()
     {
+	//return Attack::where('started_at', '>=', $this->started_at)->where('ended_at', '<=', $this->ended_at)->get();
 	return null;
     }
 }

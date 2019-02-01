@@ -19,10 +19,10 @@ class CreateCountriesTable extends Migration
 	    $table->string('code');
 	    $table->string('name');
 	    $table->text('description');
-	    $table->unsignedInteger('provinces_count')->default(0);
-	    $table->unsignedInteger('counties_count')->default(0);	    
-	    $table->unsignedInteger('cities_count')->default(0);
-	    $table->unsignedInteger('addresses_count')->default(0);	    
+	    $table->unsignedInteger('provinces_count')->default(0)->nullable();
+	    $table->unsignedInteger('counties_count')->default(0)->nullable();	    
+	    $table->unsignedInteger('cities_count')->default(0)->nullable();
+	    $table->unsignedInteger('addresses_count')->default(0)->nullable();	    
 	    $table->softDeletes();
             $table->timestamps();
 

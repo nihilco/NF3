@@ -18,8 +18,8 @@ class CreateGameStatsTable extends Migration
             $table->increments('id');
 	    $table->string('name');
 	    $table->text('description');
-	    $table->integer('min');
-	    $table->integer('max');
+	    $table->integer('min')->nullable();
+	    $table->integer('max')->nullable();
 	    $table->integer('refresh');
 	    $table->unsignedInteger('refresh_rate');
 	    $table->enum('refresh_rate_unit', ['seconds', 'minutes', 'hours', 'days']);

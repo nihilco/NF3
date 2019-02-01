@@ -2060,7 +2060,13 @@ class C2CSeeder extends Seeder
     'last' => 'Scott',
     'email' => 'scottjd@apsu.edu',
     'organization' => 'Austin Peay State University'
-  ],                         
+  ],
+    [
+    'first' => 'Ashlyn',
+    'last' => 'Bates',
+    'email' => 'ashlyn.bates@abac.edu',
+    'organization' => 'Abraham Baldwin Agricultural College'
+  ],                           
   ];
 
   
@@ -4060,6 +4066,10 @@ class C2CSeeder extends Seeder
 ],
 [
   'email' => 'tyler@utk.edu',
+  'year' => '2019',
+],
+[
+  'email' => 'ashlyn.bates@abac.edu',
   'year' => '2019',
 ],
 

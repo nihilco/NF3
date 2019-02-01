@@ -19,6 +19,7 @@ public/hot
 public/img
 public/files
 public/robots.txt
+public/baylor
 storage/*.key
 .env.*.php
 .env.php

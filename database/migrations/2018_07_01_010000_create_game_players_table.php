@@ -18,10 +18,10 @@ class CreateGamePlayersTable extends Migration
             $table->increments('id');
 	    $table->unsignedInteger('user_id');
 	    $table->string('name');
-	    $table->integer('experience')->default(0);
-	    $table->unsignedInteger('age')->default(0);
-	    $table->unsignedInteger('level')->default(1);
-	    $table->integer('wallet')->default(0);
+	    $table->integer('experience')->default(0)->nullable();
+	    $table->unsignedInteger('age')->default(0)->nullable();
+	    $table->unsignedInteger('level')->default(1)->nullable();
+	    $table->integer('wallet')->default(0)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 

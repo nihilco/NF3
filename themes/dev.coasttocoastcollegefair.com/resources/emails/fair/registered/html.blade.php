@@ -38,10 +38,16 @@
 
                           <h2 style="display: block;font-family: Helvetica;font-size: 20px;font-style: normal;font-weight: bold;line-height: 100%;letter-spacing: normal;margin-top: 0;margin-right: 0;margin-bottom: 10px;margin-left: 0;text-align: left;color: #404040 !important;">Payment Details</h2>
 
+			  <p>Thanks for paying by credit card. The following is a summary of the charge to your account:</p>
+			  
 			  <ul style="list-style:none;">
 			    <li><strong>Name: </strong> <code>{{ $user->contact->name->fullName }}</code></li>
 			    <li><strong>Organization: </strong> <code>{{ $user->contact->defaultOrganization->name_display }}</code></li>
 			    <li><strong>Amount: </strong> <code>${{ number_format($charge->amount/100,2) }}</code></li>
+			    @if(isset($charge->source))
+			    <li><strong>Reference Number: </strong> <code>{{ $charge->source->brand }} *{{ $charge->source->last4 }}</code></li>
+			    <li><strong>Date: </strong> <code>{{ \Carbon\Carbon::createFromTimestamp($charge->created)->toDateTimeString() }}</code></li>
+			    @endif
 			    <li><strong>Reps: </strong> <code>{{ 1 + $additional }}</code></li>
 			    <li><strong>Scanner: </strong> <code>{{ ucfirst($scanner) }}</code></li>
 			  </ul>

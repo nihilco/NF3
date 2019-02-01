@@ -57,25 +57,25 @@ class MineData extends Command
                 'use Illuminate\Database\Seeder;' . PHP_EOL . PHP_EOL .
                 'class ' . $this->filename . ' extends Seeder' . PHP_EOL .
 	        '{' . PHP_EOL .
-    		"\t" . '/**' . PHP_EOL .
-		"\t" . ' * Run the database seeds.' . PHP_EOL .
-     		"\t" . ' *' . PHP_EOL .
-     		"\t" . ' * @return void' . PHP_EOL .
-     		"\t" . ' */' . PHP_EOL .
-    		"\t" . 'public function run()' . PHP_EOL .
-    		"\t" . '{' . PHP_EOL;
+    		"  " . '/**' . PHP_EOL .
+		"  " . ' * Run the database seeds.' . PHP_EOL .
+     		"  " . ' *' . PHP_EOL .
+     		"  " . ' * @return void' . PHP_EOL .
+     		"  " . ' */' . PHP_EOL .
+    		"  " . 'public function run()' . PHP_EOL .
+    		"  " . '{' . PHP_EOL;
 
-        \Storage::append($this->filename . '.php', $text);
+        \Storage::append('miners/' . $this->filename . '.php', $text);
 
 	$this->model::chunk(100, function ($rows) {
 
-	    $text = '';
+            $text = "    " . '\DB::table(\'' . (new $this->model)->getTable() . '\')->insert([' . PHP_EOL;
 
 	    foreach ($rows as $row) {
 
-	        $a = $row->toArray();
+	    $t = "      " . '[' . PHP_EOL;
 
-	        $t = "\t\t" . 'factory(' . $this->model . '::class)->create([' . PHP_EOL;
+	        $a = $row->toArray();
 
 	        foreach($a as $key => $value)
 		{
@@ -85,7 +85,7 @@ class MineData extends Command
 			$key == 'defaultAddress'
 		    ) continue;
 
-		    $t .= "\t\t\t" . '"' . $key . '" => ';
+		    $t .= "        " . '"' . $key . '" => ';
 		    
 		    if(!$value) {
 		        $t .= 'null';
@@ -101,21 +101,28 @@ class MineData extends Command
 		    $t .= ',' . PHP_EOL;
 		}
 
-		$t .= "\t\t" . ']);' . PHP_EOL . PHP_EOL;
+		if($user = \App\Models\User::where('contact_id', $row->id)->first()) {
+  	            $t .= '        "user_id" => ' . $user->id . ',' . PHP_EOL;
+		} else {
+		    $t .= '"user_id" => NULL';
+		}
+
+		$t .= "      " . '],' .  PHP_EOL;
 
 		$text .= $t;
 
 	    }
 
-	    \Storage::append($this->filename . '.php', $text);
+	    $text .= "    " . ']);' . PHP_EOL;
+
+	    \Storage::append('miners/' . $this->filename . '.php', $text);
 
 	});
 
-        $text = "\t" . '}' . PHP_EOL .
-     	         '}';
+        $text = "  " . '}' . PHP_EOL . '}';
 
         //
-        \Storage::append($this->filename . '.php', $text);
+        \Storage::append('miners/' . $this->filename . '.php', $text);
 
         //
         $this->info('Parsed ' . $f . ' rows.');

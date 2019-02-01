@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateWebsitesTable extends Migration
+class CreateTldsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,27 +14,14 @@ class CreateWebsitesTable extends Migration
      */
     public function up()
     {
-        Schema::create('websites', function (Blueprint $table) {
+        Schema::create('tlds', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('account_id')->nullable();
-	    $table->unsignedInteger('domain_id');
-	    $table->string('hostname');
-	    $table->string('name')->nullable();
-	    $table->string('analytics_code')->nullable();
-	    $table->boolean('under_construction')->default(true);
-	    $table->boolean('active')->default(false);
+	    $table->string('name');
+	    $table->text('description');
+	    $table->string('domain')->unique();
+	    $table->unsignedInteger('domains_count')->default(0)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
-
-	    $table->foreign('account_id')
-		->references('id')
-		->on('accounts')
-		->onDelete('cascade');
-		
-   	    $table->foreign('domain_id')
-		->references('id')
-		->on('domains')
-		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
 	    $table->unsignedInteger('owner_id');
@@ -58,6 +45,6 @@ class CreateWebsitesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('websites');
+        Schema::dropIfExists('tlds');
     }
 }

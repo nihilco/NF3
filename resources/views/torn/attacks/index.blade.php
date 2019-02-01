@@ -21,8 +21,14 @@
 		      </tr>
    	            </thead>
 		    <tbody>
-                @php
-                  $c = 1;
+
+		@php
+		  if(isset($_GET['page'])) {
+		      $p = $_GET['page'];
+		      $c = 1 + (25 * ($p-1));
+		  }else {
+                      $c = 1;
+		  }
                 @endphp
 		
 		@forelse($attacks as $attack)
@@ -80,4 +86,5 @@
 		  </table>
 
 		  {{ $attacks->links() }}
+		  
 @endsection

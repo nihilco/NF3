@@ -5,22 +5,21 @@ use Illuminate\Database\Seeder;
 class TornSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */
     public function run()
     {
-        //
-	$this->call([
-    	    TornItemsTableSeeder::class,
+        $this->call([
 	    TornPlayersTableSeeder::class,
 	    TornFactionsTableSeeder::class,
-	    TornCompaniesTableSeeder::class,
-	    TornNetworthsTableSeeder::class,
 	    TornChainsTableSeeder::class,
 	    TornAttacksTableSeeder::class,
+	    TornItemsTableSeeder::class,
+	    TornCompaniesTableSeeder::class,
+	    TornHuntsTableSeeder::class,
+	    TornNetworthsTableSeeder::class,
 	]);
-
     }
 }

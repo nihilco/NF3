@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CreateDomainsTable extends Migration
+class CreateWebsitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +14,15 @@ class CreateDomainsTable extends Migration
      */
     public function up()
     {
-        Schema::create('domains', function (Blueprint $table) {
+        Schema::create('websites', function (Blueprint $table) {
             $table->increments('id');
-	    $table->unsignedInteger('tld_id');
-            $table->unsignedInteger('account_id')->nullable();
-	    $table->string('domain')->unique();
-	    $table->date('registered_at');
-	    $table->date('last_renewed_at');
-	    $table->date('renews_at');
-	    $table->unsignedInteger('websites_count')->default(0);
-	    $table->boolean('active')->default(false);
+	    $table->unsignedInteger('account_id')->nullable();
+	    $table->unsignedInteger('domain_id');
+	    $table->string('hostname');
+	    $table->string('name')->nullable();
+	    $table->string('analytics_code')->nullable();
+	    $table->boolean('under_construction')->default(true)->nullable();
+	    $table->boolean('active')->default(false)->nullable();
 	    $table->softDeletes();
             $table->timestamps();
 
@@ -31,10 +30,10 @@ class CreateDomainsTable extends Migration
 		->references('id')
 		->on('accounts')
 		->onDelete('cascade');
-
-	    $table->foreign('tld_id')
+		
+   	    $table->foreign('domain_id')
 		->references('id')
-		->on('tlds')
+		->on('domains')
 		->onDelete('cascade');
 
 	    $table->unsignedInteger('creator_id');
@@ -59,6 +58,6 @@ class CreateDomainsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('domains');
+        Schema::dropIfExists('websites');
     }
 }
